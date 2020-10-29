@@ -12,4 +12,10 @@
         WHERE
             contact_id = 2
     </select>
+    <insert id="create" parameterType="bo.ucb.edu.ingsoft.dto.Contact">
+        INSERT INTO contact VALUES (
+            null, #{firstName}, null, #{firstSurname}, null,
+            1, #{txId}, #{txHost}, #{txUserId}, #{txDate}
+        )
+    </insert>
 </mapper>

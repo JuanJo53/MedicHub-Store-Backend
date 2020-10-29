@@ -4,7 +4,7 @@ spring:
   datasource:
     name: demo_mysql_db
     platform: mysql
-    url: jdbc:mysql://localhost:3306/demo_backend
+    url: jdbc:mysql://localhost:3306/agenda
     username: root
     password: ABCabc123
     driver-class-name: com.mysql.jdbc.Driver
