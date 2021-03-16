@@ -4,7 +4,7 @@ spring:
   datasource:
     name: demo_mysql_db
     platform: mysql
-    url: jdbc:mysql://localhost:3306/agenda
+    url: jdbc:mysql://localhost:3306/medichub_store
     username: root
     password: ABCabc123
     driver-class-name: com.mysql.jdbc.Driver
