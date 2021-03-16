@@ -6,7 +6,7 @@ spring:
     platform: mysql
     url: jdbc:mysql://localhost:3306/medichub_store
     username: root
-    password: ABCabc123
+    password:
     driver-class-name: com.mysql.jdbc.Driver
     hikari:
       connectionTestQuery: select 1
