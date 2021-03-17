@@ -1,4 +1,4 @@
-package bo.ucb.edu.ingsoft;
+package bo.ucb.edu.medichub;
 
 
 import org.springframework.boot.SpringApplication;

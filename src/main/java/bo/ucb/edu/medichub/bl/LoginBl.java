@@ -1,10 +1,8 @@
-package bo.ucb.edu.ingsoft.bl;
+package bo.ucb.edu.medichub.bl;
 
-import bo.ucb.edu.ingsoft.dao.LoginDao;
-import bo.ucb.edu.ingsoft.dao.TransactionDao;
-import bo.ucb.edu.ingsoft.dto.UserLogInRequest;
-import bo.ucb.edu.ingsoft.model.Admin;
-import bo.ucb.edu.ingsoft.model.Transaction;
+import bo.ucb.edu.medichub.dao.LoginDao;
+import bo.ucb.edu.medichub.dao.TransactionDao;
+import bo.ucb.edu.medichub.dto.UserLogInRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

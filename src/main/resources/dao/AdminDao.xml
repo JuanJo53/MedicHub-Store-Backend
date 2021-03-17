@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="bo.ucb.edu.ingsoft.dao.AdminDao">
-    <insert id="createAdmin" parameterType="bo.ucb.edu.ingsoft.model.Admin">
+<mapper namespace="bo.ucb.edu.medichub.dao.AdminDao">
+    <insert id="createAdmin" parameterType="bo.ucb.edu.medichub.model.Admin">
         INSERT INTO admin VALUES (
             null, #{personId}, #{email}, #{userName}, #{Password}, #{picture},
             1, #{transaction.txId}, #{transaction.txHost}, #{transaction.txUserId}, #{transaction.txDate}

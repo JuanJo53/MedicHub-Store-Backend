@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="bo.ucb.edu.ingsoft.dao.LoginDao">
-    <select id="loginAd" resultType="bo.ucb.edu.ingsoft.dto.UserLogInRequest">
+<mapper namespace="bo.ucb.edu.medichub.dao.LoginDao">
+    <select id="loginAd" resultType="bo.ucb.edu.medichub.dto.UserLogInRequest">
         SELECT a.admin_id as adminid,
         a.email as email
         FROM admin a

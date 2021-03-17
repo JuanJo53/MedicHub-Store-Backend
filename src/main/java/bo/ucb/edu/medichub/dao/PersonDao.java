@@ -1,6 +1,6 @@
-package bo.ucb.edu.ingsoft.dao;
+package bo.ucb.edu.medichub.dao;
 
-import bo.ucb.edu.ingsoft.model.Person;
+import bo.ucb.edu.medichub.model.Person;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
