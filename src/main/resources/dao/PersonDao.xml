@@ -2,20 +2,11 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="bo.ucb.edu.ingsoft.dao.ContactDao">
-    <select id="findByContactId" resultType="bo.ucb.edu.ingsoft.dto.Contact">
-        SELECT
-               contact_id as contactId,
-               first_name as firstName,
-               first_surname as firstSurname
-        FROM contact
-        WHERE
-            contact_id = 2
-    </select>
-    <insert id="create" parameterType="bo.ucb.edu.ingsoft.dto.Contact">
-        INSERT INTO contact VALUES (
-            null, #{firstName}, null, #{firstSurname}, null,
-            1, #{txId}, #{txHost}, #{txUserId}, #{txDate}
+<mapper namespace="bo.ucb.edu.ingsoft.dao.PersonDao">
+    <insert id="createPerson" parameterType="bo.ucb.edu.ingsoft.model.Person">
+        INSERT INTO person VALUES (
+            null, #{firstName}, #{firstSurname}, #{secondSurname}, #{ci}, #{phone},
+            1, #{transaction.txId}, #{transaction.txHost}, #{transaction.txUserId}, #{transaction.txDate}
         )
     </insert>
 </mapper>

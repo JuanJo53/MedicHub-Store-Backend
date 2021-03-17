@@ -4,7 +4,7 @@ spring:
   datasource:
     name: demo_mysql_db
     platform: mysql
-    url: jdbc:mysql://localhost:3306/medichub_store
+    url: jdbc:mysql://localhost:3306/medichub_store?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
     password:
     driver-class-name: com.mysql.jdbc.Driver

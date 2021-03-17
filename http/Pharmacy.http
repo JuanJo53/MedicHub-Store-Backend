@@ -1,0 +1,9 @@
+POST http://localhost:8080/pharmacy
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Farmacias Bolivia",
+  "phone": "+591 24956815",
+  "email": "farmacia-bolivia@gmail.com"
+}

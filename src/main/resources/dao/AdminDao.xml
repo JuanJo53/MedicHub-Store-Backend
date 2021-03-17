@@ -2,11 +2,11 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="bo.ucb.edu.ingsoft.dao.PersonDao">
-    <insert id="createPerson" parameterType="bo.ucb.edu.ingsoft.modelo.Person">
-        INSERT INTO person VALUES (
-            null, #{firstName}, #{firstSurname}, #{secondSurname}, #{ci}, #{phone},
-            1, #{txId}, #{txHost}, #{txUserId}, #{txDate}
+<mapper namespace="bo.ucb.edu.ingsoft.dao.AdminDao">
+    <insert id="createAdmin" parameterType="bo.ucb.edu.ingsoft.model.Admin">
+        INSERT INTO admin VALUES (
+            null, #{personId}, #{email}, #{userName}, #{Password}, #{picture},
+            1, #{transaction.txId}, #{transaction.txHost}, #{transaction.txUserId}, #{transaction.txDate}
         )
     </insert>
 </mapper>
