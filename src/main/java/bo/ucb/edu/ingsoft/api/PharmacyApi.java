@@ -36,4 +36,22 @@ public class PharmacyApi {
         PharmacyRequest pharmacyResponse = pharmacyBl.createPharmacy(pharmacyRequest, transaction);
         return pharmacyResponse;
     }
+    @RequestMapping(method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public String delete(@RequestParam Integer IdPharmacy, HttpServletRequest request) {
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction(transaction);
+        pharmacyBl.deletePharmacy(IdPharmacy,transaction);
+        return "Publicacion eliminada";
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    public PharmacyRequest update(@RequestBody PharmacyRequest pharmacyRequest, HttpServletRequest request) {
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction(transaction);
+        pharmacyBl.updatePharmacy(pharmacyRequest,transaction);
+        return pharmacyRequest;
+    }
+
+
+
 }

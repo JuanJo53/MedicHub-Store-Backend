@@ -1,6 +1,7 @@
 package bo.ucb.edu.ingsoft.dto;
 
 public class PharmacyRequest {
+    private Integer pharmacyId;
     private String name;
     private String phone;
     private String email;
@@ -32,10 +33,19 @@ public class PharmacyRequest {
         this.email = email;
     }
 
+    public Integer getPharmacyId() {
+        return pharmacyId;
+    }
+
+    public void setPharmacyId(Integer pharmacyId) {
+        this.pharmacyId = pharmacyId;
+    }
+
     @Override
     public String toString() {
-        return "SinglePharmacy{" +
-                "name='" + name + '\'' +
+        return "PharmacyRequest{" +
+                "pharmacyId=" + pharmacyId +
+                ", name='" + name + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 '}';

@@ -9,4 +9,30 @@
             1, #{transaction.txId}, #{transaction.txHost}, #{transaction.txUserId}, #{transaction.txDate}
         )
     </insert>
+    <update id="deletePharmacy" parameterType="bo.ucb.edu.ingsoft.model.Pharmacy">
+        UPDATE pharmacy set
+
+        tx_id=#{transaction.txId},
+        tx_host=#{transaction.txHost},
+        tx_user_id=#{transaction.txUserId},
+        tx_date=#{transaction.txDate}
+        WHERE
+        pharmacy_id=#{pharmacyId} and
+        status=1
+    </update>
+
+    <update id="updatePharmacy" parameterType="bo.ucb.edu.ingsoft.model.Pharmacy">
+        UPDATE pharmacy set
+        name=#{name},
+        phone=#{phone},
+        email=#{email},
+        tx_id=#{transaction.txId},
+        tx_host=#{transaction.txHost},
+        tx_user_id=#{transaction.txUserId},
+        tx_date=#{transaction.txDate}
+        WHERE
+        pharmacy_id=#{pharmacyId} and
+        status=1
+    </update>
+
 </mapper>

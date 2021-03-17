@@ -1,18 +1,7 @@
-GET http://localhost:8080/login/?user=admin&password=12345&type=Admin
+GET http://localhost:8080/logIn/?user=admin&password=12345&type=Admin
 Accept: application/json
 Content-Type: application/json
 
 ###
 
 
-GET http://localhost:8080/login
-Accept: application/json
-Content-Type: application/json
-
-{
-  "user": "admin",
-  "password": "12345",
-  "type": "Admin"
-}
-
-###

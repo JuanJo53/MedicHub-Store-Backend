@@ -1,9 +1,12 @@
 package bo.ucb.edu.ingsoft.bl;
 
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
+import bo.ucb.edu.ingsoft.dto.PharmacyRequest;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
 
 @Service
 public class TransactionBl {
@@ -25,4 +28,6 @@ public class TransactionBl {
         transaction.setTxId(lastPrimaryKey);
         return transaction;
     }
+
+
 }

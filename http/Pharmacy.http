@@ -3,7 +3,27 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "name": "Farmacias Bolivia",
-  "phone": "+591 24956815",
-  "email": "farmacia-bolivia@gmail.com"
+  "name": "Farmacias Pato",
+  "phone": "+591 2288228",
+  "email": "farmacia-pato@gmail.com"
 }
+
+###
+
+PUT http://localhost:8080/pharmacy
+Accept: application/json
+Content-Type: application/json
+
+{
+  "pharmacyId": 3,
+  "name": "Farmacias Boli",
+  "phone": "+591 2222222",
+  "email": "farmacia-Boli@gmail.com"
+}
+
+###
+
+DELETE http://localhost:8080/pharmacy?IdPharmacy=2
+Accept: application/json
+
+
