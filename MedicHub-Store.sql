@@ -312,3 +312,16 @@ ALTER TABLE subsidiary ADD CONSTRAINT subsidiary_pharmacy FOREIGN KEY subsidiary
 
 -- End of file.
 
+
+START TRANSACTION ;
+INSERT INTO person VALUES
+(NULL, 'Admin','user','admi','457635','76543218',1,1,'192.168.10.215',0,NOW() ),
+(NULL, 'Lucas','Gutierrez','Rocha','1242363','77777777',1,1,'192.168.10.215',0,NOW() );
+COMMIT ;
+
+
+START TRANSACTION ;
+INSERT INTO admin VALUES
+(NULL, 1,'usuario@exampol.com','admin','12345',NULL,1,1,'192.168.10.215',0,NOW() ),
+(NULL, 2,'admin@exampol.com','admin1','12345',NULL,1,1,'192.168.10.215',0,NOW() );
+COMMIT ;
