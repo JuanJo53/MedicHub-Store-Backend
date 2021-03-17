@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/admin")
+@RequestMapping(value = "/login")
 public class LoginApi {
     private LoginBl adminBl;
     private TransactionBl transactionBl;
@@ -26,9 +26,8 @@ public class LoginApi {
         this.transactionBl = transactionBl;
     }
 
-    @RequestMapping(method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE)
-    public UserLogInRequest userlogin(@RequestParam String user,String password, String type){
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public UserLogInRequest userlogin(@RequestParam String user, String password, String type){
         return adminBl.logIn(user,password,type);
     }
 

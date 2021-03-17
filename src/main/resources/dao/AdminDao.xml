@@ -9,4 +9,6 @@
             1, #{transaction.txId}, #{transaction.txHost}, #{transaction.txUserId}, #{transaction.txDate}
         )
     </insert>
+
+
 </mapper>

@@ -22,15 +22,18 @@ public class LoginBl {
 
     public UserLogInRequest logIn(String user,String password, String type){
         if (type.equals("Admin")){
-            return loginDao.login(user,password);
+            System.out.println("entre");
+            return loginDao.loginAd(user,password);
         }
         else{
             if(type.equals("adminpharmacy")){
-                return loginDao.login("","");
+                //return loginDao.loginAP("","");
+                return null;
             }
             else{
                 if(type.equals("user")){
-                    return loginDao.login("","");
+                    //return loginDao.loginU("","");
+                    return null;
                 }
                 else{
                     return null;

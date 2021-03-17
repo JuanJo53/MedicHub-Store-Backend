@@ -1,14 +1,17 @@
 package bo.ucb.edu.ingsoft.dao;
 
 import bo.ucb.edu.ingsoft.dto.UserLogInRequest;
-import bo.ucb.edu.ingsoft.model.Admin;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface LoginDao {
 
-    public UserLogInRequest login(Admin admin);
+    //public UserLogInRequest loginAd(UserLogInRequest userLogInRequest);
 
-    UserLogInRequest login(String user, String password);
+    public UserLogInRequest loginAd(String user, String password);
+    //public UserLogInRequest loginAP(String user, String password);
+    //public UserLogInRequest loginU(String user, String password);
     //public void createAdmin(Admin admin);
+
+
 }
