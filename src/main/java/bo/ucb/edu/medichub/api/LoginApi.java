@@ -1,8 +1,8 @@
-package bo.ucb.edu.ingsoft.api;
+package bo.ucb.edu.medichub.api;
 
-import bo.ucb.edu.ingsoft.bl.LoginBl;
-import bo.ucb.edu.ingsoft.bl.TransactionBl;
-import bo.ucb.edu.ingsoft.dto.UserLogInRequest;
+import bo.ucb.edu.medichub.bl.LoginBl;
+import bo.ucb.edu.medichub.bl.TransactionBl;
+import bo.ucb.edu.medichub.dto.UserLogInRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

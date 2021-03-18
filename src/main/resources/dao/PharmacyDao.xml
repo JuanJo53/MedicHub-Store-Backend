@@ -2,16 +2,17 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="bo.ucb.edu.ingsoft.dao.PharmacyDao">
-    <insert id="createPharmacy" parameterType="bo.ucb.edu.ingsoft.model.Pharmacy">
+<mapper namespace="bo.ucb.edu.medichub.dao.PharmacyDao">
+    <insert id="createPharmacy" parameterType="bo.ucb.edu.medichub.model.Pharmacy">
         INSERT INTO pharmacy VALUES (
             null, #{name}, #{phone}, #{email}, #{picture},
             1, #{transaction.txId}, #{transaction.txHost}, #{transaction.txUserId}, #{transaction.txDate}
         )
     </insert>
-    <update id="deletePharmacy" parameterType="bo.ucb.edu.ingsoft.model.Pharmacy">
+    <update id="deletePharmacy" parameterType="bo.ucb.edu.medichub.model.Pharmacy">
         UPDATE pharmacy set
 
+        status=#{status},
         tx_id=#{transaction.txId},
         tx_host=#{transaction.txHost},
         tx_user_id=#{transaction.txUserId},
@@ -21,7 +22,7 @@
         status=1
     </update>
 
-    <update id="updatePharmacy" parameterType="bo.ucb.edu.ingsoft.model.Pharmacy">
+    <update id="updatePharmacy" parameterType="bo.ucb.edu.medichub.model.Pharmacy">
         UPDATE pharmacy set
         name=#{name},
         phone=#{phone},
@@ -34,6 +35,24 @@
         pharmacy_id=#{pharmacyId} and
         status=1
     </update>
+
+    <select id="getPharmacies" resultMap="pharmaciesMap">
+
+        select
+            pharmacy_id as pharmacyId,
+            name as name,
+            phone as phone,
+            email as email
+        from pharmacy
+        where status = 1
+    </select>
+
+    <resultMap id="pharmaciesMap" type="bo.ucb.edu.medichub.dto.PharmacyRequest">
+        <result column="pharmacyId" property="pharmacyId"/>
+        <result column="name" property="name"/>
+        <result column="phone" property="phone"/>
+        <result column="email" property="email"/>
+    </resultMap>
 
     <insert id="createBankAccount" parameterType="bo.ucb.edu.ingsoft.model.Pharmacy">
         INSERT INTO bank_account VALUES (

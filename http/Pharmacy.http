@@ -3,9 +3,9 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "name": "Farmacias Pato",
-  "phone": "+591 2288228",
-  "email": "farmacia-pato@gmail.com"
+  "name": "Farmacias Chavez",
+  "phone": "+591 24651835",
+  "email": "farmacia-chavez@gmail.com"
 }
 
 ###
@@ -15,7 +15,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "pharmacyId": 3,
+  "pharmacyId": 2,
   "name": "Farmacias Boli",
   "phone": "+591 2222222",
   "email": "farmacia-Boli@gmail.com"
@@ -23,7 +23,12 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:8080/pharmacy?IdPharmacy=2
+DELETE http://localhost:8080/pharmacy/1
+Accept: application/json
+
+###
+
+GET http://localhost:8080/pharmacy
 Accept: application/json
 
 ###

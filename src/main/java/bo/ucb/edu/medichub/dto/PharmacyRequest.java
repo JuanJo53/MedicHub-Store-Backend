@@ -1,4 +1,4 @@
-package bo.ucb.edu.ingsoft.dto;
+package bo.ucb.edu.medichub.dto;
 
 public class PharmacyRequest {
     private Integer pharmacyId;

@@ -1,18 +1,19 @@
 package bo.ucb.edu.ingsoft.api;
 
-import bo.ucb.edu.ingsoft.bl.PharmacyBl;
-import bo.ucb.edu.ingsoft.bl.TransactionBl;
-import bo.ucb.edu.ingsoft.dto.BankAccountRequest;
-import bo.ucb.edu.ingsoft.dto.PharmacyRequest;
-import bo.ucb.edu.ingsoft.model.Transaction;
-import bo.ucb.edu.ingsoft.util.TransactionUtil;
+import bo.ucb.edu.medichub.bl.PharmacyBl;
+import bo.ucb.edu.medichub.bl.TransactionBl;
+import bo.ucb.edu.medichub.dto.PharmacyRequest;
+import bo.ucb.edu.medichub.model.Transaction;
+import bo.ucb.edu.medichub.util.TransactionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -46,11 +47,25 @@ public class PharmacyApi {
     }
 
     @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-    public PharmacyRequest update(@RequestBody PharmacyRequest pharmacyRequest, HttpServletRequest request) {
+    public PharmacyRequest updatePharmacy(@RequestBody PharmacyRequest pharmacyRequest, HttpServletRequest request) {
         Transaction transaction = TransactionUtil.createTransaction(request);
         transactionBl.createTransaction(transaction);
         pharmacyBl.updatePharmacy(pharmacyRequest,transaction);
         return pharmacyRequest;
+    }
+
+    @DeleteMapping(path="/{pharmacyId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public String deletePharmacy(@PathVariable String pharmacyId, HttpServletRequest request){
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction(transaction);
+        pharmacyBl.deletePharmacy(Integer.parseInt(pharmacyId),transaction);
+        return "Succesful process";
+    }
+
+    @RequestMapping(method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<PharmacyRequest> getPharmacies() {
+        List<PharmacyRequest> pharmacies=pharmacyBl.getPharmacies();
+        return pharmacies;
     }
 
     @RequestMapping(path="bankAccount" ,method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,

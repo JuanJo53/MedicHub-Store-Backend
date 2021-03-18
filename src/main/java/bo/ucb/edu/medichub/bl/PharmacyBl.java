@@ -1,12 +1,10 @@
 package bo.ucb.edu.ingsoft.bl;
 
-import bo.ucb.edu.ingsoft.dao.PharmacyDao;
-import bo.ucb.edu.ingsoft.dao.TransactionDao;
-import bo.ucb.edu.ingsoft.dto.BankAccountRequest;
-import bo.ucb.edu.ingsoft.dto.PharmacyRequest;
-import bo.ucb.edu.ingsoft.model.BankAccount;
-import bo.ucb.edu.ingsoft.model.Pharmacy;
-import bo.ucb.edu.ingsoft.model.Transaction;
+import bo.ucb.edu.medichub.dao.PharmacyDao;
+import bo.ucb.edu.medichub.dao.TransactionDao;
+import bo.ucb.edu.medichub.dto.PharmacyRequest;
+import bo.ucb.edu.medichub.model.Pharmacy;
+import bo.ucb.edu.medichub.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -51,12 +49,17 @@ public class PharmacyBl {
     }
 
 
-    public void deletePharmacy(Integer IdPharmacy, Transaction transaction){
+    public void deletePharmacy(Integer idPharmacy, Transaction transaction){
         Pharmacy pharmacy= new Pharmacy();
         pharmacy.setStatus(0);
-        pharmacy.setPharmacyId(IdPharmacy);
+        pharmacy.setPharmacyId(idPharmacy);
         pharmacy.setTransaction(transaction);
         pharmacyDao.deletePharmacy(pharmacy);
+    }
+
+    public List<PharmacyRequest> getPharmacies(){
+        List<PharmacyRequest> pharmacies = pharmacyDao.getPharmacies();
+        return pharmacies;
     }
 
     public BankAccountRequest createBankAccount(BankAccountRequest bankAccountRequest, Transaction transaction){

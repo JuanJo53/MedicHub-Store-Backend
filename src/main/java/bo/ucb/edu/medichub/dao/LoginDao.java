@@ -1,6 +1,6 @@
-package bo.ucb.edu.ingsoft.dao;
+package bo.ucb.edu.medichub.dao;
 
-import bo.ucb.edu.ingsoft.dto.UserLogInRequest;
+import bo.ucb.edu.medichub.dto.UserLogInRequest;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
