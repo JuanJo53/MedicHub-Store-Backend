@@ -14,7 +14,7 @@ public interface PharmacyDao {
     public void deletePharmacy(Pharmacy pharmacy);
     public List<PharmacyRequest> getPharmacies();
 
-    public void createBankAccount(BankAccount bankAccount);
+
 }
 
 

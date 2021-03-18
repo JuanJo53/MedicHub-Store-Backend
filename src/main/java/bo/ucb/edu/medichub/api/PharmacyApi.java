@@ -63,12 +63,4 @@ public class PharmacyApi {
         return pharmacies;
     }
 
-    @RequestMapping(path="bankAccount" ,method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
-            consumes = MediaType.APPLICATION_JSON_VALUE)
-    public BankAccountRequest createBankAccount(@RequestBody BankAccountRequest bankAccountRequest, HttpServletRequest request) {
-        Transaction transaction = TransactionUtil.createTransaction(request);
-        transactionBl.createTransaction(transaction);
-        BankAccountRequest bankAccountResponse = pharmacyBl.createBankAccount(bankAccountRequest, transaction);
-        return bankAccountResponse;
-    }
 }

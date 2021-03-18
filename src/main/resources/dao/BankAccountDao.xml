@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bo.ucb.edu.medichub.dao.BankAccountDao">
+    <insert id="createBankAccount" parameterType="bo.ucb.edu.medichub.model.Pharmacy">
+        INSERT INTO bank_account VALUES (
+            null, #{pharmacyId}, #{accountNumber}, #{bank}, #{account_type},
+            1, #{transaction.txId}, #{transaction.txHost}, #{transaction.txUserId}, #{transaction.txDate}
+        )
+    </insert>
+</mapper>

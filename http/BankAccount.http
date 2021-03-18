@@ -1,0 +1,12 @@
+POST http://localhost:8080/bankAccount
+Accept: application/json
+Content-Type: application/json
+
+{
+  "pharmacyId": 4,
+  "accountNumber": 456425,
+  "bank": "Banco Nacional",
+  "account_type": "Ahorro"
+}
+
+###

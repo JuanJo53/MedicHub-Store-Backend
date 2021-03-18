@@ -15,7 +15,7 @@ import java.util.List;
 
 @Service
 public class PharmacyBl {
-    private bo.ucb.edu.medichub.dao.PharmacyDao pharmacyDao;
+    private PharmacyDao pharmacyDao;
     private TransactionDao transactionDao;
 
     @Autowired
@@ -65,17 +65,7 @@ public class PharmacyBl {
         return pharmacies;
     }
 
-    public BankAccountRequest createBankAccount(BankAccountRequest bankAccountRequest, Transaction transaction){
-        BankAccount bankAccount=new BankAccount();
-        bankAccount.setAccount_type(bankAccountRequest.getAccount_type());
-        bankAccount.setBank(bankAccountRequest.getBank());
-        bankAccount.setAccountNumber(bankAccountRequest.getAccountNumber());
-        bankAccount.setPharmacyId(bankAccountRequest.getPharmacyId());
-        bankAccount.setTransaction(transaction);
-        pharmacyDao.createBankAccount(bankAccount);
-        return bankAccountRequest;
 
-    }
 }
 
 
