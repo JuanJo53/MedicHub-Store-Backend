@@ -47,7 +47,7 @@ public class PharmacyApi {
         return pharmacyRequest;
     }
 
-    @PutMapping(path="/{pharmacyId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(path="/{pharmacyId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public String deletePharmacy(@PathVariable String pharmacyId, HttpServletRequest request){
         Transaction transaction = TransactionUtil.createTransaction(request);
         transactionBl.createTransaction(transaction);
