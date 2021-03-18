@@ -42,7 +42,8 @@
             pharmacy_id as pharmacyId,
             name as name,
             phone as phone,
-            email as email
+            email as email,
+            status as status
         from pharmacy
         where status = 1
     </select>
