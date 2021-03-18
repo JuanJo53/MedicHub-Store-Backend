@@ -26,4 +26,18 @@ Content-Type: application/json
 DELETE http://localhost:8080/pharmacy?IdPharmacy=2
 Accept: application/json
 
+###
 
+
+POST http://localhost:8080/pharmacy/bankAccount
+Accept: application/json
+Content-Type: application/json
+
+{
+  "pharmacyId": 1,
+  "accountNumber": 547566,
+  "bank": "Banco Fie",
+  "account_type": "Ahorro"
+}
+
+###

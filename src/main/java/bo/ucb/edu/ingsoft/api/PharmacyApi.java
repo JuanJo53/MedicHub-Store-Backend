@@ -2,6 +2,7 @@ package bo.ucb.edu.ingsoft.api;
 
 import bo.ucb.edu.ingsoft.bl.PharmacyBl;
 import bo.ucb.edu.ingsoft.bl.TransactionBl;
+import bo.ucb.edu.ingsoft.dto.BankAccountRequest;
 import bo.ucb.edu.ingsoft.dto.PharmacyRequest;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
@@ -52,6 +53,12 @@ public class PharmacyApi {
         return pharmacyRequest;
     }
 
-
-
+    @RequestMapping(path="bankAccount" ,method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public BankAccountRequest createBankAccount(@RequestBody BankAccountRequest bankAccountRequest, HttpServletRequest request) {
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction(transaction);
+        BankAccountRequest bankAccountResponse = pharmacyBl.createBankAccount(bankAccountRequest, transaction);
+        return bankAccountResponse;
+    }
 }

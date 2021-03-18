@@ -2,7 +2,9 @@ package bo.ucb.edu.ingsoft.bl;
 
 import bo.ucb.edu.ingsoft.dao.PharmacyDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
+import bo.ucb.edu.ingsoft.dto.BankAccountRequest;
 import bo.ucb.edu.ingsoft.dto.PharmacyRequest;
+import bo.ucb.edu.ingsoft.model.BankAccount;
 import bo.ucb.edu.ingsoft.model.Pharmacy;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,7 +59,17 @@ public class PharmacyBl {
         pharmacyDao.deletePharmacy(pharmacy);
     }
 
+    public BankAccountRequest createBankAccount(BankAccountRequest bankAccountRequest, Transaction transaction){
+        BankAccount bankAccount=new BankAccount();
+        bankAccount.setAccount_type(bankAccountRequest.getAccount_type());
+        bankAccount.setBank(bankAccountRequest.getBank());
+        bankAccount.setAccountNumber(bankAccountRequest.getAccountNumber());
+        bankAccount.setPharmacyId(bankAccountRequest.getPharmacyId());
+        bankAccount.setTransaction(transaction);
+        pharmacyDao.createBankAccount(bankAccount);
+        return bankAccountRequest;
 
+    }
 }
 
 
