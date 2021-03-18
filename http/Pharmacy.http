@@ -15,7 +15,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "pharmacyId": 3,
+  "pharmacyId": 2,
   "name": "Farmacias Boli",
   "phone": "+591 2222222",
   "email": "farmacia-Boli@gmail.com"
@@ -23,7 +23,7 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:8080/pharmacy?IdPharmacy=2
+PUT http://localhost:8080/pharmacy/2
 Accept: application/json
 
 

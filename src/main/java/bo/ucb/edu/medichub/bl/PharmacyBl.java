@@ -47,10 +47,10 @@ public class PharmacyBl {
     }
 
 
-    public void deletePharmacy(Integer IdPharmacy, Transaction transaction){
+    public void deletePharmacy(Integer idPharmacy, Transaction transaction){
         Pharmacy pharmacy= new Pharmacy();
         pharmacy.setStatus(0);
-        pharmacy.setPharmacyId(IdPharmacy);
+        pharmacy.setPharmacyId(idPharmacy);
         pharmacy.setTransaction(transaction);
         pharmacyDao.deletePharmacy(pharmacy);
     }

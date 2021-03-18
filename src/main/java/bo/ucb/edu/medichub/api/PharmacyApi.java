@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -36,22 +37,21 @@ public class PharmacyApi {
         PharmacyRequest pharmacyResponse = pharmacyBl.createPharmacy(pharmacyRequest, transaction);
         return pharmacyResponse;
     }
-    @RequestMapping(method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String delete(@RequestParam Integer IdPharmacy, HttpServletRequest request) {
-        Transaction transaction = TransactionUtil.createTransaction(request);
-        transactionBl.createTransaction(transaction);
-        pharmacyBl.deletePharmacy(IdPharmacy,transaction);
-        return "Publicacion eliminada";
-    }
 
     @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-    public PharmacyRequest update(@RequestBody PharmacyRequest pharmacyRequest, HttpServletRequest request) {
+    public PharmacyRequest updatePharmacy(@RequestBody PharmacyRequest pharmacyRequest, HttpServletRequest request) {
         Transaction transaction = TransactionUtil.createTransaction(request);
         transactionBl.createTransaction(transaction);
         pharmacyBl.updatePharmacy(pharmacyRequest,transaction);
         return pharmacyRequest;
     }
 
-
+    @PutMapping(path="/{pharmacyId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public String deletePharmacy(@PathVariable String pharmacyId, HttpServletRequest request){
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction(transaction);
+        pharmacyBl.deletePharmacy(Integer.parseInt(pharmacyId),transaction);
+        return "Succesful process";
+    }
 
 }

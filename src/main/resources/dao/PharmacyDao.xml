@@ -12,6 +12,7 @@
     <update id="deletePharmacy" parameterType="bo.ucb.edu.medichub.model.Pharmacy">
         UPDATE pharmacy set
 
+        status=#{status},
         tx_id=#{transaction.txId},
         tx_host=#{transaction.txHost},
         tx_user_id=#{transaction.txUserId},
