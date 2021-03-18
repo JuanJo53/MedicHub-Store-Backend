@@ -2,17 +2,20 @@ package bo.ucb.edu.medichub.bl;
 
 import bo.ucb.edu.medichub.dao.PharmacyDao;
 import bo.ucb.edu.medichub.dao.TransactionDao;
+import bo.ucb.edu.medichub.dto.BankAccountRequest;
 import bo.ucb.edu.medichub.dto.PharmacyRequest;
+import bo.ucb.edu.medichub.model.BankAccount;
 import bo.ucb.edu.medichub.model.Pharmacy;
 import bo.ucb.edu.medichub.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
 public class PharmacyBl {
-    private PharmacyDao pharmacyDao;
+    private bo.ucb.edu.medichub.dao.PharmacyDao pharmacyDao;
     private TransactionDao transactionDao;
 
     @Autowired
@@ -62,7 +65,17 @@ public class PharmacyBl {
         return pharmacies;
     }
 
+    public BankAccountRequest createBankAccount(BankAccountRequest bankAccountRequest, Transaction transaction){
+        BankAccount bankAccount=new BankAccount();
+        bankAccount.setAccount_type(bankAccountRequest.getAccount_type());
+        bankAccount.setBank(bankAccountRequest.getBank());
+        bankAccount.setAccountNumber(bankAccountRequest.getAccountNumber());
+        bankAccount.setPharmacyId(bankAccountRequest.getPharmacyId());
+        bankAccount.setTransaction(transaction);
+        pharmacyDao.createBankAccount(bankAccount);
+        return bankAccountRequest;
 
+    }
 }
 
 

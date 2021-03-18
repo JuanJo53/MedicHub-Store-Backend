@@ -26,5 +26,4 @@ public class TransactionBl {
         return transaction;
     }
 
-
 }

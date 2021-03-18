@@ -55,4 +55,12 @@
         <result column="email" property="email"/>
     </resultMap>
 
+
+
+    <insert id="createBankAccount" parameterType="bo.ucb.edu.medichub.model.Pharmacy">
+        INSERT INTO bank_account VALUES (
+            null, #{pharmacyId}, #{accountNumber}, #{bank}, #{account_type},
+            1, #{transaction.txId}, #{transaction.txHost}, #{transaction.txUserId}, #{transaction.txDate}
+        )
+    </insert>
 </mapper>
