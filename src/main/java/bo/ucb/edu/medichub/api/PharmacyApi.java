@@ -3,11 +3,13 @@ package bo.ucb.edu.medichub.api;
 import bo.ucb.edu.medichub.bl.PharmacyBl;
 import bo.ucb.edu.medichub.bl.TransactionBl;
 import bo.ucb.edu.medichub.dto.PharmacyRequest;
+import bo.ucb.edu.medichub.model.Pharmacy;
 import bo.ucb.edu.medichub.model.Transaction;
 import bo.ucb.edu.medichub.util.TransactionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -48,11 +50,11 @@ public class PharmacyApi {
     }
 
     @DeleteMapping(path="/{pharmacyId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String deletePharmacy(@PathVariable String pharmacyId, HttpServletRequest request){
+    public HttpStatus deletePharmacy(@PathVariable String pharmacyId, HttpServletRequest request){
         Transaction transaction = TransactionUtil.createTransaction(request);
         transactionBl.createTransaction(transaction);
         pharmacyBl.deletePharmacy(Integer.parseInt(pharmacyId),transaction);
-        return "Succesful process";
+        return HttpStatus.ACCEPTED;
     }
 
     @RequestMapping(method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
