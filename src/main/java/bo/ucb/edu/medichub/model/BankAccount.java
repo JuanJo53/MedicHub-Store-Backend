@@ -1,4 +1,4 @@
-package bo.ucb.edu.ingsoft.model;
+package bo.ucb.edu.medichub.model;
 
 public class BankAccount {
     private Integer bankAccountId;

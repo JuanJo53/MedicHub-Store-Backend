@@ -1,7 +1,8 @@
-package bo.ucb.edu.ingsoft.api;
+package bo.ucb.edu.medichub.api;
 
 import bo.ucb.edu.medichub.bl.PharmacyBl;
 import bo.ucb.edu.medichub.bl.TransactionBl;
+import bo.ucb.edu.medichub.dto.BankAccountRequest;
 import bo.ucb.edu.medichub.dto.PharmacyRequest;
 import bo.ucb.edu.medichub.model.Transaction;
 import bo.ucb.edu.medichub.util.TransactionUtil;
@@ -10,7 +11,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;

@@ -1,9 +1,8 @@
-package bo.ucb.edu.ingsoft.dao;
+package bo.ucb.edu.medichub.dao;
 
 import bo.ucb.edu.medichub.dto.PharmacyRequest;
+import bo.ucb.edu.medichub.model.BankAccount;
 import bo.ucb.edu.medichub.model.Pharmacy;
-import bo.ucb.edu.ingsoft.model.BankAccount;
-import bo.ucb.edu.ingsoft.model.Pharmacy;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
