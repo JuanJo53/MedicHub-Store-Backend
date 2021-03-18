@@ -36,4 +36,22 @@
         status=1
     </update>
 
+    <select id="getPharmacies" resultMap="pharmaciesMap">
+
+        select
+            pharmacy_id as pharmacyId,
+            name as name,
+            phone as phone,
+            email as email
+        from pharmacy
+        where status = 1
+    </select>
+
+    <resultMap id="pharmaciesMap" type="bo.ucb.edu.medichub.dto.PharmacyRequest">
+        <result column="pharmacyId" property="pharmacyId"/>
+        <result column="name" property="name"/>
+        <result column="phone" property="phone"/>
+        <result column="email" property="email"/>
+    </resultMap>
+
 </mapper>

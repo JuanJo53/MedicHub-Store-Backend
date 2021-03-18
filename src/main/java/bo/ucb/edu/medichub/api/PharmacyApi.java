@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -52,6 +53,12 @@ public class PharmacyApi {
         transactionBl.createTransaction(transaction);
         pharmacyBl.deletePharmacy(Integer.parseInt(pharmacyId),transaction);
         return "Succesful process";
+    }
+
+    @RequestMapping(method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<PharmacyRequest> getPharmacies() {
+        List<PharmacyRequest> pharmacies=pharmacyBl.getPharmacies();
+        return pharmacies;
     }
 
 }

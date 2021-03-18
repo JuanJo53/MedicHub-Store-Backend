@@ -8,6 +8,8 @@ import bo.ucb.edu.medichub.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PharmacyBl {
     private PharmacyDao pharmacyDao;
@@ -53,6 +55,11 @@ public class PharmacyBl {
         pharmacy.setPharmacyId(idPharmacy);
         pharmacy.setTransaction(transaction);
         pharmacyDao.deletePharmacy(pharmacy);
+    }
+
+    public List<PharmacyRequest> getPharmacies(){
+        List<PharmacyRequest> pharmacies = pharmacyDao.getPharmacies();
+        return pharmacies;
     }
 
 
