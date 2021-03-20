@@ -3,10 +3,22 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "pharmacyId": 4,
-  "accountNumber": 456425,
+  "pharmacyId": 5,
+  "accountNumber": 89416,
   "bank": "Banco Nacional",
-  "account_type": "Ahorro"
+  "accountType": "Ahorro"
 }
 
 ###
+
+PUT http://localhost:8080/bankAccount
+Accept: application/json
+Content-Type: application/json
+
+{
+  "bankAccountId": 1,
+  "accountNumber": 11111,
+  "bank": "Banco Mercantil",
+  "accountType": "Ahorro"
+}
+

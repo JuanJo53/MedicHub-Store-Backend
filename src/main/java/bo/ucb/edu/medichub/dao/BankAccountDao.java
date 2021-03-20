@@ -9,6 +9,7 @@ import java.util.List;
 public interface BankAccountDao {
 
     public void createBankAccount(BankAccount bankAccount);
+    public void updateBankAccount(BankAccount bankAccount);
 }
 
 

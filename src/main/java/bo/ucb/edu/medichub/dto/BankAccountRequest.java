@@ -1,11 +1,22 @@
 package bo.ucb.edu.medichub.dto;
 
 public class BankAccountRequest {
+    private Integer bankAccountId;
     private Integer pharmacyId;
-
     private Integer accountNumber;
     private String bank;
-    private String account_type;
+    private String accountType;
+
+    public BankAccountRequest() {
+    }
+
+    public Integer getBankAccountId() {
+        return bankAccountId;
+    }
+
+    public void setBankAccountId(Integer bankAccountId) {
+        this.bankAccountId = bankAccountId;
+    }
 
     public Integer getPharmacyId() {
         return pharmacyId;
@@ -31,21 +42,22 @@ public class BankAccountRequest {
         this.bank = bank;
     }
 
-    public String getAccount_type() {
-        return account_type;
+    public String getAccountType() {
+        return accountType;
     }
 
-    public void setAccount_type(String account_type) {
-        this.account_type = account_type;
+    public void setAccountType(String account_type) {
+        this.accountType = account_type;
     }
 
     @Override
     public String toString() {
         return "BankAccountRequest{" +
-                "pharmacyId=" + pharmacyId +
+                "bamkAccountId=" + bankAccountId +
+                ", pharmacyId=" + pharmacyId +
                 ", accountNumber=" + accountNumber +
                 ", bank='" + bank + '\'' +
-                ", account_type='" + account_type + '\'' +
+                ", accountType='" + accountType + '\'' +
                 '}';
     }
 }

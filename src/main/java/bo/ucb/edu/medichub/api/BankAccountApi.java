@@ -2,7 +2,6 @@ package bo.ucb.edu.medichub.api;
 
 
 import bo.ucb.edu.medichub.bl.BankAccountBl;
-import bo.ucb.edu.medichub.bl.PharmacyBl;
 import bo.ucb.edu.medichub.bl.TransactionBl;
 import bo.ucb.edu.medichub.dto.BankAccountRequest;
 import bo.ucb.edu.medichub.model.Transaction;
@@ -37,5 +36,14 @@ public class BankAccountApi {
         transactionBl.createTransaction(transaction);
         BankAccountRequest bankAccountResponse = bankAccountBl.createBankAccount(bankAccountRequest, transaction);
         return bankAccountResponse;
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public BankAccountRequest updateBankAccount(@RequestBody BankAccountRequest bankAccountRequest, HttpServletRequest request) {
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction(transaction);
+        bankAccountBl.updateBankAccount(bankAccountRequest,transaction);
+        return bankAccountRequest;
     }
 }

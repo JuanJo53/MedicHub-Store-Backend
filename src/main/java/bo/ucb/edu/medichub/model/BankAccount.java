@@ -5,7 +5,7 @@ public class BankAccount {
     private Integer pharmacyId;
     private int accountNumber;
     private String bank;
-    private String account_type;
+    private String accountType;
     private Integer status;
     private Transaction transaction;
 
@@ -44,12 +44,12 @@ public class BankAccount {
         this.bank = bank;
     }
 
-    public String getAccount_type() {
-        return account_type;
+    public String getAccountType() {
+        return accountType;
     }
 
-    public void setAccount_type(String account_type) {
-        this.account_type = account_type;
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
     }
 
     public Integer getStatus() {
@@ -75,7 +75,7 @@ public class BankAccount {
                 ", pharmacyId=" + pharmacyId +
                 ", accountNumber=" + accountNumber +
                 ", bank='" + bank + '\'' +
-                ", account_type='" + account_type + '\'' +
+                ", account_type='" + accountType + '\'' +
                 ", status=" + status +
                 ", transaction=" + transaction +
                 '}';
