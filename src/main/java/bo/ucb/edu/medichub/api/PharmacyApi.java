@@ -63,4 +63,10 @@ public class PharmacyApi {
         return pharmacies;
     }
 
+    @GetMapping(path="/{pharmacyId}/bankAccount", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<BankAccountRequest> getPharmacyBankAccounts(@PathVariable String pharmacyId){
+        List<BankAccountRequest> accounts = pharmacyBl.getPharmacyBankAccounts(Integer.parseInt(pharmacyId));
+        return accounts;
+    }
+
 }

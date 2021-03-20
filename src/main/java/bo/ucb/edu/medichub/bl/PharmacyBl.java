@@ -7,6 +7,8 @@ import bo.ucb.edu.medichub.dto.PharmacyRequest;
 import bo.ucb.edu.medichub.model.BankAccount;
 import bo.ucb.edu.medichub.model.Pharmacy;
 import bo.ucb.edu.medichub.model.Transaction;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,8 @@ import java.util.List;
 public class PharmacyBl {
     private PharmacyDao pharmacyDao;
     private TransactionDao transactionDao;
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(BankAccountBl.class);
 
     @Autowired
     public PharmacyBl(PharmacyDao pharmacyDao, TransactionDao transactionDao) {
@@ -63,6 +67,11 @@ public class PharmacyBl {
     public List<PharmacyRequest> getPharmacies(){
         List<PharmacyRequest> pharmacies = pharmacyDao.getPharmacies();
         return pharmacies;
+    }
+
+    public List<BankAccountRequest> getPharmacyBankAccounts(Integer pharmacyId){
+        List<BankAccountRequest> bankAccounts = pharmacyDao.getPharmacyBankAccounts(pharmacyId);
+        return bankAccounts;
     }
 
 

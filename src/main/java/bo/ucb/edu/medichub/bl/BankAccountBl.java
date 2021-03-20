@@ -38,11 +38,6 @@ public class BankAccountBl {
     public BankAccountRequest updateBankAccount(BankAccountRequest bankAccountRequest, Transaction transaction){
         BankAccount bankAccount = new BankAccount();
 
-        LOGGER.error(bankAccountRequest.getBankAccountId().toString());
-        LOGGER.error(bankAccountRequest.getAccountType());
-        LOGGER.error(bankAccountRequest.getBank());
-        LOGGER.error(bankAccountRequest.getAccountNumber().toString());
-
         bankAccount.setBankAccountId(bankAccountRequest.getBankAccountId());
         bankAccount.setAccountType(bankAccountRequest.getAccountType());
         bankAccount.setBank(bankAccountRequest.getBank());

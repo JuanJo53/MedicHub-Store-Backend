@@ -1,5 +1,6 @@
 package bo.ucb.edu.medichub.dao;
 
+import bo.ucb.edu.medichub.dto.BankAccountRequest;
 import bo.ucb.edu.medichub.dto.PharmacyRequest;
 import bo.ucb.edu.medichub.model.BankAccount;
 import bo.ucb.edu.medichub.model.Pharmacy;
@@ -13,7 +14,7 @@ public interface PharmacyDao {
     public void updatePharmacy(Pharmacy pharmacy);
     public void deletePharmacy(Pharmacy pharmacy);
     public List<PharmacyRequest> getPharmacies();
-
+    public List<BankAccountRequest> getPharmacyBankAccounts(Integer pharmacyId);
 
 }
 
