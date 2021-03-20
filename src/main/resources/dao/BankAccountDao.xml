@@ -23,4 +23,17 @@
         bank_account_id=#{bankAccountId} and
         status=1
     </update>
+
+    <select id="findBankAccountById" resultType="bo.ucb.edu.medichub.dto.BankAccountRequest">
+        SELECT
+        bank_account_id as bankAccountId,
+        pharmacy_id as pharmacyId,
+        account_number as accountNumber,
+        bank as bank,
+        account_type as account_type
+        FROM bank_account
+        WHERE
+        bank_account_id = #{bankAccountId}
+        and status = 1
+    </select>
 </mapper>

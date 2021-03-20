@@ -46,4 +46,10 @@ public class BankAccountApi {
         bankAccountBl.updateBankAccount(bankAccountRequest,transaction);
         return bankAccountRequest;
     }
+
+    @GetMapping(path="/{bankAccountId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public BankAccountRequest findBankAccountById(@PathVariable String bankAccountId){
+        BankAccountRequest bankAccountRequest = bankAccountBl.findBankAccountById(Integer.parseInt(bankAccountId));
+        return bankAccountRequest;
+    }
 }

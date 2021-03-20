@@ -22,3 +22,7 @@ Content-Type: application/json
   "accountType": "Ahorro"
 }
 
+###
+
+GET http://localhost:8080/bankAccount/2
+Accept: application/json

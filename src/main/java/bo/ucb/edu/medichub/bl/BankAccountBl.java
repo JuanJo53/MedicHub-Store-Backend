@@ -46,4 +46,9 @@ public class BankAccountBl {
         bankAccountDao.updateBankAccount(bankAccount);
         return bankAccountRequest;
     }
+
+    public BankAccountRequest findBankAccountById(Integer bankAccountId){
+        BankAccountRequest bankAccountRequest = bankAccountDao.findBankAccountById(bankAccountId);
+        return bankAccountRequest;
+    }
 }
