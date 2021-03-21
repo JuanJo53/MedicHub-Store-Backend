@@ -3,13 +3,13 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "subsidiaryId": 1,
-  "firstName": "Juan",
-  "firstSurname": "Perez",
-  "secondSurname": "Lujan",
-  "ci": "12459635 LP",
-  "phone": "+591 78596312",
-  "email": "juanperez@gmail.com",
-  "userName": "JuanitoAlcachofa",
+  "subsidiaryId": 4,
+  "firstName": "Sergio",
+  "firstSurname": "Lara",
+  "secondSurname": "Vaca",
+  "ci": "649835 LP",
+  "phone": "+591 61984573",
+  "email": "sergio@gmail.com",
+  "userName": "SergioLara",
   "password": "abc12345"
 }

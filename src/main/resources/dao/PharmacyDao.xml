@@ -91,4 +91,29 @@
         <result column="subsidiaryName" property="subsidiaryName"/>
     </resultMap>
 
+    <select id="getAdminsByPharmacy" resultMap="pharmacyAdminsMap">
+        select
+            a.pharmacy_id as roleUserId,
+            b.subsidiary_name as subsidiaryName,
+            c.first_name as firstName,
+            c.first_surname as firstSurname,
+            c.second_surname as secondSurname,
+            c.ci  as ci
+        from pharmacy_admin a, subsidiary b, person c, pharmacy d
+        where d.pharmacy_id = #{pharmacyId}
+            and d.pharmacy_id = b.pharmacy_id
+            and b.subsidiary_id = a.subsidiary_id
+            and a.person_id = c.person_id
+            and a.status = 1
+    </select>
+
+    <resultMap id="pharmacyAdminsMap" type="bo.ucb.edu.medichub.dto.PersonListRequest">
+        <result column="roleUserId" property="roleUserId"/>
+        <result column="subsidiaryName" property="subsidiaryName"/>
+        <result column="firstName" property="firstName"/>
+        <result column="firstSurname" property="firstSurname"/>
+        <result column="secondSurname" property="secondSurname"/>
+        <result column="ci" property="ci"/>
+    </resultMap>
+
 </mapper>

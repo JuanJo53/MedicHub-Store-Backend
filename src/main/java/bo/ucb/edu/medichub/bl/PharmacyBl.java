@@ -80,6 +80,11 @@ public class PharmacyBl {
         List<SubsidiaryListRequest> subsidaries = pharmacyDao.getSubsidiariesByPharmacy(pharmacyId);
         return subsidaries;
     }
+
+    public List<PersonListRequest> getAdminsByPharmacy(Integer pharmacyId){
+        List<PersonListRequest> admins = pharmacyDao.getAdminsByPharmacy(pharmacyId);
+        return admins;
+    }
 }
 
 

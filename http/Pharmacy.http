@@ -47,3 +47,8 @@ GET http://localhost:8080/pharmacy/2/subsidiary
 Accept: application/json
 
 ###
+
+GET http://localhost:8080/pharmacy/2/admin
+Accept: application/json
+
+###

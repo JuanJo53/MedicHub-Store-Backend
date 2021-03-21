@@ -79,4 +79,10 @@ public class PharmacyApi {
         return subsidaries;
     }
 
+    @GetMapping(path="/{pharmacyId}/admin", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<PersonListRequest> getAdminsByPharmacy(@PathVariable String pharmacyId){
+        List<PersonListRequest> admins = pharmacyBl.getAdminsByPharmacy(Integer.parseInt(pharmacyId));
+        return admins;
+    }
+
 }
