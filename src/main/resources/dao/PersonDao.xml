@@ -9,4 +9,33 @@
             1, #{transaction.txId}, #{transaction.txHost}, #{transaction.txUserId}, #{transaction.txDate}
         )
     </insert>
+
+    <update id="updatePerson" parameterType="bo.ucb.edu.medichub.model.Person">
+        UPDATE person set
+            first_name=#{firstName},
+            first_surname=#{firstSurname},
+            second_surname=#{secondSurname},
+            ci=#{ci},
+            phone=#{phone},
+            tx_id=#{transaction.txId},
+            tx_host=#{transaction.txHost},
+            tx_user_id=#{transaction.txUserId},
+            tx_date=#{transaction.txDate}
+        WHERE
+        person_id=#{personId} and
+        status=1
+    </update>
+
+    <update id="deletePerson" parameterType="bo.ucb.edu.medichub.model.Person">
+        UPDATE person set
+            status=#{status},
+            tx_id=#{transaction.txId},
+            tx_host=#{transaction.txHost},
+            tx_user_id=#{transaction.txUserId},
+            tx_date=#{transaction.txDate}
+        WHERE
+        person_id=#{personId} and
+        status=1
+    </update>
+
 </mapper>

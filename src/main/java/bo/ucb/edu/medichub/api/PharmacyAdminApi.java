@@ -6,6 +6,7 @@ import bo.ucb.edu.medichub.dto.PharmacyAdminRequest;
 import bo.ucb.edu.medichub.model.Transaction;
 import bo.ucb.edu.medichub.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,5 +32,21 @@ public class PharmacyAdminApi {
         transactionBl.createTransaction(transaction);
         PharmacyAdminRequest pharmacyAdminResponse = pharmacyAdminBl.createPharmacyAdmin(pharmacyAdminRequest, transaction);
         return pharmacyAdminResponse;
+    }
+    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public PharmacyAdminRequest updatePharmacyAdmin(@RequestBody PharmacyAdminRequest pharmacyAdminRequest, HttpServletRequest request) {
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction(transaction);
+        PharmacyAdminRequest pharmacyAdminResponse = pharmacyAdminBl.updatePharmacyAdmin(pharmacyAdminRequest, transaction);
+        return pharmacyAdminResponse;
+    }
+
+    @DeleteMapping(path="/{personId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public HttpStatus deletePharmacy(@PathVariable String personId, HttpServletRequest request){
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction(transaction);
+        pharmacyAdminBl.deletePerson(Integer.parseInt(personId),transaction);
+        return HttpStatus.ACCEPTED;
     }
 }

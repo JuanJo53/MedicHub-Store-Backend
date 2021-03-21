@@ -2,6 +2,7 @@ package bo.ucb.edu.medichub.dto;
 
 public class PharmacyAdminRequest {
     private Integer pharmacyId;
+    private Integer personId;
     private Integer subsidiaryId;
     private String firstName;
     private String firstSurname;
@@ -95,10 +96,19 @@ public class PharmacyAdminRequest {
         this.password = password;
     }
 
+    public Integer getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(Integer personId) {
+        this.personId = personId;
+    }
+
     @Override
     public String toString() {
         return "PharmacyAdminRequest{" +
                 "pharmacyId=" + pharmacyId +
+                ", personId=" + personId +
                 ", subsidiaryId=" + subsidiaryId +
                 ", firstName='" + firstName + '\'' +
                 ", firstSurname='" + firstSurname + '\'' +

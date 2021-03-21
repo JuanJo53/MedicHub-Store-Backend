@@ -6,4 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface PersonDao {
     public void createPerson(Person person);
+
+    void updatePerson(Person person);
+
+    void deletePerson(Person person);
 }
