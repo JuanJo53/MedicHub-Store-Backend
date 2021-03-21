@@ -2,11 +2,14 @@ package bo.ucb.edu.medichub.bl;
 
 import bo.ucb.edu.medichub.dao.BrandDao;
 import bo.ucb.edu.medichub.dao.TransactionDao;
+import bo.ucb.edu.medichub.dto.BrandListRequest;
 import bo.ucb.edu.medichub.dto.BrandRequest;
 import bo.ucb.edu.medichub.model.Brand;
 import bo.ucb.edu.medichub.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class BrandBl {
@@ -40,5 +43,10 @@ public class BrandBl {
         brand.setTransaction(transaction);
         brandDao.updateBrand(brand);
         return brandRequest;
+    }
+
+    public List<BrandListRequest> getBrands(){
+        List<BrandListRequest> brands = brandDao.getBrands();
+        return brands;
     }
 }

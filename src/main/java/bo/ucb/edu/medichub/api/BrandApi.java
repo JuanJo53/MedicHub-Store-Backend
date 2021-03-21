@@ -2,6 +2,7 @@ package bo.ucb.edu.medichub.api;
 
 import bo.ucb.edu.medichub.bl.BrandBl;
 import bo.ucb.edu.medichub.bl.TransactionBl;
+import bo.ucb.edu.medichub.dto.BrandListRequest;
 import bo.ucb.edu.medichub.dto.BrandRequest;
 import bo.ucb.edu.medichub.model.Transaction;
 import bo.ucb.edu.medichub.util.TransactionUtil;
@@ -10,6 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -40,5 +42,11 @@ public class BrandApi {
         transactionBl.createTransaction(transaction);
         BrandRequest brandResponse = brandBl.updateBrand(brandRequest, transaction);
         return brandResponse;
+    }
+
+    @RequestMapping(method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<BrandListRequest> getBrands() {
+        List<BrandListRequest> brands = brandBl.getBrands();
+        return brands;
     }
 }

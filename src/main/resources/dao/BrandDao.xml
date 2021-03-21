@@ -23,4 +23,17 @@
         brand_id=#{brandId} and
         status=1
     </update>
+
+    <select id="getBrands" resultMap="brandsMap">
+        select
+            brand_id as brandId,
+            name as name
+        from brand
+        where status = 1
+    </select>
+
+    <resultMap id="brandsMap" type="bo.ucb.edu.medichub.dto.BrandListRequest">
+        <result column="brandId" property="brandId"/>
+        <result column="name" property="name"/>
+    </resultMap>
 </mapper>

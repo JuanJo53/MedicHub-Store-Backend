@@ -3,9 +3,9 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "name": "Laboratorios Vita",
-  "phone": "+591 25489613",
-  "email": "vita@email.com"
+  "name": "Laboratorios Sanofi",
+  "phone": "+591 2965741",
+  "email": "sanofi@email.com"
 }
 
 ###
@@ -24,3 +24,7 @@ Content-Type: application/json
 
 ###
 
+GET http://localhost:8080/brand
+Accept: application/json
+
+###
