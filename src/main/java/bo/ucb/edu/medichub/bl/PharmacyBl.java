@@ -69,6 +69,11 @@ public class PharmacyBl {
         return pharmacies;
     }
 
+    public PharmacyRequest findPharmacyById(Integer pharmacyId){
+        PharmacyRequest pharmacyRequest = pharmacyDao.findPharmacyById(pharmacyId);
+        return  pharmacyRequest;
+    }
+
     public List<BankAccountRequest> getPharmacyBankAccounts(Integer pharmacyId){
         List<BankAccountRequest> bankAccounts = pharmacyDao.getPharmacyBankAccounts(pharmacyId);
         return bankAccounts;

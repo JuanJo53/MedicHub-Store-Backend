@@ -33,6 +33,11 @@ Accept: application/json
 
 ###
 
+GET http://localhost:8080/pharmacy/5
+Accept: application/json
+
+###
+
 GET http://localhost:8080/pharmacy/5/bankAccount
 Accept: application/json
 

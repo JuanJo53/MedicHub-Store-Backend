@@ -2,10 +2,7 @@ package bo.ucb.edu.medichub.api;
 
 import bo.ucb.edu.medichub.bl.PharmacyBl;
 import bo.ucb.edu.medichub.bl.TransactionBl;
-import bo.ucb.edu.medichub.dto.BankAccountRequest;
-import bo.ucb.edu.medichub.dto.PharmacyListRequest;
-import bo.ucb.edu.medichub.dto.PharmacyRequest;
-import bo.ucb.edu.medichub.dto.SubsidiaryListRequest;
+import bo.ucb.edu.medichub.dto.*;
 import bo.ucb.edu.medichub.model.Transaction;
 import bo.ucb.edu.medichub.util.TransactionUtil;
 import org.slf4j.Logger;
@@ -62,6 +59,12 @@ public class PharmacyApi {
     public List<PharmacyListRequest> getPharmacies() {
         List<PharmacyListRequest> pharmacies=pharmacyBl.getPharmacies();
         return pharmacies;
+    }
+
+    @GetMapping(path="/{pharmacyId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public PharmacyRequest findPharmacyById(@PathVariable String pharmacyId){
+        PharmacyRequest pharmacy = pharmacyBl.findPharmacyById(Integer.parseInt(pharmacyId));
+        return pharmacy;
     }
 
     @GetMapping(path="/{pharmacyId}/bankAccount", produces = MediaType.APPLICATION_JSON_VALUE)

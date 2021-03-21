@@ -17,6 +17,7 @@ public interface PharmacyDao {
     public List<PharmacyListRequest> getPharmacies();
     public List<BankAccountRequest> getPharmacyBankAccounts(Integer pharmacyId);
     public List<SubsidiaryListRequest> getSubsidiariesByPharmacy(Integer pharmacyId);
+    public PharmacyRequest findPharmacyById(Integer pharmacyId);
 }
 
 

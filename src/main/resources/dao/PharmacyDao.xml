@@ -49,6 +49,18 @@
         <result column="name" property="name"/>
     </resultMap>
 
+    <select id="findPharmacyById" resultType="bo.ucb.edu.medichub.dto.PharmacyRequest">
+        SELECT
+            pharmacy_id as pharmacyId,
+            name as name,
+            phone as phone,
+            email as email
+        FROM pharmacy
+        WHERE
+            pharmacy_id = #{pharmacyId}
+            and status = 1
+    </select>
+
     <select id="getPharmacyBankAccounts" resultMap="pharmacyBankAccountsMap">
 
         select
