@@ -30,7 +30,7 @@
         pharmacy_id as pharmacyId,
         account_number as accountNumber,
         bank as bank,
-        account_type as account_type
+        account_type as accountType
         FROM bank_account
         WHERE
         bank_account_id = #{bankAccountId}
