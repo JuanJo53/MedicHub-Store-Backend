@@ -1,5 +1,6 @@
 package bo.ucb.edu.medichub.dao;
 
+import bo.ucb.edu.medichub.dto.PersonListRequest;
 import bo.ucb.edu.medichub.dto.ProductListRequest;
 import bo.ucb.edu.medichub.dto.SubsidiaryRequest;
 import bo.ucb.edu.medichub.model.Subsidiary;
@@ -12,4 +13,5 @@ public interface SubsidiaryDao {
     public void createSubsidiary(Subsidiary subsidiary);
     public SubsidiaryRequest findSubsidiaryById(Integer subsidiaryId);
     public List<ProductListRequest> getProductsBySubsidiary(Integer subsidiaryId);
+    public List<PersonListRequest> getAdminsBySubsidiary(Integer subsidiaryId);
 }

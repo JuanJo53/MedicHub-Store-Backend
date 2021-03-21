@@ -25,3 +25,8 @@ GET http://localhost:8080/subsidiary/1/product
 Accept: application/json
 
 ###
+
+GET http://localhost:8080/subsidiary/4/admin
+Accept: application/json
+
+###

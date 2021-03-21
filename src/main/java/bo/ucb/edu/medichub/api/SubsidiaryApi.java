@@ -2,6 +2,7 @@ package bo.ucb.edu.medichub.api;
 
 import bo.ucb.edu.medichub.bl.SubsidiaryBl;
 import bo.ucb.edu.medichub.bl.TransactionBl;
+import bo.ucb.edu.medichub.dto.PersonListRequest;
 import bo.ucb.edu.medichub.dto.ProductListRequest;
 import bo.ucb.edu.medichub.dto.SubsidiaryRequest;
 import bo.ucb.edu.medichub.model.Transaction;
@@ -45,5 +46,11 @@ public class SubsidiaryApi {
     public List<ProductListRequest> getProductsBySubsidiary(@PathVariable String subsidiaryId){
         List<ProductListRequest> products = subsidiaryBl.getProductsBySubsidiary(Integer.parseInt(subsidiaryId));
         return products;
+    }
+
+    @GetMapping(path="/{subsidiaryId}/admin", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<PersonListRequest> getAdminsBySubsidiary(@PathVariable String subsidiaryId){
+        List<PersonListRequest> admins = subsidiaryBl.getAdminsBySubsidiary(Integer.parseInt(subsidiaryId));
+        return admins;
     }
 }

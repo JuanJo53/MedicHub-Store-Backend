@@ -3,6 +3,7 @@ package bo.ucb.edu.medichub.bl;
 import bo.ucb.edu.medichub.dao.AddressDao;
 import bo.ucb.edu.medichub.dao.SubsidiaryDao;
 import bo.ucb.edu.medichub.dao.TransactionDao;
+import bo.ucb.edu.medichub.dto.PersonListRequest;
 import bo.ucb.edu.medichub.dto.ProductListRequest;
 import bo.ucb.edu.medichub.dto.SubsidiaryRequest;
 import bo.ucb.edu.medichub.model.Address;
@@ -58,5 +59,10 @@ public class SubsidiaryBl {
     public List<ProductListRequest> getProductsBySubsidiary(Integer subsidiaryId){
         List<ProductListRequest> products = subsidiaryDao.getProductsBySubsidiary(subsidiaryId);
         return products;
+    }
+
+    public List<PersonListRequest> getAdminsBySubsidiary(Integer subsidiaryId){
+        List<PersonListRequest> admins = subsidiaryDao.getAdminsBySubsidiary(subsidiaryId);
+        return  admins;
     }
 }
