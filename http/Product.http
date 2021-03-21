@@ -1,0 +1,14 @@
+POST http://localhost:8080/product
+Accept: application/json
+Content-Type: application/json
+
+{
+  "subsidiaryId": 1,
+  "brandId": 1,
+  "name": "Paracetamol",
+  "stock": "300",
+  "price": "0.20",
+  "type": "tableta",
+  "dose": "200 ml gr",
+  "description": "Calmante, utilizado para todo tipo de dolor"
+}
