@@ -9,4 +9,31 @@
             1, #{transaction.txId}, #{transaction.txHost}, #{transaction.txUserId}, #{transaction.txDate}
         )
     </insert>
+
+    <update id="updatePharmacyAdmin" parameterType="bo.ucb.edu.medichub.model.PharmacyAdmin">
+        UPDATE pharmacy_admin set
+            subsidiary_id=#{subsidiaryId},
+            email=#{email},
+            user_name=#{userName},
+            password=#{password},
+            tx_id=#{transaction.txId},
+            tx_host=#{transaction.txHost},
+            tx_user_id=#{transaction.txUserId},
+            tx_date=#{transaction.txDate}
+        WHERE
+        person_id=#{personId} and
+        status=1
+    </update>
+
+    <update id="deletePharmacyAdmin" parameterType="bo.ucb.edu.medichub.model.PharmacyAdmin">
+        UPDATE pharmacy_admin set
+            status=#{status},
+            tx_id=#{transaction.txId},
+            tx_host=#{transaction.txHost},
+            tx_user_id=#{transaction.txUserId},
+            tx_date=#{transaction.txDate}
+        WHERE
+        person_id=#{personId} and
+        status=1
+    </update>
 </mapper>

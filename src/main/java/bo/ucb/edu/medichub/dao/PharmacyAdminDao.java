@@ -6,4 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface PharmacyAdminDao {
     public void createPharmacyAdmin(PharmacyAdmin pharmacyAdmin);
+
+    public void updatePharmacyAdmin(PharmacyAdmin pharmacyAdmin);
+
+    void deletePharmacyAdmin(PharmacyAdmin pharmacyAdmin);
 }

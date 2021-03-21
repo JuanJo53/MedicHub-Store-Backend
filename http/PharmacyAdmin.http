@@ -13,3 +13,29 @@ Content-Type: application/json
   "userName": "SergioLara",
   "password": "abc12345"
 }
+
+###
+
+PUT http://localhost:8080/pharmacyAdmin
+Accept: application/json
+Content-Type: application/json
+
+{
+  "personId": 3,
+  "subsidiaryId": 1,
+  "firstName": "Juana",
+  "firstSurname": "Perez",
+  "secondSurname": "Lujan",
+  "ci": "12459635 LP",
+  "phone": "+591 78596312",
+  "email": "juanperez@gmail.com",
+  "userName": "JuanitoAlcachofa",
+  "password": "abc1234"
+}
+
+###
+
+DELETE http://localhost:8080/pharmacyAdmin/3
+Accept: application/json
+
+###

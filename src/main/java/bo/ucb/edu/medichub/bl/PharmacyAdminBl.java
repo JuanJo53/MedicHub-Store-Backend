@@ -5,6 +5,7 @@ import bo.ucb.edu.medichub.dao.PharmacyAdminDao;
 import bo.ucb.edu.medichub.dao.TransactionDao;
 import bo.ucb.edu.medichub.dto.PharmacyAdminRequest;
 import bo.ucb.edu.medichub.model.Person;
+import bo.ucb.edu.medichub.model.Pharmacy;
 import bo.ucb.edu.medichub.model.PharmacyAdmin;
 import bo.ucb.edu.medichub.model.Transaction;
 import org.slf4j.Logger;
@@ -50,5 +51,41 @@ public class PharmacyAdminBl {
 
         return pharmacyAdminRequest;
 
+    }
+
+
+    public PharmacyAdminRequest updatePharmacyAdmin(PharmacyAdminRequest pharmacyAdminRequest, Transaction transaction){
+        PharmacyAdmin pharmacyAdmin = new PharmacyAdmin();
+        Person person = new Person();
+        person.setPersonId(pharmacyAdminRequest.getPersonId());
+        person.setFirstName(pharmacyAdminRequest.getFirstName());
+        person.setFirstSurname(pharmacyAdminRequest.getFirstSurname());
+        person.setSecondSurname(pharmacyAdminRequest.getSecondSurname());
+        person.setCi(pharmacyAdminRequest.getCi());
+        person.setPhone(pharmacyAdminRequest.getPhone());
+        person.setTransaction(transaction);
+        personDao.updatePerson(person);
+        pharmacyAdmin.setPersonId(pharmacyAdminRequest.getPersonId());
+        pharmacyAdmin.setSubsidiaryId(pharmacyAdminRequest.getSubsidiaryId());
+        pharmacyAdmin.setEmail(pharmacyAdminRequest.getEmail());
+        pharmacyAdmin.setUserName(pharmacyAdminRequest.getUserName());
+        pharmacyAdmin.setPassword(pharmacyAdminRequest.getPassword());
+        pharmacyAdmin.setTransaction(transaction);
+        pharmacyAdminDao.updatePharmacyAdmin(pharmacyAdmin);
+        return pharmacyAdminRequest;
+    }
+
+    public void deletePerson(Integer personId, Transaction transaction) {
+        Person person= new Person();
+        PharmacyAdmin pharmacyAdmin=new PharmacyAdmin();
+        person.setStatus(0);
+        person.setPersonId(personId);
+        person.setTransaction(transaction);
+        personDao.deletePerson(person);
+
+        pharmacyAdmin.setStatus(0);
+        pharmacyAdmin.setPersonId(personId);
+        pharmacyAdmin.setTransaction(transaction);
+        pharmacyAdminDao.deletePharmacyAdmin(pharmacyAdmin);
     }
 }
