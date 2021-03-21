@@ -2,10 +2,7 @@ package bo.ucb.edu.medichub.bl;
 
 import bo.ucb.edu.medichub.dao.PharmacyDao;
 import bo.ucb.edu.medichub.dao.TransactionDao;
-import bo.ucb.edu.medichub.dto.BankAccountRequest;
-import bo.ucb.edu.medichub.dto.PharmacyListRequest;
-import bo.ucb.edu.medichub.dto.PharmacyRequest;
-import bo.ucb.edu.medichub.dto.SubsidiaryListRequest;
+import bo.ucb.edu.medichub.dto.*;
 import bo.ucb.edu.medichub.model.Pharmacy;
 import bo.ucb.edu.medichub.model.Transaction;
 import org.slf4j.Logger;
@@ -74,8 +71,8 @@ public class PharmacyBl {
         return  pharmacyRequest;
     }
 
-    public List<BankAccountRequest> getPharmacyBankAccounts(Integer pharmacyId){
-        List<BankAccountRequest> bankAccounts = pharmacyDao.getPharmacyBankAccounts(pharmacyId);
+    public List<BankAccountListRequest> getPharmacyBankAccounts(Integer pharmacyId){
+        List<BankAccountListRequest> bankAccounts = pharmacyDao.getPharmacyBankAccounts(pharmacyId);
         return bankAccounts;
     }
 

@@ -1,9 +1,6 @@
 package bo.ucb.edu.medichub.dao;
 
-import bo.ucb.edu.medichub.dto.BankAccountRequest;
-import bo.ucb.edu.medichub.dto.PharmacyListRequest;
-import bo.ucb.edu.medichub.dto.PharmacyRequest;
-import bo.ucb.edu.medichub.dto.SubsidiaryListRequest;
+import bo.ucb.edu.medichub.dto.*;
 import bo.ucb.edu.medichub.model.Pharmacy;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -15,7 +12,7 @@ public interface PharmacyDao {
     public void updatePharmacy(Pharmacy pharmacy);
     public void deletePharmacy(Pharmacy pharmacy);
     public List<PharmacyListRequest> getPharmacies();
-    public List<BankAccountRequest> getPharmacyBankAccounts(Integer pharmacyId);
+    public List<BankAccountListRequest> getPharmacyBankAccounts(Integer pharmacyId);
     public List<SubsidiaryListRequest> getSubsidiariesByPharmacy(Integer pharmacyId);
     public PharmacyRequest findPharmacyById(Integer pharmacyId);
 }

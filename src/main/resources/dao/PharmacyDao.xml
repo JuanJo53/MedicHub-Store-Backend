@@ -65,19 +65,15 @@
 
         select
             bank_account_id as bankAccountId,
-            account_number as accountNumber,
-            bank as bank,
-            account_type as accountType
+            account_number as accountNumber
         from bank_account
         where pharmacy_id=#{pharmacyId}
         and status = 1
     </select>
 
-    <resultMap id="pharmacyBankAccountsMap" type="bo.ucb.edu.medichub.dto.BankAccountRequest">
+    <resultMap id="pharmacyBankAccountsMap" type="bo.ucb.edu.medichub.dto.BankAccountListRequest">
         <result column="bankAccountId" property="bankAccountId"/>
         <result column="accountNumber" property="accountNumber"/>
-        <result column="bank" property="bank"/>
-        <result column="accountType" property="accountType"/>
     </resultMap>
 
     <select id="getSubsidiariesByPharmacy" resultMap="subsidiariesMap">
