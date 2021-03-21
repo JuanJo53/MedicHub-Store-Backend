@@ -36,4 +36,15 @@
         <result column="brandId" property="brandId"/>
         <result column="name" property="name"/>
     </resultMap>
+
+    <select id="findBrandById" resultType="bo.ucb.edu.medichub.dto.BrandRequest">
+        SELECT
+            brand_id as brandId,
+            name as name,
+            phone as phone,
+            email as email
+        FROM brand
+        WHERE brand_id = #{brandId}
+        and status = 1
+    </select>
 </mapper>

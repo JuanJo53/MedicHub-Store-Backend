@@ -49,4 +49,9 @@ public class BrandBl {
         List<BrandListRequest> brands = brandDao.getBrands();
         return brands;
     }
+
+    public BrandRequest findBrandById(Integer brandId){
+        BrandRequest brand = brandDao.findBrandById(brandId);
+        return brand;
+    }
 }

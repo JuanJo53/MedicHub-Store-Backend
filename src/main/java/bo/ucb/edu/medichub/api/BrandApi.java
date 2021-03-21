@@ -49,4 +49,10 @@ public class BrandApi {
         List<BrandListRequest> brands = brandBl.getBrands();
         return brands;
     }
+
+    @GetMapping(path="/{brandId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public BrandRequest findBrandById(@PathVariable String brandId){
+        BrandRequest brand = brandBl.findBrandById(Integer.parseInt(brandId));
+        return brand;
+    }
 }
