@@ -12,3 +12,29 @@ Content-Type: application/json
   "dose": "200 ml gr",
   "description": "Calmante, utilizado para todo tipo de dolor"
 }
+
+###
+
+PUT http://localhost:8080/product
+Accept: application/json
+Content-Type: application/json
+
+{
+  "productId": 2,
+  "subsidiaryId": 1,
+  "brandId": 1,
+  "name": "Paracetamol",
+  "stock": "250",
+  "price": "0.50",
+  "type": "tableta",
+  "dose": "200 ml gr",
+  "description": "Calmante, utilizado para todo tipo de dolor y apto para todas las personas"
+}
+
+###
+
+
+DELETE http://localhost:8080/product/2
+Accept: application/json
+
+###

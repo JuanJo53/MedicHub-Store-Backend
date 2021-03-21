@@ -9,4 +9,35 @@
             1, #{transaction.txId}, #{transaction.txHost}, #{transaction.txUserId}, #{transaction.txDate}
         )
     </insert>
+
+    <update id="updateProduct" parameterType="bo.ucb.edu.medichub.model.Product">
+        UPDATE product set
+        subsidiary_id=#{subsidiaryId},
+        brand_id=#{brandId},
+        name=#{name},
+        stock=#{stock},
+        price=#{price},
+        type=#{type},
+        dose=#{dose},
+        description=#{description},
+        tx_id=#{transaction.txId},
+        tx_host=#{transaction.txHost},
+        tx_user_id=#{transaction.txUserId},
+        tx_date=#{transaction.txDate}
+        WHERE
+        product_id=#{productId} and
+        status=1
+    </update>
+
+    <update id="deleteProduct" parameterType="bo.ucb.edu.medichub.model.Product">
+        UPDATE product set
+        status=#{status},
+        tx_id=#{transaction.txId},
+        tx_host=#{transaction.txHost},
+        tx_user_id=#{transaction.txUserId},
+        tx_date=#{transaction.txDate}
+        WHERE
+        product_id=#{productId} and
+        status=1
+    </update>
 </mapper>
