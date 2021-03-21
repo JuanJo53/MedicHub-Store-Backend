@@ -39,19 +39,14 @@
 
         select
             pharmacy_id as pharmacyId,
-            name as name,
-            phone as phone,
-            email as email,
-            status as status
+            name as name
         from pharmacy
         where status = 1
     </select>
 
-    <resultMap id="pharmaciesMap" type="bo.ucb.edu.medichub.dto.PharmacyRequest">
+    <resultMap id="pharmaciesMap" type="bo.ucb.edu.medichub.dto.PharmacyListRequest">
         <result column="pharmacyId" property="pharmacyId"/>
         <result column="name" property="name"/>
-        <result column="phone" property="phone"/>
-        <result column="email" property="email"/>
     </resultMap>
 
     <select id="getPharmacyBankAccounts" resultMap="pharmacyBankAccountsMap">

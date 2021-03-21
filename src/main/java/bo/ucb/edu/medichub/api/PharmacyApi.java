@@ -3,6 +3,7 @@ package bo.ucb.edu.medichub.api;
 import bo.ucb.edu.medichub.bl.PharmacyBl;
 import bo.ucb.edu.medichub.bl.TransactionBl;
 import bo.ucb.edu.medichub.dto.BankAccountRequest;
+import bo.ucb.edu.medichub.dto.PharmacyListRequest;
 import bo.ucb.edu.medichub.dto.PharmacyRequest;
 import bo.ucb.edu.medichub.dto.SubsidiaryListRequest;
 import bo.ucb.edu.medichub.model.Transaction;
@@ -58,8 +59,8 @@ public class PharmacyApi {
     }
 
     @RequestMapping(method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<PharmacyRequest> getPharmacies() {
-        List<PharmacyRequest> pharmacies=pharmacyBl.getPharmacies();
+    public List<PharmacyListRequest> getPharmacies() {
+        List<PharmacyListRequest> pharmacies=pharmacyBl.getPharmacies();
         return pharmacies;
     }
 

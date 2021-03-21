@@ -3,6 +3,7 @@ package bo.ucb.edu.medichub.bl;
 import bo.ucb.edu.medichub.dao.PharmacyDao;
 import bo.ucb.edu.medichub.dao.TransactionDao;
 import bo.ucb.edu.medichub.dto.BankAccountRequest;
+import bo.ucb.edu.medichub.dto.PharmacyListRequest;
 import bo.ucb.edu.medichub.dto.PharmacyRequest;
 import bo.ucb.edu.medichub.dto.SubsidiaryListRequest;
 import bo.ucb.edu.medichub.model.Pharmacy;
@@ -63,8 +64,8 @@ public class PharmacyBl {
         pharmacyDao.deletePharmacy(pharmacy);
     }
 
-    public List<PharmacyRequest> getPharmacies(){
-        List<PharmacyRequest> pharmacies = pharmacyDao.getPharmacies();
+    public List<PharmacyListRequest> getPharmacies(){
+        List<PharmacyListRequest> pharmacies = pharmacyDao.getPharmacies();
         return pharmacies;
     }
 
