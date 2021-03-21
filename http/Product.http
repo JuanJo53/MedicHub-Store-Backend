@@ -38,3 +38,8 @@ DELETE http://localhost:8080/product/2
 Accept: application/json
 
 ###
+
+GET http://localhost:8080/product/2
+Accept: application/json
+
+###

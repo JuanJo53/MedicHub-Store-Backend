@@ -3,6 +3,7 @@ package bo.ucb.edu.medichub.bl;
 import bo.ucb.edu.medichub.dao.ProductDao;
 import bo.ucb.edu.medichub.dao.TransactionDao;
 import bo.ucb.edu.medichub.dto.ProductRequest;
+import bo.ucb.edu.medichub.dto.ProductResponse;
 import bo.ucb.edu.medichub.model.Pharmacy;
 import bo.ucb.edu.medichub.model.Product;
 import bo.ucb.edu.medichub.model.Transaction;
@@ -60,5 +61,8 @@ public class ProductBl {
         productDao.deleteProduct(product);
     }
 
-
+    public ProductResponse findProductById(Integer productId){
+        ProductResponse product = productDao.findProductById(productId);
+        return  product;
+    }
 }

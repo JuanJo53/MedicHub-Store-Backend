@@ -3,6 +3,7 @@ package bo.ucb.edu.medichub.api;
 import bo.ucb.edu.medichub.bl.ProductBl;
 import bo.ucb.edu.medichub.bl.TransactionBl;
 import bo.ucb.edu.medichub.dto.ProductRequest;
+import bo.ucb.edu.medichub.dto.ProductResponse;
 import bo.ucb.edu.medichub.model.Transaction;
 import bo.ucb.edu.medichub.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,5 +51,11 @@ public class ProductApi {
         transactionBl.createTransaction(transaction);
         productBl.deleteProduct(Integer.parseInt(productId),transaction);
         return HttpStatus.ACCEPTED;
+    }
+
+    @GetMapping(path="/{productId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ProductResponse findProductById(@PathVariable String productId){
+        ProductResponse product = productBl.findProductById(Integer.parseInt(productId));
+        return product;
     }
 }
