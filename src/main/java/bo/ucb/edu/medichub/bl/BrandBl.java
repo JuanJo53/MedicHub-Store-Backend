@@ -30,4 +30,15 @@ public class BrandBl {
 
         return brandRequest;
     }
+
+    public BrandRequest updateBrand(BrandRequest brandRequest, Transaction transaction){
+        Brand brand = new Brand();
+        brand.setBrandId(brandRequest.getBrandId());
+        brand.setName(brandRequest.getName());
+        brand.setPhone(brandRequest.getPhone());
+        brand.setEmail(brandRequest.getEmail());
+        brand.setTransaction(transaction);
+        brandDao.updateBrand(brand);
+        return brandRequest;
+    }
 }

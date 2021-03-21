@@ -32,4 +32,13 @@ public class BrandApi {
         BrandRequest brandResponse = brandBl.createBrand(brandRequest, transaction);
         return brandResponse;
     }
+
+    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public BrandRequest updateSubsidiary(@RequestBody BrandRequest brandRequest, HttpServletRequest request) {
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction(transaction);
+        BrandRequest brandResponse = brandBl.updateBrand(brandRequest, transaction);
+        return brandResponse;
+    }
 }

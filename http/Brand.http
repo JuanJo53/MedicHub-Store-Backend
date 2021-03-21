@@ -9,3 +9,18 @@ Content-Type: application/json
 }
 
 ###
+
+
+PUT http://localhost:8080/brand
+Accept: application/json
+Content-Type: application/json
+
+{
+  "brandId": 1,
+  "name": "Laboratorios Vita",
+  "phone": "+591 2522222",
+  "email": "vita@email.com"
+}
+
+###
+

@@ -6,4 +6,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface BrandDao {
     public void createBrand(Brand brand);
+    public void updateBrand(Brand brand);
 }
