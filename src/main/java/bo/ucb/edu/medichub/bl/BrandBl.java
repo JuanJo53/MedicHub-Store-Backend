@@ -1,0 +1,33 @@
+package bo.ucb.edu.medichub.bl;
+
+import bo.ucb.edu.medichub.dao.BrandDao;
+import bo.ucb.edu.medichub.dao.TransactionDao;
+import bo.ucb.edu.medichub.dto.BrandRequest;
+import bo.ucb.edu.medichub.model.Brand;
+import bo.ucb.edu.medichub.model.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class BrandBl {
+    private BrandDao brandDao;
+    private TransactionDao transactionDao;
+
+    @Autowired
+    public BrandBl(BrandDao brandDao, TransactionDao transactionDao) {
+        this.brandDao = brandDao;
+        this.transactionDao = transactionDao;
+    }
+
+    public BrandRequest createBrand(BrandRequest brandRequest, Transaction transaction){
+        Brand brand = new Brand();
+
+        brand.setName(brandRequest.getName());
+        brand.setPhone(brandRequest.getPhone());
+        brand.setEmail(brandRequest.getEmail());
+        brand.setTransaction(transaction);
+        brandDao.createBrand(brand);
+
+        return brandRequest;
+    }
+}

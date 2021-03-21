@@ -1,0 +1,11 @@
+POST http://localhost:8080/brand
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Laboratorios Vita",
+  "phone": "+591 25489613",
+  "email": "vita@email.com"
+}
+
+###
