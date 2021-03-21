@@ -1,0 +1,15 @@
+POST http://localhost:8080/subsidiary
+Accept: application/json
+Content-Type: application/json
+
+{
+  "pharmacyId": 1,
+  "subsidiaryName": "Farmacias Bolivia - El Prado",
+  "phone": "+591 24981657",
+  "email": "farmaBol-Prado@gmail.com",
+  "number": "158",
+  "street": "Mariscal Santa Cruz",
+  "zone": "El Prado",
+  "city": "La Paz",
+  "country": "Bolivia"
+}

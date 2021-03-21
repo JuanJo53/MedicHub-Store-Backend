@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bo.ucb.edu.medichub.dao.AddressDao">
+    <insert id="createAddress" parameterType="bo.ucb.edu.medichub.model.Address">
+        INSERT INTO address VALUES (
+            null, #{number}, #{street}, #{zone}, #{city}, #{country},
+            1, #{transaction.txId}, #{transaction.txHost}, #{transaction.txUserId}, #{transaction.txDate}
+        )
+    </insert>
+</mapper>
