@@ -74,4 +74,19 @@
         <result column="accountType" property="accountType"/>
     </resultMap>
 
+    <select id="getSubsidiariesByPharmacy" resultMap="subsidiariesMap">
+
+        select
+            subsidiary_id as subsidiaryId,
+            subsidiary_name as subsidiaryName
+        from subsidiary
+        where pharmacy_id=#{pharmacyId}
+          and status = 1
+    </select>
+
+    <resultMap id="subsidiariesMap" type="bo.ucb.edu.medichub.dto.SubsidiaryListRequest">
+        <result column="subsidiaryId" property="subsidiaryId"/>
+        <result column="subsidiaryName" property="subsidiaryName"/>
+    </resultMap>
+
 </mapper>

@@ -4,6 +4,7 @@ import bo.ucb.edu.medichub.dao.PharmacyDao;
 import bo.ucb.edu.medichub.dao.TransactionDao;
 import bo.ucb.edu.medichub.dto.BankAccountRequest;
 import bo.ucb.edu.medichub.dto.PharmacyRequest;
+import bo.ucb.edu.medichub.dto.SubsidiaryListRequest;
 import bo.ucb.edu.medichub.model.BankAccount;
 import bo.ucb.edu.medichub.model.Pharmacy;
 import bo.ucb.edu.medichub.model.Transaction;
@@ -74,7 +75,10 @@ public class PharmacyBl {
         return bankAccounts;
     }
 
-
+    public List<SubsidiaryListRequest> getSubsidariesByPharmacy(Integer pharmacyId){
+        List<SubsidiaryListRequest> subsidaries = pharmacyDao.getSubsidiariesByPharmacy(pharmacyId);
+        return subsidaries;
+    }
 }
 
 
