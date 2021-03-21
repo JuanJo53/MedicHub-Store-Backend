@@ -11,12 +11,11 @@
     </insert>
     <update id="deletePharmacy" parameterType="bo.ucb.edu.medichub.model.Pharmacy">
         UPDATE pharmacy set
-
-        status=#{status},
-        tx_id=#{transaction.txId},
-        tx_host=#{transaction.txHost},
-        tx_user_id=#{transaction.txUserId},
-        tx_date=#{transaction.txDate}
+            status=#{status},
+            tx_id=#{transaction.txId},
+            tx_host=#{transaction.txHost},
+            tx_user_id=#{transaction.txUserId},
+            tx_date=#{transaction.txDate}
         WHERE
         pharmacy_id=#{pharmacyId} and
         status=1
@@ -24,13 +23,13 @@
 
     <update id="updatePharmacy" parameterType="bo.ucb.edu.medichub.model.Pharmacy">
         UPDATE pharmacy set
-        name=#{name},
-        phone=#{phone},
-        email=#{email},
-        tx_id=#{transaction.txId},
-        tx_host=#{transaction.txHost},
-        tx_user_id=#{transaction.txUserId},
-        tx_date=#{transaction.txDate}
+            name=#{name},
+            phone=#{phone},
+            email=#{email},
+            tx_id=#{transaction.txId},
+            tx_host=#{transaction.txHost},
+            tx_user_id=#{transaction.txUserId},
+            tx_date=#{transaction.txDate}
         WHERE
         pharmacy_id=#{pharmacyId} and
         status=1
@@ -58,10 +57,10 @@
     <select id="getPharmacyBankAccounts" resultMap="pharmacyBankAccountsMap">
 
         select
-        bank_account_id as bankAccountId,
-        account_number as accountNumber,
-        bank as bank,
-        account_type as accountType
+            bank_account_id as bankAccountId,
+            account_number as accountNumber,
+            bank as bank,
+            account_type as accountType
         from bank_account
         where pharmacy_id=#{pharmacyId}
         and status = 1

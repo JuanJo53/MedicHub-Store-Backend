@@ -8,8 +8,15 @@ Content-Type: application/json
   "phone": "+591 24981657",
   "email": "farmaCha-Sopocachi@gmail.com",
   "number": "158",
-  "street": "Mariscal Santa Cruz",
-  "zone": "El Prado",
+  "street": "Aspiazu",
+  "zone": "Sopocachi",
   "city": "La Paz",
   "country": "Bolivia"
 }
+
+###
+
+GET http://localhost:8080/subsidiary/4
+Accept: application/json
+
+###

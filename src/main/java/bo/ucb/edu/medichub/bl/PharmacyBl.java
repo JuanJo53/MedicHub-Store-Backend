@@ -5,7 +5,6 @@ import bo.ucb.edu.medichub.dao.TransactionDao;
 import bo.ucb.edu.medichub.dto.BankAccountRequest;
 import bo.ucb.edu.medichub.dto.PharmacyRequest;
 import bo.ucb.edu.medichub.dto.SubsidiaryListRequest;
-import bo.ucb.edu.medichub.model.BankAccount;
 import bo.ucb.edu.medichub.model.Pharmacy;
 import bo.ucb.edu.medichub.model.Transaction;
 import org.slf4j.Logger;
@@ -13,7 +12,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 
 @Service

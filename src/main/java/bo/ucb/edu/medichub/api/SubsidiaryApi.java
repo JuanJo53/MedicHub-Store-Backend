@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -31,5 +32,11 @@ public class SubsidiaryApi {
         transactionBl.createTransaction(transaction);
         SubsidiaryRequest subsidiaryResponse = subsidiaryBl.createSubsidiary(subsidiaryRequest, transaction);
         return subsidiaryResponse;
+    }
+
+    @GetMapping(path="/{subsidiaryId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public SubsidiaryRequest findSubsidiaryById(@PathVariable String subsidiaryId){
+        SubsidiaryRequest subsidiary = subsidiaryBl.findSubsidiaryById(Integer.parseInt(subsidiaryId));
+        return subsidiary;
     }
 }

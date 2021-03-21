@@ -46,4 +46,9 @@ public class SubsidiaryBl {
 
         return subsidiaryRequest;
     }
+
+    public SubsidiaryRequest findSubsidiaryById(Integer subsidiaryId){
+        SubsidiaryRequest subsidiaryRequest = subsidiaryDao.findSubsidiaryById(subsidiaryId);
+        return subsidiaryRequest;
+    }
 }

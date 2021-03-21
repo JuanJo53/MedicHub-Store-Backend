@@ -5,7 +5,6 @@ import bo.ucb.edu.medichub.bl.TransactionBl;
 import bo.ucb.edu.medichub.dto.BankAccountRequest;
 import bo.ucb.edu.medichub.dto.PharmacyRequest;
 import bo.ucb.edu.medichub.dto.SubsidiaryListRequest;
-import bo.ucb.edu.medichub.model.Pharmacy;
 import bo.ucb.edu.medichub.model.Transaction;
 import bo.ucb.edu.medichub.util.TransactionUtil;
 import org.slf4j.Logger;

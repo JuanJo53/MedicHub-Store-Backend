@@ -9,4 +9,22 @@
             1, #{transaction.txId}, #{transaction.txHost}, #{transaction.txUserId}, #{transaction.txDate}
         )
     </insert>
+
+    <select id="findSubsidiaryById" resultType="bo.ucb.edu.medichub.dto.SubsidiaryRequest">
+        SELECT
+            a.subsidiary_id as subsidiaryId,
+            a.subsidiary_name as subsidiaryName,
+            a.phone as phone,
+            a.email as email,
+            b.number as number,
+            b.street as street,
+            b.zone as zone,
+            b.city as city,
+            b.country as country
+        FROM subsidiary a, address b
+        WHERE
+            a.subsidiary_id = #{subsidiaryId}
+            and b.address_id = a.address_id
+            and a.status = 1
+    </select>
 </mapper>
