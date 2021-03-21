@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bo.ucb.edu.medichub.dao.PharmacyAdminDao">
+    <insert id="createPharmacyAdmin" parameterType="bo.ucb.edu.medichub.model.PharmacyAdmin">
+        INSERT INTO pharmacy_admin VALUES (
+            null, #{personId}, #{subsidiaryId}, #{email}, #{userName}, #{password}, #{picture},
+            1, #{transaction.txId}, #{transaction.txHost}, #{transaction.txUserId}, #{transaction.txDate}
+        )
+    </insert>
+</mapper>

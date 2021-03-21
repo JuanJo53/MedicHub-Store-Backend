@@ -1,0 +1,15 @@
+POST http://localhost:8080/pharmacyAdmin
+Accept: application/json
+Content-Type: application/json
+
+{
+  "subsidiaryId": 1,
+  "firstName": "Juan",
+  "firstSurname": "Perez",
+  "secondSurname": "Lujan",
+  "ci": "12459635 LP",
+  "phone": "+591 78596312",
+  "email": "juanperez@gmail.com",
+  "userName": "JuanitoAlcachofa",
+  "password": "abc12345"
+}
