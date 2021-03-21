@@ -39,3 +39,8 @@ DELETE http://localhost:8080/pharmacyAdmin/3
 Accept: application/json
 
 ###
+
+GET http://localhost:8080/pharmacyAdmin/3
+Accept: application/json
+
+###

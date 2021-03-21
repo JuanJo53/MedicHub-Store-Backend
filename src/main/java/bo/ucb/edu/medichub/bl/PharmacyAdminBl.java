@@ -88,4 +88,9 @@ public class PharmacyAdminBl {
         pharmacyAdmin.setTransaction(transaction);
         pharmacyAdminDao.deletePharmacyAdmin(pharmacyAdmin);
     }
+
+    public PharmacyAdminRequest findAdminById(Integer pharmacyId){
+        PharmacyAdminRequest admin = pharmacyAdminDao.findAdminById(pharmacyId);
+        return admin;
+    }
 }

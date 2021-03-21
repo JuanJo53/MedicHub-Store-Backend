@@ -49,4 +49,10 @@ public class PharmacyAdminApi {
         pharmacyAdminBl.deletePerson(Integer.parseInt(personId),transaction);
         return HttpStatus.ACCEPTED;
     }
+
+    @GetMapping(path="/{pharmacyId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public PharmacyAdminRequest findAdminById(@PathVariable String pharmacyId){
+        PharmacyAdminRequest admin = pharmacyAdminBl.findAdminById(Integer.parseInt(pharmacyId));
+        return admin;
+    }
 }
