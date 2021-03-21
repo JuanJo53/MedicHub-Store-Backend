@@ -3,12 +3,15 @@ package bo.ucb.edu.medichub.bl;
 import bo.ucb.edu.medichub.dao.AddressDao;
 import bo.ucb.edu.medichub.dao.SubsidiaryDao;
 import bo.ucb.edu.medichub.dao.TransactionDao;
+import bo.ucb.edu.medichub.dto.ProductListRequest;
 import bo.ucb.edu.medichub.dto.SubsidiaryRequest;
 import bo.ucb.edu.medichub.model.Address;
 import bo.ucb.edu.medichub.model.Subsidiary;
 import bo.ucb.edu.medichub.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class SubsidiaryBl {
@@ -50,5 +53,10 @@ public class SubsidiaryBl {
     public SubsidiaryRequest findSubsidiaryById(Integer subsidiaryId){
         SubsidiaryRequest subsidiaryRequest = subsidiaryDao.findSubsidiaryById(subsidiaryId);
         return subsidiaryRequest;
+    }
+
+    public List<ProductListRequest> getProductsBySubsidiary(Integer subsidiaryId){
+        List<ProductListRequest> products = subsidiaryDao.getProductsBySubsidiary(subsidiaryId);
+        return products;
     }
 }

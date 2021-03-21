@@ -27,4 +27,22 @@
             and b.address_id = a.address_id
             and a.status = 1
     </select>
+
+    <select id="getProductsBySubsidiary" resultMap="productsMap">
+
+        select
+            a.product_id as productId,
+            b.name as brandName,
+            a.name as name
+        from product a, brand b
+        where subsidiary_id = #{subsidiaryId}
+            and a.brand_id = b.brand_id
+            and a.status = 1
+    </select>
+
+    <resultMap id="productsMap" type="bo.ucb.edu.medichub.dto.ProductListRequest">
+        <result column="productId" property="productId"/>
+        <result column="brandName" property="brandName"/>
+        <result column="name" property="name"/>
+    </resultMap>
 </mapper>
