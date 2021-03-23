@@ -23,7 +23,7 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:8080/pharmacy/3
+DELETE http://localhost:8080/pharmacy/1
 Accept: application/json
 
 ###
