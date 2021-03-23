@@ -1,9 +1,10 @@
 package bo.ucb.edu.medichub.model;
 
 public class BankAccount {
+
     private Integer bankAccountId;
     private Integer pharmacyId;
-    private int accountNumber;
+    private Integer accountNumber;
     private String bank;
     private String accountType;
     private Integer status;
@@ -28,11 +29,11 @@ public class BankAccount {
         this.pharmacyId = pharmacyId;
     }
 
-    public int getAccountNumber() {
+    public Integer getAccountNumber() {
         return accountNumber;
     }
 
-    public void setAccountNumber(int accountNumber) {
+    public void setAccountNumber(Integer accountNumber) {
         this.accountNumber = accountNumber;
     }
 

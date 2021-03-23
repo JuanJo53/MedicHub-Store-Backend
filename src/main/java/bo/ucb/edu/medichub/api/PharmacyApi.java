@@ -10,9 +10,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -40,11 +42,16 @@ public class PharmacyApi {
     }
 
     @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-    public PharmacyRequest updatePharmacy(@RequestBody PharmacyRequest pharmacyRequest, HttpServletRequest request) {
-        Transaction transaction = TransactionUtil.createTransaction(request);
-        transactionBl.createTransaction(transaction);
-        pharmacyBl.updatePharmacy(pharmacyRequest,transaction);
-        return pharmacyRequest;
+    public HttpStatus updatePharmacy(@Valid @RequestBody PharmacyRequest pharmacyRequest, HttpServletRequest request,
+                                          BindingResult result) {
+        if(!result.hasErrors()){
+            Transaction transaction = TransactionUtil.createTransaction(request);
+            transactionBl.createTransaction(transaction);
+            pharmacyBl.updatePharmacy(pharmacyRequest,transaction);
+            return HttpStatus.OK;
+        } else {
+            return HttpStatus.BAD_REQUEST;
+        }
     }
 
     @DeleteMapping(path="/{pharmacyId}", produces = MediaType.APPLICATION_JSON_VALUE)
