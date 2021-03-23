@@ -15,7 +15,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "pharmacyId": 4,
+  "pharmacyId": "",
   "name": "Farmacias Juanes",
   "phone": "+591 2469351",
   "email": "farmacia-Boli@gmail.com"

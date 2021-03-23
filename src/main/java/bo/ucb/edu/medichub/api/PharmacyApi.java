@@ -43,15 +43,15 @@ public class PharmacyApi {
     }
 
     @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity updatePharmacy(@Valid @RequestBody PharmacyRequest pharmacyRequest, HttpServletRequest request,
+    public HttpStatus updatePharmacy(@Valid @RequestBody PharmacyRequest pharmacyRequest, HttpServletRequest request,
                                           BindingResult result) {
         if(!result.hasErrors()){
             Transaction transaction = TransactionUtil.createTransaction(request);
             transactionBl.createTransaction(transaction);
             pharmacyBl.updatePharmacy(pharmacyRequest,transaction);
-            return new ResponseEntity(HttpStatus.OK);
+            return HttpStatus.OK;
         } else {
-            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+            return HttpStatus.BAD_REQUEST;
         }
     }
 

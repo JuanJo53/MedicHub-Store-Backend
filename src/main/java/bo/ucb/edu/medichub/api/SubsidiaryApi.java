@@ -10,9 +10,11 @@ import bo.ucb.edu.medichub.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -30,20 +32,30 @@ public class SubsidiaryApi {
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public SubsidiaryRequest createSubsidiary(@RequestBody SubsidiaryRequest subsidiaryRequest, HttpServletRequest request) {
-        Transaction transaction = TransactionUtil.createTransaction(request);
-        transactionBl.createTransaction(transaction);
-        SubsidiaryRequest subsidiaryResponse = subsidiaryBl.createSubsidiary(subsidiaryRequest, transaction);
-        return subsidiaryResponse;
+    public HttpStatus createSubsidiary(@Valid @RequestBody SubsidiaryRequest subsidiaryRequest, HttpServletRequest request,
+                                              BindingResult result) {
+        if(!result.hasErrors()){
+            Transaction transaction = TransactionUtil.createTransaction(request);
+            transactionBl.createTransaction(transaction);
+            SubsidiaryRequest subsidiaryResponse = subsidiaryBl.createSubsidiary(subsidiaryRequest, transaction);
+            return HttpStatus.OK;
+        } else {
+            return HttpStatus.BAD_REQUEST;
+        }
     }
 
     @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public SubsidiaryRequest updateSubsidiary(@RequestBody SubsidiaryRequest subsidiaryRequest, HttpServletRequest request) {
-        Transaction transaction = TransactionUtil.createTransaction(request);
-        transactionBl.createTransaction(transaction);
-        SubsidiaryRequest subsidiaryResponse = subsidiaryBl.updateSubsidiary(subsidiaryRequest, transaction);
-        return subsidiaryResponse;
+    public HttpStatus updateSubsidiary(@Valid @RequestBody SubsidiaryRequest subsidiaryRequest, HttpServletRequest request,
+                                              BindingResult result) {
+        if(!result.hasErrors()){
+            Transaction transaction = TransactionUtil.createTransaction(request);
+            transactionBl.createTransaction(transaction);
+            SubsidiaryRequest subsidiaryResponse = subsidiaryBl.updateSubsidiary(subsidiaryRequest, transaction);
+            return HttpStatus.OK;
+        } else {
+            return HttpStatus.BAD_REQUEST;
+        }
     }
 
     @DeleteMapping(path="/{subsidiaryId}", produces = MediaType.APPLICATION_JSON_VALUE)

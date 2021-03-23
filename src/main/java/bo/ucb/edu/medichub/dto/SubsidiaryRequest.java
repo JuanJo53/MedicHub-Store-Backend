@@ -1,15 +1,39 @@
 package bo.ucb.edu.medichub.dto;
 
+import org.springframework.format.annotation.NumberFormat;
+
+import javax.validation.constraints.*;
+
 public class SubsidiaryRequest {
+    @NumberFormat
+    @Positive
     private Integer subsidiaryId;
+    @NotNull
+    @NumberFormat
+    @Positive
     private Integer pharmacyId;
+    @NotEmpty
+    @Size(min = 6)
     private String subsidiaryName;
+    @NotEmpty
+    @Size(min = 12, max = 15)
     private String phone;
+    @NotEmpty
+    @Email
     private String email;
+    @Size(min = 2)
     private String number;
+    @NotEmpty
+    @Size(min = 3)
     private String street;
+    @NotEmpty
+    @Size(min = 3)
     private String zone;
+    @NotEmpty
+    @Size(min = 3)
     private String city;
+    @NotEmpty
+    @Size(min = 3)
     private String country;
 
     public SubsidiaryRequest() {
