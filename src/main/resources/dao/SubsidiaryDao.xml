@@ -12,7 +12,6 @@
 
     <update id="updateSubsidiary" parameterType="bo.ucb.edu.medichub.model.Subsidiary">
         UPDATE subsidiary set
-        pharmacy_id=#{pharmacyId},
         address_id=#{addressId},
         subsidiary_name=#{subsidiaryName},
         phone=#{phone},

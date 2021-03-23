@@ -8,7 +8,6 @@ public class SubsidiaryRequest {
     @NumberFormat
     @Positive
     private Integer subsidiaryId;
-    @NotNull
     @NumberFormat
     @Positive
     private Integer pharmacyId;

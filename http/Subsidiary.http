@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
   "pharmacyId": 2,
-  "subsidiaryName": "Farmacias Chavez - Sopocachi",
+  "subsidiaryName": "Farmacias Chavez - Arce",
   "phone": "+591 24981657",
   "email": "farmaCha-Sopocachi@gmail.com",
   "number": "158",
@@ -23,14 +23,13 @@ Content-Type: application/json
 
 {
   "subsidiaryId": 1,
-  "pharmacyId": 2,
   "subsidiaryName": "Farmacias Chavez - Sopocachi",
-  "phone": "+591 24982223",
+  "phone": "+591 24982333",
   "email": "farmaCha-Sopocachi@gmail.com",
   "number": "154",
   "street": "Aspiazu",
   "zone": "Sopocachi",
-  "city": "Santa Cruz",
+  "city": "La Paz",
   "country": "Bolivia"
 }
 

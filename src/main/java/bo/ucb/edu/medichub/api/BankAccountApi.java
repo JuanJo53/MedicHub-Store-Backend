@@ -48,11 +48,15 @@ public class BankAccountApi {
 
     @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public BankAccountRequest updateBankAccount(@RequestBody BankAccountRequest bankAccountRequest, HttpServletRequest request) {
+    public HttpStatus updateBankAccount(@Valid @RequestBody BankAccountRequest bankAccountRequest, HttpServletRequest request,BindingResult result) {
+        if(!result.hasErrors()){
         Transaction transaction = TransactionUtil.createTransaction(request);
         transactionBl.createTransaction(transaction);
         bankAccountBl.updateBankAccount(bankAccountRequest,transaction);
-        return bankAccountRequest;
+            return HttpStatus.OK;
+        } else{
+            return HttpStatus.BAD_REQUEST;
+        }
     }
 
     @GetMapping(path="/{bankAccountId}", produces = MediaType.APPLICATION_JSON_VALUE)

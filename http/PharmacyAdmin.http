@@ -23,9 +23,9 @@ Content-Type: application/json
 {
   "personId": 3,
   "subsidiaryId": 1,
-  "firstName": "Juana",
+  "firstName": "Juan",
   "firstSurname": "Perez",
-  "secondSurname": "Lujan",
+  "secondSurname": "Luan",
   "ci": "12459635 LP",
   "phone": "+591 78596312",
   "email": "juanperez@gmail.com",

@@ -31,25 +31,29 @@ public class ProductApi {
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ProductRequest createProduct(@RequestBody ProductRequest productRequest, HttpServletRequest request) {
-        Transaction transaction = TransactionUtil.createTransaction(request);
-        transactionBl.createTransaction(transaction);
-        ProductRequest productResponse = productBl.createProduct(productRequest, transaction);
-        return productResponse;
+    public HttpStatus createProduct(@Valid @RequestBody ProductRequest productRequest, HttpServletRequest request, BindingResult result) {
+        if(!result.hasErrors()){
+            Transaction transaction = TransactionUtil.createTransaction(request);
+            transactionBl.createTransaction(transaction);
+            ProductRequest productResponse = productBl.createProduct(productRequest, transaction);
+            return HttpStatus.OK;
+        }else{
+            return HttpStatus.BAD_REQUEST;
+        }
     }
 
 
     @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity updateProduct(@Valid @RequestBody ProductRequest productRequest, HttpServletRequest request,
+    public HttpStatus updateProduct(@Valid @RequestBody ProductRequest productRequest, HttpServletRequest request,
                                         BindingResult result) {
         if(!result.hasErrors()){
             Transaction transaction = TransactionUtil.createTransaction(request);
             transactionBl.createTransaction(transaction);
             ProductRequest productResponse = productBl.updateProduct(productRequest, transaction);
-            return new ResponseEntity(productResponse, HttpStatus.OK);
-        } else {
-            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+            return HttpStatus.OK;
+        }else{
+            return HttpStatus.BAD_REQUEST;
         }
     }
 

@@ -16,8 +16,8 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "brandId": 3,
-  "name": "Laboratorios Inti",
+  "brandId": 2,
+  "name": "Laboratorios In",
   "phone": "+591 2645987",
   "email": "labinti@gmail.com"
 }

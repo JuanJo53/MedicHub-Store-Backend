@@ -7,7 +7,6 @@ import bo.ucb.edu.medichub.dto.PersonListRequest;
 import bo.ucb.edu.medichub.dto.ProductListRequest;
 import bo.ucb.edu.medichub.dto.SubsidiaryRequest;
 import bo.ucb.edu.medichub.model.Address;
-import bo.ucb.edu.medichub.model.Pharmacy;
 import bo.ucb.edu.medichub.model.Subsidiary;
 import bo.ucb.edu.medichub.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;

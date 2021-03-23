@@ -8,9 +8,11 @@ import bo.ucb.edu.medichub.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -27,19 +29,28 @@ public class PharmacyAdminApi {
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public PharmacyAdminRequest createSubsidiary(@RequestBody PharmacyAdminRequest pharmacyAdminRequest, HttpServletRequest request) {
-        Transaction transaction = TransactionUtil.createTransaction(request);
-        transactionBl.createTransaction(transaction);
-        PharmacyAdminRequest pharmacyAdminResponse = pharmacyAdminBl.createPharmacyAdmin(pharmacyAdminRequest, transaction);
-        return pharmacyAdminResponse;
+    public HttpStatus createSubsidiary(@Valid @RequestBody PharmacyAdminRequest pharmacyAdminRequest, HttpServletRequest request, BindingResult result) {
+        if(!result.hasErrors()){
+            Transaction transaction = TransactionUtil.createTransaction(request);
+            transactionBl.createTransaction(transaction);
+            PharmacyAdminRequest pharmacyAdminResponse = pharmacyAdminBl.createPharmacyAdmin(pharmacyAdminRequest, transaction);
+            return HttpStatus.OK;
+        }
+        else{
+            return HttpStatus.BAD_REQUEST;
+        }
     }
     @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public PharmacyAdminRequest updatePharmacyAdmin(@RequestBody PharmacyAdminRequest pharmacyAdminRequest, HttpServletRequest request) {
-        Transaction transaction = TransactionUtil.createTransaction(request);
-        transactionBl.createTransaction(transaction);
-        PharmacyAdminRequest pharmacyAdminResponse = pharmacyAdminBl.updatePharmacyAdmin(pharmacyAdminRequest, transaction);
-        return pharmacyAdminResponse;
+    public HttpStatus updatePharmacyAdmin(@Valid @RequestBody PharmacyAdminRequest pharmacyAdminRequest, HttpServletRequest request, BindingResult result) {
+        if(!result.hasErrors()){
+            Transaction transaction = TransactionUtil.createTransaction(request);
+            transactionBl.createTransaction(transaction);
+            PharmacyAdminRequest pharmacyAdminResponse = pharmacyAdminBl.updatePharmacyAdmin(pharmacyAdminRequest, transaction);
+            return HttpStatus.OK;
+        } else{
+            return HttpStatus.BAD_REQUEST;
+    }
     }
 
     @DeleteMapping(path="/{personId}", produces = MediaType.APPLICATION_JSON_VALUE)

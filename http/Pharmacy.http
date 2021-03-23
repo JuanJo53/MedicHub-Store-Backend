@@ -3,7 +3,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "name": "Farmacias Chavez",
+  "name": "Farmacias Chave",
   "phone": "+591 24651835",
   "email": "farmacia-chavez@gmail.com"
 }
@@ -15,7 +15,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "pharmacyId": "",
+  "pharmacyId": 1,
   "name": "Farmacias Juanes",
   "phone": "+591 2469351",
   "email": "farmacia-Boli@gmail.com"

@@ -1,16 +1,42 @@
 package bo.ucb.edu.medichub.dto;
 
+import org.springframework.format.annotation.NumberFormat;
+
+import javax.validation.constraints.*;
+
 public class PharmacyAdminRequest {
+    @NumberFormat
+    @Positive
     private Integer pharmacyId;
+    @NumberFormat
+    @Positive
     private Integer personId;
+    @NumberFormat
+    @Positive
     private Integer subsidiaryId;
+    @NotEmpty
+    @Size(min = 3)
     private String firstName;
+    @NotEmpty
+    @Size(min = 3)
     private String firstSurname;
+    @NotEmpty
+    @Size(min = 3)
     private String secondSurname;
+    @NotEmpty
+    @Size(min = 6)
     private String ci;
+    @NotEmpty
+    @Size(min = 8, max = 15)
     private String phone;
+    @NotEmpty
+    @Email
     private String email;
+    @NotEmpty
+    @Size(min = 3)
     private String userName;
+    @NotEmpty
+    @Size(min = 6)
     private String password;
 
     public PharmacyAdminRequest() {

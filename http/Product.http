@@ -7,9 +7,9 @@ Content-Type: application/json
   "brandId": 2,
   "name": "Ibuprofeno",
   "stock": "500",
-  "price": "0.50",
-  "type": "tableta",
-  "dose": "250 ml gr",
+  "price": "5.00",
+  "type": "Botella",
+  "dose": "250 gr",
   "description": "Calmante, utilizado para todo tipo de dolor"
 }
 
