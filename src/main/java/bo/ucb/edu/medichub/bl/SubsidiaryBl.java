@@ -57,16 +57,7 @@ public class SubsidiaryBl {
         Subsidiary subsidiary = new Subsidiary();
         Address address = new Address();
 
-        address.setAddressId(subsidiaryRequest.getAddressId());
-        address.setNumber(subsidiaryRequest.getNumber());
-        address.setStreet(subsidiaryRequest.getStreet());
-        address.setZone(subsidiaryRequest.getZone());
-        address.setCity(subsidiaryRequest.getCity());
-        address.setCountry(subsidiaryRequest.getCountry());
-        address.setTransaction(transaction);
-        addressDao.updateAddress(address);
-
-        subsidiary.setAddressId(subsidiaryRequest.getAddressId());
+        subsidiary.setAddressId(subsidiaryRequest.getSubsidiaryId());
         subsidiary.setSubsidiaryId(subsidiaryRequest.getSubsidiaryId());
         subsidiary.setPharmacyId(subsidiaryRequest.getPharmacyId());
         subsidiary.setSubsidiaryName(subsidiaryRequest.getSubsidiaryName());
@@ -75,17 +66,32 @@ public class SubsidiaryBl {
         subsidiary.setTransaction(transaction);
         subsidiaryDao.updateSubsidiary(subsidiary);
 
+        Integer addressId=subsidiaryDao.addressId(subsidiaryRequest.getSubsidiaryId());
+
+        address.setAddressId(addressId);
+        address.setNumber(subsidiaryRequest.getNumber());
+        address.setStreet(subsidiaryRequest.getStreet());
+        address.setZone(subsidiaryRequest.getZone());
+        address.setCity(subsidiaryRequest.getCity());
+        address.setCountry(subsidiaryRequest.getCountry());
+        address.setTransaction(transaction);
+        addressDao.updateAddress(address);
+
         return subsidiaryRequest;
     }
 
-    public void deletePharmacy(Integer addressId, Transaction transaction){
+    public void deletePharmacy(Integer subsidiaryId, Transaction transaction){
         Subsidiary subsidiary = new Subsidiary();
         Address address = new Address();
 
+        Integer addressId=subsidiaryDao.addressId(subsidiaryId);
+
         subsidiary.setStatus(0);
-        subsidiary.setAddressId(addressId);
+        subsidiary.setAddressId(subsidiaryId);
         subsidiary.setTransaction(transaction);
         subsidiaryDao.deleteSubsidiary(subsidiary);
+
+
 
         address.setStatus(0);
         address.setAddressId(addressId);

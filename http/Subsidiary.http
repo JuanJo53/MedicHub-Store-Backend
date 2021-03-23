@@ -22,16 +22,15 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "addressId": 1,
   "subsidiaryId": 1,
   "pharmacyId": 2,
   "subsidiaryName": "Farmacias Chavez - Sopocachi",
-  "phone": "+591 24982222",
+  "phone": "+591 24982223",
   "email": "farmaCha-Sopocachi@gmail.com",
-  "number": "156",
+  "number": "154",
   "street": "Aspiazu",
   "zone": "Sopocachi",
-  "city": "Cochabamba",
+  "city": "Santa Cruz",
   "country": "Bolivia"
 }
 

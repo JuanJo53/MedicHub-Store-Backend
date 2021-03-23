@@ -18,4 +18,5 @@ public interface SubsidiaryDao {
     public List<PersonListRequest> getAdminsBySubsidiary(Integer subsidiaryId);
 
 
+    public Integer addressId(Integer subsidiaryId);
 }

@@ -1,7 +1,6 @@
 package bo.ucb.edu.medichub.dto;
 
 public class SubsidiaryRequest {
-    private Integer addressId;
     private Integer subsidiaryId;
     private Integer pharmacyId;
     private String subsidiaryName;
@@ -97,19 +96,10 @@ public class SubsidiaryRequest {
     }
 
 
-    public Integer getAddressId() {
-        return addressId;
-    }
-
-    public void setAddressId(Integer addressId) {
-        this.addressId = addressId;
-    }
-
     @Override
     public String toString() {
         return "SubsidiaryRequest{" +
-                "addressId=" + addressId +
-                ", subsidiaryId=" + subsidiaryId +
+                "subsidiaryId=" + subsidiaryId +
                 ", pharmacyId=" + pharmacyId +
                 ", subsidiaryName='" + subsidiaryName + '\'' +
                 ", phone='" + phone + '\'' +

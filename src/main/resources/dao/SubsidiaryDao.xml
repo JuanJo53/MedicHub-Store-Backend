@@ -38,6 +38,15 @@
         status=1
     </update>
 
+
+    <select id="addressId" resultType="java.lang.Integer">
+        select
+            a.address_id
+        from subsidiary a
+        where a.subsidiary_id = #{subsidiaryId}
+            and a.status = 1
+    </select>
+
     <select id="findSubsidiaryById" resultType="bo.ucb.edu.medichub.dto.SubsidiaryRequest">
         SELECT
             a.subsidiary_id as subsidiaryId,
