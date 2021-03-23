@@ -8,9 +8,11 @@ public class BankAccountRequest {
     private Integer bankAccountId;
     @NotNull
     @NumberFormat
+    @Positive
     private Integer pharmacyId;
     @NotNull
     @NumberFormat
+    @Positive
     private Integer accountNumber;
     @NotEmpty
     @Size(min = 4, max = 25)

@@ -16,8 +16,8 @@ Content-Type: application/json
 
 {
   "pharmacyId": 4,
-  "name": "Farmacias Yañez",
-  "phone": "+591 2222222",
+  "name": "Farmacias Juanes",
+  "phone": "+591 2469351",
   "email": "farmacia-Boli@gmail.com"
 }
 
