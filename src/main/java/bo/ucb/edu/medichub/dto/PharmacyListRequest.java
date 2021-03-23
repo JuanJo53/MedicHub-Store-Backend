@@ -3,6 +3,9 @@ package bo.ucb.edu.medichub.dto;
 public class PharmacyListRequest {
     private Integer pharmacyId;
     private String name;
+    private String phone;
+    private String email;
+    private Integer status;
 
     public PharmacyListRequest() {
     }
@@ -23,11 +26,38 @@ public class PharmacyListRequest {
         this.name = name;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "PharmacyListRequest{" +
                 "pharmacyId=" + pharmacyId +
                 ", name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", status=" + status +
                 '}';
     }
 }
