@@ -7,6 +7,7 @@ import bo.ucb.edu.medichub.dto.BrandRequest;
 import bo.ucb.edu.medichub.model.Transaction;
 import bo.ucb.edu.medichub.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,6 +43,14 @@ public class BrandApi {
         transactionBl.createTransaction(transaction);
         BrandRequest brandResponse = brandBl.updateBrand(brandRequest, transaction);
         return brandResponse;
+    }
+
+    @DeleteMapping(path="/{brandId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public HttpStatus deletePharmacy(@PathVariable String brandId, HttpServletRequest request){
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction(transaction);
+        brandBl.deletePharmacy(Integer.parseInt(brandId),transaction);
+        return HttpStatus.ACCEPTED;
     }
 
     @RequestMapping(method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)

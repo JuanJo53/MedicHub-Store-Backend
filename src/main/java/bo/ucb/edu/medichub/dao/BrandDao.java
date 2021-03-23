@@ -11,6 +11,9 @@ import java.util.List;
 public interface BrandDao {
     public void createBrand(Brand brand);
     public void updateBrand(Brand brand);
+    public void deleteBrand(Brand brand);
     public List<BrandListRequest> getBrands();
     public BrandRequest findBrandById(Integer brandId);
+
+
 }

@@ -5,6 +5,7 @@ import bo.ucb.edu.medichub.dao.TransactionDao;
 import bo.ucb.edu.medichub.dto.BrandListRequest;
 import bo.ucb.edu.medichub.dto.BrandRequest;
 import bo.ucb.edu.medichub.model.Brand;
+import bo.ucb.edu.medichub.model.Pharmacy;
 import bo.ucb.edu.medichub.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,6 +46,16 @@ public class BrandBl {
         return brandRequest;
     }
 
+    public void deletePharmacy(Integer brandId, Transaction transaction) {
+        Brand brand = new Brand();
+        brand.setStatus(0);
+        brand.setBrandId(brandId);
+        brand.setTransaction(transaction);
+        brandDao.deleteBrand(brand);
+    }
+
+
+
     public List<BrandListRequest> getBrands(){
         List<BrandListRequest> brands = brandDao.getBrands();
         return brands;
@@ -54,4 +65,6 @@ public class BrandBl {
         BrandRequest brand = brandDao.findBrandById(brandId);
         return brand;
     }
+
+
 }

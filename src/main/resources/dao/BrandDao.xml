@@ -24,6 +24,19 @@
         status=1
     </update>
 
+
+    <update id="deleteBrand" parameterType="bo.ucb.edu.medichub.model.Brand">
+        UPDATE brand set
+            status=#{status},
+            tx_id=#{transaction.txId},
+            tx_host=#{transaction.txHost},
+            tx_user_id=#{transaction.txUserId},
+            tx_date=#{transaction.txDate}
+        WHERE
+        brand_id=#{brandId} and
+        status=1
+    </update>
+
     <select id="getBrands" resultMap="brandsMap">
         select
             brand_id as brandId,

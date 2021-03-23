@@ -11,7 +11,11 @@ import java.util.List;
 @Mapper
 public interface SubsidiaryDao {
     public void createSubsidiary(Subsidiary subsidiary);
+    public void updateSubsidiary(Subsidiary subsidiary);
+    public void deleteSubsidiary(Subsidiary subsidiary);
     public SubsidiaryRequest findSubsidiaryById(Integer subsidiaryId);
     public List<ProductListRequest> getProductsBySubsidiary(Integer subsidiaryId);
     public List<PersonListRequest> getAdminsBySubsidiary(Integer subsidiaryId);
+
+
 }

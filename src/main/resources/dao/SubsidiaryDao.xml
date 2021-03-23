@@ -10,6 +10,34 @@
         )
     </insert>
 
+    <update id="updateSubsidiary" parameterType="bo.ucb.edu.medichub.model.Subsidiary">
+        UPDATE subsidiary set
+        pharmacy_id=#{pharmacyId},
+        address_id=#{addressId},
+        subsidiary_name=#{subsidiaryName},
+        phone=#{phone},
+        email=#{email},
+        tx_id=#{transaction.txId},
+        tx_host=#{transaction.txHost},
+        tx_user_id=#{transaction.txUserId},
+        tx_date=#{transaction.txDate}
+        WHERE
+        subsidiary_id=#{subsidiaryId} and
+        status=1
+    </update>
+
+    <update id="deleteSubsidiary" parameterType="bo.ucb.edu.medichub.model.Subsidiary">
+        UPDATE subsidiary set
+        status=#{status},
+        tx_id=#{transaction.txId},
+        tx_host=#{transaction.txHost},
+        tx_user_id=#{transaction.txUserId},
+        tx_date=#{transaction.txDate}
+        WHERE
+        address_id=#{addressId} and
+        status=1
+    </update>
+
     <select id="findSubsidiaryById" resultType="bo.ucb.edu.medichub.dto.SubsidiaryRequest">
         SELECT
             a.subsidiary_id as subsidiaryId,
@@ -27,6 +55,9 @@
             and b.address_id = a.address_id
             and a.status = 1
     </select>
+
+
+
 
     <select id="getProductsBySubsidiary" resultMap="productsMap">
 

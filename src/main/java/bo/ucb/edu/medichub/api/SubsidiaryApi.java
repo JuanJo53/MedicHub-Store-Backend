@@ -8,6 +8,7 @@ import bo.ucb.edu.medichub.dto.SubsidiaryRequest;
 import bo.ucb.edu.medichub.model.Transaction;
 import bo.ucb.edu.medichub.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,6 +35,23 @@ public class SubsidiaryApi {
         transactionBl.createTransaction(transaction);
         SubsidiaryRequest subsidiaryResponse = subsidiaryBl.createSubsidiary(subsidiaryRequest, transaction);
         return subsidiaryResponse;
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public SubsidiaryRequest updateSubsidiary(@RequestBody SubsidiaryRequest subsidiaryRequest, HttpServletRequest request) {
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction(transaction);
+        SubsidiaryRequest subsidiaryResponse = subsidiaryBl.updateSubsidiary(subsidiaryRequest, transaction);
+        return subsidiaryResponse;
+    }
+
+    @DeleteMapping(path="/{subsidiaryId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public HttpStatus deletePharmacy(@PathVariable String subsidiaryId, HttpServletRequest request){
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction(transaction);
+        subsidiaryBl.deletePharmacy(Integer.parseInt(subsidiaryId),transaction);
+        return HttpStatus.ACCEPTED;
     }
 
     @GetMapping(path="/{subsidiaryId}", produces = MediaType.APPLICATION_JSON_VALUE)

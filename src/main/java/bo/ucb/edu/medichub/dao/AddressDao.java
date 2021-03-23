@@ -7,4 +7,8 @@ import org.apache.ibatis.annotations.Mapper;
 public interface AddressDao {
 
     public void createAddress(Address address);
+
+    public void updateAddress(Address address);
+
+    public void deleteAddress(Address address);
 }

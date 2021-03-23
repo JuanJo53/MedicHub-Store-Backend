@@ -16,6 +16,32 @@ Content-Type: application/json
 
 ###
 
+
+PUT http://localhost:8080/subsidiary
+Accept: application/json
+Content-Type: application/json
+
+{
+  "addressId": 1,
+  "subsidiaryId": 1,
+  "pharmacyId": 2,
+  "subsidiaryName": "Farmacias Chavez - Sopocachi",
+  "phone": "+591 24982222",
+  "email": "farmaCha-Sopocachi@gmail.com",
+  "number": "156",
+  "street": "Aspiazu",
+  "zone": "Sopocachi",
+  "city": "Cochabamba",
+  "country": "Bolivia"
+}
+
+###
+
+DELETE http://localhost:8080/subsidiary/1
+Accept: application/json
+
+###
+
 GET http://localhost:8080/subsidiary/4
 Accept: application/json
 
