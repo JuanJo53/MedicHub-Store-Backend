@@ -30,6 +30,7 @@ Accept: application/json
 
 GET http://localhost:8080/pharmacy
 Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKb3JnZSIsImlhdCI6MTYxNjUzOTIyMiwiZXhwIjoxNjE2NTc1MjIyfQ.Ev7R6mmJoNJcKQGxT97fOsZ70O_QRbYuso_PySucGeg
 
 ###
 
