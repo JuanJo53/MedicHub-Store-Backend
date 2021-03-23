@@ -9,9 +9,11 @@ import bo.ucb.edu.medichub.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -29,20 +31,30 @@ public class BrandApi {
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public BrandRequest createSubsidiary(@RequestBody BrandRequest brandRequest, HttpServletRequest request) {
-        Transaction transaction = TransactionUtil.createTransaction(request);
-        transactionBl.createTransaction(transaction);
-        BrandRequest brandResponse = brandBl.createBrand(brandRequest, transaction);
-        return brandResponse;
+    public HttpStatus createSubsidiary(@Valid @RequestBody BrandRequest brandRequest, HttpServletRequest request,
+                                         BindingResult result) {
+        if(!result.hasErrors()){
+            Transaction transaction = TransactionUtil.createTransaction(request);
+            transactionBl.createTransaction(transaction);
+            BrandRequest brandResponse = brandBl.createBrand(brandRequest, transaction);
+            return HttpStatus.OK;
+        } else {
+            return HttpStatus.BAD_REQUEST;
+        }
     }
 
     @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public BrandRequest updateSubsidiary(@RequestBody BrandRequest brandRequest, HttpServletRequest request) {
-        Transaction transaction = TransactionUtil.createTransaction(request);
-        transactionBl.createTransaction(transaction);
-        BrandRequest brandResponse = brandBl.updateBrand(brandRequest, transaction);
-        return brandResponse;
+    public HttpStatus updateSubsidiary(@Valid @RequestBody BrandRequest brandRequest, HttpServletRequest request,
+                                         BindingResult result) {
+        if (!result.hasErrors()){
+            Transaction transaction = TransactionUtil.createTransaction(request);
+            transactionBl.createTransaction(transaction);
+            BrandRequest brandResponse = brandBl.updateBrand(brandRequest, transaction);
+            return HttpStatus.OK;
+        } else {
+            return HttpStatus.BAD_REQUEST;
+        }
     }
 
     @DeleteMapping(path="/{brandId}", produces = MediaType.APPLICATION_JSON_VALUE)

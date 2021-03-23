@@ -1,9 +1,24 @@
 package bo.ucb.edu.medichub.dto;
 
+import org.springframework.format.annotation.NumberFormat;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
+
 public class BrandRequest {
+    @NumberFormat
+    @Positive
     private Integer brandId;
+    @NotEmpty
+    @Size(min = 2)
     private String name;
+    @NotEmpty
+    @Size(min = 12, max = 18)
     private String phone;
+    @NotEmpty
+    @Email
     private String email;
 
     public BrandRequest() {

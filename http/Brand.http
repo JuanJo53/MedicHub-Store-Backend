@@ -3,9 +3,9 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "name": "Laboratorios Sanofi",
-  "phone": "+591 2965741",
-  "email": "sanofi@email.com"
+  "name": "Farmacias Inti",
+  "phone": "+591 2495681",
+  "email": "inti@gmail.com"
 }
 
 ###
@@ -16,10 +16,10 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "brandId": 1,
-  "name": "Laboratorios Vita",
-  "phone": "+591 2522222",
-  "email": "vita@email.com"
+  "brandId": 3,
+  "name": "Laboratorios Inti",
+  "phone": "+591 2645987",
+  "email": "labinti@gmail.com"
 }
 
 ###
