@@ -20,7 +20,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "productId": 2,
+  "productId": 1,
   "subsidiaryId": 1,
   "brandId": 1,
   "name": "Paracetamol",

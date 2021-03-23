@@ -1,9 +1,12 @@
 package bo.ucb.edu.medichub.dto;
 
+import org.springframework.format.annotation.NumberFormat;
+
 import javax.validation.constraints.*;
 
 public class PharmacyRequest {
     @Positive
+    @NumberFormat
     private Integer pharmacyId;
     @NotEmpty
     @Size(min = 8)

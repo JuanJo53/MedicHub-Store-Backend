@@ -5,6 +5,8 @@ import org.springframework.format.annotation.NumberFormat;
 import javax.validation.constraints.*;
 
 public class BankAccountRequest {
+    @NumberFormat
+    @Positive
     private Integer bankAccountId;
     @NotNull
     @NumberFormat

@@ -9,9 +9,11 @@ import bo.ucb.edu.medichub.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -38,11 +40,16 @@ public class ProductApi {
 
     @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ProductRequest updateProduct(@RequestBody ProductRequest productRequest, HttpServletRequest request) {
-        Transaction transaction = TransactionUtil.createTransaction(request);
-        transactionBl.createTransaction(transaction);
-        ProductRequest productResponse = productBl.updateProduct(productRequest, transaction);
-        return productResponse;
+    public HttpStatus updateProduct(@Valid @RequestBody ProductRequest productRequest, HttpServletRequest request,
+                                        BindingResult result) {
+        if(!result.hasErrors()){
+            Transaction transaction = TransactionUtil.createTransaction(request);
+            transactionBl.createTransaction(transaction);
+            ProductRequest productResponse = productBl.updateProduct(productRequest, transaction);
+            return HttpStatus.OK;
+        } else {
+            return HttpStatus.BAD_REQUEST;
+        }
     }
 
     @DeleteMapping(path="/{productId}", produces = MediaType.APPLICATION_JSON_VALUE)

@@ -1,14 +1,43 @@
 package bo.ucb.edu.medichub.dto;
 
+import org.springframework.format.annotation.NumberFormat;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
+
 public class ProductRequest {
+    @Positive
+    @NumberFormat
     private Integer productId;
+    @NotNull
+    @Positive
+    @NumberFormat
     private Integer subsidiaryId;
+    @NotNull
+    @Positive
+    @NumberFormat
     private Integer brandId;
+    @NotEmpty
+    @Size(min = 3)
     private String name;
+    @NotNull
+    @Positive
+    @NumberFormat
     private Integer stock;
+    @NotNull
+    @Positive
+    @NumberFormat
     private Double price;
+    @NotEmpty
+    @Size(min = 4)
     private String type;
+    @NotEmpty
+    @Size(min = 4)
     private String dose;
+    @NotEmpty
+    @Size(min = 10, max = 150)
     private String description;
 
     public ProductRequest() {
