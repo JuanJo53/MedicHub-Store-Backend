@@ -1,10 +1,22 @@
 package bo.ucb.edu.medichub.dto;
 
+import org.springframework.format.annotation.NumberFormat;
+
+import javax.validation.constraints.*;
+
 public class BankAccountRequest {
     private Integer bankAccountId;
+    @NotNull
+    @NumberFormat
     private Integer pharmacyId;
+    @NotNull
+    @NumberFormat
     private Integer accountNumber;
+    @NotEmpty
+    @Size(min = 4, max = 25)
     private String bank;
+    @NotEmpty
+    @Size(min = 4, max = 25)
     private String accountType;
 
     public BankAccountRequest() {

@@ -9,10 +9,13 @@ import bo.ucb.edu.medichub.util.TransactionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -31,11 +34,16 @@ public class BankAccountApi {
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public BankAccountRequest createBankAccount(@RequestBody BankAccountRequest bankAccountRequest, HttpServletRequest request) {
-        Transaction transaction = TransactionUtil.createTransaction(request);
-        transactionBl.createTransaction(transaction);
-        BankAccountRequest bankAccountResponse = bankAccountBl.createBankAccount(bankAccountRequest, transaction);
-        return bankAccountResponse;
+    public HttpStatus createBankAccount(@Valid @RequestBody BankAccountRequest bankAccountRequest, HttpServletRequest request,
+                                        BindingResult result) {
+        if(!result.hasErrors()){
+            Transaction transaction = TransactionUtil.createTransaction(request);
+            transactionBl.createTransaction(transaction);
+            BankAccountRequest bankAccountResponse = bankAccountBl.createBankAccount(bankAccountRequest, transaction);
+            return HttpStatus.OK;
+        }  else {
+            return HttpStatus.BAD_REQUEST;
+        }
     }
 
     @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE,

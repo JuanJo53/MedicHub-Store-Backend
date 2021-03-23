@@ -3,10 +3,10 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "pharmacyId": 5,
-  "accountNumber": 89416,
-  "bank": "Banco Nacional",
-  "accountType": "Ahorro"
+  "pharmacyId": 3,
+  "accountNumber": 123894,
+  "bank": "Banco Union",
+  "accountType": "Caja de Ahorros"
 }
 
 ###
