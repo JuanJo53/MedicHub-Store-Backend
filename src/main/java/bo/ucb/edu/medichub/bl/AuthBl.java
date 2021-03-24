@@ -41,7 +41,6 @@ public class AuthBl implements UserDetailsService {
     }
 
     public ResponseEntity createToken(AuthenticationRequest authenticationRequest){
-        LOGGER.error(authenticationRequest.getPassword());
         if(authenticationRequest.getRole() == 1){
             AuthRole authRole = authDao.getIdAdmin(authenticationRequest.getEmail(), authenticationRequest.getPassword());
             return loadToken(authenticationRequest, authRole);
@@ -61,7 +60,6 @@ public class AuthBl implements UserDetailsService {
     }
 
     public ResponseEntity loadToken(AuthenticationRequest authenticationRequest, AuthRole authRole){
-        LOGGER.error(authenticationRequest.getPassword());
         if(authRole != null){
             try {
                 password = authenticationRequest.getPassword();

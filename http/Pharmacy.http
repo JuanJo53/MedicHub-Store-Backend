@@ -30,13 +30,13 @@ Accept: application/json
 
 GET http://localhost:8080/pharmacy
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKb3JnZSIsImlhdCI6MTYxNjU0ODExNiwiZXhwIjoxNjE2NTg0MTE2fQ.9ZdEYrSBGfx9l_8a1Zu7DF92r1LavEkObUWR11ujF3Y
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2NTUxODAzLCJleHAiOjE2MTY1ODc4MDN9.ELid1l4HQlnWXeWfctrlGduFt-73bRzLEbZWA8VIfgI
 
 ###
 
 GET http://localhost:8080/pharmacy/11111
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKb3JnZSIsImlhdCI6MTYxNjU0Njc1MiwiZXhwIjoxNjE2NTgyNzUyfQ.YZutLK6UpVyovrxB3oRxmyIxtB8XxgxYV08xIPx_JXM
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwiaWF0IjoxNjE2NTUyMDE2LCJleHAiOjE2MTY1ODgwMTZ9.eSF2MNufmS933XffR7N2duP1gzKAV9CDX3U0BBrlKEw
 
 ###
 
