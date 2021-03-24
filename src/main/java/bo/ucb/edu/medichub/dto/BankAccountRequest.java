@@ -12,11 +12,9 @@ public class BankAccountRequest {
     @NumberFormat
     @Positive
     private Integer pharmacyId;
-    @NotNull
-    @NumberFormat
-    //@Size(min = 12, max = 18)
-    @Positive
-    private Integer accountNumber;
+    @NotEmpty
+    @Size(min = 12, max = 18)
+    private String accountNumber;
     @NotEmpty
     @Size(min = 4, max = 25)
     private String bank;
@@ -43,11 +41,11 @@ public class BankAccountRequest {
         this.pharmacyId = pharmacyId;
     }
 
-    public Integer getAccountNumber() {
+    public String getAccountNumber() {
         return accountNumber;
     }
 
-    public void setAccountNumber(Integer accountNumber) {
+    public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
 

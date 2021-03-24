@@ -4,7 +4,7 @@ public class BankAccount {
 
     private Integer bankAccountId;
     private Integer pharmacyId;
-    private Integer accountNumber;
+    private String accountNumber;
     private String bank;
     private String accountType;
     private Integer status;
@@ -29,11 +29,11 @@ public class BankAccount {
         this.pharmacyId = pharmacyId;
     }
 
-    public Integer getAccountNumber() {
+    public String getAccountNumber() {
         return accountNumber;
     }
 
-    public void setAccountNumber(Integer accountNumber) {
+    public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
 

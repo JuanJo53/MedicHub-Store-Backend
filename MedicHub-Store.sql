@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2021-03-16 21:58:29.83
+-- Last modification date: 2021-03-24 15:21:32.679
 
 -- tables
 -- Table: address
@@ -39,7 +39,7 @@ CREATE TABLE bank_account (
     bank_account_id int NOT NULL AUTO_INCREMENT COMMENT 'Self-incrementing primary key of bank_account table.
 Example: 4',
     pharmacy_id int NOT NULL,
-    account_number int NOT NULL COMMENT 'Contains the number of the account that de user wants to register.
+    account_number varchar(45) NOT NULL COMMENT 'Contains the number of the account that de user wants to register.
 Example: 1273748493',
     bank varchar(45) NOT NULL COMMENT 'Name of the bank from which the credit card comes
 Example: Banco Unión ',
@@ -312,16 +312,3 @@ ALTER TABLE subsidiary ADD CONSTRAINT subsidiary_pharmacy FOREIGN KEY subsidiary
 
 -- End of file.
 
-
-START TRANSACTION ;
-INSERT INTO person VALUES
-(NULL, 'Admin','user','admi','457635','76543218',1,1,'192.168.10.215',0,NOW() ),
-(NULL, 'Lucas','Gutierrez','Rocha','1242363','77777777',1,1,'192.168.10.215',0,NOW() );
-COMMIT ;
-
-
-START TRANSACTION ;
-INSERT INTO admin VALUES
-(NULL, 1,'usuario@exampol.com','admin','12345',NULL,1,1,'192.168.10.215',0,NOW() ),
-(NULL, 2,'admin@exampol.com','admin1','12345',NULL,1,1,'192.168.10.215',0,NOW() );
-COMMIT ;
