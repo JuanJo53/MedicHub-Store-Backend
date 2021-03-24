@@ -15,9 +15,10 @@ public class SubsidiaryRequest {
     @Size(min = 6)
     private String subsidiaryName;
     @NotEmpty
-    @Size(min = 12, max = 15)
+    @Size(min = 12, max = 18)
     private String phone;
     @NotEmpty
+    @Size(min = 6)
     @Email
     private String email;
     @Size(min = 2)

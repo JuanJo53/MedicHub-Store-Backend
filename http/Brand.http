@@ -31,6 +31,7 @@ Accept: application/json
 
 GET http://localhost:8080/brand
 Accept: application/json
+Access-Control-Allow-Headers:
 
 ###
 

@@ -37,7 +37,7 @@ public class ProductRequest {
     @Size(min = 4)
     private String dose;
     @NotEmpty
-    @Size(min = 10, max = 150)
+    @Size(min = 10, max = 280)
     private String description;
 
     public ProductRequest() {
