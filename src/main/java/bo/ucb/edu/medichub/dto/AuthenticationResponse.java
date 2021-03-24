@@ -2,9 +2,9 @@ package bo.ucb.edu.medichub.dto;
 
 public class AuthenticationResponse {
     private String jwt;
+    private Integer subsidiaryId;
 
-    public AuthenticationResponse(String jwt) {
-        this.jwt = jwt;
+    public AuthenticationResponse() {
     }
 
     public String getJwt() {
@@ -15,10 +15,19 @@ public class AuthenticationResponse {
         this.jwt = jwt;
     }
 
+    public Integer getSubsidiaryId() {
+        return subsidiaryId;
+    }
+
+    public void setSubsidiaryId(Integer subsidiaryId) {
+        this.subsidiaryId = subsidiaryId;
+    }
+
     @Override
     public String toString() {
         return "AuthenticationResponse{" +
                 "jwt='" + jwt + '\'' +
+                ", subsidiaryId=" + subsidiaryId +
                 '}';
     }
 }

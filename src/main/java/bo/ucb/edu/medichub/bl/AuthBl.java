@@ -65,10 +65,14 @@ public class AuthBl implements UserDetailsService {
                 password = authenticationRequest.getPassword();
                 UserDetails userDetails = loadUserByUsername(String.valueOf(authRole.getRoleId()));
                 String jwt = jwtUtil.generateToken(userDetails);
-
+                LOGGER.error(jwt);
                 authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getEmail(),
                         authenticationRequest.getPassword()));
-                return new ResponseEntity<>(new AuthenticationResponse(jwt), HttpStatus.OK);
+                // Cambiar
+                AuthenticationResponse authenticationResponse =  new AuthenticationResponse();
+                authenticationResponse.setJwt(jwt);
+                authenticationResponse.setSubsidiaryId(authRole.getId());
+                return new ResponseEntity<>(authenticationResponse, HttpStatus.OK);
             } catch (BadCredentialsException e) {
                 return new ResponseEntity(HttpStatus.FORBIDDEN, HttpStatus.FORBIDDEN);
             }
