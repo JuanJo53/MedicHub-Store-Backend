@@ -58,7 +58,7 @@ public class ProductApi {
     }
 
     @DeleteMapping(path="/{productId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity deletePharmacy(@PathVariable String productId, HttpServletRequest request){
+    public ResponseEntity deleteProduct(@PathVariable String productId, HttpServletRequest request){
         Transaction transaction = TransactionUtil.createTransaction(request);
         transactionBl.createTransaction(transaction);
         productBl.deleteProduct(Integer.parseInt(productId),transaction);
