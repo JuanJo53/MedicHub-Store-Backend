@@ -14,6 +14,7 @@ public class BankAccountRequest {
     private Integer pharmacyId;
     @NotNull
     @NumberFormat
+    //@Size(min = 12, max = 18)
     @Positive
     private Integer accountNumber;
     @NotEmpty

@@ -18,6 +18,7 @@ public class BrandRequest {
     @Size(min = 12, max = 18)
     private String phone;
     @NotEmpty
+    @Size(min = 6)
     @Email
     private String email;
 
