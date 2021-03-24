@@ -59,6 +59,7 @@ public class PharmacyAdminBl {
         Person person = new Person();
 
         pharmacyAdmin.setPharmacyId(pharmacyAdminRequest.getPharmacyId());
+        pharmacyAdmin.setSubsidiaryId(pharmacyAdminRequest.getSubsidiaryId());
         pharmacyAdmin.setUserName(pharmacyAdminRequest.getUserName());
         pharmacyAdmin.setEmail(pharmacyAdminRequest.getEmail());
         pharmacyAdmin.setPassword(pharmacyAdminRequest.getPassword());
@@ -72,6 +73,7 @@ public class PharmacyAdminBl {
         person.setSecondSurname(pharmacyAdminRequest.getSecondSurname());
         person.setCi(pharmacyAdminRequest.getCi());
         person.setPhone(pharmacyAdminRequest.getPhone());
+        person.setTransaction(transaction);
         personDao.updatePerson(person);
 
         return pharmacyAdminRequest;

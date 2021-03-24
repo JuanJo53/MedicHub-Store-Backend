@@ -20,11 +20,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2NjAxMzc2L
 PUT http://localhost:8080/pharmacyAdmin
 Accept: application/json
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2NjAxMzc2LCJleHAiOjE2MTY2MzczNzZ9.WKQ7nIFYhH0duU6Q0N0bmuIRPSc1LR1p5_L1-J1W-wo
 
 {
-  "pharmacyId": 1,
+  "pharmacyId": 2,
   "subsidiaryId": 1,
-  "firstName": "Juan",
+  "firstName": "Jose",
   "firstSurname": "Perez",
   "secondSurname": "Luan",
   "ci": "12459635 LP",
