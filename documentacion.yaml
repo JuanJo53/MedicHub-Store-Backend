@@ -1,0 +1,1034 @@
+---
+swagger: "2.0"
+info:
+  description: |
+    Project for the sale and management of medicines in several pharmacies
+  version: 1.0.0
+  title: Swagger MedicHub
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: medichub@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+host: virtserver.swaggerhub.com
+basePath: /AlejoErwin444/MedicHub/1.0.0
+tags:
+- name: Systems administrator
+  description: System operations in general
+- name: Pharmacy manager
+  description: Operations for the pharmacy
+- name: user
+  description: Operations about user
+schemes:
+- https
+- http
+paths:
+  /auth:
+    post:
+      tags:
+      - Systems administrator
+      - Pharmacy manager
+      - user
+      summary: Validation of credentials
+      operationId: createToken
+      parameters:
+      - in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/AuthenticationRequest'
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: NOT_FOUND
+  /subsidiary:
+    post:
+      tags:
+      - Systems administrator
+      summary: Register of a subsidiary
+      operationId: createSubsidiary
+      parameters:
+      - in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/SubsidiaryRequest'
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: BAD_REQUEST
+    put:
+      tags:
+      - Systems administrator
+      summary: Update an existing subsidiary
+      operationId: updateSubsidiary
+      parameters:
+      - in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/SubsidiaryRequest'
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: BAD_REQUEST
+  /product:
+    post:
+      tags:
+      - Pharmacy manager
+      summary: Register of a product
+      operationId: createProduct
+      parameters:
+      - in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/ProductRequest'
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: BAD_REQUEST
+    put:
+      tags:
+      - Pharmacy manager
+      summary: Update an existing product
+      operationId: updateProduct
+      parameters:
+      - in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/ProductRequest'
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: BAD_REQUEST
+  /BankAccount:
+    post:
+      tags:
+      - Pharmacy manager
+      summary: Returns the result of the record
+      description: Add the necessary details of the bank account
+      operationId: addBankAccount
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: object to be added to the pharmacy bank account
+        required: true
+        schema:
+          $ref: '#/definitions/BankAccountRequest'
+      responses:
+        "200":
+          description: successful operation
+        "405":
+          description: Invalid input
+        "201":
+          description: Publication created.
+        "500":
+          description: Internal Error.
+        "400":
+          description: Bad request.
+  /BankAccount/{bankAccountId}:
+    get:
+      tags:
+      - Pharmacy manager
+      summary: See bank account detail
+      description: Al hacer clic en el usuario podrá ver todos los detalles de la cuenta de banco
+      operationId: getbankAccount
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: bankAccountId
+        in: path
+        description: post bank account id
+        required: true
+        type: integer
+        format: int64
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            $ref: '#/definitions/BankAccountRequest'
+        "500":
+          description: Internal server error
+    put:
+      tags:
+      - Pharmacy manager
+      summary: Update an existing pharmacy
+      operationId: updatebankAccount
+      consumes:
+      - application/json
+      - application/xml
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: bankAccountId
+        in: path
+        description: Bank account object to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: Updated bank Account object
+        required: true
+        schema:
+          $ref: '#/definitions/BankAccountRequest'
+      responses:
+        "200":
+          description: successful operation
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Pet not found
+        "405":
+          description: Validation exception
+    delete:
+      tags:
+      - Pharmacy manager
+      summary: remove Pharmacy
+      description: By passing the appropriate options, you can remove a pharmacy
+      operationId: deletebankAccount
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: bankAccountId
+        in: path
+        description: post bank account id
+        required: true
+        type: integer
+        format: int64
+      responses:
+        "201":
+          description: Deleted publication.
+        "500":
+          description: Internal Error.
+        "400":
+          description: Bad request.
+  /brand:
+    get:
+      tags:
+      - Pharmacy manager
+      summary: See brand details
+      description: Clicking on the user will see the list
+      operationId: getbrankList
+      produces:
+      - application/json
+      - application/xml
+      parameters: []
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/BankAccountRequest'
+        "500":
+          description: Internal server error
+    post:
+      tags:
+      - Pharmacy manager
+      summary: Returns the result that was saved or not
+      description: Add the necessary brand data
+      operationId: addBrand
+      consumes:
+      - application/json
+      - application/xml
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - in: body
+        name: body
+        description: Object to be added to the brand
+        required: true
+        schema:
+          $ref: '#/definitions/BrandRequest'
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            $ref: '#/definitions/BrandRequest'
+        "405":
+          description: Invalid input
+        "201":
+          description: Publication created.
+        "500":
+          description: Internal Error.
+        "400":
+          description: Bad request.
+  /brand/{brandId}:
+    get:
+      tags:
+      - Pharmacy manager
+      summary: See brand details
+      description: By clicking the user will see the selected brand
+      operationId: getbrank
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: brandId
+        in: path
+        description: post brand id
+        required: true
+        type: integer
+        format: int64
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            $ref: '#/definitions/BankAccountRequest'
+        "500":
+          description: Internal server error
+    put:
+      tags:
+      - Pharmacy manager
+      summary: Update an existing brand
+      operationId: updatebrand
+      consumes:
+      - application/json
+      - application/xml
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: brandId
+        in: path
+        description: Brand object to update id
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: Brand object to update
+        required: true
+        schema:
+          $ref: '#/definitions/BrandRequest'
+      responses:
+        "200":
+          description: successful operation
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Pet not found
+        "405":
+          description: Validation exception
+    delete:
+      tags:
+      - Pharmacy manager
+      summary: remove Brand
+      description: By passing the appropriate options, you can remove a brand
+      operationId: deletebrand
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: brandId
+        in: path
+        description: post brand id
+        required: true
+        type: integer
+        format: int64
+      responses:
+        "201":
+          description: Deleted publication.
+        "500":
+          description: Internal Error.
+        "400":
+          description: Bad request.
+  /PharmacyAdmin:
+    post:
+      tags:
+      - Systems administrator
+      summary: Returns the result that was saved or not
+      description: Add the necessary Admin Pharmacy data
+      operationId: PharmacyAdminId
+      consumes:
+      - application/json
+      - application/xml
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - in: body
+        name: body
+        description: Object to be added to the brand
+        required: true
+        schema:
+          $ref: '#/definitions/PharmacyAdminRequest'
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PharmacyAdminRequest'
+        "405":
+          description: Invalid input
+        "201":
+          description: Publication created.
+        "500":
+          description: Internal Error.
+        "400":
+          description: Bad request.
+    put:
+      tags:
+      - Systems administrator
+      summary: Update an existing Admin Pharmacy
+      operationId: updatePharmacyAdmin
+      consumes:
+      - application/json
+      - application/xml
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - in: body
+        name: body
+        description: Admin pharmacy object to update
+        required: true
+        schema:
+          $ref: '#/definitions/BrandRequest'
+      responses:
+        "200":
+          description: successful operation
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Pet not found
+        "405":
+          description: Validation exception
+  /PharmacyAdmin/{pharmacyAdminId}:
+    get:
+      tags:
+      - Systems administrator
+      summary: See PharmacyAdmin details
+      description: By clicking the user will see the selected PharmacyAdmin
+      operationId: getpharmacyAdmin
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: pharmacyAdminId
+        in: path
+        description: post PharmacyAdmin id
+        required: true
+        type: integer
+        format: int64
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PharmacyAdminRequest'
+        "500":
+          description: Internal server error
+    delete:
+      tags:
+      - Systems administrator
+      summary: remove Brand
+      description: By passing the appropriate options, you can remove a PharmacyAdmin
+      operationId: deletePharmacyAdmin
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: pharmacyAdminId
+        in: path
+        description: post PharmacyAdmin id
+        required: true
+        type: integer
+        format: int64
+      responses:
+        "201":
+          description: Deleted publication.
+        "500":
+          description: Internal Error.
+        "400":
+          description: Bad request.
+  /Pharmacy:
+    get:
+      tags:
+      - Systems administrator
+      summary: See brand details
+      description: You will see the list of all the pharmacies created
+      operationId: getPharmacy
+      produces:
+      - application/json
+      - application/xml
+      parameters: []
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PharmacyRequest'
+        "500":
+          description: Internal server error
+    post:
+      tags:
+      - Systems administrator
+      summary: Returns the result that was saved or not
+      description: Add the necessary Pharmacy data
+      operationId: PharmacyId
+      consumes:
+      - application/json
+      - application/xml
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - in: body
+        name: body
+        description: Object to add to the pharmacy
+        required: true
+        schema:
+          $ref: '#/definitions/PharmacyRequest'
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PharmacyRequest'
+        "405":
+          description: Invalid input
+        "201":
+          description: Publication created.
+        "500":
+          description: Internal Error.
+        "400":
+          description: Bad request.
+    put:
+      tags:
+      - Systems administrator
+      summary: Update an existing Pharmacy
+      operationId: updatePharmacy
+      consumes:
+      - application/json
+      - application/xml
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - in: body
+        name: body
+        description: pharmacy object to update
+        required: true
+        schema:
+          $ref: '#/definitions/PharmacyRequest'
+      responses:
+        "200":
+          description: successful operation
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Pet not found
+        "405":
+          description: Validation exception
+  /Pharmacy/{pharmacyId}:
+    get:
+      tags:
+      - Systems administrator
+      summary: See PharmacyAdmin details
+      description: By clicking the user will see the selected Pharmacy
+      operationId: getpharmacy
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: pharmacyId
+        in: path
+        description: post Pharmacy id
+        required: true
+        type: integer
+        format: int64
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PharmacyRequest'
+        "500":
+          description: Internal server error
+    delete:
+      tags:
+      - Systems administrator
+      summary: remove Pharmacy
+      description: By passing the appropriate options, you can remove a PharmacyAdmin
+      operationId: deletePharmacy
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: pharmacyId
+        in: path
+        description: post PharmacyAdmin id
+        required: true
+        type: integer
+        format: int64
+      responses:
+        "201":
+          description: Deleted publication.
+        "500":
+          description: Internal Error.
+        "400":
+          description: Bad request.
+  /pharmacy/{pharmacyId}/bankAccount:
+    get:
+      tags:
+      - Pharmacy manager
+      summary: Check from account list
+      description: The list of bank accounts is generated based on the id of the pharmacy
+      operationId: getBankAccountList
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: pharmacyId
+        in: path
+        description: post Pharmacy id
+        required: true
+        type: integer
+        format: int64
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/BankAccountRequest'
+        "500":
+          description: Internal server error
+  /pharmacy/{pharmacyId}/subsidiary:
+    get:
+      tags:
+      - Systems administrator
+      summary: See PharmacyAdmin subsidiary
+      description: The list of branches is subsidiary based on the id of the pharmacy
+      operationId: getSubsidariesList
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: pharmacyId
+        in: path
+        description: post Pharmacy id
+        required: true
+        type: integer
+        format: int64
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/SubsidiaryRequest'
+        "500":
+          description: Internal server error
+  /pharmacy/{pharmacyId}/admin:
+    get:
+      tags:
+      - Systems administrator
+      summary: I will see the list of pharmacy administrators
+      description: The list of branches is admin based on the id of the pharmacy
+      operationId: getAdminsList
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: pharmacyId
+        in: path
+        description: post Pharmacy id
+        required: true
+        type: integer
+        format: int64
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PersonListRequest'
+        "500":
+          description: Internal server error
+securityDefinitions:
+  petstore_auth:
+    type: oauth2
+    authorizationUrl: http://petstore.swagger.io/oauth/dialog
+    flow: implicit
+    scopes:
+      write:pets: modify pets in your account
+      read:pets: read your pets
+  api_key:
+    type: apiKey
+    name: api_key
+    in: header
+definitions:
+  BankAccountRequest:
+    type: object
+    properties:
+      bankAccountId:
+        type: integer
+        format: int64
+        example: 1
+      pharmacyId:
+        type: integer
+        format: int64
+        example: 2
+      accountNumber:
+        type: integer
+        example: 32435436
+      bank:
+        type: string
+        example: Banco Fie
+      accountType:
+        type: string
+        example: Caja de ahorro
+    xml:
+      name: BankAccountRequest
+  BrandRequest:
+    type: object
+    properties:
+      brandId:
+        type: integer
+        format: int64
+        example: 2
+      name:
+        type: string
+        example: Vita
+      phone:
+        type: string
+        example: "23232323"
+      email:
+        type: string
+        example: marcasVita@gmail.com
+    xml:
+      name: BrandRequest
+  PharmacyAdminRequest:
+    type: object
+    properties:
+      pharmacyId:
+        type: integer
+        format: int64
+        example: 2
+      subsidiaryId:
+        type: string
+        example: Vita
+      firstName:
+        type: string
+        example: Lucas
+      firstSurname:
+        type: string
+        example: Ramirez
+      secondSurname:
+        type: string
+        example: Gutierrez
+      ci:
+        type: string
+        example: "2344456"
+      phone:
+        type: string
+        example: +123 22223333
+      email:
+        type: string
+        example: lucasGut@gmail.com
+      userName:
+        type: string
+        example: lucaso
+      password:
+        type: string
+        example: luquita
+    xml:
+      name: PharmacyAdminRequest
+  PharmacyRequest:
+    type: object
+    properties:
+      pharmacyId:
+        type: integer
+        format: int64
+        example: 2
+      name:
+        type: string
+        example: Farmacia Bolivia
+      phone:
+        type: string
+        example: +219 23342323
+      email:
+        type: string
+        example: farBolivia@gmail.com
+    xml:
+      name: PharmacyRequest
+  PharmacyAdmin:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        example: 1
+      personId:
+        type: integer
+        format: int64
+        example: 2
+      subsidiaryId:
+        type: integer
+        format: int64
+        example: 3
+      email:
+        type: string
+        example: frank@gmail.com
+      userName:
+        type: string
+        example: Franks
+      password:
+        type: string
+        example: 12345frank
+      picture:
+        type: string
+      status:
+        type: integer
+        example: 1
+    xml:
+      name: PharmacyAdmin
+  Pharmacy:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        example: 2
+      name:
+        type: string
+        example: Farmacia Bolivia
+      phone:
+        type: string
+        example: "22244433"
+      email:
+        type: string
+        example: framaciabolivia@gmail.com
+      picture:
+        type: string
+      status:
+        type: integer
+        example: 1
+    xml:
+      name: Pharmacy
+  Product:
+    type: object
+    required:
+    - name
+    properties:
+      id:
+        type: integer
+        format: int64
+        example: 2
+      subsidiaryId:
+        type: integer
+        format: int64
+        example: 2
+      brandId:
+        type: integer
+        format: int64
+        example: 2
+      name:
+        type: string
+        example: Ampicilina
+      stock:
+        type: integer
+        example: 50
+      price:
+        type: number
+        example: 2.5
+      type:
+        type: string
+        example: Pastilla
+      dose:
+        type: string
+        example: 50 gr
+      description:
+        type: string
+        example: Trata infecciones bacterianas
+      picture:
+        type: string
+      status:
+        type: integer
+        example: 1
+    xml:
+      name: Product
+  Subsidiary:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        example: 1
+      pharmacyId:
+        type: integer
+        format: int64
+        example: 2
+      addressId:
+        type: integer
+        format: int64
+        example: 7
+      subsidiaryName:
+        type: string
+        example: Farmacia Bolivia - Arce
+      phone:
+        type: string
+        example: "23999233"
+      email:
+        type: string
+        example: farmaciaboliaarce@gmail.com
+      status:
+        type: integer
+        example: 1
+    xml:
+      name: Subsidiary
+  AuthenticationRequest:
+    type: object
+    properties:
+      email:
+        type: string
+        example: juan@gmail.com
+      password:
+        type: string
+        example: abc12345
+      role:
+        type: integer
+        format: int64
+        example: 2
+  AuthenticationResponse:
+    type: object
+    properties:
+      jwt:
+        type: string
+        example: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2NjAyNTQxLCJleHAiOjE2MTY2Mzg1NDF9.Svhf2c5XAxq6KGXvGWAXUj7JB7-kJ0Sv5-8nTCxG
+  ProductRequest:
+    type: object
+    properties:
+      productId:
+        type: integer
+        format: int64
+        example: 1
+      subsidiaryId:
+        type: integer
+        format: int64
+        example: 1
+      brandId:
+        type: integer
+        format: int64
+        example: 1
+      name:
+        type: string
+        example: Paracetamol
+      stock:
+        type: integer
+        format: int64
+        example: 100
+      price:
+        type: number
+        example: 0.2
+      type:
+        type: string
+        example: Tableta
+      dose:
+        type: string
+        example: 200 mlgr
+      description:
+        type: string
+        example: Este es un producto
+  SubsidiaryRequest:
+    type: object
+    properties:
+      subsidiaryId:
+        type: integer
+        format: int64
+        example: 1
+      pharmacyId:
+        type: integer
+        format: int64
+        example: 1
+      subsidiaryName:
+        type: string
+        example: Farmacias Bolivia - San Jorge
+      phone:
+        type: string
+        example: +591 235648
+      email:
+        type: string
+        example: farmbol@gmail.com
+      number:
+        type: string
+        example: "819"
+      street:
+        type: string
+        example: Mariscal Santa Cruz
+      zone:
+        type: string
+        example: La Paz
+      city:
+        type: string
+        example: La Paz
+      country:
+        type: string
+        example: Bolivia
+  PersonListRequest:
+    type: object
+    properties:
+      roleUserId:
+        type: integer
+        format: int64
+        example: 2
+      subsidiaryName:
+        type: string
+        example: Farmacias Bolivia - San Jorge
+      firstName:
+        type: string
+        example: Juan
+      firstSurname:
+        type: string
+        example: Perez
+      secondSurname:
+        type: string
+        example: Valda
+      ci:
+        type: string
+        example: 15649845 LP
+  ProductListRequest:
+    type: object
+    properties:
+      productId:
+        type: integer
+        format: int64
+        example: 1
+      brandName:
+        type: string
+        example: Vita
+      name:
+        type: string
+        example: Paracetamol
+  SubsidiaryListRequest:
+    type: object
+    properties:
+      subsidiaryId:
+        type: integer
+        format: int64
+        example: 1
+      subsidiaryName:
+        type: string
+        example: Farmacias Bolivia - San Jorge
+  ApiResponse:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      type:
+        type: string
+      message:
+        type: string
