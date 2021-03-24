@@ -56,7 +56,6 @@ public class SubsidiaryBl {
         Subsidiary subsidiary = new Subsidiary();
         Address address = new Address();
 
-        subsidiary.setAddressId(subsidiaryRequest.getSubsidiaryId());
         subsidiary.setSubsidiaryId(subsidiaryRequest.getSubsidiaryId());
         subsidiary.setPharmacyId(subsidiaryRequest.getPharmacyId());
         subsidiary.setSubsidiaryName(subsidiaryRequest.getSubsidiaryName());
@@ -86,7 +85,7 @@ public class SubsidiaryBl {
         Integer addressId=subsidiaryDao.addressId(subsidiaryId);
 
         subsidiary.setStatus(0);
-        subsidiary.setAddressId(subsidiaryId);
+        subsidiary.setSubsidiaryId(subsidiaryId);
         subsidiary.setTransaction(transaction);
         subsidiaryDao.deleteSubsidiary(subsidiary);
 

@@ -1,10 +1,12 @@
 POST http://localhost:8080/subsidiary
 Accept: application/json
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2NjA3MDk0LCJleHAiOjE2MTY2NDMwOTR9.zxIxABn1RJ3bv-CosN0MxBjQ3_olLPGgUneimc5UJqc
+
 
 {
-  "pharmacyId": 2,
-  "subsidiaryName": "Farmacias Chavez - Arce",
+  "pharmacyId": 1,
+  "subsidiaryName": "Farmacias Chavez - Sopocachi",
   "phone": "+591 24981657",
   "email": "farmaCha-Sopocachi@gmail.com",
   "number": "158",
@@ -20,23 +22,26 @@ Content-Type: application/json
 PUT http://localhost:8080/subsidiary
 Accept: application/json
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2NjA3MDk0LCJleHAiOjE2MTY2NDMwOTR9.zxIxABn1RJ3bv-CosN0MxBjQ3_olLPGgUneimc5UJqc
+
 
 {
-  "subsidiaryId": 1,
-  "subsidiaryName": "Farmacias Chavez - Sopocachi",
+  "subsidiaryId": 2,
+  "subsidiaryName": "Farmacias Chavez - so",
   "phone": "+591 24982333",
   "email": "farmaCha-Sopocachi@gmail.com",
   "number": "154",
   "street": "Aspiazu",
-  "zone": "Sopocachi",
-  "city": "La Paz",
+  "zone": "Arce",
+  "city": "El Alto",
   "country": "Bolivia"
 }
 
 ###
 
-DELETE http://localhost:8080/subsidiary/1
+DELETE http://localhost:8080/subsidiary/2
 Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2NjA3MDk0LCJleHAiOjE2MTY2NDMwOTR9.zxIxABn1RJ3bv-CosN0MxBjQ3_olLPGgUneimc5UJqc
 
 ###
 
