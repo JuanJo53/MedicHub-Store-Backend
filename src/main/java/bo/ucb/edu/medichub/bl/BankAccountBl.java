@@ -47,8 +47,8 @@ public class BankAccountBl {
         return bankAccountRequest;
     }
 
-    public BankAccountRequest findBankAccountById(Integer bankAccountId){
-        BankAccountRequest bankAccountRequest = bankAccountDao.findBankAccountById(bankAccountId);
+    public BankAccountRequest findBankAccountById(Integer subsidiaryId){
+        BankAccountRequest bankAccountRequest = bankAccountDao.findBankAccountById(subsidiaryId);
         return bankAccountRequest;
     }
 }

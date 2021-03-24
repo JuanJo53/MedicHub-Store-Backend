@@ -11,7 +11,7 @@ public interface BankAccountDao {
 
     public void createBankAccount(BankAccount bankAccount);
     public void updateBankAccount(BankAccount bankAccount);
-    public BankAccountRequest findBankAccountById(Integer bankAccountId);
+    public BankAccountRequest findBankAccountById(Integer subsidiaryId);
 }
 
 

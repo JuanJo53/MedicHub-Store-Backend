@@ -59,9 +59,9 @@ public class BankAccountApi {
         }
     }
 
-    @GetMapping(path="/{bankAccountId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public BankAccountRequest findBankAccountById(@PathVariable String bankAccountId){
-        BankAccountRequest bankAccountRequest = bankAccountBl.findBankAccountById(Integer.parseInt(bankAccountId));
+    @GetMapping(path="/{subsidiaryId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public BankAccountRequest findBankAccountById(@PathVariable String subsidiaryId){
+        BankAccountRequest bankAccountRequest = bankAccountBl.findBankAccountById(Integer.parseInt(subsidiaryId));
         return bankAccountRequest;
     }
 }

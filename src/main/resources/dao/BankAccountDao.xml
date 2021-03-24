@@ -26,14 +26,16 @@
 
     <select id="findBankAccountById" resultType="bo.ucb.edu.medichub.dto.BankAccountRequest">
         SELECT
-        bank_account_id as bankAccountId,
-        pharmacy_id as pharmacyId,
-        account_number as accountNumber,
-        bank as bank,
-        account_type as accountType
-        FROM bank_account
+        a.bank_account_id as bankAccountId,
+        a.pharmacy_id as pharmacyId,
+        a.account_number as accountNumber,
+        a.bank as bank,
+        a.account_type as accountType
+        FROM bank_account a, pharmacy b, subsidiary c
         WHERE
-        bank_account_id = #{bankAccountId}
-        and status = 1
+        c.subsidiary_id = #{subsidiaryId} AND
+        b.pharmacy_id=a.pharmacy_id AND
+        b.pharmacy_id=c.pharmacy_id AND
+        c.status = 1
     </select>
 </mapper>

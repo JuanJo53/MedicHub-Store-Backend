@@ -21,16 +21,18 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2NjAxMzc2L
 PUT http://localhost:8080/subsidiary
 Accept: application/json
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2NjAxMzc2LCJleHAiOjE2MTY2MzczNzZ9.WKQ7nIFYhH0duU6Q0N0bmuIRPSc1LR1p5_L1-J1W-wo
+
 
 {
-  "subsidiaryId": 1,
-  "subsidiaryName": "Farmacias Chavez - Sopocachi",
+  "subsidiaryId": 2,
+  "subsidiaryName": "Farmacias Chavez - Asc",
   "phone": "+591 24982333",
   "email": "farmaCha-Sopocachi@gmail.com",
   "number": "154",
   "street": "Aspiazu",
   "zone": "Sopocachi",
-  "city": "La Paz",
+  "city": "La Pazz",
   "country": "Bolivia"
 }
 
