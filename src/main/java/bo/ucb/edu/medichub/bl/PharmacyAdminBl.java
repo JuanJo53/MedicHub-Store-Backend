@@ -79,16 +79,10 @@ public class PharmacyAdminBl {
         return pharmacyAdminRequest;
     }
 
-    public void deletePerson(Integer personId, Transaction transaction) {
-        Person person= new Person();
-        PharmacyAdmin pharmacyAdmin=new PharmacyAdmin();
-        person.setStatus(0);
-        person.setPersonId(personId);
-        person.setTransaction(transaction);
-        personDao.deletePerson(person);
-
+    public void deletePharmacyAdmin(Integer pharmacyId, Transaction transaction) {
+        PharmacyAdmin pharmacyAdmin = new PharmacyAdmin();
         pharmacyAdmin.setStatus(0);
-        pharmacyAdmin.setPersonId(personId);
+        pharmacyAdmin.setPharmacyId(pharmacyId);
         pharmacyAdmin.setTransaction(transaction);
         pharmacyAdminDao.deletePharmacyAdmin(pharmacyAdmin);
     }

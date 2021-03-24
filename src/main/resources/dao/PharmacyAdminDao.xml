@@ -33,7 +33,7 @@
             tx_user_id=#{transaction.txUserId},
             tx_date=#{transaction.txDate}
         WHERE
-        person_id=#{personId} and
+        pharmacy_id=#{pharmacyId} and
         status=1
     </update>
 

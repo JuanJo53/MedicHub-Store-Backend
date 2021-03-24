@@ -53,11 +53,11 @@ public class PharmacyAdminApi {
     }
     }
 
-    @DeleteMapping(path="/{personId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public HttpStatus deletePharmacy(@PathVariable String personId, HttpServletRequest request){
+    @DeleteMapping(path="/{pharmacyId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public HttpStatus deletePharmacy(@PathVariable String pharmacyId, HttpServletRequest request){
         Transaction transaction = TransactionUtil.createTransaction(request);
         transactionBl.createTransaction(transaction);
-        pharmacyAdminBl.deletePerson(Integer.parseInt(personId),transaction);
+        pharmacyAdminBl.deletePharmacyAdmin(Integer.parseInt(pharmacyId),transaction);
         return HttpStatus.ACCEPTED;
     }
 
