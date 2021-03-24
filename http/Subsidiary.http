@@ -1,9 +1,10 @@
 POST http://localhost:8080/subsidiary
 Accept: application/json
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2NjAxMzc2LCJleHAiOjE2MTY2MzczNzZ9.WKQ7nIFYhH0duU6Q0N0bmuIRPSc1LR1p5_L1-J1W-wo
 
 {
-  "pharmacyId": 2,
+  "pharmacyId": 1,
   "subsidiaryName": "Farmacias Chavez - Arce",
   "phone": "+591 24981657",
   "email": "farmaCha-Sopocachi@gmail.com",

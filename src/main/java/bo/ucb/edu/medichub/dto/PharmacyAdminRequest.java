@@ -10,9 +10,6 @@ public class PharmacyAdminRequest {
     private Integer pharmacyId;
     @NumberFormat
     @Positive
-    private Integer personId;
-    @NumberFormat
-    @Positive
     private Integer subsidiaryId;
     @NotEmpty
     @Size(min = 3)
@@ -123,19 +120,10 @@ public class PharmacyAdminRequest {
         this.password = password;
     }
 
-    public Integer getPersonId() {
-        return personId;
-    }
-
-    public void setPersonId(Integer personId) {
-        this.personId = personId;
-    }
-
     @Override
     public String toString() {
         return "PharmacyAdminRequest{" +
                 "pharmacyId=" + pharmacyId +
-                ", personId=" + personId +
                 ", subsidiaryId=" + subsidiaryId +
                 ", firstName='" + firstName + '\'' +
                 ", firstSurname='" + firstSurname + '\'' +

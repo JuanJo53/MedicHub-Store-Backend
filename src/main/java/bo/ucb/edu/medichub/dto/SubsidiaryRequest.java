@@ -21,6 +21,7 @@ public class SubsidiaryRequest {
     @Size(min = 6)
     @Email
     private String email;
+    @Null
     @Size(min = 2)
     private String number;
     @NotEmpty

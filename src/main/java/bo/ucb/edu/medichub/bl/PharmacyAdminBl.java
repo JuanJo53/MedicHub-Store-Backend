@@ -57,21 +57,23 @@ public class PharmacyAdminBl {
     public PharmacyAdminRequest updatePharmacyAdmin(PharmacyAdminRequest pharmacyAdminRequest, Transaction transaction){
         PharmacyAdmin pharmacyAdmin = new PharmacyAdmin();
         Person person = new Person();
-        person.setPersonId(pharmacyAdminRequest.getPersonId());
+
+        pharmacyAdmin.setPharmacyId(pharmacyAdminRequest.getPharmacyId());
+        pharmacyAdmin.setUserName(pharmacyAdminRequest.getUserName());
+        pharmacyAdmin.setEmail(pharmacyAdminRequest.getEmail());
+        pharmacyAdmin.setPassword(pharmacyAdminRequest.getPassword());
+        pharmacyAdmin.setTransaction(transaction);
+        pharmacyAdminDao.updatePharmacyAdmin(pharmacyAdmin);
+
+        PharmacyAdmin pharmacyAdmin2 = pharmacyAdminDao.getPersonId(pharmacyAdminRequest.getPharmacyId());
+        person.setPersonId(pharmacyAdmin2.getPersonId());
         person.setFirstName(pharmacyAdminRequest.getFirstName());
         person.setFirstSurname(pharmacyAdminRequest.getFirstSurname());
         person.setSecondSurname(pharmacyAdminRequest.getSecondSurname());
         person.setCi(pharmacyAdminRequest.getCi());
         person.setPhone(pharmacyAdminRequest.getPhone());
-        person.setTransaction(transaction);
         personDao.updatePerson(person);
-        pharmacyAdmin.setPersonId(pharmacyAdminRequest.getPersonId());
-        pharmacyAdmin.setSubsidiaryId(pharmacyAdminRequest.getSubsidiaryId());
-        pharmacyAdmin.setEmail(pharmacyAdminRequest.getEmail());
-        pharmacyAdmin.setUserName(pharmacyAdminRequest.getUserName());
-        pharmacyAdmin.setPassword(pharmacyAdminRequest.getPassword());
-        pharmacyAdmin.setTransaction(transaction);
-        pharmacyAdminDao.updatePharmacyAdmin(pharmacyAdmin);
+
         return pharmacyAdminRequest;
     }
 

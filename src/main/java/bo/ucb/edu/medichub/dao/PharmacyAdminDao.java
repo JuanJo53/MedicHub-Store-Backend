@@ -13,4 +13,6 @@ public interface PharmacyAdminDao {
     public void deletePharmacyAdmin(PharmacyAdmin pharmacyAdmin);
 
     public PharmacyAdminRequest findAdminById(Integer pharmacyId);
+
+    public PharmacyAdmin getPersonId(Integer pharmacyId);
 }
