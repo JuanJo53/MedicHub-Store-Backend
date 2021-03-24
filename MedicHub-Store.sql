@@ -3,6 +3,13 @@
 
 -- tables
 -- Table: address
+drop database medichub_store
+
+create database medichub_store;
+use medichub_store;
+
+
+
 CREATE TABLE address (
     address_id int NOT NULL AUTO_INCREMENT,
     number varchar(45) NULL,

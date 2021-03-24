@@ -1,7 +1,8 @@
 POST http://localhost:8080/pharmacy
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2NjAxMzc2LCJleHAiOjE2MTY2MzczNzZ9.WKQ7nIFYhH0duU6Q0N0bmuIRPSc1LR1p5_L1-J1W-wo
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2NjA3MDk0LCJleHAiOjE2MTY2NDMwOTR9.zxIxABn1RJ3bv-CosN0MxBjQ3_olLPGgUneimc5UJqc
+
 
 {
   "name": "Farmacias Chave",
