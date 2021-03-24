@@ -26,28 +26,16 @@ import javax.servlet.http.HttpServletRequest;
 public class AuthApi {
 
     @Autowired
-    private AuthenticationManager authenticationManager;
-    @Autowired
     private TransactionBl transactionBl;
     @Autowired
     private AuthBl authBl;
-    @Autowired
-    private JWTUtil jwtUtil;
-
-
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<AuthenticationResponse> createToken(@RequestBody AuthenticationRequest authenticationRequest){
-        try {
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(),
-                    authenticationRequest.getPassword()));
-            UserDetails userDetails = authBl.loadUserByUsername(authenticationRequest.getUsername());
-            String jwt = jwtUtil.generateToken(userDetails);
-            return new ResponseEntity<>(new AuthenticationResponse(jwt), HttpStatus.OK);
-        } catch (BadCredentialsException e) {
-            return new ResponseEntity(HttpStatus.FORBIDDEN, HttpStatus.FORBIDDEN);
-        }
+    public ResponseEntity<AuthenticationResponse> createToken(@RequestBody AuthenticationRequest authenticationRequest, HttpServletRequest request){
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction(transaction);
+        return authBl.createToken(authenticationRequest);
     }
 
 }

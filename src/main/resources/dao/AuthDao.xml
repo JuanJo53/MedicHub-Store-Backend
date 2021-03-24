@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bo.ucb.edu.medichub.dao.AuthDao">
+    <select id="getIdPharmacyAdmin" resultType="bo.ucb.edu.medichub.dto.AuthRole">
+        SELECT pharmacy_id as roleId
+        FROM pharmacy_admin
+        WHERE
+            email = #{email}
+        and password = #{password}
+        and status = 1
+    </select>
+
+    <select id="getIdAdmin" resultType="bo.ucb.edu.medichub.dto.AuthRole">
+        SELECT admin_id as roleId
+        FROM admin
+        WHERE
+            email = #{email}
+          and password = #{password}
+          and status = 1
+    </select>
+
+    <select id="getIdClient" resultType="bo.ucb.edu.medichub.dto.AuthRole">
+        SELECT client_id as roleId
+        FROM client
+        WHERE
+            email = #{email}
+          and password = #{password}
+          and status = 1
+    </select>
+
+</mapper>

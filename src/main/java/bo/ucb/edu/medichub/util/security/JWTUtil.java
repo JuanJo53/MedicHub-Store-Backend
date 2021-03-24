@@ -1,8 +1,11 @@
 package bo.ucb.edu.medichub.util.security;
 
+import bo.ucb.edu.medichub.bl.BankAccountBl;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +14,9 @@ import java.util.Date;
 @Component
 public class JWTUtil {
 
-    private static String KEY = "m3d1chub";
+    private final String KEY = "m3d1chub";
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(JWTUtil.class);
 
     public String generateToken(UserDetails userDetails) {
         return "Bearer " + Jwts.builder().setSubject(userDetails.getUsername()).setIssuedAt(new Date())
@@ -24,7 +29,9 @@ public class JWTUtil {
     }
 
     public String extractUsername(String token){
-        return getClaims(token).getSubject();
+        String user = getClaims(token).getSubject();
+        LOGGER.error(user);
+        return user;
     }
 
     public boolean isTokenExpired(String token){

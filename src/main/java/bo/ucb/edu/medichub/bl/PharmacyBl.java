@@ -62,7 +62,7 @@ public class PharmacyBl {
     }
 
     public List<PharmacyListRequest> getPharmacies(){
-        List<PharmacyListRequest> pharmacies = pharmacyDao.getPharmacies();
+        List<PharmacyListRequest> pharmacies = pharmacyDao.getPharmacies();;
         return pharmacies;
     }
 

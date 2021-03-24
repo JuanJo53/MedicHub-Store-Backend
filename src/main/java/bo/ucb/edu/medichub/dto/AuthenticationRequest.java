@@ -1,18 +1,19 @@
 package bo.ucb.edu.medichub.dto;
 
 public class AuthenticationRequest {
-    private String username;
+    private String email;
     private String password;
+    private Integer role;
 
     public AuthenticationRequest() {
     }
 
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -23,11 +24,20 @@ public class AuthenticationRequest {
         this.password = password;
     }
 
+    public Integer getRole() {
+        return role;
+    }
+
+    public void setRole(Integer role) {
+        this.role = role;
+    }
+
     @Override
     public String toString() {
         return "AuthenticationRequest{" +
-                "username='" + username + '\'' +
+                "email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", role=" + role +
                 '}';
     }
 }
