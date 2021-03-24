@@ -1,9 +1,10 @@
 POST http://localhost:8080/pharmacyAdmin
 Accept: application/json
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2NjAxMzc2LCJleHAiOjE2MTY2MzczNzZ9.WKQ7nIFYhH0duU6Q0N0bmuIRPSc1LR1p5_L1-J1W-wo
 
 {
-  "subsidiaryId": 4,
+  "subsidiaryId": 1,
   "firstName": "Sergio",
   "firstSurname": "Lara",
   "secondSurname": "Vaca",
@@ -19,11 +20,12 @@ Content-Type: application/json
 PUT http://localhost:8080/pharmacyAdmin
 Accept: application/json
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2NjAxMzc2LCJleHAiOjE2MTY2MzczNzZ9.WKQ7nIFYhH0duU6Q0N0bmuIRPSc1LR1p5_L1-J1W-wo
 
 {
-  "personId": 3,
+  "pharmacyId": 2,
   "subsidiaryId": 1,
-  "firstName": "Juan",
+  "firstName": "Jose",
   "firstSurname": "Perez",
   "secondSurname": "Luan",
   "ci": "12459635 LP",
@@ -40,7 +42,8 @@ Accept: application/json
 
 ###
 
-GET http://localhost:8080/pharmacyAdmin/3
+GET http://localhost:8080/pharmacyAdmin/2
 Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2NjAxMzc2LCJleHAiOjE2MTY2MzczNzZ9.WKQ7nIFYhH0duU6Q0N0bmuIRPSc1LR1p5_L1-J1W-wo
 
 ###

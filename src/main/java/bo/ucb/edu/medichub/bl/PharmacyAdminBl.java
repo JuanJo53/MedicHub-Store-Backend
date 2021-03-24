@@ -57,7 +57,17 @@ public class PharmacyAdminBl {
     public PharmacyAdminRequest updatePharmacyAdmin(PharmacyAdminRequest pharmacyAdminRequest, Transaction transaction){
         PharmacyAdmin pharmacyAdmin = new PharmacyAdmin();
         Person person = new Person();
-        person.setPersonId(pharmacyAdminRequest.getPersonId());
+
+        pharmacyAdmin.setPharmacyId(pharmacyAdminRequest.getPharmacyId());
+        pharmacyAdmin.setSubsidiaryId(pharmacyAdminRequest.getSubsidiaryId());
+        pharmacyAdmin.setUserName(pharmacyAdminRequest.getUserName());
+        pharmacyAdmin.setEmail(pharmacyAdminRequest.getEmail());
+        pharmacyAdmin.setPassword(pharmacyAdminRequest.getPassword());
+        pharmacyAdmin.setTransaction(transaction);
+        pharmacyAdminDao.updatePharmacyAdmin(pharmacyAdmin);
+
+        PharmacyAdmin pharmacyAdmin2 = pharmacyAdminDao.getPersonId(pharmacyAdminRequest.getPharmacyId());
+        person.setPersonId(pharmacyAdmin2.getPersonId());
         person.setFirstName(pharmacyAdminRequest.getFirstName());
         person.setFirstSurname(pharmacyAdminRequest.getFirstSurname());
         person.setSecondSurname(pharmacyAdminRequest.getSecondSurname());
@@ -65,26 +75,14 @@ public class PharmacyAdminBl {
         person.setPhone(pharmacyAdminRequest.getPhone());
         person.setTransaction(transaction);
         personDao.updatePerson(person);
-        pharmacyAdmin.setPersonId(pharmacyAdminRequest.getPersonId());
-        pharmacyAdmin.setSubsidiaryId(pharmacyAdminRequest.getSubsidiaryId());
-        pharmacyAdmin.setEmail(pharmacyAdminRequest.getEmail());
-        pharmacyAdmin.setUserName(pharmacyAdminRequest.getUserName());
-        pharmacyAdmin.setPassword(pharmacyAdminRequest.getPassword());
-        pharmacyAdmin.setTransaction(transaction);
-        pharmacyAdminDao.updatePharmacyAdmin(pharmacyAdmin);
+
         return pharmacyAdminRequest;
     }
 
-    public void deletePerson(Integer personId, Transaction transaction) {
-        Person person= new Person();
-        PharmacyAdmin pharmacyAdmin=new PharmacyAdmin();
-        person.setStatus(0);
-        person.setPersonId(personId);
-        person.setTransaction(transaction);
-        personDao.deletePerson(person);
-
+    public void deletePharmacyAdmin(Integer pharmacyId, Transaction transaction) {
+        PharmacyAdmin pharmacyAdmin = new PharmacyAdmin();
         pharmacyAdmin.setStatus(0);
-        pharmacyAdmin.setPersonId(personId);
+        pharmacyAdmin.setPharmacyId(pharmacyId);
         pharmacyAdmin.setTransaction(transaction);
         pharmacyAdminDao.deletePharmacyAdmin(pharmacyAdmin);
     }
