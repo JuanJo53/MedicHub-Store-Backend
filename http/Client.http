@@ -1,0 +1,28 @@
+PUT http://localhost:8080/client
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2ODg1ODQwLCJleHAiOjE2MTY5MjE4NDB9.e5HQuyTGXnClUBYDv4o_Kq8Oq-Sz71-_nbWSEN2WjlQ
+
+{
+  "clientId": 1,
+  "firstName": "Erwin",
+  "firstSurname": "Alejo",
+  "secondSurname": "Colque",
+  "ci": "12477775 LP",
+  "phone": "+591 77777712",
+  "email": "erwin@gmail.com",
+  "userName": "erwinAle",
+  "password": "er1234",
+  "birthdate": "1999-11-02"
+
+}
+
+###
+
+
+DELETE http://localhost:8080/client/1
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2ODg1ODQwLCJleHAiOjE2MTY5MjE4NDB9.e5HQuyTGXnClUBYDv4o_Kq8Oq-Sz71-_nbWSEN2WjlQ
+
+
+###

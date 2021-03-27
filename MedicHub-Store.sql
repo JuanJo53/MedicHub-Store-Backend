@@ -319,3 +319,7 @@ ALTER TABLE subsidiary ADD CONSTRAINT subsidiary_pharmacy FOREIGN KEY subsidiary
 
 -- End of file.
 
+
+INSERT INTO `client` (`client_id`, `person_id`, `address_id`, `email`, `user_name`, `password`, `birthdate`, `picture`, `status`, `tx_id`, `tx_host`, `tx_user_id`, `tx_date`)
+VALUES (NULL, '3', '3', 'erwinaljoG@gmail.com', 'erwinG', 'erw12345', '1999-11-01', NULL, '1', '23', '127.0.0.1', '0', current_timestamp());
+

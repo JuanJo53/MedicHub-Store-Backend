@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bo.ucb.edu.medichub.dao.ClientDao">
+
+
+    <update id="updateClient" parameterType="bo.ucb.edu.medichub.model.Client">
+        UPDATE client set
+            email=#{email},
+            user_name=#{userName},
+            password=#{password},
+            birthdate=#{birthdate},
+            tx_id=#{transaction.txId},
+            tx_host=#{transaction.txHost},
+            tx_user_id=#{transaction.txUserId},
+            tx_date=#{transaction.txDate}
+        WHERE
+        client_id=#{clientId} and
+        status=1
+    </update>
+
+    <update id="deleteClient" parameterType="bo.ucb.edu.medichub.model.Client">
+        UPDATE client set
+            status=#{status},
+            tx_id=#{transaction.txId},
+            tx_host=#{transaction.txHost},
+            tx_user_id=#{transaction.txUserId},
+            tx_date=#{transaction.txDate}
+        WHERE
+        client_id=#{clientId} and
+        status=1
+    </update>
+
+
+
+    <select id="getPersonId" resultType="java.lang.Integer">
+        SELECT
+            person_id
+        FROM client
+        WHERE
+            client_id = #{clientId}
+            and status = 1
+    </select>
+</mapper>
