@@ -5,12 +5,15 @@ import bo.ucb.edu.medichub.dao.AddressDao;
 import bo.ucb.edu.medichub.dao.ClientDao;
 import bo.ucb.edu.medichub.dao.PersonDao;
 import bo.ucb.edu.medichub.dao.TransactionDao;
+import bo.ucb.edu.medichub.dto.ClientListRequest;
 import bo.ucb.edu.medichub.dto.ClientRequest;
 import bo.ucb.edu.medichub.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ClientBl {
@@ -115,5 +118,10 @@ public class ClientBl {
         client.setClientId(clientId);
         client.setTransaction(transaction);
         clientDao.deleteClient(client);
+    }
+
+    public List<ClientListRequest> getClients(){
+        List<ClientListRequest> clients = clientDao.getClients();
+        return clients;
     }
 }
