@@ -1,7 +1,7 @@
 package bo.ucb.edu.medichub.dto;
 
 public class AddressRequest {
-    private Integer addressId;
+    private Integer addresId;
     private String number;
     private String street;
     private String zone;
@@ -12,11 +12,11 @@ public class AddressRequest {
     }
 
     public Integer getAddresId() {
-        return addressId;
+        return addresId;
     }
 
     public void setAddresId(Integer addresId) {
-        this.addressId = addresId;
+        this.addresId = addresId;
     }
 
     public String getNumber() {
@@ -62,7 +62,7 @@ public class AddressRequest {
     @Override
     public String toString() {
         return "AddressRequest{" +
-                "addresId=" + addressId +
+                "addresId=" + addresId +
                 ", number='" + number + '\'' +
                 ", street='" + street + '\'' +
                 ", zone='" + zone + '\'' +
