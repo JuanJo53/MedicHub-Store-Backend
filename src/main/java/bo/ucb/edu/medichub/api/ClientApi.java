@@ -2,6 +2,7 @@ package bo.ucb.edu.medichub.api;
 
 import bo.ucb.edu.medichub.bl.ClientBl;
 import bo.ucb.edu.medichub.bl.TransactionBl;
+import bo.ucb.edu.medichub.dto.AddressRequest;
 import bo.ucb.edu.medichub.dto.ClientListRequest;
 import bo.ucb.edu.medichub.dto.ClientRequest;
 import bo.ucb.edu.medichub.model.Transaction;
@@ -69,5 +70,11 @@ public class ClientApi {
     public List<ClientListRequest> getClients() {
         List<ClientListRequest> clients=clientBl.getClients();
         return clients;
+    }
+
+    @GetMapping(path="/{clientId}/address", produces = MediaType.APPLICATION_JSON_VALUE)
+    public AddressRequest findAddressByClient(@PathVariable String clientId){
+        AddressRequest address = clientBl.getAddressByPerson(Integer.parseInt(clientId));
+        return address;
     }
 }

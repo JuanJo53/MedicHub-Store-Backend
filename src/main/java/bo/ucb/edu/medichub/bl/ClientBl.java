@@ -5,6 +5,7 @@ import bo.ucb.edu.medichub.dao.AddressDao;
 import bo.ucb.edu.medichub.dao.ClientDao;
 import bo.ucb.edu.medichub.dao.PersonDao;
 import bo.ucb.edu.medichub.dao.TransactionDao;
+import bo.ucb.edu.medichub.dto.AddressRequest;
 import bo.ucb.edu.medichub.dto.ClientListRequest;
 import bo.ucb.edu.medichub.dto.ClientRequest;
 import bo.ucb.edu.medichub.model.*;
@@ -110,5 +111,10 @@ public class ClientBl {
     public List<ClientListRequest> getClients(){
         List<ClientListRequest> clients = clientDao.getClients();
         return clients;
+    }
+
+    public AddressRequest getAddressByPerson(Integer clientId){
+        AddressRequest address =  clientDao.getAddressByPerson(clientId);
+        return address;
     }
 }

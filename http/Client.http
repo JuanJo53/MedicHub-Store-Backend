@@ -55,3 +55,9 @@ Accept: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjE2ODk4Njk4LCJleHAiOjE2MTY5MzQ2OTh9.1NMbwtvaNWFLy4ZWODd5FmpERWKeRGZtxc84mCHL8JQ
 
 ###
+
+GET http://localhost:8080/client/1/address
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjE2ODk4Njk4LCJleHAiOjE2MTY5MzQ2OTh9.1NMbwtvaNWFLy4ZWODd5FmpERWKeRGZtxc84mCHL8JQ
+
+###
