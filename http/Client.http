@@ -36,9 +36,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2ODg1ODQwL
   "email": "erwin@gmail.com",
   "userName": "erwinAle",
   "password": "er1234",
-  "birthdate": "1999-11-02"
-
+  "birthdate": "1999-11-02",
+  "number": "1",
+  "street": "14 de Septiembr",
+  "zone": "Obrajes",
+  "city": "La Paz",
+  "country": "Bolivia"
 }
+
 
 ###
 

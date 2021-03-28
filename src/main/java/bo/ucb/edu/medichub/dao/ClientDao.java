@@ -14,4 +14,6 @@ public interface ClientDao {
 
 
     public void deleteClient(Client client);
+
+    public Integer getAddressId(Client client);
 }
