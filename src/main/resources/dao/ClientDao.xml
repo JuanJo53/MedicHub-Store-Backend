@@ -48,4 +48,29 @@
             client_id = #{clientId}
             and status = 1
     </select>
+
+    <select id="getClients" resultMap="clientsMap">
+        SELECT
+            a.client_id as clientId,
+            b.first_name as firstName,
+            b.first_surname as firstSurname,
+            b.second_surname as secondSurname,
+            a.user_name as userName,
+            a.email as email,
+            b.ci as ci
+        FROM client a, person b
+        WHERE
+              b.person_id = a.person_id
+              AND a.status = 1
+    </select>
+
+    <resultMap id="clientsMap" type="bo.ucb.edu.medichub.dto.ClientListRequest">
+        <result column="clientId" property="clientId"/>
+        <result column="firstName" property="firstName"/>
+        <result column="firstSurname" property="firstSurname"/>
+        <result column="secondSurname" property="secondSurname"/>
+        <result column="userName" property="userName"/>
+        <result column="email" property="email"/>
+        <result column="ci" property="ci"/>
+    </resultMap>
 </mapper>
