@@ -18,4 +18,6 @@ public interface ClientDao {
     public List<ClientListRequest> getClients();
     public AddressRequest getAddressByPerson(Integer clientId);
     public void deleteClient(Client client);
+
+    public Integer getAddressId(Client client);
 }

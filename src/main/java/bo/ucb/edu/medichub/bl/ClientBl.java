@@ -75,6 +75,8 @@ public class ClientBl {
     public ClientRequest updateClient(ClientRequest clientRequest, Transaction transaction) {
         Client client = new Client();
         Person person = new Person();
+        Address address= new Address();
+
 
 
         client.setClientId(clientRequest.getClientId());
@@ -94,6 +96,17 @@ public class ClientBl {
         person.setPhone(clientRequest.getPhone());
         person.setTransaction(transaction);
         personDao.updatePerson(person);
+
+        Integer idAddress = clientDao.getAddressId(client);
+
+        address.setAddressId(idAddress);
+        address.setNumber(clientRequest.getNumber());
+        address.setStreet(clientRequest.getStreet());
+        address.setZone(clientRequest.getZone());
+        address.setCity(clientRequest.getCity());
+        address.setCountry(clientRequest.getCountry());
+        address.setTransaction(transaction);
+        addressDao.updateAddress(address);
 
 
 
