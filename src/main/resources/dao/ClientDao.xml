@@ -4,6 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="bo.ucb.edu.medichub.dao.ClientDao">
 
+    <insert id="createClient" parameterType="bo.ucb.edu.medichub.model.Client">
+        INSERT INTO client VALUES (
+            null, #{personId}, #{addressId}, #{email}, #{userName}, #{password}, #{birthdate}, #{picture},
+            1, #{transaction.txId}, #{transaction.txHost}, #{transaction.txUserId}, #{transaction.txDate}
+        )
+    </insert>
 
     <update id="updateClient" parameterType="bo.ucb.edu.medichub.model.Client">
         UPDATE client set
@@ -42,4 +48,45 @@
             client_id = #{clientId}
             and status = 1
     </select>
+
+    <select id="getClients" resultMap="clientsMap">
+        SELECT
+            a.client_id as clientId,
+            b.first_name as firstName,
+            b.first_surname as firstSurname,
+            b.second_surname as secondSurname,
+            a.user_name as userName,
+            a.email as email,
+            b.ci as ci
+        FROM client a, person b
+        WHERE
+              b.person_id = a.person_id
+              AND a.status = 1
+    </select>
+
+    <resultMap id="clientsMap" type="bo.ucb.edu.medichub.dto.ClientListRequest">
+        <result column="clientId" property="clientId"/>
+        <result column="firstName" property="firstName"/>
+        <result column="firstSurname" property="firstSurname"/>
+        <result column="secondSurname" property="secondSurname"/>
+        <result column="userName" property="userName"/>
+        <result column="email" property="email"/>
+        <result column="ci" property="ci"/>
+    </resultMap>
+
+    <select id="getAddressByPerson" resultType="bo.ucb.edu.medichub.dto.AddressRequest">
+        SELECT
+            a.address_id as addressId,
+            a.number as number,
+            a.street as street,
+            a.zone as zone,
+            a.city as city,
+            a.country as country
+        FROM address a, client b
+        WHERE
+            b.client_id = #{clientId}
+            and b.address_id = a.address_id
+            and a.status = 1
+    </select>
+
 </mapper>

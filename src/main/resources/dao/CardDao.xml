@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bo.ucb.edu.medichub.dao.CardDao">
+
+    <update id="deleteCard" parameterType="bo.ucb.edu.medichub.model.Card">
+        UPDATE card set
+        status=#{status},
+        tx_id=#{transaction.txId},
+        tx_host=#{transaction.txHost},
+        tx_user_id=#{transaction.txUserId},
+        tx_date=#{transaction.txDate}
+        WHERE
+        card_id=#{cardId} and
+        status=1
+    </update>
+</mapper>

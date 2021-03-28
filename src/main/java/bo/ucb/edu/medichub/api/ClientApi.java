@@ -2,6 +2,8 @@ package bo.ucb.edu.medichub.api;
 
 import bo.ucb.edu.medichub.bl.ClientBl;
 import bo.ucb.edu.medichub.bl.TransactionBl;
+import bo.ucb.edu.medichub.dto.AddressRequest;
+import bo.ucb.edu.medichub.dto.ClientListRequest;
 import bo.ucb.edu.medichub.dto.ClientRequest;
 import bo.ucb.edu.medichub.model.Transaction;
 import bo.ucb.edu.medichub.util.TransactionUtil;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -28,6 +31,19 @@ public class ClientApi {
         this.transactionBl = transactionBl;
     }
 
+    @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public HttpStatus createClient(@Valid @RequestBody ClientRequest clientRequest, HttpServletRequest request, BindingResult result) {
+        if(!result.hasErrors()){
+            Transaction transaction = TransactionUtil.createTransaction(request);
+            transactionBl.createTransaction(transaction);
+            ClientRequest clientResponse = clientBl.createClient(clientRequest, transaction);
+            return HttpStatus.OK;
+        }
+        else{
+            return HttpStatus.BAD_REQUEST;
+        }
+    }
 
     @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -43,10 +59,22 @@ public class ClientApi {
     }
 
     @DeleteMapping(path="/{clientId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public HttpStatus deletePharmacy(@PathVariable String clientId, HttpServletRequest request){
+    public HttpStatus deleteClient(@PathVariable String clientId, HttpServletRequest request){
         Transaction transaction = TransactionUtil.createTransaction(request);
         transactionBl.createTransaction(transaction);
         clientBl.deleteClient(Integer.parseInt(clientId),transaction);
         return HttpStatus.ACCEPTED;
+    }
+
+    @RequestMapping(method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<ClientListRequest> getClients() {
+        List<ClientListRequest> clients=clientBl.getClients();
+        return clients;
+    }
+
+    @GetMapping(path="/{clientId}/address", produces = MediaType.APPLICATION_JSON_VALUE)
+    public AddressRequest findAddressByClient(@PathVariable String clientId){
+        AddressRequest address = clientBl.getAddressByPerson(Integer.parseInt(clientId));
+        return address;
     }
 }

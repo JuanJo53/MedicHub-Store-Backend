@@ -1,3 +1,26 @@
+POST http://localhost:8080/client
+Accept: application/json
+Content-Type: application/json
+
+{
+  "firstName": "Juan Pablo",
+  "firstSurname": "Melandre",
+  "secondSurname": "Choquevolqueta",
+  "ci": "158165779 LP",
+  "phone": "+591 2645897",
+  "email": "juan@gmail.com",
+  "userName": "juan123",
+  "password": "juan123",
+  "birthdate": "1995-03-11",
+  "number": "12",
+  "street": "14 de Septiembre",
+  "zone": "Obrajes",
+  "city": "La Paz",
+  "country": "Bolivia"
+}
+
+###
+
 PUT http://localhost:8080/client
 Accept: application/json
 Content-Type: application/json
@@ -13,9 +36,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2ODg1ODQwL
   "email": "erwin@gmail.com",
   "userName": "erwinAle",
   "password": "er1234",
-  "birthdate": "1999-11-02"
-
+  "birthdate": "1999-11-02",
+  "number": "1",
+  "street": "14 de Septiembr",
+  "zone": "Obrajes",
+  "city": "La Paz",
+  "country": "Bolivia"
 }
+
 
 ###
 
@@ -24,5 +52,17 @@ DELETE http://localhost:8080/client/1
 Accept: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2ODg1ODQwLCJleHAiOjE2MTY5MjE4NDB9.e5HQuyTGXnClUBYDv4o_Kq8Oq-Sz71-_nbWSEN2WjlQ
 
+
+###
+
+GET http://localhost:8080/client
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjE2ODk4Njk4LCJleHAiOjE2MTY5MzQ2OTh9.1NMbwtvaNWFLy4ZWODd5FmpERWKeRGZtxc84mCHL8JQ
+
+###
+
+GET http://localhost:8080/client/1/address
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjE2ODk4Njk4LCJleHAiOjE2MTY5MzQ2OTh9.1NMbwtvaNWFLy4ZWODd5FmpERWKeRGZtxc84mCHL8JQ
 
 ###

@@ -11,12 +11,6 @@ public class ClientRequest {
     @NumberFormat
     @Positive
     private Integer clientId;
-    @NumberFormat
-    @Positive
-    private Integer personId;
-    @NumberFormat
-    @Positive
-    private Integer addressId;
     @NotEmpty
     @Size(min = 3)
     private String firstName;
@@ -44,7 +38,19 @@ public class ClientRequest {
     private String password;
     @NotEmpty
     private String birthdate;
-
+    private String number;
+    @NotEmpty
+    @Size(min = 3)
+    private String street;
+    @NotEmpty
+    @Size(min = 3)
+    private String zone;
+    @NotEmpty
+    @Size(min = 3)
+    private String city;
+    @NotEmpty
+    @Size(min = 3)
+    private String country;
 
     public ClientRequest() {
     }
@@ -55,22 +61,6 @@ public class ClientRequest {
 
     public void setClientId(Integer clientId) {
         this.clientId = clientId;
-    }
-
-    public Integer getPersonId() {
-        return personId;
-    }
-
-    public void setPersonId(Integer personId) {
-        this.personId = personId;
-    }
-
-    public Integer getAddressId() {
-        return addressId;
-    }
-
-    public void setAddressId(Integer addressId) {
-        this.addressId = addressId;
     }
 
     public String getFirstName() {
@@ -145,12 +135,50 @@ public class ClientRequest {
         this.birthdate = birthdate;
     }
 
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getZone() {
+        return zone;
+    }
+
+    public void setZone(String zone) {
+        this.zone = zone;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
     @Override
     public String toString() {
         return "ClientRequest{" +
                 "clientId=" + clientId +
-                ", personId=" + personId +
-                ", addressId=" + addressId +
                 ", firstName='" + firstName + '\'' +
                 ", firstSurname='" + firstSurname + '\'' +
                 ", secondSurname='" + secondSurname + '\'' +
@@ -160,6 +188,11 @@ public class ClientRequest {
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", birthdate='" + birthdate + '\'' +
+                ", number='" + number + '\'' +
+                ", street='" + street + '\'' +
+                ", zone='" + zone + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
                 '}';
     }
 }
