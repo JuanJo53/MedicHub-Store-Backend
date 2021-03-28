@@ -1,3 +1,26 @@
+POST http://localhost:8080/client
+Accept: application/json
+Content-Type: application/json
+
+{
+  "firstName": "Juan Pablo",
+  "firstSurname": "Melandre",
+  "secondSurname": "Choquevolqueta",
+  "ci": "158165779 LP",
+  "phone": "+591 2645897",
+  "email": "juan@gmail.com",
+  "userName": "juan123",
+  "password": "juan123",
+  "birthdate": "1995-03-11",
+  "number": "12",
+  "street": "14 de Septiembre",
+  "zone": "Obrajes",
+  "city": "La Paz",
+  "country": "Bolivia"
+}
+
+###
+
 PUT http://localhost:8080/client
 Accept: application/json
 Content-Type: application/json

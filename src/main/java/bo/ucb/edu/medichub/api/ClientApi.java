@@ -28,6 +28,19 @@ public class ClientApi {
         this.transactionBl = transactionBl;
     }
 
+    @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public HttpStatus createClient(@Valid @RequestBody ClientRequest clientRequest, HttpServletRequest request, BindingResult result) {
+        if(!result.hasErrors()){
+            Transaction transaction = TransactionUtil.createTransaction(request);
+            transactionBl.createTransaction(transaction);
+            ClientRequest clientResponse = clientBl.createClient(clientRequest, transaction);
+            return HttpStatus.OK;
+        }
+        else{
+            return HttpStatus.BAD_REQUEST;
+        }
+    }
 
     @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -43,7 +56,7 @@ public class ClientApi {
     }
 
     @DeleteMapping(path="/{clientId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public HttpStatus deletePharmacy(@PathVariable String clientId, HttpServletRequest request){
+    public HttpStatus deleteClient(@PathVariable String clientId, HttpServletRequest request){
         Transaction transaction = TransactionUtil.createTransaction(request);
         transactionBl.createTransaction(transaction);
         clientBl.deleteClient(Integer.parseInt(clientId),transaction);
