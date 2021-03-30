@@ -22,5 +22,5 @@ public interface ClientDao {
 
     public Integer getAddressId(Client client);
 
-    public ClientListRequest getClient(Integer idClient);
+    public ClientRequest getClient(Integer idClient);
 }
