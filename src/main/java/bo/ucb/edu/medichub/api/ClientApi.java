@@ -66,8 +66,16 @@ public class ClientApi {
         return HttpStatus.ACCEPTED;
     }
 
+    @GetMapping(path="/{clientId}/getclient", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ClientListRequest getClient(@PathVariable String clientId){
+        System.out.println("entre"+clientId);
+        return clientBl.getClient(Integer.parseInt(clientId));
+
+    }
+
     @RequestMapping(method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
     public List<ClientListRequest> getClients() {
+        System.out.println("entregg");
         List<ClientListRequest> clients=clientBl.getClients();
         return clients;
     }
@@ -77,4 +85,18 @@ public class ClientApi {
         AddressRequest address = clientBl.getAddressByPerson(Integer.parseInt(clientId));
         return address;
     }
+
+    @RequestMapping(path="updateAddress", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    public HttpStatus updateAddress(@Valid @RequestBody AddressRequest addressRequest, HttpServletRequest request, BindingResult result) {
+        if(!result.hasErrors()){
+            Transaction transaction = TransactionUtil.createTransaction(request);
+            transactionBl.createTransaction(transaction);
+            AddressRequest addressResponse = clientBl.updateAddress(addressRequest, transaction);
+            return HttpStatus.OK;
+        } else{
+            return HttpStatus.BAD_REQUEST;
+        }
+    }
+
+
 }

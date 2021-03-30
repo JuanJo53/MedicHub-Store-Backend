@@ -40,6 +40,7 @@ public class PharmacyAdminApi {
             return HttpStatus.BAD_REQUEST;
         }
     }
+    
     @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
     public HttpStatus updatePharmacyAdmin(@Valid @RequestBody PharmacyAdminRequest pharmacyAdminRequest, HttpServletRequest request, BindingResult result) {

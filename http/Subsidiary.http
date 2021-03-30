@@ -54,7 +54,7 @@ Accept: application/json
 
 ###
 
-GET http://localhost:8080/subsidiary/4/admin
+GET http://localhost:8080/subsidiary/1/admin
 Accept: application/json
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2NjQ2OTEwLCJleHAiOjE2MTY2ODI5MTB9.-6WIBXxQ0uFiPCtBcCZ3WqBR6qgCeZlBP1RfsiaZTnQ
 ###

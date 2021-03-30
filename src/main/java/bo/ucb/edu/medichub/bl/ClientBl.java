@@ -130,4 +130,22 @@ public class ClientBl {
         AddressRequest address =  clientDao.getAddressByPerson(clientId);
         return address;
     }
+
+    public ClientListRequest getClient(Integer idClient){
+        System.out.println("entre"+idClient);
+        return clientDao.getClient(idClient);
+    }
+
+    public AddressRequest updateAddress(AddressRequest addressRequest, Transaction transaction) {
+        Address address=new Address();
+        address.setAddressId(addressRequest.getAddresId());
+        address.setNumber(addressRequest.getNumber());
+        address.setStreet(addressRequest.getStreet());
+        address.setZone(addressRequest.getZone());
+        address.setCity(addressRequest.getCity());
+        address.setCountry(addressRequest.getCountry());
+        address.setTransaction(transaction);
+        addressDao.updateAddress(address);
+        return addressRequest;
+    }
 }
