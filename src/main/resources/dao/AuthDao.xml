@@ -25,7 +25,7 @@
 
     <select id="getIdClient" resultType="bo.ucb.edu.medichub.dto.AuthRole">
         SELECT client_id as roleId,
-            person_id as id
+            client_id as id
         FROM client
         WHERE
             email = #{email}
