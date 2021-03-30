@@ -10,6 +10,25 @@
         )
     </insert>
 
+    <update id="updateCard" parameterType="bo.ucb.edu.medichub.model.Card">
+        UPDATE card set
+        client_id=#{clientId},
+        account_number=#{accountNumber},
+        bank=#{bank},
+        type_account=#{typeAccount},
+        cvv_code=#{cvvCode},
+        month=#{month},
+        year=#{year},
+        tx_id=#{transaction.txId},
+        tx_host=#{transaction.txHost},
+        tx_user_id=#{transaction.txUserId},
+        tx_date=#{transaction.txDate}
+        WHERE
+        card_id=#{cardId} and
+        status=1
+    </update>
+
+
     <update id="deleteCard" parameterType="bo.ucb.edu.medichub.model.Card">
         UPDATE card set
         status=#{status},

@@ -57,4 +57,33 @@
             and a.brand_id = b.brand_id
             and a.status = 1
     </select>
+
+
+    <select id="productList" resultMap="clientsMap">
+        SELECT
+            a.product_id as productId,
+            b.name as brandName,
+            a.name as name,
+            a.stock as stock,
+            a.price as price,
+            a.type as type,
+            a.dose as dose,
+            a.description as description
+        FROM product a, brand b
+        WHERE
+            a.brand_id = b.brand_id  and
+            a.subsidiary_id=#{idsubsidiary}
+            and a.status = 1
+    </select>
+
+    <resultMap id="clientsMap" type="bo.ucb.edu.medichub.dto.ProductResponse">
+        <result column="productId" property="productId"/>
+        <result column="brandName" property="brandName"/>
+        <result column="name" property="name"/>
+        <result column="stock" property="stock"/>
+        <result column="price" property="price"/>
+        <result column="type" property="type"/>
+        <result column="dose" property="dose"/>
+        <result column="description" property="description"/>
+    </resultMap>
 </mapper>

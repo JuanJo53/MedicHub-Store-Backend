@@ -2,6 +2,7 @@ package bo.ucb.edu.medichub.api;
 
 import bo.ucb.edu.medichub.bl.ProductBl;
 import bo.ucb.edu.medichub.bl.TransactionBl;
+import bo.ucb.edu.medichub.dto.ClientListRequest;
 import bo.ucb.edu.medichub.dto.ProductRequest;
 import bo.ucb.edu.medichub.dto.ProductResponse;
 import bo.ucb.edu.medichub.model.Transaction;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*" ,methods = {RequestMethod.PUT, RequestMethod.POST,RequestMethod.GET,RequestMethod.DELETE})
@@ -70,4 +72,11 @@ public class ProductApi {
         ProductResponse product = productBl.findProductById(Integer.parseInt(productId));
         return product;
     }
+
+    @GetMapping(path="/{idsubsidiary}/list", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<ProductResponse> productList(@PathVariable String idsubsidiary){
+        List<ProductResponse> product = productBl.productList(Integer.parseInt(idsubsidiary));
+        return product;
+    }
+
 }

@@ -77,8 +77,6 @@ public class ClientBl {
         Person person = new Person();
         Address address= new Address();
 
-
-
         client.setClientId(clientRequest.getClientId());
         client.setEmail(clientRequest.getEmail());
         client.setUserName(clientRequest.getUserName());
@@ -98,7 +96,6 @@ public class ClientBl {
         personDao.updatePerson(person);
 
         Integer idAddress = clientDao.getAddressId(client);
-
         address.setAddressId(idAddress);
         address.setNumber(clientRequest.getNumber());
         address.setStreet(clientRequest.getStreet());
@@ -107,7 +104,6 @@ public class ClientBl {
         address.setCountry(clientRequest.getCountry());
         address.setTransaction(transaction);
         addressDao.updateAddress(address);
-
 
 
         return clientRequest;
@@ -131,8 +127,7 @@ public class ClientBl {
         return address;
     }
 
-    public ClientListRequest getClient(Integer idClient){
-        System.out.println("entre"+idClient);
+    public ClientRequest getClient(Integer idClient){
         return clientDao.getClient(idClient);
     }
 

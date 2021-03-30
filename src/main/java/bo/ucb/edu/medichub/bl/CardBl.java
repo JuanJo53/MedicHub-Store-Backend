@@ -33,6 +33,21 @@ public class CardBl {
         return cardRequest;
     }
 
+    public CardRequest updateCard(CardRequest cardRequest, Transaction transaction) {
+        Card card=new Card();
+        card.setCardId(cardRequest.getCardId());
+        card.setClientId(cardRequest.getClientId());
+        card.setAccountNumber(cardRequest.getAccountNumber());
+        card.setBank(cardRequest.getBank());
+        card.setTypeAccount(cardRequest.getTypeAccount());
+        card.setCvvCode(cardRequest.getCvvCode());
+        card.setMonth(cardRequest.getMonth());
+        card.setYear(cardRequest.getYear());
+        card.setTransaction(transaction);
+        cardDao.updateCard(card);
+        return cardRequest;
+    }
+
     public void deleteCard(Integer cardId, Transaction transaction) {
         Card card = new Card();
         card.setStatus(0);

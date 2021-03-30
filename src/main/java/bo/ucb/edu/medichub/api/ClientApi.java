@@ -66,16 +66,14 @@ public class ClientApi {
         return HttpStatus.ACCEPTED;
     }
 
-    @GetMapping(path="/{clientId}/getclient", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ClientListRequest getClient(@PathVariable String clientId){
-        System.out.println("entre"+clientId);
+    @GetMapping(path="/{clientId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ClientRequest getClient(@PathVariable String clientId){
         return clientBl.getClient(Integer.parseInt(clientId));
 
     }
 
     @RequestMapping(method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
     public List<ClientListRequest> getClients() {
-        System.out.println("entregg");
         List<ClientListRequest> clients=clientBl.getClients();
         return clients;
     }

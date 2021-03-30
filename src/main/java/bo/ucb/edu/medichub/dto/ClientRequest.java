@@ -24,7 +24,7 @@ public class ClientRequest {
     @Size(min = 6, max = 20)
     private String ci;
     @NotEmpty
-    @Size(min = 12, max = 18)
+    @Size(min = 8, max = 18)
     private String phone;
     @NotEmpty
     @Size(min = 6, max = 50)
