@@ -38,7 +38,21 @@
         status=1
     </update>
 
-
+    <select id="getClient" resultType="bo.ucb.edu.medichub.dto.ClientListRequest">
+        SELECT
+            a.client_id as clientId,
+            b.first_name as firstName,
+            b.first_surname as firstSurname,
+            b.second_surname as secondSurname,
+            a.user_name as userName,
+            a.email as email,
+            b.ci as ci
+        FROM client a, person b
+        WHERE
+              b.person_id = a.person_id AND
+              a.client_id=#{idClient}
+              AND a.status = 1
+    </select>
 
     <select id="getPersonId" resultType="java.lang.Integer">
         SELECT
@@ -48,6 +62,8 @@
             client_id = #{clientId}
             and status = 1
     </select>
+
+
 
     <select id="getClients" resultMap="clientsMap">
         SELECT

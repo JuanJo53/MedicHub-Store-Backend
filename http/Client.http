@@ -55,14 +55,36 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2ODg1ODQwL
 
 ###
 
+GET http://localhost:8080/client/1/getclient
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE3MDY5NzA0LCJleHAiOjE2MTcxMDU3MDR9.vM8HFY7s_1MX1xXV8J68l5djyeDw6FV40GWxEdmLoOA
+
+###
+
 GET http://localhost:8080/client
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjE2ODk4Njk4LCJleHAiOjE2MTY5MzQ2OTh9.1NMbwtvaNWFLy4ZWODd5FmpERWKeRGZtxc84mCHL8JQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2ODg1ODQwLCJleHAiOjE2MTY5MjE4NDB9.e5HQuyTGXnClUBYDv4o_Kq8Oq-Sz71-_nbWSEN2WjlQ
 
 ###
 
 GET http://localhost:8080/client/1/address
 Accept: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjE2ODk4Njk4LCJleHAiOjE2MTY5MzQ2OTh9.1NMbwtvaNWFLy4ZWODd5FmpERWKeRGZtxc84mCHL8JQ
+
+###
+
+PUT http://localhost:8080/client/updateAddress
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE3MDY5NzA0LCJleHAiOjE2MTcxMDU3MDR9.vM8HFY7s_1MX1xXV8J68l5djyeDw6FV40GWxEdmLoOA
+
+{
+  "addresId": 1,
+  "number": 123,
+  "street": "Aspiazu",
+  "zone": "Sopoc",
+  "city": "La Paz",
+  "country": "Bolivian"
+}
 
 ###
