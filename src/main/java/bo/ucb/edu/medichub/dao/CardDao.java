@@ -5,5 +5,8 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface CardDao {
+
+    public void createCard(Card card);
     public void deleteCard(Card card);
+
 }

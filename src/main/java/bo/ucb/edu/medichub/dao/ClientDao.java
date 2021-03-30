@@ -2,6 +2,7 @@ package bo.ucb.edu.medichub.dao;
 
 import bo.ucb.edu.medichub.dto.AddressRequest;
 import bo.ucb.edu.medichub.dto.ClientListRequest;
+import bo.ucb.edu.medichub.dto.ClientRequest;
 import bo.ucb.edu.medichub.dto.PharmacyAdminRequest;
 import bo.ucb.edu.medichub.model.Client;
 import bo.ucb.edu.medichub.model.PharmacyAdmin;
@@ -20,4 +21,6 @@ public interface ClientDao {
     public void deleteClient(Client client);
 
     public Integer getAddressId(Client client);
+
+    public ClientListRequest getClient(Integer idClient);
 }
