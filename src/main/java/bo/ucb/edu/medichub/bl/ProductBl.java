@@ -10,6 +10,8 @@ import bo.ucb.edu.medichub.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductBl {
     private ProductDao productDao;
@@ -63,6 +65,11 @@ public class ProductBl {
 
     public ProductResponse findProductById(Integer productId){
         ProductResponse product = productDao.findProductById(productId);
+        return  product;
+    }
+
+    public List<ProductResponse> productList(Integer idsubsidiary){
+        List<ProductResponse> product = productDao.productList(idsubsidiary);
         return  product;
     }
 }

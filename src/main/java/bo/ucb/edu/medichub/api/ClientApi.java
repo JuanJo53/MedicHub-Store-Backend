@@ -74,7 +74,6 @@ public class ClientApi {
 
     @RequestMapping(method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
     public List<ClientListRequest> getClients() {
-        System.out.println("entregg");
         List<ClientListRequest> clients=clientBl.getClients();
         return clients;
     }

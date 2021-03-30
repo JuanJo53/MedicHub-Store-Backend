@@ -72,6 +72,14 @@
     </select>
 
 
+    <select id="getAddressId" resultType="java.lang.Integer">
+        SELECT
+            address_id
+        FROM client
+        WHERE
+            client_id = #{clientId}
+            and status = 1
+    </select>
 
     <select id="getClients" resultMap="clientsMap">
         SELECT
