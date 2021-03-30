@@ -131,8 +131,7 @@ public class ClientBl {
         return address;
     }
 
-    public ClientListRequest getClient(Integer idClient){
-        System.out.println("entre"+idClient);
+    public ClientRequest getClient(Integer idClient){
         return clientDao.getClient(idClient);
     }
 

@@ -67,8 +67,7 @@ public class ClientApi {
     }
 
     @GetMapping(path="/{clientId}/getclient", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ClientListRequest getClient(@PathVariable String clientId){
-        System.out.println("entre"+clientId);
+    public ClientRequest getClient(@PathVariable String clientId){
         return clientBl.getClient(Integer.parseInt(clientId));
 
     }
