@@ -12,44 +12,44 @@ public class ClientRequest {
     @Positive
     private Integer clientId;
     @NotEmpty
-    @Size(min = 3)
+    @Size(min = 3, max = 25)
     private String firstName;
     @NotEmpty
-    @Size(min = 3)
+    @Size(min = 3, max = 25)
     private String firstSurname;
     @NotEmpty
-    @Size(min = 3)
+    @Size(min = 3, max = 25)
     private String secondSurname;
     @NotEmpty
-    @Size(min = 6)
+    @Size(min = 6, max = 20)
     private String ci;
     @NotEmpty
     @Size(min = 12, max = 18)
     private String phone;
     @NotEmpty
-    @Size(min = 6)
+    @Size(min = 6, max = 50)
     @Email
     private String email;
     @NotEmpty
-    @Size(min = 3)
+    @Size(min = 3, max = 20)
     private String userName;
     @NotEmpty
-    @Size(min = 6)
+    @Size(min = 6, max = 50)
     private String password;
     @NotEmpty
     private String birthdate;
     private String number;
     @NotEmpty
-    @Size(min = 3)
+    @Size(min = 3, max = 145)
     private String street;
     @NotEmpty
-    @Size(min = 3)
+    @Size(min = 3, max = 80)
     private String zone;
     @NotEmpty
-    @Size(min = 3)
+    @Size(min = 3, max = 80)
     private String city;
     @NotEmpty
-    @Size(min = 3)
+    @Size(min = 3, max = 80)
     private String country;
 
     public ClientRequest() {
