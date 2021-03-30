@@ -15,10 +15,28 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE3MDY5NzA0L
 
 ###
 
+PUT http://localhost:8080/card
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE3MTI1NTQ0LCJleHAiOjE2MTcxNjE1NDR9.ecpyHvvgC1FC2W84oJXeyOZOkoXcX4m3mymREzZdKf8
+
+{
+  "cardId": 1,
+  "clientId": 1,
+  "accountNumber": "132423523",
+  "bank": "Banco Fie",
+  "typeAccount": "Caja de ahorro",
+  "cvvCode": "591",
+  "month": "3",
+  "year": "2023"
+}
+
+###
+
 
 DELETE http://localhost:8080/card/1
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjE2ODk4Njk4LCJleHAiOjE2MTY5MzQ2OTh9.1NMbwtvaNWFLy4ZWODd5FmpERWKeRGZtxc84mCHL8JQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE3MTI1NTQ0LCJleHAiOjE2MTcxNjE1NDR9.ecpyHvvgC1FC2W84oJXeyOZOkoXcX4m3mymREzZdKf8
 
 ###
 

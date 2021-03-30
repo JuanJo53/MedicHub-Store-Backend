@@ -43,6 +43,21 @@ public class CardApi {
         }
     }
 
+
+    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public HttpStatus updateCard(@Valid @RequestBody CardRequest cardRequest, HttpServletRequest request, BindingResult result) {
+        if(!result.hasErrors()){
+            Transaction transaction = TransactionUtil.createTransaction(request);
+            transactionBl.createTransaction(transaction);
+            CardRequest clientResponse = cardBl.updateCard(cardRequest, transaction);
+            return HttpStatus.OK;
+        }
+        else{
+            return HttpStatus.BAD_REQUEST;
+        }
+    }
+
     @DeleteMapping(path="/{cardId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public HttpStatus deleteCard(@PathVariable String cardId, HttpServletRequest request){
         Transaction transaction = TransactionUtil.createTransaction(request);
