@@ -58,3 +58,9 @@ GET http://localhost:8080/subsidiary/1/admin
 Accept: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2NjQ2OTEwLCJleHAiOjE2MTY2ODI5MTB9.-6WIBXxQ0uFiPCtBcCZ3WqBR6qgCeZlBP1RfsiaZTnQ
 ###
+
+
+GET http://localhost:8080/subsidiary
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE3MTUxODMwLCJleHAiOjE2MTcxODc4MzB9.w9BMGJIHnbrPL0iYbry4KSyNwtpd8tOaFAtPFw2fmbs
+###

@@ -3,6 +3,7 @@ package bo.ucb.edu.medichub.dao;
 import bo.ucb.edu.medichub.dto.PersonListRequest;
 import bo.ucb.edu.medichub.dto.ProductListRequest;
 import bo.ucb.edu.medichub.dto.SubsidiaryRequest;
+import bo.ucb.edu.medichub.dto.SubsidiaryResponse;
 import bo.ucb.edu.medichub.model.Subsidiary;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -19,4 +20,6 @@ public interface SubsidiaryDao {
 
 
     public Integer addressId(Integer subsidiaryId);
+
+    public List<SubsidiaryResponse> getListSubsidiary();
 }

@@ -105,4 +105,28 @@
         <result column="secondSurname" property="secondSurname"/>
         <result column="ci" property="ci"/>
     </resultMap>
+
+
+
+    <select id="getListSubsidiary" resultMap="subsidiaryListMap">
+        select
+            b.subsidiary_name as subsidiaryName,
+            b.phone as phone,
+            b.email as email,
+            c.country as country,
+            c.city as city,
+            c.street as street
+        from subsidiary b, address c
+        where b.address_id = c.address_id
+          and b.status = 1
+    </select>
+
+    <resultMap id="subsidiaryListMap" type="bo.ucb.edu.medichub.dto.SubsidiaryResponse">
+        <result column="subsidiaryName" property="subsidiaryName"/>
+        <result column="phone" property="phone"/>
+        <result column="email" property="email"/>
+        <result column="country" property="country"/>
+        <result column="city" property="city"/>
+        <result column="street" property="street"/>
+    </resultMap>
 </mapper>

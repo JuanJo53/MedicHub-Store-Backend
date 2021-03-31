@@ -2,9 +2,7 @@ package bo.ucb.edu.medichub.api;
 
 import bo.ucb.edu.medichub.bl.SubsidiaryBl;
 import bo.ucb.edu.medichub.bl.TransactionBl;
-import bo.ucb.edu.medichub.dto.PersonListRequest;
-import bo.ucb.edu.medichub.dto.ProductListRequest;
-import bo.ucb.edu.medichub.dto.SubsidiaryRequest;
+import bo.ucb.edu.medichub.dto.*;
 import bo.ucb.edu.medichub.model.Transaction;
 import bo.ucb.edu.medichub.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,5 +80,11 @@ public class SubsidiaryApi {
     public List<PersonListRequest> getAdminsBySubsidiary(@PathVariable String subsidiaryId){
         List<PersonListRequest> admins = subsidiaryBl.getAdminsBySubsidiary(Integer.parseInt(subsidiaryId));
         return admins;
+    }
+
+    @RequestMapping(method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<SubsidiaryResponse> getClients() {
+        List<SubsidiaryResponse> subsidiaryResponse=subsidiaryBl.getListSubsidiary();
+        return subsidiaryResponse;
     }
 }

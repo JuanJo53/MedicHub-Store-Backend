@@ -6,6 +6,7 @@ import bo.ucb.edu.medichub.dao.TransactionDao;
 import bo.ucb.edu.medichub.dto.PersonListRequest;
 import bo.ucb.edu.medichub.dto.ProductListRequest;
 import bo.ucb.edu.medichub.dto.SubsidiaryRequest;
+import bo.ucb.edu.medichub.dto.SubsidiaryResponse;
 import bo.ucb.edu.medichub.model.Address;
 import bo.ucb.edu.medichub.model.Subsidiary;
 import bo.ucb.edu.medichub.model.Transaction;
@@ -111,5 +112,9 @@ public class SubsidiaryBl {
     public List<PersonListRequest> getAdminsBySubsidiary(Integer subsidiaryId){
         List<PersonListRequest> admins = subsidiaryDao.getAdminsBySubsidiary(subsidiaryId);
         return  admins;
+    }
+
+    public List<SubsidiaryResponse> getListSubsidiary() {
+        return subsidiaryDao.getListSubsidiary();
     }
 }
