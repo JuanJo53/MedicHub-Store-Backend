@@ -110,6 +110,7 @@
 
     <select id="getListSubsidiary" resultMap="subsidiaryListMap">
         select
+            b.subsidiary_id as subsidiaryId,
             b.subsidiary_name as subsidiaryName,
             b.phone as phone,
             b.email as email,
@@ -122,6 +123,7 @@
     </select>
 
     <resultMap id="subsidiaryListMap" type="bo.ucb.edu.medichub.dto.SubsidiaryResponse">
+        <result column="subsidiaryId" property="subsidiaryId"/>
         <result column="subsidiaryName" property="subsidiaryName"/>
         <result column="phone" property="phone"/>
         <result column="email" property="email"/>
