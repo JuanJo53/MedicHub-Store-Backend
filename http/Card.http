@@ -1,7 +1,7 @@
 POST http://localhost:8080/card
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE3MDY5NzA0LCJleHAiOjE2MTcxMDU3MDR9.vM8HFY7s_1MX1xXV8J68l5djyeDw6FV40GWxEdmLoOA
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjE3MjIzMDkxLCJleHAiOjE2MTcyNTkwOTF9.nATfoCRdas05NhidxRjj7yQc7ljs_B3Nu_8--avFqvo
 
 {
   "clientId": 1,

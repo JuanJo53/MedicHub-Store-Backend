@@ -57,13 +57,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2ODg1ODQwL
 
 GET http://localhost:8080/client/1
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE3MTI1NTQ0LCJleHAiOjE2MTcxNjE1NDR9.ecpyHvvgC1FC2W84oJXeyOZOkoXcX4m3mymREzZdKf8
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjE3MjIzMDkxLCJleHAiOjE2MTcyNTkwOTF9.nATfoCRdas05NhidxRjj7yQc7ljs_B3Nu_8--avFqvo
 
 ###
 
 GET http://localhost:8080/client
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2ODg1ODQwLCJleHAiOjE2MTY5MjE4NDB9.e5HQuyTGXnClUBYDv4o_Kq8Oq-Sz71-_nbWSEN2WjlQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjE3MjIzMDkxLCJleHAiOjE2MTcyNTkwOTF9.nATfoCRdas05NhidxRjj7yQc7ljs_B3Nu_8--avFqvo
 
 ###
 
@@ -86,5 +86,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE3MDY5NzA0L
   "city": "La Paz",
   "country": "Bolivian"
 }
+
+###
+
+GET http://localhost:8080/client/1/card
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjE3MjIzMDkxLCJleHAiOjE2MTcyNTkwOTF9.nATfoCRdas05NhidxRjj7yQc7ljs_B3Nu_8--avFqvo
 
 ###

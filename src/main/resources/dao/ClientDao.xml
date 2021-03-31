@@ -121,4 +121,29 @@
             and a.status = 1
     </select>
 
+    <select id="getCards" resultMap="cardMap">
+
+        select
+            card_id as cardId,
+            account_number as accountNumber,
+            bank as bank,
+            type_account as typeAccount,
+            cvv_code as cvvCode,
+            month as month,
+            year as year
+        from card
+        where client_id=#{clientId}
+          and status = 1
+    </select>
+
+    <resultMap id="cardMap" type="bo.ucb.edu.medichub.dto.CardRequest">
+        <result column="cardId" property="cardId"/>
+        <result column="accountNumber" property="accountNumber"/>
+        <result column="bank" property="bank"/>
+        <result column="typeAccount" property="typeAccount"/>
+        <result column="cvvCode" property="cvvCode"/>
+        <result column="month" property="month"/>
+        <result column="year" property="year"/>
+    </resultMap>
+
 </mapper>

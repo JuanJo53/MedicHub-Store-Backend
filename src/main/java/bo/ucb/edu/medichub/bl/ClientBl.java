@@ -6,6 +6,7 @@ import bo.ucb.edu.medichub.dao.ClientDao;
 import bo.ucb.edu.medichub.dao.PersonDao;
 import bo.ucb.edu.medichub.dao.TransactionDao;
 import bo.ucb.edu.medichub.dto.AddressRequest;
+import bo.ucb.edu.medichub.dto.CardRequest;
 import bo.ucb.edu.medichub.dto.ClientListRequest;
 import bo.ucb.edu.medichub.dto.ClientRequest;
 import bo.ucb.edu.medichub.model.*;
@@ -142,5 +143,10 @@ public class ClientBl {
         address.setTransaction(transaction);
         addressDao.updateAddress(address);
         return addressRequest;
+    }
+
+    public List<CardRequest> getCards(Integer clientId){
+        List<CardRequest> cards = clientDao.getCards(clientId);
+        return cards;
     }
 }
