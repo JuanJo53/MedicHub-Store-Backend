@@ -1,9 +1,6 @@
 package bo.ucb.edu.medichub.dao;
 
-import bo.ucb.edu.medichub.dto.AddressRequest;
-import bo.ucb.edu.medichub.dto.ClientListRequest;
-import bo.ucb.edu.medichub.dto.ClientRequest;
-import bo.ucb.edu.medichub.dto.PharmacyAdminRequest;
+import bo.ucb.edu.medichub.dto.*;
 import bo.ucb.edu.medichub.model.Client;
 import bo.ucb.edu.medichub.model.PharmacyAdmin;
 import org.apache.ibatis.annotations.Mapper;
@@ -23,4 +20,6 @@ public interface ClientDao {
     public Integer getAddressId(Client client);
 
     public ClientRequest getClient(Integer idClient);
+
+    public List<CardRequest> getCards(Integer clientId);
 }

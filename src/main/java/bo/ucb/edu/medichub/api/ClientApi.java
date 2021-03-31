@@ -3,6 +3,7 @@ package bo.ucb.edu.medichub.api;
 import bo.ucb.edu.medichub.bl.ClientBl;
 import bo.ucb.edu.medichub.bl.TransactionBl;
 import bo.ucb.edu.medichub.dto.AddressRequest;
+import bo.ucb.edu.medichub.dto.CardRequest;
 import bo.ucb.edu.medichub.dto.ClientListRequest;
 import bo.ucb.edu.medichub.dto.ClientRequest;
 import bo.ucb.edu.medichub.model.Transaction;
@@ -96,5 +97,10 @@ public class ClientApi {
         }
     }
 
+    @GetMapping(path="/{clientId}/card", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<CardRequest> getCards(@PathVariable String clientId){
+        List<CardRequest> cards = clientBl.getCards(Integer.parseInt(clientId));
+        return cards;
+    }
 
 }

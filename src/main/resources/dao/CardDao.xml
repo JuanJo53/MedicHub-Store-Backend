@@ -40,4 +40,6 @@
         card_id=#{cardId} and
         status=1
     </update>
+
+
 </mapper>
