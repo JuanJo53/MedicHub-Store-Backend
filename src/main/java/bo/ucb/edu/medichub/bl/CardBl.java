@@ -36,7 +36,6 @@ public class CardBl {
     public CardRequest updateCard(CardRequest cardRequest, Transaction transaction) {
         Card card=new Card();
         card.setCardId(cardRequest.getCardId());
-        card.setClientId(cardRequest.getClientId());
         card.setAccountNumber(cardRequest.getAccountNumber());
         card.setBank(cardRequest.getBank());
         card.setTypeAccount(cardRequest.getTypeAccount());

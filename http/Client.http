@@ -73,21 +73,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjE2ODk4Njk4L
 
 ###
 
-PUT http://localhost:8080/client/updateAddress
-Accept: application/json
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE3MDY5NzA0LCJleHAiOjE2MTcxMDU3MDR9.vM8HFY7s_1MX1xXV8J68l5djyeDw6FV40GWxEdmLoOA
-
-{
-  "addresId": 1,
-  "number": 123,
-  "street": "Aspiazu",
-  "zone": "Sopoc",
-  "city": "La Paz",
-  "country": "Bolivian"
-}
-
-###
 
 GET http://localhost:8080/client/1/card
 Accept: application/json

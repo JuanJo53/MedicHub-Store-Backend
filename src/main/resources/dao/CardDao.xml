@@ -12,7 +12,6 @@
 
     <update id="updateCard" parameterType="bo.ucb.edu.medichub.model.Card">
         UPDATE card set
-        client_id=#{clientId},
         account_number=#{accountNumber},
         bank=#{bank},
         type_account=#{typeAccount},

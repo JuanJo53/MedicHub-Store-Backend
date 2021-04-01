@@ -38,4 +38,19 @@
         address_id=#{addressId} and
         status=1
     </update>
+
+    <select id="getAddressByPerson" resultType="bo.ucb.edu.medichub.dto.AddressRequest">
+        SELECT
+            a.address_id as addresId,
+            a.number as number,
+            a.street as street,
+            a.zone as zone,
+            a.city as city,
+            a.country as country
+        FROM address a, client b
+        WHERE
+            b.client_id = #{clientId}
+            and b.address_id = a.address_id
+            and a.status = 1
+    </select>
 </mapper>

@@ -18,12 +18,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjE3MjIzMDkxL
 PUT http://localhost:8080/card
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE3MTI1NTQ0LCJleHAiOjE2MTcxNjE1NDR9.ecpyHvvgC1FC2W84oJXeyOZOkoXcX4m3mymREzZdKf8
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE3MjM0OTc2LCJleHAiOjE2MTcyNzA5NzZ9.iUf9UM_xKHSuES-wfshKKvLN8_RC_GTp2538E_wRyBE
 
 {
   "cardId": 1,
-  "clientId": 1,
-  "accountNumber": "132423523",
+  "accountNumber": "17877878873",
   "bank": "Banco Fie",
   "typeAccount": "Caja de ahorro",
   "cvvCode": "591",

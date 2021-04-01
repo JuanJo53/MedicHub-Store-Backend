@@ -1,0 +1,22 @@
+PUT http://localhost:8080/address
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE3MjM0OTc2LCJleHAiOjE2MTcyNzA5NzZ9.iUf9UM_xKHSuES-wfshKKvLN8_RC_GTp2538E_wRyBE
+
+{
+  "addresId": 1,
+  "number": 123,
+  "street": "Aspia",
+  "zone": "Sopoc",
+  "city": "La Paz",
+  "country": "Bolivian"
+}
+
+###
+
+
+GET http://localhost:8080/address/2
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE3MjM0OTc2LCJleHAiOjE2MTcyNzA5NzZ9.iUf9UM_xKHSuES-wfshKKvLN8_RC_GTp2538E_wRyBE
+
+###
