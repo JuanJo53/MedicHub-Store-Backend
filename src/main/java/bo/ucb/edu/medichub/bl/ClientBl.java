@@ -123,27 +123,13 @@ public class ClientBl {
         return clients;
     }
 
-    public AddressRequest getAddressByPerson(Integer clientId){
-        AddressRequest address =  clientDao.getAddressByPerson(clientId);
-        return address;
-    }
+
 
     public ClientRequest getClient(Integer idClient){
         return clientDao.getClient(idClient);
     }
 
-    public AddressRequest updateAddress(AddressRequest addressRequest, Transaction transaction) {
-        Address address=new Address();
-        address.setAddressId(addressRequest.getAddresId());
-        address.setNumber(addressRequest.getNumber());
-        address.setStreet(addressRequest.getStreet());
-        address.setZone(addressRequest.getZone());
-        address.setCity(addressRequest.getCity());
-        address.setCountry(addressRequest.getCountry());
-        address.setTransaction(transaction);
-        addressDao.updateAddress(address);
-        return addressRequest;
-    }
+
 
     public List<CardRequest> getCards(Integer clientId){
         List<CardRequest> cards = clientDao.getCards(clientId);

@@ -79,23 +79,9 @@ public class ClientApi {
         return clients;
     }
 
-    @GetMapping(path="/{clientId}/address", produces = MediaType.APPLICATION_JSON_VALUE)
-    public AddressRequest findAddressByClient(@PathVariable String clientId){
-        AddressRequest address = clientBl.getAddressByPerson(Integer.parseInt(clientId));
-        return address;
-    }
 
-    @RequestMapping(path="updateAddress", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-    public HttpStatus updateAddress(@Valid @RequestBody AddressRequest addressRequest, HttpServletRequest request, BindingResult result) {
-        if(!result.hasErrors()){
-            Transaction transaction = TransactionUtil.createTransaction(request);
-            transactionBl.createTransaction(transaction);
-            AddressRequest addressResponse = clientBl.updateAddress(addressRequest, transaction);
-            return HttpStatus.OK;
-        } else{
-            return HttpStatus.BAD_REQUEST;
-        }
-    }
+
+
 
     @GetMapping(path="/{clientId}/card", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<CardRequest> getCards(@PathVariable String clientId){
