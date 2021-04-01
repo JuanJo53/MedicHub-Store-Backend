@@ -3,33 +3,42 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="bo.ucb.edu.medichub.dao.AuthDao">
-    <select id="getIdPharmacyAdmin" resultType="bo.ucb.edu.medichub.dto.AuthRole">
-        SELECT pharmacy_id as roleId,
-            subsidiary_id as id
+    <select id="findPharmacyAdminById" resultType="bo.ucb.edu.medichub.model.PharmacyAdmin">
+        SELECT pharmacy_id as pharmacyId,
+            person_id as personId,
+            subsidiary_id as subsidiaryId,
+            email as email,
+            user_name as userName,
+            password as password
         FROM pharmacy_admin
         WHERE
             email = #{email}
-        and password = #{password}
         and status = 1
     </select>
 
-    <select id="getIdAdmin" resultType="bo.ucb.edu.medichub.dto.AuthRole">
-        SELECT admin_id as roleId,
-               person_id as id
+    <select id="findAdminById" resultType="bo.ucb.edu.medichub.model.Admin">
+        SELECT admin_id as adminId,
+               person_id as personId,
+               email as email,
+               user_name as userName,
+               password as password
         FROM admin
         WHERE
             email = #{email}
-          and password = #{password}
           and status = 1
     </select>
 
-    <select id="getIdClient" resultType="bo.ucb.edu.medichub.dto.AuthRole">
-        SELECT client_id as roleId,
-            client_id as id
+    <select id="findClientById" resultType="bo.ucb.edu.medichub.model.Client">
+        SELECT client_id as clientId,
+            person_id as personId,
+            address_id as addressId,
+            email as email,
+            user_name as userName,
+            password as password,
+            birthdate as birthdate
         FROM client
         WHERE
             email = #{email}
-          and password = #{password}
           and status = 1
     </select>
 

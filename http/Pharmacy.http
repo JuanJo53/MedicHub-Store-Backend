@@ -1,7 +1,6 @@
 POST http://localhost:8080/pharmacy
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE3MTI1NTQ0LCJleHAiOjE2MTcxNjE1NDR9.ecpyHvvgC1FC2W84oJXeyOZOkoXcX4m3mymREzZdKf8
 
 
 {
@@ -32,13 +31,11 @@ Accept: application/json
 
 GET http://localhost:8080/pharmacy
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE3MTI1NTQ0LCJleHAiOjE2MTcxNjE1NDR9.ecpyHvvgC1FC2W84oJXeyOZOkoXcX4m3mymREzZdKf8
 
 ###
 
 GET http://localhost:8080/pharmacy/11111
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwiaWF0IjoxNjE2NTUyMDE2LCJleHAiOjE2MTY1ODgwMTZ9.eSF2MNufmS933XffR7N2duP1gzKAV9CDX3U0BBrlKEw
 
 ###
 

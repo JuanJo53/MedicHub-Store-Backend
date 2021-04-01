@@ -1,10 +1,7 @@
 package bo.ucb.edu.medichub.bl;
 
 
-import bo.ucb.edu.medichub.dao.AddressDao;
-import bo.ucb.edu.medichub.dao.ClientDao;
-import bo.ucb.edu.medichub.dao.PersonDao;
-import bo.ucb.edu.medichub.dao.TransactionDao;
+import bo.ucb.edu.medichub.dao.*;
 import bo.ucb.edu.medichub.dto.AddressRequest;
 import bo.ucb.edu.medichub.dto.CardRequest;
 import bo.ucb.edu.medichub.dto.ClientListRequest;
@@ -23,52 +20,59 @@ public class ClientBl {
     private PersonDao personDao;
     private AddressDao addressDao;
     private TransactionDao transactionDao;
+    private AuthDao authDao;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PharmacyAdminBl.class);
 
     @Autowired
-    public ClientBl(ClientDao clientDao, PersonDao personDao, AddressDao addressDao, TransactionDao transactionDao) {
+    public ClientBl(ClientDao clientDao, PersonDao personDao, AddressDao addressDao, TransactionDao transactionDao, AuthDao authDao) {
         this.clientDao = clientDao;
         this.personDao = personDao;
         this.transactionDao = transactionDao;
         this.addressDao = addressDao;
+        this.authDao = authDao;
     }
 
 
 
     public ClientRequest createClient(ClientRequest clientRequest, Transaction transaction){
-        Person person = new Person();
-        Address address = new Address();
-        Client client = new Client();
+        Client clientprueb = authDao.findClientById(clientRequest.getEmail());
+        if(clientprueb==null){
+            Person person = new Person();
+            Address address = new Address();
+            Client client = new Client();
 
-        person.setFirstName(clientRequest.getFirstName());
-        person.setFirstSurname(clientRequest.getFirstSurname());
-        person.setSecondSurname(clientRequest.getSecondSurname());
-        person.setCi(clientRequest.getCi());
-        person.setPhone(clientRequest.getPhone());
-        person.setTransaction(transaction);
-        personDao.createPerson(person);
-        Integer getLastIdPerson = transactionDao.getLastInsertId();
+            person.setFirstName(clientRequest.getFirstName());
+            person.setFirstSurname(clientRequest.getFirstSurname());
+            person.setSecondSurname(clientRequest.getSecondSurname());
+            person.setCi(clientRequest.getCi());
+            person.setPhone(clientRequest.getPhone());
+            person.setTransaction(transaction);
+            personDao.createPerson(person);
+            Integer getLastIdPerson = transactionDao.getLastInsertId();
 
-        address.setNumber(clientRequest.getNumber());
-        address.setStreet(clientRequest.getStreet());
-        address.setZone(clientRequest.getZone());
-        address.setCity(clientRequest.getCity());
-        address.setCountry(clientRequest.getCountry());
-        address.setTransaction(transaction);
-        addressDao.createAddress(address);
-        Integer getLastIdAddress = transactionDao.getLastInsertId();
+            address.setNumber(clientRequest.getNumber());
+            address.setStreet(clientRequest.getStreet());
+            address.setZone(clientRequest.getZone());
+            address.setCity(clientRequest.getCity());
+            address.setCountry(clientRequest.getCountry());
+            address.setTransaction(transaction);
+            addressDao.createAddress(address);
+            Integer getLastIdAddress = transactionDao.getLastInsertId();
 
-        client.setPersonId(getLastIdPerson);
-        client.setAddressId(getLastIdAddress);
-        client.setEmail(clientRequest.getEmail());
-        client.setUserName(clientRequest.getUserName());
-        client.setPassword(clientRequest.getPassword());
-        client.setBirthdate(clientRequest.getBirthdate());
-        client.setTransaction(transaction);
-        clientDao.createClient(client);
+            client.setPersonId(getLastIdPerson);
+            client.setAddressId(getLastIdAddress);
+            client.setEmail(clientRequest.getEmail());
+            client.setUserName(clientRequest.getUserName());
+            client.setPassword(clientRequest.getPassword());
+            client.setBirthdate(clientRequest.getBirthdate());
+            client.setTransaction(transaction);
+            clientDao.createClient(client);
 
-        return clientRequest;
+            return clientRequest;
+        } else {
+            return null;
+        }
     }
 
 

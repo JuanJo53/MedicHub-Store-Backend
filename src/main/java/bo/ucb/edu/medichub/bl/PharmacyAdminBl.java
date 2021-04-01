@@ -1,5 +1,6 @@
 package bo.ucb.edu.medichub.bl;
 
+import bo.ucb.edu.medichub.dao.AuthDao;
 import bo.ucb.edu.medichub.dao.PersonDao;
 import bo.ucb.edu.medichub.dao.PharmacyAdminDao;
 import bo.ucb.edu.medichub.dao.TransactionDao;
@@ -18,39 +19,46 @@ public class PharmacyAdminBl {
     private PharmacyAdminDao pharmacyAdminDao;
     private PersonDao personDao;
     private TransactionDao transactionDao;
+    private AuthDao authDao;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PharmacyAdminBl.class);
 
     @Autowired
-    public PharmacyAdminBl(PharmacyAdminDao pharmacyAdminDao, PersonDao personDao, TransactionDao transactionDao) {
+    public PharmacyAdminBl(PharmacyAdminDao pharmacyAdminDao, PersonDao personDao, TransactionDao transactionDao, AuthDao authDao) {
         this.pharmacyAdminDao = pharmacyAdminDao;
         this.personDao = personDao;
         this.transactionDao = transactionDao;
+        this.authDao = authDao;
     }
 
     public PharmacyAdminRequest createPharmacyAdmin(PharmacyAdminRequest pharmacyAdminRequest, Transaction transaction){
-        PharmacyAdmin pharmacyAdmin = new PharmacyAdmin();
-        Person person = new Person();
+        PharmacyAdmin pharmacyAdminPrueb = authDao.findPharmacyAdminById(pharmacyAdminRequest.getEmail());
 
-        person.setFirstName(pharmacyAdminRequest.getFirstName());
-        person.setFirstSurname(pharmacyAdminRequest.getFirstSurname());
-        person.setSecondSurname(pharmacyAdminRequest.getSecondSurname());
-        person.setCi(pharmacyAdminRequest.getCi());
-        person.setPhone(pharmacyAdminRequest.getPhone());
-        person.setTransaction(transaction);
-        personDao.createPerson(person);
-        Integer getLastIdPerson = transactionDao.getLastInsertId();
+        if(pharmacyAdminPrueb == null){
+            PharmacyAdmin pharmacyAdmin = new PharmacyAdmin();
+            Person person = new Person();
 
-        pharmacyAdmin.setPersonId(getLastIdPerson);
-        pharmacyAdmin.setSubsidiaryId(pharmacyAdminRequest.getSubsidiaryId());
-        pharmacyAdmin.setEmail(pharmacyAdminRequest.getEmail());
-        pharmacyAdmin.setUserName(pharmacyAdminRequest.getUserName());
-        pharmacyAdmin.setPassword(pharmacyAdminRequest.getPassword());
-        pharmacyAdmin.setTransaction(transaction);
-        pharmacyAdminDao.createPharmacyAdmin(pharmacyAdmin);
+            person.setFirstName(pharmacyAdminRequest.getFirstName());
+            person.setFirstSurname(pharmacyAdminRequest.getFirstSurname());
+            person.setSecondSurname(pharmacyAdminRequest.getSecondSurname());
+            person.setCi(pharmacyAdminRequest.getCi());
+            person.setPhone(pharmacyAdminRequest.getPhone());
+            person.setTransaction(transaction);
+            personDao.createPerson(person);
+            Integer getLastIdPerson = transactionDao.getLastInsertId();
 
-        return pharmacyAdminRequest;
+            pharmacyAdmin.setPersonId(getLastIdPerson);
+            pharmacyAdmin.setSubsidiaryId(pharmacyAdminRequest.getSubsidiaryId());
+            pharmacyAdmin.setEmail(pharmacyAdminRequest.getEmail());
+            pharmacyAdmin.setUserName(pharmacyAdminRequest.getUserName());
+            pharmacyAdmin.setPassword(pharmacyAdminRequest.getPassword());
+            pharmacyAdmin.setTransaction(transaction);
+            pharmacyAdminDao.createPharmacyAdmin(pharmacyAdmin);
 
+            return pharmacyAdminRequest;
+        } else {
+            return null;
+        }
     }
 
 
