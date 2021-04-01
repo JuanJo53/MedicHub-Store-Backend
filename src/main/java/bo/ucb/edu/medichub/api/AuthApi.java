@@ -1,4 +1,4 @@
-package bo.ucb.edu.medichub.api;
+/*package bo.ucb.edu.medichub.api;
 
 import bo.ucb.edu.medichub.bl.AuthBl;
 import bo.ucb.edu.medichub.bl.TransactionBl;
@@ -38,4 +38,4 @@ public class AuthApi {
         return authBl.createToken(authenticationRequest);
     }
 
-}
+}*/
