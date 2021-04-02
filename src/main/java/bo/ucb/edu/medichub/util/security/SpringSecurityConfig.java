@@ -40,6 +40,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .anyRequest().authenticated()
                 .and()
+                .cors()
+                .and()
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
