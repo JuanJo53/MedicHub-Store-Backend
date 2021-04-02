@@ -24,13 +24,14 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/client").permitAll()
                 .anyRequest().authenticated()
-                .and().cors().configurationSource(corsConfigurationSource());
+                .and().cors().disable();
+                //.and().cors().configurationSource(corsConfigurationSource());
                 /*.and()
                 .oauth2Login()
                 .loginPage("/**//*auth");*/
     }
 
-    @Bean
+    /*@Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
@@ -48,5 +49,5 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<CorsFilter>(new CorsFilter(corsConfigurationSource()));
         bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
         return bean;
-    }
+    }*/
 }
