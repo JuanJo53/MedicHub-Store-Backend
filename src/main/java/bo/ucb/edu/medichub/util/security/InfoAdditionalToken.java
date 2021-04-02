@@ -29,6 +29,7 @@ public class InfoAdditionalToken implements TokenEnhancer {
             info.put("adminId", admin.getAdminId());
             info.put("email", admin.getEmail());
             info.put("userName", admin.getUserName());
+            info.put("role", 1);
         }
         PharmacyAdmin pharmacyAdmin = authDao.findPharmacyAdminByEmail(oAuth2Authentication.getName());
         if(pharmacyAdmin != null){
@@ -36,12 +37,14 @@ public class InfoAdditionalToken implements TokenEnhancer {
             info.put("subsidiaryId", pharmacyAdmin.getSubsidiaryId());
             info.put("email", pharmacyAdmin.getEmail());
             info.put("userName", pharmacyAdmin.getUserName());
+            info.put("role", 2);
         }
         Client client = authDao.findClientByEmail(oAuth2Authentication.getName());
         if(client != null){
             info.put("clientId", client.getClientId());
             info.put("email", client.getEmail());
             info.put("userName", client.getUserName());
+            info.put("role", 3);
         }
 
         //info.put("info_adicional","Cualquier_valor".concat(oAuth2Authentication.getName()));
