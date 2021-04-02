@@ -9,6 +9,7 @@ import bo.ucb.edu.medichub.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,16 +21,19 @@ public class ClientBl {
     private AddressDao addressDao;
     private TransactionDao transactionDao;
     private AuthDao authDao;
+    private BCryptPasswordEncoder passwordEncoder;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PharmacyAdminBl.class);
 
     @Autowired
-    public ClientBl(ClientDao clientDao, PersonDao personDao, AddressDao addressDao, TransactionDao transactionDao, AuthDao authDao) {
+    public ClientBl(ClientDao clientDao, PersonDao personDao, AddressDao addressDao, TransactionDao transactionDao, AuthDao authDao,
+                    BCryptPasswordEncoder passwordEncoder) {
         this.clientDao = clientDao;
         this.personDao = personDao;
         this.transactionDao = transactionDao;
         this.addressDao = addressDao;
         this.authDao = authDao;
+        this.passwordEncoder = passwordEncoder;
     }
 
 
@@ -63,7 +67,8 @@ public class ClientBl {
             client.setAddressId(getLastIdAddress);
             client.setEmail(clientRequest.getEmail());
             client.setUserName(clientRequest.getUserName());
-            client.setPassword(clientRequest.getPassword());
+            String password = passwordEncoder.encode(clientRequest.getPassword());
+            client.setPassword(password);
             client.setBirthdate(clientRequest.getBirthdate());
             client.setTransaction(transaction);
             clientDao.createClient(client);
