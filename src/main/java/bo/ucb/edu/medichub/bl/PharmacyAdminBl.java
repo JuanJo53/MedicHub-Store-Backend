@@ -6,7 +6,6 @@ import bo.ucb.edu.medichub.dao.PharmacyAdminDao;
 import bo.ucb.edu.medichub.dao.TransactionDao;
 import bo.ucb.edu.medichub.dto.PharmacyAdminRequest;
 import bo.ucb.edu.medichub.model.Person;
-import bo.ucb.edu.medichub.model.Pharmacy;
 import bo.ucb.edu.medichub.model.PharmacyAdmin;
 import bo.ucb.edu.medichub.model.Transaction;
 import org.slf4j.Logger;
@@ -32,7 +31,7 @@ public class PharmacyAdminBl {
     }
 
     public PharmacyAdminRequest createPharmacyAdmin(PharmacyAdminRequest pharmacyAdminRequest, Transaction transaction){
-        PharmacyAdmin pharmacyAdminPrueb = authDao.findPharmacyAdminById(pharmacyAdminRequest.getEmail());
+        PharmacyAdmin pharmacyAdminPrueb = authDao.findPharmacyAdminByEmail(pharmacyAdminRequest.getEmail());
 
         if(pharmacyAdminPrueb == null){
             PharmacyAdmin pharmacyAdmin = new PharmacyAdmin();

@@ -2,7 +2,6 @@ package bo.ucb.edu.medichub.bl;
 
 
 import bo.ucb.edu.medichub.dao.*;
-import bo.ucb.edu.medichub.dto.AddressRequest;
 import bo.ucb.edu.medichub.dto.CardRequest;
 import bo.ucb.edu.medichub.dto.ClientListRequest;
 import bo.ucb.edu.medichub.dto.ClientRequest;
@@ -36,7 +35,7 @@ public class ClientBl {
 
 
     public ClientRequest createClient(ClientRequest clientRequest, Transaction transaction){
-        Client clientprueb = authDao.findClientById(clientRequest.getEmail());
+        Client clientprueb = authDao.findClientByEmail(clientRequest.getEmail());
         if(clientprueb==null){
             Person person = new Person();
             Address address = new Address();

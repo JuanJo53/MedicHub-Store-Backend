@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface AuthDao {
-    public PharmacyAdmin findPharmacyAdminById(String email);
-    public Admin findAdminById(String email);
-    public Client findClientById(String email);
+    public PharmacyAdmin findPharmacyAdminByEmail(String email);
+    public Admin findAdminByEmail(String email);
+    public Client findClientByEmail(String email);
 }
