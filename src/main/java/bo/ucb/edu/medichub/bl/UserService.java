@@ -2,6 +2,8 @@ package bo.ucb.edu.medichub.bl;
 
 import bo.ucb.edu.medichub.dao.AuthDao;
 import bo.ucb.edu.medichub.dto.AuthenticationRequest;
+import bo.ucb.edu.medichub.model.Admin;
+import bo.ucb.edu.medichub.model.Client;
 import bo.ucb.edu.medichub.model.PharmacyAdmin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,19 +27,21 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        PharmacyAdmin pharmacyAdmin = authDao.findPharmacyAdminByEmail(username);
-        System.out.println(username);
-        if(pharmacyAdmin == null){
-            throw new UsernameNotFoundException("User not found");
+        Admin admin = authDao.findAdminByEmail(username);
+        if(admin != null){
+            return new User(admin.getEmail(), admin.getPassword(), List.of(new SimpleGrantedAuthority("ROLE_ADMIN")));
         } else {
-            User user = new User(pharmacyAdmin.getEmail(), pharmacyAdmin.getPassword(), List.of(new SimpleGrantedAuthority("ROLE_PHARMACY_ADMIN")));
-            return user;
+            PharmacyAdmin pharmacyAdmin = authDao.findPharmacyAdminByEmail(username);
+            if(pharmacyAdmin != null){
+                return new User(pharmacyAdmin.getEmail(), pharmacyAdmin.getPassword(), List.of(new SimpleGrantedAuthority("ROLE_PHARMACY_ADMIN")));
+            } else {
+                Client client = authDao.findClientByEmail(username);
+                if(client !=  null){
+                    return new User(client.getEmail(), client.getPassword(), List.of(new SimpleGrantedAuthority("ROLE_CLIENT")));
+                } else {
+                    throw new UsernameNotFoundException("User not found");
+                }
+            }
         }
     }
-
-
-
-    /*public void loadAuth(AuthenticationRequest authenticationRequest){
-        loadUserByUsername(authenticationRequest.getEmail());
-    }*/
 }
