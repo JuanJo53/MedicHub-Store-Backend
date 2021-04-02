@@ -22,13 +22,22 @@ public class UserService implements UserDetailsService {
     @Autowired
     private AuthDao authDao;
 
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         PharmacyAdmin pharmacyAdmin = authDao.findPharmacyAdminByEmail(username);
+        System.out.println(username);
         if(pharmacyAdmin == null){
-            throw new UsernameNotFoundException("Usuar not found");
+            throw new UsernameNotFoundException("User not found");
         } else {
-            return new User(pharmacyAdmin.getEmail(), pharmacyAdmin.getPassword(), List.of(new SimpleGrantedAuthority("ROLE_PHARMACY_ADMIN")));
+            User user = new User(pharmacyAdmin.getEmail(), pharmacyAdmin.getPassword(), List.of(new SimpleGrantedAuthority("ROLE_PHARMACY_ADMIN")));
+            return user;
         }
     }
+
+
+
+    /*public void loadAuth(AuthenticationRequest authenticationRequest){
+        loadUserByUsername(authenticationRequest.getEmail());
+    }*/
 }
