@@ -47,7 +47,6 @@
             b.phone as phone,
             a.email as email,
             a.user_name as userName,
-            a.password as password,
             a.birthdate as birthdate,
             c.number as number,
             c.street as street,

@@ -91,7 +91,8 @@ public class ClientBl {
         client.setClientId(clientRequest.getClientId());
         client.setEmail(clientRequest.getEmail());
         client.setUserName(clientRequest.getUserName());
-        client.setPassword(clientRequest.getPassword());
+        String password = passwordEncoder.encode(clientRequest.getPassword());
+        client.setPassword(password);
         client.setBirthdate(clientRequest.getBirthdate());
         client.setTransaction(transaction);
         clientDao.updateClient(client);

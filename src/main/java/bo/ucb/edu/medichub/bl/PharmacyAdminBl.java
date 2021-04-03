@@ -73,7 +73,8 @@ public class PharmacyAdminBl {
         pharmacyAdmin.setSubsidiaryId(pharmacyAdminRequest.getSubsidiaryId());
         pharmacyAdmin.setUserName(pharmacyAdminRequest.getUserName());
         pharmacyAdmin.setEmail(pharmacyAdminRequest.getEmail());
-        pharmacyAdmin.setPassword(pharmacyAdminRequest.getPassword());
+        String password = passwordEncoder.encode(pharmacyAdminRequest.getPassword());
+        pharmacyAdmin.setPassword(password);
         pharmacyAdmin.setTransaction(transaction);
         pharmacyAdminDao.updatePharmacyAdmin(pharmacyAdmin);
 

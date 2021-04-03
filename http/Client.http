@@ -25,6 +25,7 @@ PUT http://localhost:8080/client
 Accept: application/json
 Content-Type: application/json
 
+
 {
   "clientId": 1,
   "firstName": "Erwin",
@@ -55,6 +56,7 @@ Accept: application/json
 
 GET http://localhost:8080/client/1
 Accept: application/json
+
 
 ###
 
