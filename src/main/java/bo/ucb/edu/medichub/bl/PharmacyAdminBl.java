@@ -5,9 +5,7 @@ import bo.ucb.edu.medichub.dao.PersonDao;
 import bo.ucb.edu.medichub.dao.PharmacyAdminDao;
 import bo.ucb.edu.medichub.dao.TransactionDao;
 import bo.ucb.edu.medichub.dto.PharmacyAdminRequest;
-import bo.ucb.edu.medichub.model.Person;
-import bo.ucb.edu.medichub.model.PharmacyAdmin;
-import bo.ucb.edu.medichub.model.Transaction;
+import bo.ucb.edu.medichub.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +30,9 @@ public class PharmacyAdminBl {
 
     public PharmacyAdminRequest createPharmacyAdmin(PharmacyAdminRequest pharmacyAdminRequest, Transaction transaction){
         PharmacyAdmin pharmacyAdminPrueb = authDao.findPharmacyAdminByEmail(pharmacyAdminRequest.getEmail());
-
-        if(pharmacyAdminPrueb == null){
+        Admin admin = authDao.findAdminByEmail(pharmacyAdminRequest.getEmail());
+        Client client = authDao.findClientByEmail(pharmacyAdminRequest.getEmail());
+        if(pharmacyAdminPrueb == null && admin==null && client==null){
             PharmacyAdmin pharmacyAdmin = new PharmacyAdmin();
             Person person = new Person();
 

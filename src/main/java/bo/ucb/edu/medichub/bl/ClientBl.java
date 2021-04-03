@@ -40,7 +40,9 @@ public class ClientBl {
 
     public ClientRequest createClient(ClientRequest clientRequest, Transaction transaction){
         Client clientprueb = authDao.findClientByEmail(clientRequest.getEmail());
-        if(clientprueb==null){
+        Admin admin = authDao.findAdminByEmail(clientRequest.getEmail());
+        PharmacyAdmin pharmacyAdmin = authDao.findPharmacyAdminByEmail(clientRequest.getEmail());
+        if(clientprueb==null && admin==null && pharmacyAdmin==null){
             Person person = new Person();
             Address address = new Address();
             Client client = new Client();
