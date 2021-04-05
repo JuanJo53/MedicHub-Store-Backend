@@ -1,4 +1,4 @@
-package bo.ucb.edu.medichub.util.security;
+/*package bo.ucb.edu.medichub.util.security;
 
 import bo.ucb.edu.medichub.bl.AuthBl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,4 +46,4 @@ public class JWTFilterRequest extends OncePerRequestFilter {
         }
         filterChain.doFilter(request, response);
     }
-}
+}*/

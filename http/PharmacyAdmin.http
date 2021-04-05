@@ -1,7 +1,6 @@
 POST http://localhost:8080/pharmacyAdmin
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2NjAxMzc2LCJleHAiOjE2MTY2MzczNzZ9.WKQ7nIFYhH0duU6Q0N0bmuIRPSc1LR1p5_L1-J1W-wo
 
 {
   "subsidiaryId": 1,
@@ -20,7 +19,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2NjAxMzc2L
 PUT http://localhost:8080/pharmacyAdmin
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2NjAxMzc2LCJleHAiOjE2MTY2MzczNzZ9.WKQ7nIFYhH0duU6Q0N0bmuIRPSc1LR1p5_L1-J1W-wo
 
 {
   "pharmacyId": 2,
@@ -44,6 +42,5 @@ Accept: application/json
 
 GET http://localhost:8080/pharmacyAdmin/2
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2NjAxMzc2LCJleHAiOjE2MTY2MzczNzZ9.WKQ7nIFYhH0duU6Q0N0bmuIRPSc1LR1p5_L1-J1W-wo
 
 ###

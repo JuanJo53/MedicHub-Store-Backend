@@ -1,4 +1,4 @@
-package bo.ucb.edu.medichub.util.security;
+/*package bo.ucb.edu.medichub.util.security;
 
 import bo.ucb.edu.medichub.bl.BankAccountBl;
 import io.jsonwebtoken.Claims;
@@ -42,4 +42,4 @@ public class JWTUtil {
         return Jwts.parser().setSigningKey(KEY).parseClaimsJws(token).getBody();
     }
 
-}
+}*/

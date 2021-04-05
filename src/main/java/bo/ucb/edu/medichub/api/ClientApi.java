@@ -39,7 +39,11 @@ public class ClientApi {
             Transaction transaction = TransactionUtil.createTransaction(request);
             transactionBl.createTransaction(transaction);
             ClientRequest clientResponse = clientBl.createClient(clientRequest, transaction);
-            return HttpStatus.OK;
+            if(clientResponse==null){
+                return HttpStatus.BAD_REQUEST;
+            } else {
+                return HttpStatus.OK;
+            }
         }
         else{
             return HttpStatus.BAD_REQUEST;

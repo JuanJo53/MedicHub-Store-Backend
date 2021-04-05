@@ -3,16 +3,16 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "firstName": "Amer",
-  "firstSurname": "Paz",
-  "secondSurname": "Rocabado",
-  "ci": "2649357 LP",
-  "phone": "+591 62984575",
-  "email": "amer@gmail.com",
-  "userName": "amer123",
-  "password": "amer123",
+  "firstName": "Marco",
+  "firstSurname": "Orellana",
+  "secondSurname": "Paz",
+  "ci": "12345678 LP",
+  "phone": "+591 2646791",
+  "email": "marco@gmail.com",
+  "userName": "marco123",
+  "password": "marco123",
   "birthdate": "1997-03-11",
-  "number": "11",
+  "number": "516 B",
   "street": "14 de Septiembre",
   "zone": "Obrajes",
   "city": "La Paz",
@@ -24,7 +24,7 @@ Content-Type: application/json
 PUT http://localhost:8080/client
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE3MTI1NTQ0LCJleHAiOjE2MTcxNjE1NDR9.ecpyHvvgC1FC2W84oJXeyOZOkoXcX4m3mymREzZdKf8
+
 
 {
   "clientId": 1,
@@ -50,32 +50,28 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE3MTI1NTQ0L
 
 DELETE http://localhost:8080/client/1
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE2ODg1ODQwLCJleHAiOjE2MTY5MjE4NDB9.e5HQuyTGXnClUBYDv4o_Kq8Oq-Sz71-_nbWSEN2WjlQ
 
 
 ###
 
 GET http://localhost:8080/client/1
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjE3MjIzMDkxLCJleHAiOjE2MTcyNTkwOTF9.nATfoCRdas05NhidxRjj7yQc7ljs_B3Nu_8--avFqvo
+
 
 ###
 
 GET http://localhost:8080/client
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjE3MjIzMDkxLCJleHAiOjE2MTcyNTkwOTF9.nATfoCRdas05NhidxRjj7yQc7ljs_B3Nu_8--avFqvo
 
 ###
 
 GET http://localhost:8080/client/1/address
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjE2ODk4Njk4LCJleHAiOjE2MTY5MzQ2OTh9.1NMbwtvaNWFLy4ZWODd5FmpERWKeRGZtxc84mCHL8JQ
 
 ###
 
 
 GET http://localhost:8080/client/1/card
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaWF0IjoxNjE3MjIzMDkxLCJleHAiOjE2MTcyNTkwOTF9.nATfoCRdas05NhidxRjj7yQc7ljs_B3Nu_8--avFqvo
 
 ###

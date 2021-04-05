@@ -1,7 +1,6 @@
 POST http://localhost:8080/product
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE3MTI1NTQ0LCJleHAiOjE2MTcxNjE1NDR9.ecpyHvvgC1FC2W84oJXeyOZOkoXcX4m3mymREzZdKf8
 
 {
   "subsidiaryId": 2,
@@ -47,6 +46,5 @@ Accept: application/json
 
 GET http://localhost:8080/product/2/list
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNjE3MTI1NTQ0LCJleHAiOjE2MTcxNjE1NDR9.ecpyHvvgC1FC2W84oJXeyOZOkoXcX4m3mymREzZdKf8
 
 ###

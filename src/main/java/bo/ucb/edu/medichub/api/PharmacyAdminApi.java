@@ -34,7 +34,11 @@ public class PharmacyAdminApi {
             Transaction transaction = TransactionUtil.createTransaction(request);
             transactionBl.createTransaction(transaction);
             PharmacyAdminRequest pharmacyAdminResponse = pharmacyAdminBl.createPharmacyAdmin(pharmacyAdminRequest, transaction);
-            return HttpStatus.OK;
+            if(pharmacyAdminResponse==null){
+                return  HttpStatus.BAD_REQUEST;
+            } else {
+                return HttpStatus.OK;
+            }
         }
         else{
             return HttpStatus.BAD_REQUEST;

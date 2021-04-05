@@ -1,7 +1,7 @@
-package bo.ucb.edu.medichub.bl;
+/* package bo.ucb.edu.medichub.bl;*/
 
 
-import bo.ucb.edu.medichub.dao.AuthDao;
+/* import bo.ucb.edu.medichub.dao.AuthDao;
 import bo.ucb.edu.medichub.dto.AuthRole;
 import bo.ucb.edu.medichub.dto.AuthenticationRequest;
 import bo.ucb.edu.medichub.dto.AuthenticationResponse;
@@ -80,7 +80,7 @@ public class AuthBl implements UserDetailsService {
             return new ResponseEntity(HttpStatus.NOT_FOUND, HttpStatus.NOT_FOUND);
         }
     }
-}
+}*/
 
 
 
