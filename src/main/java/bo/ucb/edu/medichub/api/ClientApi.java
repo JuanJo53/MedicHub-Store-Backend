@@ -70,7 +70,6 @@ public class ClientApi {
     @GetMapping(path="/{clientId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ClientRequest getClient(@PathVariable String clientId){
         return clientBl.getClient(Integer.parseInt(clientId));
-
     }
 
     @RequestMapping(method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
