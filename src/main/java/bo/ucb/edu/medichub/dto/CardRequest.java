@@ -26,10 +26,10 @@ public class CardRequest {
     @Size(min = 2, max = 4)
     private String cvvCode;
     @NotEmpty
-    @Size(min = 1, max = 12)
+    @Size(min = 1, max = 2)
     private String month;
     @NotEmpty
-    @Size(min = 3, max = 4)
+    @Size(min = 2, max = 4)
     private String year;
 
     public CardRequest() {
