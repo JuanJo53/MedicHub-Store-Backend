@@ -21,6 +21,8 @@ public interface ClientDao {
     public List<ClientListRequest> getClientsOrderByEmailDesc(Integer page, Integer size);
     public void deleteClient(Client client);
 
+    public Integer getClientTotal();
+
     public Integer getAddressId(Client client);
 
     public ClientRequest getClient(Integer idClient);

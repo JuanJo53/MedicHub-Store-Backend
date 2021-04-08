@@ -84,13 +84,15 @@ public class ClientApi {
     }
 
 
-
-
-
     @GetMapping(path="/{clientId}/card", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<CardRequest> getCards(@PathVariable String clientId){
         List<CardRequest> cards = clientBl.getCards(Integer.parseInt(clientId));
         return cards;
     }
 
+    @RequestMapping(path = "/total",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Integer getClientTotal(){
+        Integer cant = clientBl.getClientTotal();
+        return cant;
+    }
 }

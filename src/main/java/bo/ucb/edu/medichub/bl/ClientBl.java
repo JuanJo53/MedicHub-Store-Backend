@@ -170,4 +170,9 @@ public class ClientBl {
         List<CardRequest> cards = clientDao.getCards(clientId);
         return cards;
     }
+
+    public Integer getClientTotal(){
+        Integer cant = clientDao.getClientTotal();
+        return cant;
+    }
 }

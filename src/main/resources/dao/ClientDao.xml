@@ -219,4 +219,10 @@
         <result column="year" property="year"/>
     </resultMap>
 
+    <select id="getClientTotal" resultType="java.lang.Integer">
+        select COUNT(client_id)
+        from client
+        where status = 1
+    </select>
+
 </mapper>
