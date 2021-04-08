@@ -13,7 +13,12 @@ public interface ClientDao {
     public void createClient(Client client);
     public void updateClient(Client client);
     public Integer getPersonId(Client client);
-    public List<ClientListRequest> getClients();
+    public List<ClientListRequest> getClientsOrderById(Integer page, Integer size);
+    public List<ClientListRequest> getClientsOrderByIdDesc(Integer page, Integer size);
+    public List<ClientListRequest> getClientsOrderByUsername(Integer page, Integer size);
+    public List<ClientListRequest> getClientsOrderByUsernameDesc(Integer page, Integer size);
+    public List<ClientListRequest> getClientsOrderByEmail(Integer page, Integer size);
+    public List<ClientListRequest> getClientsOrderByEmailDesc(Integer page, Integer size);
     public void deleteClient(Client client);
 
     public Integer getAddressId(Client client);

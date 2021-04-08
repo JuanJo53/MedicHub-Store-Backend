@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -129,8 +130,28 @@ public class ClientBl {
         clientDao.deleteClient(client);
     }
 
-    public List<ClientListRequest> getClients(){
-        List<ClientListRequest> clients = clientDao.getClients();
+    public List<ClientListRequest> getClients(Integer page, Integer size, String order, Boolean asc){
+
+        List<ClientListRequest> clients = new ArrayList<ClientListRequest>();
+
+        if(order.equals("id") && asc){
+            clients = clientDao.getClientsOrderById(page, size);
+        }
+        if(order.equals("id") && !asc){
+            clients = clientDao.getClientsOrderByIdDesc(page, size);
+        }
+        if(order.equals("username") && asc){
+            clients = clientDao.getClientsOrderByUsername(page, size);
+        }
+        if(order.equals("username") && !asc){
+            clients = clientDao.getClientsOrderByUsernameDesc(page, size);
+        }
+        if(order.equals("email") && asc){
+            clients = clientDao.getClientsOrderByEmail(page, size);
+        }
+        if(order.equals("email") && !asc){
+            clients = clientDao.getClientsOrderByEmailDesc(page, size);
+        }
         return clients;
     }
 

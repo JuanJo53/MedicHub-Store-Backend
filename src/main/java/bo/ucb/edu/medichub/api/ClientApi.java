@@ -77,8 +77,9 @@ public class ClientApi {
     }
 
     @RequestMapping(method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<ClientListRequest> getClients() {
-        List<ClientListRequest> clients=clientBl.getClients();
+    public List<ClientListRequest> getClients(@RequestParam Integer page, @RequestParam Integer size,
+                                              @RequestParam String order, @RequestParam Boolean asc) {
+        List<ClientListRequest> clients=clientBl.getClients(page, size, order, asc);
         return clients;
     }
 

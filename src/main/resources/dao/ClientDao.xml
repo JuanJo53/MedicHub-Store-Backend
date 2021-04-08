@@ -80,7 +80,7 @@
             and status = 1
     </select>
 
-    <select id="getClients" resultMap="clientsMap">
+    <select id="getClientsOrderById" resultMap="clientsMap">
         SELECT
             a.client_id as clientId,
             b.first_name as firstName,
@@ -93,6 +93,93 @@
         WHERE
               b.person_id = a.person_id
               AND a.status = 1
+        ORDER BY a.client_id ASC
+        LIMIT #{size} OFFSET #{page}
+    </select>
+
+    <select id="getClientsOrderByIdDesc" resultMap="clientsMap">
+        SELECT
+            a.client_id as clientId,
+            b.first_name as firstName,
+            b.first_surname as firstSurname,
+            b.second_surname as secondSurname,
+            a.user_name as userName,
+            a.email as email,
+            b.ci as ci
+        FROM client a, person b
+        WHERE
+            b.person_id = a.person_id
+          AND a.status = 1
+        ORDER BY a.client_id DESC
+            LIMIT #{size} OFFSET #{page}
+    </select>
+
+    <select id="getClientsOrderByUsername" resultMap="clientsMap">
+        SELECT
+            a.client_id as clientId,
+            b.first_name as firstName,
+            b.first_surname as firstSurname,
+            b.second_surname as secondSurname,
+            a.user_name as userName,
+            a.email as email,
+            b.ci as ci
+        FROM client a, person b
+        WHERE
+            b.person_id = a.person_id
+          AND a.status = 1
+        ORDER BY a.user_name ASC
+            LIMIT #{size} OFFSET #{page}
+    </select>
+
+    <select id="getClientsOrderByUsernameDesc" resultMap="clientsMap">
+        SELECT
+            a.client_id as clientId,
+            b.first_name as firstName,
+            b.first_surname as firstSurname,
+            b.second_surname as secondSurname,
+            a.user_name as userName,
+            a.email as email,
+            b.ci as ci
+        FROM client a, person b
+        WHERE
+            b.person_id = a.person_id
+          AND a.status = 1
+        ORDER BY a.user_name DESC
+            LIMIT #{size} OFFSET #{page}
+    </select>
+
+    <select id="getClientsOrderByEmail" resultMap="clientsMap">
+        SELECT
+            a.client_id as clientId,
+            b.first_name as firstName,
+            b.first_surname as firstSurname,
+            b.second_surname as secondSurname,
+            a.user_name as userName,
+            a.email as email,
+            b.ci as ci
+        FROM client a, person b
+        WHERE
+            b.person_id = a.person_id
+          AND a.status = 1
+        ORDER BY a.email ASC
+            LIMIT #{size} OFFSET #{page}
+    </select>
+
+    <select id="getClientsOrderByEmailDesc" resultMap="clientsMap">
+        SELECT
+            a.client_id as clientId,
+            b.first_name as firstName,
+            b.first_surname as firstSurname,
+            b.second_surname as secondSurname,
+            a.user_name as userName,
+            a.email as email,
+            b.ci as ci
+        FROM client a, person b
+        WHERE
+            b.person_id = a.person_id
+          AND a.status = 1
+        ORDER BY a.email DESC
+            LIMIT #{size} OFFSET #{page}
     </select>
 
     <resultMap id="clientsMap" type="bo.ucb.edu.medichub.dto.ClientListRequest">
