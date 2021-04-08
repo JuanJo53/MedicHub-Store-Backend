@@ -132,7 +132,7 @@ public class ClientBl {
 
     public List<ClientListRequest> getClients(Integer page, Integer size, String order, Boolean asc){
 
-        List<ClientListRequest> clients = new ArrayList<ClientListRequest>();
+        List<ClientListRequest> clients = new ArrayList<>();
         LOGGER.error(String.valueOf(page));
         LOGGER.error(String.valueOf(size));
         LOGGER.error(order);

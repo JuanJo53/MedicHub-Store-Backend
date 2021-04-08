@@ -17,5 +17,17 @@ public interface ProductDao {
 
     public ProductResponse findProductById(Integer productId);
 
-    public List<ProductResponse> productList(Integer idsubsidiary);
+    public List<ProductResponse> productListOrderById(Integer subsidiaryId, Integer page, Integer size);
+
+    public List<ProductResponse> productListOrderByIdDesc(Integer subsidiaryId, Integer page, Integer size);
+
+    public List<ProductResponse> productListOrderByBrand(Integer subsidiaryId, Integer page, Integer size);
+
+    public List<ProductResponse> productListOrderByBrandDesc(Integer subsidiaryId, Integer page, Integer size);
+
+    public List<ProductResponse> productListOrderByProduct(Integer subsidiaryId, Integer page, Integer size);
+
+    public List<ProductResponse> productListOrderByProductDesc(Integer subsidiaryId, Integer page, Integer size);
+
+    public Integer getProductTotalBySubsidiary(Integer subsidiaryId);
 }

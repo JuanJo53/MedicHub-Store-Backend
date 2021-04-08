@@ -7,15 +7,20 @@ import bo.ucb.edu.medichub.dto.ProductResponse;
 import bo.ucb.edu.medichub.model.Pharmacy;
 import bo.ucb.edu.medichub.model.Product;
 import bo.ucb.edu.medichub.model.Transaction;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class ProductBl {
     private ProductDao productDao;
     private TransactionDao transactionDao;
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProductBl.class);
 
     @Autowired
     public ProductBl(ProductDao productDao, TransactionDao transactionDao) {
@@ -68,8 +73,36 @@ public class ProductBl {
         return  product;
     }
 
-    public List<ProductResponse> productList(Integer idsubsidiary){
-        List<ProductResponse> product = productDao.productList(idsubsidiary);
-        return  product;
+    public List<ProductResponse> productList(Integer subsidiaryId, Integer page, Integer size, String order, Boolean asc){
+
+        List<ProductResponse> products = new ArrayList<>();
+        LOGGER.error(String.valueOf(page));
+        LOGGER.error(String.valueOf(size));
+        LOGGER.error(order);
+        LOGGER.error(asc.toString());
+        if(order.equals("id") && asc){
+            products = productDao.productListOrderById(subsidiaryId, page, size);
+        }
+        if(order.equals("id") && !asc){
+            products = productDao.productListOrderByIdDesc(subsidiaryId, page, size);
+        }
+        if(order.equals("brand") && asc){
+            products = productDao.productListOrderByBrand(subsidiaryId, page, size);
+        }
+        if(order.equals("brand") && !asc){
+            products = productDao.productListOrderByBrandDesc(subsidiaryId, page, size);
+        }
+        if(order.equals("name") && asc){
+            products = productDao.productListOrderByProduct(subsidiaryId, page, size);
+        }
+        if(order.equals("name") && !asc){
+            products = productDao.productListOrderByProductDesc(subsidiaryId, page, size);
+        }
+        return products;
+    }
+
+    public Integer getProductTotalBySubsidiary(Integer subsidiaryId){
+        Integer total = productDao.getProductTotalBySubsidiary(subsidiaryId);
+        return total;
     }
 }
