@@ -133,7 +133,10 @@ public class ClientBl {
     public List<ClientListRequest> getClients(Integer page, Integer size, String order, Boolean asc){
 
         List<ClientListRequest> clients = new ArrayList<ClientListRequest>();
-
+        LOGGER.error(String.valueOf(page));
+        LOGGER.error(String.valueOf(size));
+        LOGGER.error(order);
+        LOGGER.error(asc.toString());
         if(order.equals("id") && asc){
             clients = clientDao.getClientsOrderById(page, size);
         }

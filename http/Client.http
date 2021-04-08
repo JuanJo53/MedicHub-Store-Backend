@@ -60,9 +60,8 @@ Accept: application/json
 
 ###
 
-GET http://localhost:8080/client?page=0&size=2&order=email&asc=true
+GET http://localhost:8080/client?page=0&size=2&order=id&asc=true
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJ1c2VyX25hbWUiOiJhbmRyZXNAZ21haWwuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImFkbWluSWQiOjEsImV4cCI6MTYxNzg3MjU4MCwidXNlck5hbWUiOiJhbmRyZWNpdG8iLCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImp0aSI6IjJmODJjNGI3LWU0NWEtNDkwMC1iYmY4LWY2MTI1MThlMzJmZCIsImVtYWlsIjoiYW5kcmVzQGdtYWlsLmNvbSIsImNsaWVudF9pZCI6Im1lZGljaHViYXBwIn0.BDmU6kmZ5o-wqHxW-3-rZeubGJMpKpC7JxpOyo0WYe0
 
 ###
 
