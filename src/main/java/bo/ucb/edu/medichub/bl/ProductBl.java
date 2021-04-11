@@ -73,30 +73,31 @@ public class ProductBl {
         return  product;
     }
 
-    public List<ProductResponse> productList(Integer subsidiaryId, Integer page, Integer size, String order, Boolean asc){
+    public List<ProductResponse> productList(Integer subsidiaryId, Integer page, Integer size, String order, Boolean asc, String price){
 
         List<ProductResponse> products = new ArrayList<>();
         LOGGER.error(String.valueOf(page));
         LOGGER.error(String.valueOf(size));
         LOGGER.error(order);
         LOGGER.error(asc.toString());
-        if(order.equals("id") && asc){
-            products = productDao.productListOrderById(subsidiaryId, page, size);
+        LOGGER.error(String.valueOf(price));
+        if(order.equals("id") && asc ){
+            products = productDao.productListOrderById(subsidiaryId, page, size,price);
         }
         if(order.equals("id") && !asc){
-            products = productDao.productListOrderByIdDesc(subsidiaryId, page, size);
+            products = productDao.productListOrderByIdDesc(subsidiaryId, page, size ,price);
         }
         if(order.equals("brand") && asc){
-            products = productDao.productListOrderByBrand(subsidiaryId, page, size);
+            products = productDao.productListOrderByBrand(subsidiaryId, page, size,price);
         }
         if(order.equals("brand") && !asc){
-            products = productDao.productListOrderByBrandDesc(subsidiaryId, page, size);
+            products = productDao.productListOrderByBrandDesc(subsidiaryId, page, size,price);
         }
         if(order.equals("name") && asc){
-            products = productDao.productListOrderByProduct(subsidiaryId, page, size);
+            products = productDao.productListOrderByProduct(subsidiaryId, page, size,price);
         }
         if(order.equals("name") && !asc){
-            products = productDao.productListOrderByProductDesc(subsidiaryId, page, size);
+            products = productDao.productListOrderByProductDesc(subsidiaryId, page, size,price);
         }
         return products;
     }

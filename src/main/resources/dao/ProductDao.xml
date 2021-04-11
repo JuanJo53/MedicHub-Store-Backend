@@ -74,6 +74,9 @@
             a.brand_id = b.brand_id  and
             a.subsidiary_id=#{subsidiaryId}
             and a.status = 1
+        <if test="price!=0">
+            AND #{price}>=a.price
+        </if>
         ORDER BY a.product_id ASC
             LIMIT #{size} OFFSET #{page}
     </select>
@@ -93,6 +96,9 @@
             a.brand_id = b.brand_id  and
             a.subsidiary_id=#{subsidiaryId}
           and a.status = 1
+        <if test="price!=0">
+            AND #{price}>=a.price
+        </if>
         ORDER BY a.product_id DESC
             LIMIT #{size} OFFSET #{page}
     </select>
@@ -112,6 +118,9 @@
             a.brand_id = b.brand_id  and
             a.subsidiary_id=#{subsidiaryId}
           and a.status = 1
+        <if test="price!=0">
+            AND #{price}>=a.price
+        </if>
         ORDER BY b.name ASC
             LIMIT #{size} OFFSET #{page}
     </select>
@@ -131,6 +140,9 @@
             a.brand_id = b.brand_id  and
             a.subsidiary_id=#{subsidiaryId}
           and a.status = 1
+        <if test="price!=0">
+            AND #{price}>=a.price
+        </if>
         ORDER BY b.name DESC
             LIMIT #{size} OFFSET #{page}
     </select>
@@ -150,6 +162,9 @@
             a.brand_id = b.brand_id  and
             a.subsidiary_id=#{subsidiaryId}
           and a.status = 1
+        <if test="price!=0">
+            AND #{price}>=a.price
+        </if>
         ORDER BY a.name ASC
             LIMIT #{size} OFFSET #{page}
     </select>
@@ -169,6 +184,9 @@
             a.brand_id = b.brand_id  and
             a.subsidiary_id=#{subsidiaryId}
           and a.status = 1
+            <if test="price!=0">
+                AND #{price}>=a.price
+            </if>
         ORDER BY a.name DESC
             LIMIT #{size} OFFSET #{page}
     </select>

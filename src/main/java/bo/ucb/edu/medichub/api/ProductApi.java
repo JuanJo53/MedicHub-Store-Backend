@@ -74,9 +74,13 @@ public class ProductApi {
     }
 
     @GetMapping(path="/{subsidiaryId}/list", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<ProductResponse> productList(@PathVariable String subsidiaryId, @RequestParam Integer page,
-                                             @RequestParam Integer size, @RequestParam String order, @RequestParam Boolean asc){
-        List<ProductResponse> product = productBl.productList(Integer.parseInt(subsidiaryId), page, size, order, asc);
+    public List<ProductResponse> productList(@PathVariable String subsidiaryId,
+                                             @RequestParam Integer page,
+                                             @RequestParam Integer size,
+                                             @RequestParam String order,
+                                             @RequestParam Boolean asc,
+                                             @RequestParam String price ){
+        List<ProductResponse> product = productBl.productList(Integer.parseInt(subsidiaryId), page, size, order, asc, price);
         return product;
     }
 
