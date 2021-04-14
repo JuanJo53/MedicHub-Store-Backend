@@ -80,3 +80,16 @@ GET http://localhost:8080/client/total
 Accept: application/json
 
 ###
+
+
+PUT http://localhost:8080/client/1/updatepassword
+Accept: application/json
+Content-Type: application/json
+
+{
+  "clientId": 1,
+  "passwordCurrent": "abc12345",
+  "passwordNew": "abc123456"
+}
+
+###

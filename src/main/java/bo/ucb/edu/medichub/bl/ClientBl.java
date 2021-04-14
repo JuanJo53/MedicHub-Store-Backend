@@ -4,6 +4,7 @@ package bo.ucb.edu.medichub.bl;
 import bo.ucb.edu.medichub.dao.*;
 import bo.ucb.edu.medichub.dto.CardRequest;
 import bo.ucb.edu.medichub.dto.ClientListRequest;
+import bo.ucb.edu.medichub.dto.ClientPasswordRequest;
 import bo.ucb.edu.medichub.dto.ClientRequest;
 import bo.ucb.edu.medichub.model.*;
 import org.slf4j.Logger;
@@ -82,7 +83,30 @@ public class ClientBl {
         }
     }
 
+    //public ClientRequest update
+            //(Recibir Dao ID cleinte
+    // LA COontraseña actual
+    // if (password.equals(passwordID)){
+    //            //encrit
+    //        }
+    // contraseña nueva
+    // )
+    public ClientPasswordRequest updatepasswordClient(ClientPasswordRequest clientPasswordReques, Transaction transaction) {
 
+
+        String passwordClient = clientDao.passwordClient(clientPasswordReques.getClientId());
+        if (passwordEncoder.matches(clientPasswordReques.getPasswordCurrent(),passwordClient)){
+            String passwordCurrent = passwordEncoder.encode(clientPasswordReques.getPasswordCurrent());
+            String passwordNew = passwordEncoder.encode(clientPasswordReques.getPasswordNew());
+            clientPasswordReques.setPasswordNew(passwordNew);
+            System.out.println("if "+clientPasswordReques.getPasswordCurrent()+" "+clientPasswordReques.getPasswordNew()+" "+clientPasswordReques.getClientId());
+            clientDao.passwordNewClient(clientPasswordReques);
+            return clientPasswordReques;
+        }
+        else{
+            return null;
+        }
+    }
 
     public ClientRequest updateClient(ClientRequest clientRequest, Transaction transaction) {
         Client client = new Client();
@@ -93,6 +117,8 @@ public class ClientBl {
         client.setEmail(clientRequest.getEmail());
         client.setUserName(clientRequest.getUserName());
         String password = passwordEncoder.encode(clientRequest.getPassword());
+
+
         client.setPassword(password);
         client.setBirthdate(clientRequest.getBirthdate());
         client.setTransaction(transaction);
@@ -175,4 +201,6 @@ public class ClientBl {
         Integer cant = clientDao.getClientTotal();
         return cant;
     }
+
+
 }

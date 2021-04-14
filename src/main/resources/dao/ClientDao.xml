@@ -80,6 +80,24 @@
             and status = 1
     </select>
 
+    <select id="passwordClient" resultType="java.lang.String">
+        SELECT
+            password
+        FROM client
+        WHERE
+            client_id = #{clientId}
+            and status = 1
+    </select>
+
+    <update id="passwordNewClient" parameterType="bo.ucb.edu.medichub.dto.ClientPasswordRequest">
+        UPDATE client set
+            password=#{passwordNew}
+        WHERE
+        client_id=#{clientId} and
+        status=1
+    </update>
+
+
     <select id="getClientsOrderById" resultMap="clientsMap">
         SELECT
             a.client_id as clientId,
@@ -224,5 +242,10 @@
         from client
         where status = 1
     </select>
+
+
+
+
+
 
 </mapper>

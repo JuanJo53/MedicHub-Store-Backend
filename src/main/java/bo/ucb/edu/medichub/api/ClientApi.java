@@ -2,10 +2,7 @@ package bo.ucb.edu.medichub.api;
 
 import bo.ucb.edu.medichub.bl.ClientBl;
 import bo.ucb.edu.medichub.bl.TransactionBl;
-import bo.ucb.edu.medichub.dto.AddressRequest;
-import bo.ucb.edu.medichub.dto.CardRequest;
-import bo.ucb.edu.medichub.dto.ClientListRequest;
-import bo.ucb.edu.medichub.dto.ClientRequest;
+import bo.ucb.edu.medichub.dto.*;
 import bo.ucb.edu.medichub.model.Transaction;
 import bo.ucb.edu.medichub.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +55,24 @@ public class ClientApi {
             transactionBl.createTransaction(transaction);
             ClientRequest clientResponse = clientBl.updateClient(clientRequest, transaction);
             return HttpStatus.OK;
+        } else{
+            return HttpStatus.BAD_REQUEST;
+        }
+    }
+
+
+    @PutMapping(path="/{clientId}/updatepassword", produces = MediaType.APPLICATION_JSON_VALUE)
+    public HttpStatus updatePasswordClient(@Valid @RequestBody ClientPasswordRequest clientPasswordReques, HttpServletRequest request, BindingResult result){
+        if(!result.hasErrors()){
+            Transaction transaction = TransactionUtil.createTransaction(request);
+            transactionBl.createTransaction(transaction);
+            ClientPasswordRequest clientPasswordReques1 = clientBl.updatepasswordClient(clientPasswordReques, transaction);
+            if (clientPasswordReques1!=null){
+
+                return HttpStatus.OK;
+            }else{
+                return HttpStatus.BAD_REQUEST;
+            }
         } else{
             return HttpStatus.BAD_REQUEST;
         }
