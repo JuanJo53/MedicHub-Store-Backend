@@ -32,5 +32,5 @@ public interface ClientDao {
 
     public void passwordNewClient(Integer clientId, String passwordNew);
 
-    void passwordNewClient(ClientPasswordRequest clientPasswordReques);
+    void passwordNewClient(PasswordRequest clientPasswordReques);
 }

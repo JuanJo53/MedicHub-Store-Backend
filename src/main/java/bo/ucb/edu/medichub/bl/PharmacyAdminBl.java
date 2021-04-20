@@ -4,6 +4,7 @@ import bo.ucb.edu.medichub.dao.AuthDao;
 import bo.ucb.edu.medichub.dao.PersonDao;
 import bo.ucb.edu.medichub.dao.PharmacyAdminDao;
 import bo.ucb.edu.medichub.dao.TransactionDao;
+import bo.ucb.edu.medichub.dto.PasswordRequest;
 import bo.ucb.edu.medichub.dto.PharmacyAdminRequest;
 import bo.ucb.edu.medichub.model.*;
 import org.slf4j.Logger;
@@ -89,6 +90,21 @@ public class PharmacyAdminBl {
         personDao.updatePerson(person);
 
         return pharmacyAdminRequest;
+    }
+
+    public PasswordRequest updateAdminPharmacyPassword(PasswordRequest passwordRequest, Transaction transaction) {
+
+        String passwordAdminPharm = pharmacyAdminDao.passworAdminPharm(passwordRequest.getId());
+        if (passwordEncoder.matches(passwordRequest.getPasswordCurrent(),passwordAdminPharm)){
+            String passwordNew = passwordEncoder.encode(passwordRequest.getPasswordNew());
+            passwordRequest.setPasswordNew(passwordNew);
+            System.out.println("if "+passwordRequest.getPasswordCurrent()+" "+passwordRequest.getPasswordNew()+" "+passwordRequest.getId());
+            pharmacyAdminDao.updateAdminPharmacyPassword(passwordRequest);
+            return passwordRequest;
+        }
+        else{
+            return null;
+        }
     }
 
     public void deletePharmacyAdmin(Integer pharmacyId, Transaction transaction) {

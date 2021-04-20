@@ -1,5 +1,6 @@
 package bo.ucb.edu.medichub.dao;
 
+import bo.ucb.edu.medichub.dto.PasswordRequest;
 import bo.ucb.edu.medichub.dto.PharmacyAdminRequest;
 import bo.ucb.edu.medichub.model.PharmacyAdmin;
 import org.apache.ibatis.annotations.Mapper;
@@ -15,4 +16,8 @@ public interface PharmacyAdminDao {
     public PharmacyAdminRequest findAdminById(Integer pharmacyId);
 
     public PharmacyAdmin getPersonId(Integer pharmacyId);
+
+    public void updateAdminPharmacyPassword(PasswordRequest passwordRequest);
+
+    public String passworAdminPharm(Integer pharmacyId);
 }

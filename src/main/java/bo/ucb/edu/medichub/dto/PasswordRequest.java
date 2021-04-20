@@ -1,20 +1,20 @@
 package bo.ucb.edu.medichub.dto;
 
-public class ClientPasswordRequest {
+public class PasswordRequest {
 
-    private Integer clientId;
+    private Integer id;
     private String passwordCurrent;
     private String passwordNew;
 
-    public ClientPasswordRequest() {
+    public PasswordRequest() {
     }
 
-    public Integer getClientId() {
-        return clientId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setClientId(Integer clientId) {
-        this.clientId = clientId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getPasswordCurrent() {
@@ -36,7 +36,7 @@ public class ClientPasswordRequest {
     @Override
     public String toString() {
         return "ClientPasswordReques{" +
-                "clientId=" + clientId +
+                "clientId=" + id +
                 ", passwordCurrent='" + passwordCurrent + '\'' +
                 ", passwordNew='" + passwordNew + '\'' +
                 '}';

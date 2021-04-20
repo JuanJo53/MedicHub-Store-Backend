@@ -62,11 +62,11 @@ public class ClientApi {
 
 
     @PutMapping(path="/{clientId}/updatepassword", produces = MediaType.APPLICATION_JSON_VALUE)
-    public HttpStatus updatePasswordClient(@Valid @RequestBody ClientPasswordRequest clientPasswordReques, HttpServletRequest request, BindingResult result){
+    public HttpStatus updatePasswordClient(@Valid @RequestBody PasswordRequest clientPasswordReques, HttpServletRequest request, BindingResult result){
         if(!result.hasErrors()){
             Transaction transaction = TransactionUtil.createTransaction(request);
             transactionBl.createTransaction(transaction);
-            ClientPasswordRequest clientPasswordReques1 = clientBl.updatepasswordClient(clientPasswordReques, transaction);
+            PasswordRequest clientPasswordReques1 = clientBl.updatepasswordClient(clientPasswordReques, transaction);
             if (clientPasswordReques1!=null){
 
                 return HttpStatus.OK;
