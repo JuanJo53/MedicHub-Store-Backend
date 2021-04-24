@@ -37,6 +37,23 @@
         status=1
     </update>
 
+    <update id="updateAdminPharmacyPassword" parameterType="bo.ucb.edu.medichub.dto.PasswordRequest">
+        UPDATE client set
+            password=#{passwordNew}
+        WHERE
+            pharmacy_id=#{id} and
+            status=1
+    </update>
+
+    <select id="passworAdminPharm" resultType="java.lang.String">
+        SELECT
+            password
+        FROM client
+        WHERE
+            pharmacy_id = #{id}
+          and status = 1
+    </select>
+
     <select id="findAdminById" resultType="bo.ucb.edu.medichub.dto.PharmacyAdminRequest">
         SELECT
             a.pharmacy_id as pharmacyId,

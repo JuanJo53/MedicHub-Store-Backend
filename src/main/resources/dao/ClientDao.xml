@@ -89,11 +89,11 @@
             and status = 1
     </select>
 
-    <update id="passwordNewClient" parameterType="bo.ucb.edu.medichub.dto.ClientPasswordRequest">
+    <update id="passwordNewClient" parameterType="bo.ucb.edu.medichub.dto.PasswordRequest">
         UPDATE client set
             password=#{passwordNew}
         WHERE
-        client_id=#{clientId} and
+        client_id=#{id} and
         status=1
     </update>
 

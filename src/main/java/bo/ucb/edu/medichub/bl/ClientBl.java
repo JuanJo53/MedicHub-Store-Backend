@@ -4,7 +4,7 @@ package bo.ucb.edu.medichub.bl;
 import bo.ucb.edu.medichub.dao.*;
 import bo.ucb.edu.medichub.dto.CardRequest;
 import bo.ucb.edu.medichub.dto.ClientListRequest;
-import bo.ucb.edu.medichub.dto.ClientPasswordRequest;
+import bo.ucb.edu.medichub.dto.PasswordRequest;
 import bo.ucb.edu.medichub.dto.ClientRequest;
 import bo.ucb.edu.medichub.model.*;
 import org.slf4j.Logger;
@@ -91,13 +91,17 @@ public class ClientBl {
     //        }
     // contraseña nueva
     // )
-    public ClientPasswordRequest updatepasswordClient(ClientPasswordRequest clientPasswordReques, Transaction transaction) {
+    public PasswordRequest updatepasswordClient(PasswordRequest clientPasswordReques, Transaction transaction) {
 
 
-        String passwordClient = clientDao.passwordClient(clientPasswordReques.getClientId());
+        String passwordClient = clientDao.passwordClient(clientPasswordReques.getId());
         if (passwordEncoder.matches(clientPasswordReques.getPasswordCurrent(),passwordClient)){
             String passwordNew = passwordEncoder.encode(clientPasswordReques.getPasswordNew());
             clientPasswordReques.setPasswordNew(passwordNew);
+<<<<<<< HEAD
+=======
+            System.out.println("if "+clientPasswordReques.getPasswordCurrent()+" "+clientPasswordReques.getPasswordNew()+" "+clientPasswordReques.getId());
+>>>>>>> b3ad1a9ec88ddd1b68c0dd975e480f8585bffd38
             clientDao.passwordNewClient(clientPasswordReques);
             return clientPasswordReques;
         }

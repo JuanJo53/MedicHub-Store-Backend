@@ -2,6 +2,7 @@ package bo.ucb.edu.medichub.api;
 
 import bo.ucb.edu.medichub.bl.PharmacyAdminBl;
 import bo.ucb.edu.medichub.bl.TransactionBl;
+import bo.ucb.edu.medichub.dto.PasswordRequest;
 import bo.ucb.edu.medichub.dto.PharmacyAdminRequest;
 import bo.ucb.edu.medichub.model.Transaction;
 import bo.ucb.edu.medichub.util.TransactionUtil;
@@ -70,5 +71,21 @@ public class PharmacyAdminApi {
     public PharmacyAdminRequest findAdminById(@PathVariable String pharmacyId){
         PharmacyAdminRequest admin = pharmacyAdminBl.findAdminById(Integer.parseInt(pharmacyId));
         return admin;
+    }
+
+    @PutMapping(path="/password", produces = MediaType.APPLICATION_JSON_VALUE)
+    public HttpStatus updatePassword(@Valid @RequestBody PasswordRequest passwordReques, HttpServletRequest request, BindingResult result){
+        if(!result.hasErrors()){
+            Transaction transaction = TransactionUtil.createTransaction(request);
+            transactionBl.createTransaction(transaction);
+            PasswordRequest passwordReques1 = pharmacyAdminBl.updateAdminPharmacyPassword(passwordReques, transaction);
+            if (passwordReques1!=null){
+                return HttpStatus.OK;
+            }else{
+                return HttpStatus.BAD_REQUEST;
+            }
+        } else{
+            return HttpStatus.BAD_REQUEST;
+        }
     }
 }
