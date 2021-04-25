@@ -33,7 +33,6 @@ public class PharmacyAdminRequest {
     @NotEmpty
     @Size(min = 3)
     private String userName;
-    @NotEmpty
     @Size(min = 6)
     private String password;
 

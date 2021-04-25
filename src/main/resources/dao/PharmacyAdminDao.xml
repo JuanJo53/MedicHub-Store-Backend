@@ -15,7 +15,6 @@
             subsidiary_id=#{subsidiaryId},
             email=#{email},
             user_name=#{userName},
-            password=#{password},
             tx_id=#{transaction.txId},
             tx_host=#{transaction.txHost},
             tx_user_id=#{transaction.txUserId},

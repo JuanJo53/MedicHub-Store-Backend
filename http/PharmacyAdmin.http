@@ -19,6 +19,7 @@ Content-Type: application/json
 PUT http://localhost:8080/pharmacyAdmin
 Accept: application/json
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJ1c2VyX25hbWUiOiJhbmRyZXNAZ21haWwuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImFkbWluSWQiOjEsImV4cCI6MTYxOTQxOTQ3MywidXNlck5hbWUiOiJhbmRyZWNpdG8iLCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImp0aSI6ImVmZTcxNDdiLWU0NjEtNDEyOC05NzRiLTU4ZWFiM2JlNzc0ZiIsImVtYWlsIjoiYW5kcmVzQGdtYWlsLmNvbSIsImNsaWVudF9pZCI6Im1lZGljaHViYXBwIn0.4Lcml83YeeRi5jlcNNNBjkSx29nnQmm_kIDb2gK1n3Q
 
 {
   "pharmacyAdminId": 1,
@@ -29,8 +30,7 @@ Content-Type: application/json
   "ci": "12459635 LP",
   "phone": "+591 78596312",
   "email": "juanperez@gmail.com",
-  "userName": "JuanitoAlcachofa",
-  "password": "abc12345"
+  "userName": "JuanitoAlcachofa"
 }
 
 ###
