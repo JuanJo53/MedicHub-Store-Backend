@@ -119,4 +119,18 @@ public class PharmacyAdminBl {
         PharmacyAdminRequest admin = pharmacyAdminDao.findAdminById(pharmacyId);
         return admin;
     }
+
+    public PasswordRequest updatepasswordPharmacyAdmin(PasswordRequest pharmacyAdminPasswordReques, Transaction transaction) {
+
+        String passwordClient = pharmacyAdminDao.passwordPharmacyAdmin(pharmacyAdminPasswordReques.getId());
+        if (passwordEncoder.matches(pharmacyAdminPasswordReques.getOldPassword(),passwordClient)){
+            String passwordNew = passwordEncoder.encode(pharmacyAdminPasswordReques.getNewPassword());
+            pharmacyAdminPasswordReques.setNewPassword(passwordNew);
+            pharmacyAdminDao.passwordNewPharmacyAdmin(pharmacyAdminPasswordReques);
+            return pharmacyAdminPasswordReques;
+        }
+        else{
+            return null;
+        }
+    }
 }

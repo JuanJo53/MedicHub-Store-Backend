@@ -47,6 +47,8 @@ public class PharmacyApi {
         }
     }
 
+
+
     @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
     public HttpStatus updatePharmacy(@Valid @RequestBody PharmacyRequest pharmacyRequest, HttpServletRequest request,
                                           BindingResult result) {

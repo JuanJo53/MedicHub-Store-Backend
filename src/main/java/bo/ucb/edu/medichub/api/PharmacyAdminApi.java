@@ -59,6 +59,24 @@ public class PharmacyAdminApi {
     }
     }
 
+
+    @PutMapping(path="/updatepassword", produces = MediaType.APPLICATION_JSON_VALUE)
+    public HttpStatus updatePasswordPharmacyAdmin(@Valid @RequestBody PasswordRequest pharmacyAdminPasswordReques, HttpServletRequest request, BindingResult result){
+        if(!result.hasErrors()){
+            Transaction transaction = TransactionUtil.createTransaction(request);
+            transactionBl.createTransaction(transaction);
+            PasswordRequest clientPasswordReques1 = pharmacyAdminBl.updatepasswordPharmacyAdmin(pharmacyAdminPasswordReques, transaction);
+            if (clientPasswordReques1!=null){
+
+                return HttpStatus.OK;
+            }else{
+                return HttpStatus.BAD_REQUEST;
+            }
+        } else{
+            return HttpStatus.BAD_REQUEST;
+        }
+    }
+
     @DeleteMapping(path="/{pharmacyId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public HttpStatus deletePharmacy(@PathVariable String pharmacyId, HttpServletRequest request){
         Transaction transaction = TransactionUtil.createTransaction(request);

@@ -1,5 +1,6 @@
 package bo.ucb.edu.medichub.bl;
 
+import bo.ucb.edu.medichub.dao.AuthDao;
 import bo.ucb.edu.medichub.dao.PharmacyDao;
 import bo.ucb.edu.medichub.dao.TransactionDao;
 import bo.ucb.edu.medichub.dto.*;
@@ -8,6 +9,7 @@ import bo.ucb.edu.medichub.model.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,13 +18,17 @@ import java.util.List;
 public class PharmacyBl {
     private PharmacyDao pharmacyDao;
     private TransactionDao transactionDao;
+    private AuthDao authDao;
+    private BCryptPasswordEncoder passwordEncoder;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BankAccountBl.class);
 
     @Autowired
-    public PharmacyBl(PharmacyDao pharmacyDao, TransactionDao transactionDao) {
+    public PharmacyBl(PharmacyDao pharmacyDao, TransactionDao transactionDao,AuthDao authDao, BCryptPasswordEncoder passwordEncoder) {
         this.pharmacyDao = pharmacyDao;
         this.transactionDao = transactionDao;
+        this.authDao = authDao;
+        this.passwordEncoder=passwordEncoder;
     }
 
     public PharmacyRequest createPharmacy(PharmacyRequest pharmacyRequest, Transaction transaction){
@@ -85,6 +91,8 @@ public class PharmacyBl {
         List<PersonListRequest> admins = pharmacyDao.getAdminsByPharmacy(pharmacyId);
         return admins;
     }
+
+
 }
 
 
