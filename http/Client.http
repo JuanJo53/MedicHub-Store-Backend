@@ -88,9 +88,16 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJ1c2VyX25hbWUiOiJhbmRyZXNAZ21haWwuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImFkbWluSWQiOjEsImV4cCI6MTYxOTM1MDcxNiwidXNlck5hbWUiOiJhbmRyZWNpdG8iLCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImp0aSI6IjA2MWQ1NDZkLTEwOTAtNDUxMi05ZmEwLTJmNGRjYTdjYjgzZSIsImVtYWlsIjoiYW5kcmVzQGdtYWlsLmNvbSIsImNsaWVudF9pZCI6Im1lZGljaHViYXBwIn0.BpU_xz0e3QwJ-CEcP-pzEv8uMO_RwuAPgG7bvNB6NRI
 
 {
-  "clientId": 1,
-  "passwordCurrent": "abc12345",
-  "passwordNew": "abc123456"
+  "id": 2,
+  "oldPassword": "abc123456",
+  "newPassword": "abc12345"
 }
+
+###
+
+
+GET http://localhost:8080/client/?user=admin&password=12345&type=Admin
+Accept: application/json
+Content-Type: application/json
 
 ###
