@@ -98,10 +98,6 @@ public class ClientBl {
         if (passwordEncoder.matches(clientPasswordReques.getPasswordCurrent(),passwordClient)){
             String passwordNew = passwordEncoder.encode(clientPasswordReques.getPasswordNew());
             clientPasswordReques.setPasswordNew(passwordNew);
-<<<<<<< HEAD
-=======
-            System.out.println("if "+clientPasswordReques.getPasswordCurrent()+" "+clientPasswordReques.getPasswordNew()+" "+clientPasswordReques.getId());
->>>>>>> b3ad1a9ec88ddd1b68c0dd975e480f8585bffd38
             clientDao.passwordNewClient(clientPasswordReques);
             return clientPasswordReques;
         }

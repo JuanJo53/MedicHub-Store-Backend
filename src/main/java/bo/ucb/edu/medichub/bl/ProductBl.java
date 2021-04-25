@@ -73,7 +73,7 @@ public class ProductBl {
         return  product;
     }
 
-    public List<ProductResponse> productList(Integer subsidiaryId, Integer page, Integer size, String order, Boolean asc, String price){
+    public List<ProductResponse> productList(Integer subsidiaryId, Integer page, Integer size, String order, Boolean asc, String price,String brand){
 
         List<ProductResponse> products = new ArrayList<>();
         LOGGER.error(String.valueOf(page));
@@ -82,22 +82,22 @@ public class ProductBl {
         LOGGER.error(asc.toString());
         LOGGER.error(String.valueOf(price));
         if(order.equals("id") && asc ){
-            products = productDao.productListOrderById(subsidiaryId, page, size,price);
+            products = productDao.productListOrderById(subsidiaryId, page, size,price,brand);
         }
         if(order.equals("id") && !asc){
-            products = productDao.productListOrderByIdDesc(subsidiaryId, page, size ,price);
+            products = productDao.productListOrderByIdDesc(subsidiaryId, page, size ,price,brand);
         }
         if(order.equals("brand") && asc){
-            products = productDao.productListOrderByBrand(subsidiaryId, page, size,price);
+            products = productDao.productListOrderByBrand(subsidiaryId, page, size,price,brand);
         }
         if(order.equals("brand") && !asc){
-            products = productDao.productListOrderByBrandDesc(subsidiaryId, page, size,price);
+            products = productDao.productListOrderByBrandDesc(subsidiaryId, page, size,price,brand);
         }
         if(order.equals("name") && asc){
-            products = productDao.productListOrderByProduct(subsidiaryId, page, size,price);
+            products = productDao.productListOrderByProduct(subsidiaryId, page, size,price,brand);
         }
         if(order.equals("name") && !asc){
-            products = productDao.productListOrderByProductDesc(subsidiaryId, page, size,price);
+            products = productDao.productListOrderByProductDesc(subsidiaryId, page, size,price,brand);
         }
         return products;
     }

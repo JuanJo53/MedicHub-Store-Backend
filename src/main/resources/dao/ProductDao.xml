@@ -77,6 +77,9 @@
         <if test="price!=0">
             AND #{price}>=a.price
         </if>
+        <if test="brand!=null">
+            AND #{brand}=b.name
+        </if>
         ORDER BY a.product_id ASC
             LIMIT #{size} OFFSET #{page}
     </select>
@@ -98,6 +101,9 @@
           and a.status = 1
         <if test="price!=0">
             AND #{price}>=a.price
+        </if>
+        <if test="brand!=null">
+            AND #{brand}=b.name
         </if>
         ORDER BY a.product_id DESC
             LIMIT #{size} OFFSET #{page}
@@ -121,6 +127,9 @@
         <if test="price!=0">
             AND #{price}>=a.price
         </if>
+        <if test="brand!=null">
+            AND #{brand}=b.name
+        </if>
         ORDER BY b.name ASC
             LIMIT #{size} OFFSET #{page}
     </select>
@@ -142,6 +151,9 @@
           and a.status = 1
         <if test="price!=0">
             AND #{price}>=a.price
+        </if>
+        <if test="brand!=null">
+            AND #{brand}=b.name
         </if>
         ORDER BY b.name DESC
             LIMIT #{size} OFFSET #{page}
@@ -165,6 +177,9 @@
         <if test="price!=0">
             AND #{price}>=a.price
         </if>
+        <if test="brand!=null">
+            AND #{brand}=b.name
+        </if>
         ORDER BY a.name ASC
             LIMIT #{size} OFFSET #{page}
     </select>
@@ -187,6 +202,9 @@
             <if test="price!=0">
                 AND #{price}>=a.price
             </if>
+        <if test="brand!=null">
+            AND #{brand}=b.name
+        </if>
         ORDER BY a.name DESC
             LIMIT #{size} OFFSET #{page}
     </select>
