@@ -79,8 +79,9 @@ public class ProductApi {
                                              @RequestParam Integer size,
                                              @RequestParam String order,
                                              @RequestParam Boolean asc,
-                                             @RequestParam String price ){
-        List<ProductResponse> product = productBl.productList(Integer.parseInt(subsidiaryId), page, size, order, asc, price);
+                                             @RequestParam String price,
+                                             @RequestParam String brand  ){
+        List<ProductResponse> product = productBl.productList(Integer.parseInt(subsidiaryId), page, size, order, asc, price,brand);
         return product;
     }
 

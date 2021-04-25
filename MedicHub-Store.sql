@@ -1,3 +1,4 @@
+
 -- Created by Vertabelo (http://vertabelo.com)
 -- Last modification date: 2021-04-25 02:15:04.919
 
@@ -369,4 +370,3 @@ ALTER TABLE subsidiary ADD CONSTRAINT subsidiary_pharmacy FOREIGN KEY subsidiary
     REFERENCES pharmacy (pharmacy_id);
 
 -- End of file.
-

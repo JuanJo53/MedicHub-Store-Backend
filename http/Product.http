@@ -44,7 +44,7 @@ Accept: application/json
 
 ###
 
-GET http://localhost:8080/product/2/list?page=0&size=5&order=name&asc=false&price=0
+GET http://localhost:8080/product/1/list?page=0&size=5&order=name&asc=false&price=0&brand=Cipro HC
 Accept: application/json
 
 ###
