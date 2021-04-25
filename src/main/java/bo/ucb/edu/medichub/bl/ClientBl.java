@@ -95,9 +95,9 @@ public class ClientBl {
 
 
         String passwordClient = clientDao.passwordClient(clientPasswordReques.getId());
-        if (passwordEncoder.matches(clientPasswordReques.getPasswordCurrent(),passwordClient)){
-            String passwordNew = passwordEncoder.encode(clientPasswordReques.getPasswordNew());
-            clientPasswordReques.setPasswordNew(passwordNew);
+        if (passwordEncoder.matches(clientPasswordReques.getOldPassword(),passwordClient)){
+            String passwordNew = passwordEncoder.encode(clientPasswordReques.getNewPassword());
+            clientPasswordReques.setNewPassword(passwordNew);
             clientDao.passwordNewClient(clientPasswordReques);
             return clientPasswordReques;
         }

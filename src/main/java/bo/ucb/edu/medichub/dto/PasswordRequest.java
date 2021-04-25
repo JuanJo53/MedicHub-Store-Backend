@@ -3,8 +3,8 @@ package bo.ucb.edu.medichub.dto;
 public class PasswordRequest {
 
     private Integer id;
-    private String passwordCurrent;
-    private String passwordNew;
+    private String oldPassword;
+    private String newPassword;
 
     public PasswordRequest() {
     }
@@ -17,28 +17,28 @@ public class PasswordRequest {
         this.id = id;
     }
 
-    public String getPasswordCurrent() {
-        return passwordCurrent;
+    public String getOldPassword() {
+        return oldPassword;
     }
 
-    public void setPasswordCurrent(String passwordCurrent) {
-        this.passwordCurrent = passwordCurrent;
+    public void setOldPassword(String oldPassword) {
+        this.oldPassword = oldPassword;
     }
 
-    public String getPasswordNew() {
-        return passwordNew;
+    public String getNewPassword() {
+        return newPassword;
     }
 
-    public void setPasswordNew(String passwordNew) {
-        this.passwordNew = passwordNew;
+    public void setNewPassword(String newPassword) {
+        this.newPassword = newPassword;
     }
 
     @Override
     public String toString() {
-        return "ClientPasswordReques{" +
-                "clientId=" + id +
-                ", passwordCurrent='" + passwordCurrent + '\'' +
-                ", passwordNew='" + passwordNew + '\'' +
+        return "PasswordRequest{" +
+                "id=" + id +
+                ", oldPassword='" + oldPassword + '\'' +
+                ", newPassword='" + newPassword + '\'' +
                 '}';
     }
 }
