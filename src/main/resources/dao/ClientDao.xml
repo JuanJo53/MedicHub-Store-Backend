@@ -85,13 +85,13 @@
             password
         FROM client
         WHERE
-            client_id = #{clientId}
+            client_id = #{id}
             and status = 1
     </select>
 
     <update id="passwordNewClient" parameterType="bo.ucb.edu.medichub.dto.PasswordRequest">
         UPDATE client set
-            password=#{passwordNew}
+            password=#{newPassword}
         WHERE
         client_id=#{id} and
         status=1
