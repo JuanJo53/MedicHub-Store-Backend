@@ -13,11 +13,11 @@ public interface PharmacyAdminDao {
 
     public void deletePharmacyAdmin(PharmacyAdmin pharmacyAdmin);
 
-    public PharmacyAdminRequest findAdminById(Integer pharmacyId);
+    public PharmacyAdminRequest findAdminById(Integer pharmacyAdminId);
 
-    public PharmacyAdmin getPersonId(Integer pharmacyId);
+    public PharmacyAdmin getPersonId(Integer pharmacyAdminId);
 
     public void updateAdminPharmacyPassword(PasswordRequest passwordRequest);
 
-    public String passworAdminPharm(Integer pharmacyId);
+    public String passworAdminPharm(Integer pharmacyAdminId);
 }

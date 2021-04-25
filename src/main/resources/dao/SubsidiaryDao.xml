@@ -85,7 +85,7 @@
 
     <select id="getAdminsBySubsidiary" resultMap="subsidiaryAdminsMap">
         select
-            a.pharmacy_id as roleUserId,
+            a.pharmacy_admin_id as roleUserId,
             c.first_name as firstName,
             c.first_surname as firstSurname,
             c.second_surname as secondSurname,

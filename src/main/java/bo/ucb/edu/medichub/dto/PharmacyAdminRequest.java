@@ -7,7 +7,7 @@ import javax.validation.constraints.*;
 public class PharmacyAdminRequest {
     @NumberFormat
     @Positive
-    private Integer pharmacyId;
+    private Integer pharmacyAdminId;
     @NumberFormat
     @Positive
     private Integer subsidiaryId;
@@ -40,12 +40,12 @@ public class PharmacyAdminRequest {
     public PharmacyAdminRequest() {
     }
 
-    public Integer getPharmacyId() {
-        return pharmacyId;
+    public Integer getPharmacyAdminId() {
+        return pharmacyAdminId;
     }
 
-    public void setPharmacyId(Integer pharmacyId) {
-        this.pharmacyId = pharmacyId;
+    public void setPharmacyAdminId(Integer pharmacyAdminId) {
+        this.pharmacyAdminId = pharmacyAdminId;
     }
 
     public Integer getSubsidiaryId() {
@@ -123,7 +123,7 @@ public class PharmacyAdminRequest {
     @Override
     public String toString() {
         return "PharmacyAdminRequest{" +
-                "pharmacyId=" + pharmacyId +
+                "pharmacyAdminId=" + pharmacyAdminId +
                 ", subsidiaryId=" + subsidiaryId +
                 ", firstName='" + firstName + '\'' +
                 ", firstSurname='" + firstSurname + '\'' +

@@ -33,7 +33,7 @@ public class InfoAdditionalToken implements TokenEnhancer {
         }
         PharmacyAdmin pharmacyAdmin = authDao.findPharmacyAdminByEmail(oAuth2Authentication.getName());
         if(pharmacyAdmin != null){
-            info.put("pharmAdminId", pharmacyAdmin.getPharmacyId());
+            info.put("pharmAdminId", pharmacyAdmin.getPharmacyAdminId());
             info.put("subsidiaryId", pharmacyAdmin.getSubsidiaryId());
             info.put("email", pharmacyAdmin.getEmail());
             info.put("userName", pharmacyAdmin.getUserName());

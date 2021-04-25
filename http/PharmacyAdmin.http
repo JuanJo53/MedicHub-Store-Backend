@@ -21,7 +21,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "pharmacyId": 2,
+  "pharmacyAdminId": 1,
   "subsidiaryId": 1,
   "firstName": "Jose",
   "firstSurname": "Perez",
@@ -30,7 +30,7 @@ Content-Type: application/json
   "phone": "+591 78596312",
   "email": "juanperez@gmail.com",
   "userName": "JuanitoAlcachofa",
-  "password": "abc1234"
+  "password": "abc12345"
 }
 
 ###

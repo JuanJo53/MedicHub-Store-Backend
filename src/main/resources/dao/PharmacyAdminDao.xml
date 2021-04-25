@@ -21,7 +21,7 @@
             tx_user_id=#{transaction.txUserId},
             tx_date=#{transaction.txDate}
         WHERE
-        pharmacy_id=#{pharmacyId} and
+        pharmacy_admin_id=#{pharmacyAdminId} and
         status=1
     </update>
 
@@ -33,7 +33,7 @@
             tx_user_id=#{transaction.txUserId},
             tx_date=#{transaction.txDate}
         WHERE
-        pharmacy_id=#{pharmacyId} and
+        pharmacy_admin_id=#{pharmacyAdminId} and
         status=1
     </update>
 
@@ -41,7 +41,7 @@
         UPDATE pharmacy_admin set
             password=#{newPassword}
         WHERE
-            pharmacy_id=#{id} and
+            pharmacy_admin_id=#{id} and
             status=1
     </update>
 
@@ -50,13 +50,13 @@
             password
         FROM pharmacy_admin
         WHERE
-            pharmacy_id = #{id}
+            pharmacy_admin_id = #{id}
           and status = 1
     </select>
 
     <select id="findAdminById" resultType="bo.ucb.edu.medichub.dto.PharmacyAdminRequest">
         SELECT
-            a.pharmacy_id as pharmacyId,
+            a.pharmacy_admin_id as pharmacyAdminId,
             b.first_name as firstName,
             b.first_surname as firstSurname,
             b.second_surname as secondSurname,
@@ -66,7 +66,7 @@
             a.user_name as userName
         FROM pharmacy_admin a, person b
         WHERE
-            a.pharmacy_id = #{pharmacyId}
+            a.pharmacy_admin_id = #{pharmacyAdminId}
             and a.person_id = b.person_id
             and a.status = 1
     </select>
@@ -76,6 +76,6 @@
             person_id as personId
         FROM pharmacy_admin
         WHERE
-            pharmacy_id = #{pharmacyId}
+            pharmacy_admin_id = #{pharmacyAdminId}
     </select>
 </mapper>

@@ -1,7 +1,7 @@
 package bo.ucb.edu.medichub.model;
 
 public class PharmacyAdmin {
-    private Integer pharmacyId;
+    private Integer pharmacyAdminId;
     private Integer personId;
     private Integer subsidiaryId;
     private String email;
@@ -15,12 +15,12 @@ public class PharmacyAdmin {
         transaction = new Transaction();
     }
 
-    public Integer getPharmacyId() {
-        return pharmacyId;
+    public Integer getPharmacyAdminId() {
+        return pharmacyAdminId;
     }
 
-    public void setPharmacyId(Integer pharmacyId) {
-        this.pharmacyId = pharmacyId;
+    public void setPharmacyAdminId(Integer pharmacyAdminId) {
+        this.pharmacyAdminId = pharmacyAdminId;
     }
 
     public Integer getPersonId() {
@@ -90,7 +90,7 @@ public class PharmacyAdmin {
     @Override
     public String toString() {
         return "PharmacyAdmin{" +
-                "pharmacyId=" + pharmacyId +
+                "pharmacyAdminId=" + pharmacyAdminId +
                 ", personId=" + personId +
                 ", subsidiaryId=" + subsidiaryId +
                 ", email='" + email + '\'' +

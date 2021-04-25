@@ -70,7 +70,7 @@ public class PharmacyAdminBl {
         PharmacyAdmin pharmacyAdmin = new PharmacyAdmin();
         Person person = new Person();
 
-        pharmacyAdmin.setPharmacyId(pharmacyAdminRequest.getPharmacyId());
+        pharmacyAdmin.setPharmacyAdminId(pharmacyAdminRequest.getPharmacyAdminId());
         pharmacyAdmin.setSubsidiaryId(pharmacyAdminRequest.getSubsidiaryId());
         pharmacyAdmin.setUserName(pharmacyAdminRequest.getUserName());
         pharmacyAdmin.setEmail(pharmacyAdminRequest.getEmail());
@@ -79,7 +79,7 @@ public class PharmacyAdminBl {
         pharmacyAdmin.setTransaction(transaction);
         pharmacyAdminDao.updatePharmacyAdmin(pharmacyAdmin);
 
-        PharmacyAdmin pharmacyAdmin2 = pharmacyAdminDao.getPersonId(pharmacyAdminRequest.getPharmacyId());
+        PharmacyAdmin pharmacyAdmin2 = pharmacyAdminDao.getPersonId(pharmacyAdminRequest.getPharmacyAdminId());
         person.setPersonId(pharmacyAdmin2.getPersonId());
         person.setFirstName(pharmacyAdminRequest.getFirstName());
         person.setFirstSurname(pharmacyAdminRequest.getFirstSurname());
@@ -107,16 +107,16 @@ public class PharmacyAdminBl {
         }
     }
 
-    public void deletePharmacyAdmin(Integer pharmacyId, Transaction transaction) {
+    public void deletePharmacyAdmin(Integer pharmacyAdminId, Transaction transaction) {
         PharmacyAdmin pharmacyAdmin = new PharmacyAdmin();
         pharmacyAdmin.setStatus(0);
-        pharmacyAdmin.setPharmacyId(pharmacyId);
+        pharmacyAdmin.setPharmacyAdminId(pharmacyAdminId);
         pharmacyAdmin.setTransaction(transaction);
         pharmacyAdminDao.deletePharmacyAdmin(pharmacyAdmin);
     }
 
-    public PharmacyAdminRequest findAdminById(Integer pharmacyId){
-        PharmacyAdminRequest admin = pharmacyAdminDao.findAdminById(pharmacyId);
+    public PharmacyAdminRequest findAdminById(Integer pharmacyAdminId){
+        PharmacyAdminRequest admin = pharmacyAdminDao.findAdminById(pharmacyAdminId);
         return admin;
     }
 }

@@ -56,20 +56,20 @@ public class PharmacyAdminApi {
             return HttpStatus.OK;
         } else{
             return HttpStatus.BAD_REQUEST;
-    }
+        }
     }
 
-    @DeleteMapping(path="/{pharmacyId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public HttpStatus deletePharmacy(@PathVariable String pharmacyId, HttpServletRequest request){
+    @DeleteMapping(path="/{pharmacyAdminId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public HttpStatus deletePharmacyAdmin(@PathVariable String pharmacyAdminId, HttpServletRequest request){
         Transaction transaction = TransactionUtil.createTransaction(request);
         transactionBl.createTransaction(transaction);
-        pharmacyAdminBl.deletePharmacyAdmin(Integer.parseInt(pharmacyId),transaction);
+        pharmacyAdminBl.deletePharmacyAdmin(Integer.parseInt(pharmacyAdminId),transaction);
         return HttpStatus.ACCEPTED;
     }
 
-    @GetMapping(path="/{pharmacyId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public PharmacyAdminRequest findAdminById(@PathVariable String pharmacyId){
-        PharmacyAdminRequest admin = pharmacyAdminBl.findAdminById(Integer.parseInt(pharmacyId));
+    @GetMapping(path="/{pharmacyAdminId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public PharmacyAdminRequest findAdminById(@PathVariable String pharmacyAdminId){
+        PharmacyAdminRequest admin = pharmacyAdminBl.findAdminById(Integer.parseInt(pharmacyAdminId));
         return admin;
     }
 
