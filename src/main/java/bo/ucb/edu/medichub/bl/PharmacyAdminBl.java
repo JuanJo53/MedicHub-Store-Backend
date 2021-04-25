@@ -95,10 +95,10 @@ public class PharmacyAdminBl {
     public PasswordRequest updateAdminPharmacyPassword(PasswordRequest passwordRequest, Transaction transaction) {
 
         String passwordAdminPharm = pharmacyAdminDao.passworAdminPharm(passwordRequest.getId());
-        if (passwordEncoder.matches(passwordRequest.getPasswordCurrent(),passwordAdminPharm)){
-            String passwordNew = passwordEncoder.encode(passwordRequest.getPasswordNew());
-            passwordRequest.setPasswordNew(passwordNew);
-            System.out.println("if "+passwordRequest.getPasswordCurrent()+" "+passwordRequest.getPasswordNew()+" "+passwordRequest.getId());
+        if (passwordEncoder.matches(passwordRequest.getOldPassword(),passwordAdminPharm)){
+            String passwordNew = passwordEncoder.encode(passwordRequest.getNewPassword());
+            passwordRequest.setNewPassword(passwordNew);
+            System.out.println("if "+passwordRequest.getOldPassword()+" "+passwordRequest.getNewPassword()+" "+passwordRequest.getId());
             pharmacyAdminDao.updateAdminPharmacyPassword(passwordRequest);
             return passwordRequest;
         }

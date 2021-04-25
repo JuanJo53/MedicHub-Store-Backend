@@ -38,8 +38,8 @@
     </update>
 
     <update id="updateAdminPharmacyPassword" parameterType="bo.ucb.edu.medichub.dto.PasswordRequest">
-        UPDATE client set
-            password=#{passwordNew}
+        UPDATE pharmacy_admin set
+            password=#{newPassword}
         WHERE
             pharmacy_id=#{id} and
             status=1
@@ -48,7 +48,7 @@
     <select id="passworAdminPharm" resultType="java.lang.String">
         SELECT
             password
-        FROM client
+        FROM pharmacy_admin
         WHERE
             pharmacy_id = #{id}
           and status = 1
