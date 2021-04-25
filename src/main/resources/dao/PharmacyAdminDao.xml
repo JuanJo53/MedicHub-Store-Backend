@@ -39,7 +39,7 @@
 
     <update id="updateAdminPharmacyPassword" parameterType="bo.ucb.edu.medichub.dto.PasswordRequest">
         UPDATE pharmacy_admin set
-            password=#{passwordNew}
+            password=#{newPassword}
         WHERE
             pharmacy_id=#{id} and
             status=1
