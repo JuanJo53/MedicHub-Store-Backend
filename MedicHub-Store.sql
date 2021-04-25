@@ -1,15 +1,8 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2021-03-24 15:21:32.679
+-- Last modification date: 2021-04-25 02:15:04.919
 
 -- tables
 -- Table: address
-drop database medichub_store
-
-create database medichub_store;
-use medichub_store;
-
-
-
 CREATE TABLE address (
     address_id int NOT NULL AUTO_INCREMENT,
     number varchar(45) NULL,
@@ -117,10 +110,23 @@ CREATE TABLE client (
     CONSTRAINT client_pk PRIMARY KEY (client_id)
 );
 
+-- Table: dose_type
+CREATE TABLE dose_type (
+    dose_type_id int NOT NULL AUTO_INCREMENT,
+    type varchar(50) NOT NULL,
+    status int NOT NULL,
+    tx_id int NOT NULL,
+    tx_host varchar(100) NOT NULL,
+    tx_user_id int NOT NULL,
+    tx_date timestamp NOT NULL,
+    CONSTRAINT dose_type_pk PRIMARY KEY (dose_type_id)
+);
+
 -- Table: payment
 CREATE TABLE payment (
     payment_id int NOT NULL AUTO_INCREMENT,
     card_id int NOT NULL,
+    reserve_id int NOT NULL,
     bank_account_id int NOT NULL,
     payment_date date NOT NULL,
     amount numeric(12,6) NOT NULL,
@@ -165,7 +171,7 @@ CREATE TABLE pharmacy (
 
 -- Table: pharmacy_admin
 CREATE TABLE pharmacy_admin (
-    pharmacy_id int NOT NULL AUTO_INCREMENT,
+    pharmacy_admin_id int NOT NULL AUTO_INCREMENT,
     person_id int NOT NULL,
     subsidiary_id int NOT NULL,
     email varchar(150) NOT NULL,
@@ -177,7 +183,7 @@ CREATE TABLE pharmacy_admin (
     tx_host varchar(100) NOT NULL,
     tx_user_id int NOT NULL,
     tx_date timestamp NOT NULL,
-    CONSTRAINT pharmacy_admin_pk PRIMARY KEY (pharmacy_id)
+    CONSTRAINT pharmacy_admin_pk PRIMARY KEY (pharmacy_admin_id)
 );
 
 -- Table: product
@@ -185,11 +191,12 @@ CREATE TABLE product (
     product_id int NOT NULL AUTO_INCREMENT,
     subsidiary_id int NOT NULL,
     brand_id int NOT NULL,
+    dose_type_id int NOT NULL,
     name varchar(150) NOT NULL,
     stock int NOT NULL,
     price numeric(12,6) NOT NULL,
     type varchar(150) NOT NULL,
-    dose varchar(45) NOT NULL,
+    dose int NOT NULL,
     description varchar(300) NOT NULL,
     picture varchar(300) NULL,
     status int NOT NULL,
@@ -200,27 +207,59 @@ CREATE TABLE product (
     CONSTRAINT product_pk PRIMARY KEY (product_id)
 );
 
+-- Table: product_purchase
+CREATE TABLE product_purchase (
+    product_purchase_id int NOT NULL AUTO_INCREMENT,
+    product_id int NOT NULL,
+    purchase_id int NOT NULL,
+    quantity int NOT NULL,
+    status int NOT NULL,
+    tx_id int NOT NULL,
+    tx_host varchar(100) NOT NULL,
+    tx_user_id int NOT NULL,
+    tx_date timestamp NOT NULL,
+    CONSTRAINT product_purchase_pk PRIMARY KEY (product_purchase_id)
+);
+
+-- Table: product_reserve
+CREATE TABLE product_reserve (
+    product_reserve_id int NOT NULL AUTO_INCREMENT,
+    product_id int NOT NULL,
+    reserve_id int NOT NULL,
+    quantity int NOT NULL,
+    status int NOT NULL,
+    tx_id int NOT NULL,
+    tx_host varchar(100) NOT NULL,
+    tx_user_id int NOT NULL,
+    tx_date timestamp NOT NULL,
+    CONSTRAINT product_reserve_pk PRIMARY KEY (product_reserve_id)
+);
+
 -- Table: purchase
 CREATE TABLE purchase (
     purchase_id int NOT NULL,
-    payment_id int NOT NULL,
-    purchase_Date date NOT NULL,
+    purchase_date date NOT NULL,
     total_amount numeric(12,6) NOT NULL,
+    status int NOT NULL,
+    tx_id int NOT NULL,
+    tx_host varchar(100) NOT NULL,
+    tx_user_id int NOT NULL,
+    tx_date timestamp NOT NULL,
     CONSTRAINT purchase_pk PRIMARY KEY (purchase_id)
 );
 
 -- Table: reserve
 CREATE TABLE reserve (
+    reserve_id int NOT NULL AUTO_INCREMENT,
     client_id int NOT NULL,
-    product_id int NOT NULL,
-    purchase_id int NOT NULL,
-    cant int NOT NULL,
-    status_reserve varchar(45) NOT NULL,
+    date date NOT NULL,
+    status_reserve int NOT NULL,
     status int NOT NULL,
     tx_id int NOT NULL,
     tx_host varchar(100) NOT NULL,
     tx_user_id int NOT NULL,
-    tx_date timestamp NOT NULL
+    tx_date timestamp NOT NULL,
+    CONSTRAINT reserve_pk PRIMARY KEY (reserve_id)
 );
 
 -- Table: subsidiary
@@ -277,6 +316,10 @@ ALTER TABLE payment ADD CONSTRAINT payment_bank_account FOREIGN KEY payment_bank
 ALTER TABLE payment ADD CONSTRAINT payment_card FOREIGN KEY payment_card (card_id)
     REFERENCES card (card_id);
 
+-- Reference: payment_reserve (table: payment)
+ALTER TABLE payment ADD CONSTRAINT payment_reserve FOREIGN KEY payment_reserve (reserve_id)
+    REFERENCES reserve (reserve_id);
+
 -- Reference: pharmacy_admin_person (table: pharmacy_admin)
 ALTER TABLE pharmacy_admin ADD CONSTRAINT pharmacy_admin_person FOREIGN KEY pharmacy_admin_person (person_id)
     REFERENCES person (person_id);
@@ -289,25 +332,33 @@ ALTER TABLE pharmacy_admin ADD CONSTRAINT pharmacy_admin_subsidiary FOREIGN KEY 
 ALTER TABLE product ADD CONSTRAINT product_brand FOREIGN KEY product_brand (brand_id)
     REFERENCES brand (brand_id);
 
+-- Reference: product_dose_type (table: product)
+ALTER TABLE product ADD CONSTRAINT product_dose_type FOREIGN KEY product_dose_type (dose_type_id)
+    REFERENCES dose_type (dose_type_id);
+
+-- Reference: product_purchase_product (table: product_purchase)
+ALTER TABLE product_purchase ADD CONSTRAINT product_purchase_product FOREIGN KEY product_purchase_product (product_id)
+    REFERENCES product (product_id);
+
+-- Reference: product_purchase_purchase (table: product_purchase)
+ALTER TABLE product_purchase ADD CONSTRAINT product_purchase_purchase FOREIGN KEY product_purchase_purchase (purchase_id)
+    REFERENCES purchase (purchase_id);
+
+-- Reference: product_reserve_product (table: product_reserve)
+ALTER TABLE product_reserve ADD CONSTRAINT product_reserve_product FOREIGN KEY product_reserve_product (product_id)
+    REFERENCES product (product_id);
+
+-- Reference: product_reserve_reserve (table: product_reserve)
+ALTER TABLE product_reserve ADD CONSTRAINT product_reserve_reserve FOREIGN KEY product_reserve_reserve (reserve_id)
+    REFERENCES reserve (reserve_id);
+
 -- Reference: product_subsidiary (table: product)
 ALTER TABLE product ADD CONSTRAINT product_subsidiary FOREIGN KEY product_subsidiary (subsidiary_id)
     REFERENCES subsidiary (subsidiary_id);
 
--- Reference: purchase_payment (table: purchase)
-ALTER TABLE purchase ADD CONSTRAINT purchase_payment FOREIGN KEY purchase_payment (payment_id)
-    REFERENCES payment (payment_id);
-
 -- Reference: reserve_client (table: reserve)
 ALTER TABLE reserve ADD CONSTRAINT reserve_client FOREIGN KEY reserve_client (client_id)
     REFERENCES client (client_id);
-
--- Reference: reserve_product (table: reserve)
-ALTER TABLE reserve ADD CONSTRAINT reserve_product FOREIGN KEY reserve_product (product_id)
-    REFERENCES product (product_id);
-
--- Reference: reserve_purchase (table: reserve)
-ALTER TABLE reserve ADD CONSTRAINT reserve_purchase FOREIGN KEY reserve_purchase (purchase_id)
-    REFERENCES purchase (purchase_id);
 
 -- Reference: subsidiary_address (table: subsidiary)
 ALTER TABLE subsidiary ADD CONSTRAINT subsidiary_address FOREIGN KEY subsidiary_address (address_id)
@@ -318,8 +369,4 @@ ALTER TABLE subsidiary ADD CONSTRAINT subsidiary_pharmacy FOREIGN KEY subsidiary
     REFERENCES pharmacy (pharmacy_id);
 
 -- End of file.
-
-
-INSERT INTO `client` (`client_id`, `person_id`, `address_id`, `email`, `user_name`, `password`, `birthdate`, `picture`, `status`, `tx_id`, `tx_host`, `tx_user_id`, `tx_date`)
-VALUES (NULL, '3', '3', 'erwinaljoG@gmail.com', 'erwinG', 'erw12345', '1999-11-01', NULL, '1', '23', '127.0.0.1', '0', current_timestamp());
 
