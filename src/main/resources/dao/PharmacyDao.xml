@@ -58,6 +58,7 @@
         SELECT
             pharmacy_id as pharmacyId,
             name as name,
+            picture as picture,
             phone as phone,
             email as email
         FROM pharmacy
