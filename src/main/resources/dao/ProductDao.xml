@@ -209,6 +209,226 @@
             LIMIT #{size} OFFSET #{page}
     </select>
 
+
+
+
+    <select id="productListOrderByPrice" resultMap="productsMap">
+        SELECT
+        a.product_id as productId,
+        b.name as brandName,
+        a.name as name,
+        a.stock as stock,
+        a.price as price,
+        a.type as type,
+        a.dose as dose,
+        a.description as description
+        FROM product a, brand b
+        WHERE
+        a.brand_id = b.brand_id  and
+        a.subsidiary_id=#{subsidiaryId}
+        and a.status = 1
+        <if test="value!=0">
+            AND #{value}>=a.price
+        </if>
+        ORDER BY a.name ASC
+        LIMIT #{size} OFFSET #{page}
+    </select>
+    <select id="productListOrderByPriceDesc" resultMap="productsMap">
+        SELECT
+        a.product_id as productId,
+        b.name as brandName,
+        a.name as name,
+        a.stock as stock,
+        a.price as price,
+        a.type as type,
+        a.dose as dose,
+        a.description as description
+        FROM product a, brand b
+        WHERE
+        a.brand_id = b.brand_id  and
+        a.subsidiary_id=#{subsidiaryId}
+        and a.status = 1
+        <if test="value!=0">
+            AND #{value}>=a.price
+        </if>
+        ORDER BY a.name DESC
+        LIMIT #{size} OFFSET #{page}
+    </select>
+
+    <select id="productListOrderByName" resultMap="productsMap">
+        SELECT
+        a.product_id as productId,
+        b.name as brandName,
+        a.name as name,
+        a.stock as stock,
+        a.price as price,
+        a.type as type,
+        a.dose as dose,
+        a.description as description
+        FROM product a, brand b
+        WHERE
+        a.brand_id = b.brand_id  and
+        a.subsidiary_id=#{subsidiaryId}
+        and a.status = 1
+        <if test="value!=null">
+            AND #{value}=a.name
+        </if>
+        ORDER BY a.name ASC
+        LIMIT #{size} OFFSET #{page}
+    </select>
+    <select id="productListOrderByNameDesc" resultMap="productsMap">
+        SELECT
+        a.product_id as productId,
+        b.name as brandName,
+        a.name as name,
+        a.stock as stock,
+        a.price as price,
+        a.type as type,
+        a.dose as dose,
+        a.description as description
+        FROM product a, brand b
+        WHERE
+        a.brand_id = b.brand_id  and
+        a.subsidiary_id=#{subsidiaryId}
+        and a.status = 1
+        <if test="value!=null">
+            AND #{value}=a.name
+        </if>
+        ORDER BY a.name DESC
+        LIMIT #{size} OFFSET #{page}
+    </select>
+
+    <select id="productListOrderByMedic" resultMap="productsMap">
+        SELECT
+        a.product_id as productId,
+        b.name as brandName,
+        a.name as name,
+        a.stock as stock,
+        a.price as price,
+        a.type as type,
+        a.dose as dose,
+        a.description as description
+        FROM product a, brand b
+        WHERE
+        a.brand_id = b.brand_id  and
+        a.subsidiary_id=#{subsidiaryId}
+        and a.status = 1
+        <if test="value!=null">
+            AND #{value}=a.type
+        </if>
+        ORDER BY a.name ASC
+        LIMIT #{size} OFFSET #{page}
+    </select>
+    <select id="productListOrderByMedicDesc" resultMap="productsMap">
+        SELECT
+        a.product_id as productId,
+        b.name as brandName,
+        a.name as name,
+        a.stock as stock,
+        a.price as price,
+        a.type as type,
+        a.dose as dose,
+        a.description as description
+        FROM product a, brand b
+        WHERE
+        a.brand_id = b.brand_id  and
+        a.subsidiary_id=#{subsidiaryId}
+        and a.status = 1
+        <if test="value!=null">
+            AND #{value}=a.type
+        </if>
+        ORDER BY a.name DESC
+        LIMIT #{size} OFFSET #{page}
+    </select>
+
+    <select id="productListOrderByDose" resultMap="productsMap">
+        SELECT
+        a.product_id as productId,
+        b.name as brandName,
+        a.name as name,
+        a.stock as stock,
+        a.price as price,
+        a.type as type,
+        a.dose as dose,
+        a.description as description
+        FROM product a, brand b
+        WHERE
+        a.brand_id = b.brand_id  and
+        a.subsidiary_id=#{subsidiaryId}
+        and a.status = 1
+        <if test="value!=null">
+            AND #{value}>=a.doce
+        </if>
+        ORDER BY a.name ASC
+        LIMIT #{size} OFFSET #{page}
+    </select>
+    <select id="productListOrderByDoseDesc" resultMap="productsMap">
+        SELECT
+        a.product_id as productId,
+        b.name as brandName,
+        a.name as name,
+        a.stock as stock,
+        a.price as price,
+        a.type as type,
+        a.dose as dose,
+        a.description as description
+        FROM product a, brand b
+        WHERE
+        a.brand_id = b.brand_id  and
+        a.subsidiary_id=#{subsidiaryId}
+        and a.status = 1
+        <if test="value!=null">
+            AND #{value}>=a.doce
+        </if>
+        ORDER BY a.name DESC
+        LIMIT #{size} OFFSET #{page}
+    </select>
+
+
+    <select id="productListOrderByBrands" resultMap="productsMap">
+        SELECT
+        a.product_id as productId,
+        b.name as brandName,
+        a.name as name,
+        a.stock as stock,
+        a.price as price,
+        a.type as type,
+        a.dose as dose,
+        a.description as description
+        FROM product a, brand b
+        WHERE
+        a.brand_id = b.brand_id  and
+        a.subsidiary_id=#{subsidiaryId}
+        and a.status = 1
+        <if test="value!=null">
+            AND #{value}=b.name
+        </if>
+        ORDER BY a.name ASC
+        LIMIT #{size} OFFSET #{page}
+    </select>
+
+    <select id="productListOrderByBrandsDesc" resultMap="productsMap">
+        SELECT
+        a.product_id as productId,
+        b.name as brandName,
+        a.name as name,
+        a.stock as stock,
+        a.price as price,
+        a.type as type,
+        a.dose as dose,
+        a.description as description
+        FROM product a, brand b
+        WHERE
+        a.brand_id = b.brand_id  and
+        a.subsidiary_id=#{subsidiaryId}
+        and a.status = 1
+        <if test="value!=null">
+            AND #{value}=b.name
+        </if>
+        ORDER BY a.name DESC
+        LIMIT #{size} OFFSET #{page}
+    </select>
+
     <resultMap id="productsMap" type="bo.ucb.edu.medichub.dto.ProductResponse">
         <result column="productId" property="productId"/>
         <result column="brandName" property="brandName"/>

@@ -73,18 +73,31 @@ public class ProductApi {
         return product;
     }
 
+    /*
     @GetMapping(path="/{subsidiaryId}/list", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<ProductResponse> productList(@PathVariable String subsidiaryId,
                                              @RequestParam Integer page,
                                              @RequestParam Integer size,
                                              @RequestParam String order,
                                              @RequestParam Boolean asc,
-                                             @RequestParam String price,
-                                             @RequestParam String brand  ){
-        List<ProductResponse> product = productBl.productList(Integer.parseInt(subsidiaryId), page, size, order, asc, price,brand);
+                                             @RequestParam String value,
+                                             @RequestParam String typevalue  ){
+        List<ProductResponse> product = productBl.productList(Integer.parseInt(subsidiaryId), page, size, order, asc, value,typevalue);
         return product;
     }
+     */
 
+
+    @GetMapping(path="/{subsidiaryId}/list", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<ProductResponse> productList(@PathVariable String subsidiaryId,
+                                             @RequestParam Integer page,
+                                             @RequestParam Integer size,
+                                             @RequestParam Boolean asc,
+                                             @RequestParam String value,
+                                             @RequestParam String typevalue  ){
+        List<ProductResponse> product = productBl.productList(Integer.parseInt(subsidiaryId), page, size, asc, value,typevalue);
+        return product;
+    }
     @GetMapping(path="/{subsidiaryId}/total", produces = MediaType.APPLICATION_JSON_VALUE)
     public Integer getProductTotalBySubsidiary(@PathVariable String subsidiaryId){
         Integer total = productBl.getProductTotalBySubsidiary(Integer.parseInt(subsidiaryId));

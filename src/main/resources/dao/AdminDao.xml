@@ -10,5 +10,20 @@
         )
     </insert>
 
+    <select id="passwordAdmin" resultType="java.lang.String">
+        SELECT
+            password
+        FROM admin
+        WHERE
+             admin_id = #{id}
+            and status = 1
+    </select>
 
+    <update id="passwordNewAdmin" parameterType="bo.ucb.edu.medichub.dto.PasswordRequest">
+        UPDATE admin set
+            password=#{newPassword}
+        WHERE
+        admin_id=#{id} and
+        status=1
+    </update>
 </mapper>
