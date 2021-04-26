@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -98,6 +99,14 @@ public class PharmacyApi {
     public List<PersonListRequest> getAdminsByPharmacy(@PathVariable String pharmacyId){
         List<PersonListRequest> admins = pharmacyBl.getAdminsByPharmacy(Integer.parseInt(pharmacyId));
         return admins;
+    }
+
+    @PutMapping(path="/{pharmacyId}/image", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity uploadImage(@RequestParam MultipartFile image, @PathVariable String pharmacyId, HttpServletRequest request){
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction(transaction);
+        pharmacyBl.uploadImage(image,Integer.parseInt(pharmacyId),transaction);
+        return new ResponseEntity("Succesful process", HttpStatus.OK);
     }
 
 }
