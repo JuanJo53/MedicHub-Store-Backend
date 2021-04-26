@@ -4,4 +4,17 @@ Content-Type: application/json
 
 ###
 
+PUT http://localhost:8080/admin/updatepassword
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJ1c2VyX25hbWUiOiJhbmRyZXNAZ21haWwuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImFkbWluSWQiOjEsImV4cCI6MTYxOTQyMDY4MiwidXNlck5hbWUiOiJhbmRyZWNpdG8iLCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImp0aSI6IjBhMjYyZDA1LTdkNjctNDI4OS1iM2Q2LTFmYmM1ZDBiNWY3NiIsImVtYWlsIjoiYW5kcmVzQGdtYWlsLmNvbSIsImNsaWVudF9pZCI6Im1lZGljaHViYXBwIn0.TEI843YDCDidbfMlEotxOGGx84AE7noiTRgNZQspUR4
+
+{
+  "id": 1,
+  "oldPassword": "abc123456",
+  "newPassword": "abc12345"
+}
+
+###
+
 
