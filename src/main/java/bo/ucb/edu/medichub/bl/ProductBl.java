@@ -83,35 +83,41 @@ public class ProductBl {
         LOGGER.error(asc.toString());
         LOGGER.error(value);
         LOGGER.error(typevalue);
-        if(typevalue.equals("Precio") && asc){
+        if(typevalue.equals("price") && asc){
             products = productDao.productListOrderByPrice(subsidiaryId, page, size,value);
         }
-        if(typevalue.equals("Precio") && !asc){
+        if(typevalue.equals("price") && !asc){
             products = productDao.productListOrderByPriceDesc(subsidiaryId, page, size,value);
         }
-        if(typevalue.equals("Nombre") && asc){
+        if(typevalue.equals("name") && asc){
             products = productDao.productListOrderByName(subsidiaryId, page, size,value);
         }
-        if(typevalue.equals("Nombre") && !asc){
+        if(typevalue.equals("name") && !asc){
             products = productDao.productListOrderByNameDesc(subsidiaryId, page, size,value);
         }
-        if(typevalue.equals("Tipo de Medicamento") && asc){
+        if(typevalue.equals("type") && asc){
             products = productDao.productListOrderByMedic(subsidiaryId, page, size,value);
         }
-        if(typevalue.equals("Tipo de Medicamento") && !asc){
+        if(typevalue.equals("type") && !asc){
             products = productDao.productListOrderByMedicDesc(subsidiaryId, page, size,value);
         }
-        if(typevalue.equals("Dosis") && asc){
+        if(typevalue.equals("dose") && asc){
             products = productDao.productListOrderByDose(subsidiaryId, page, size,value);
         }
-        if(typevalue.equals("Dosis") && !asc){
+        if(typevalue.equals("dose") && !asc){
             products = productDao.productListOrderByDoseDesc(subsidiaryId, page, size,value);
         }
-        if(typevalue.equals("Marca") && asc){
+        if(typevalue.equals("brand") && asc){
             products = productDao.productListOrderByBrands(subsidiaryId, page, size,value);
         }
-        if(typevalue.equals("Marca") && !asc){
+        if(typevalue.equals("brand") && !asc){
             products = productDao.productListOrderByBrandsDesc(subsidiaryId, page, size,value);
+        }
+        if(typevalue.equals("all") && asc){
+            products = productDao.productListOrderByAll(subsidiaryId, page, size,value);
+        }
+        if(typevalue.equals("all") && !asc){
+            products = productDao.productListOrderByAllDesc(subsidiaryId, page, size,value);
         }
         return products;
     }
