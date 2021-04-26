@@ -121,4 +121,11 @@
         <result column="ci" property="ci"/>
     </resultMap>
 
+    <update id="updateImage" parameterType="bo.ucb.edu.ingsoft.modelo.User">
+        UPDATE pharmacy set
+            picture = #{picture}
+        WHERE
+            pharmacy_id=#{pharmacyId} and status = 1
+    </update>
+
 </mapper>

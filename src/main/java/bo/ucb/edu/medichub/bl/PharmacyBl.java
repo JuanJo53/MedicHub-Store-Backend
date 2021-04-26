@@ -6,11 +6,13 @@ import bo.ucb.edu.medichub.dao.TransactionDao;
 import bo.ucb.edu.medichub.dto.*;
 import bo.ucb.edu.medichub.model.Pharmacy;
 import bo.ucb.edu.medichub.model.Transaction;
+import bo.ucb.edu.medichub.util.ImageUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -92,6 +94,16 @@ public class PharmacyBl {
         return admins;
     }
 
+    public void uploadImage(MultipartFile image, Integer pharmacyId, Transaction transaction){
+        ImageUtil imageUtil = new ImageUtil();
+        Pharmacy pharmacy = new Pharmacy();
+
+        String newImageName = imageUtil.uploadImage(image,"images/pharmacyImage","Pharmacy",pharmacyId);
+        pharmacy.setPharmacyId(pharmacyId);
+        pharmacy.setPicture(newImageName);
+        pharmacy.setTransaction(transaction);
+        pharmacyDao.updateImage(pharmacy);
+    }
 
 }
 

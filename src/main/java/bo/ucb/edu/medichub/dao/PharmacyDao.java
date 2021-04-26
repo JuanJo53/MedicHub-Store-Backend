@@ -16,8 +16,7 @@ public interface PharmacyDao {
     public List<SubsidiaryListRequest> getSubsidiariesByPharmacy(Integer pharmacyId);
     public PharmacyRequest findPharmacyById(Integer pharmacyId);
     public List<PersonListRequest> getAdminsByPharmacy(Integer pharmacyId);
-
-
+    public void updateImage(Pharmacy pharmacy);
 }
 
 
