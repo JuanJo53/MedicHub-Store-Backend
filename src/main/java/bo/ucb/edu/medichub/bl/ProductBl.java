@@ -32,6 +32,7 @@ public class ProductBl {
         Product product = new Product();
         product.setSubsidiaryId(productRequest.getSubsidiaryId());
         product.setBrandId(productRequest.getBrandId());
+        product.setDoseTypeId(productRequest.getDoseTypeId());
         product.setName(productRequest.getName());
         product.setStock(productRequest.getStock());
         product.setPrice(productRequest.getPrice());
@@ -49,6 +50,7 @@ public class ProductBl {
         product.setProductId(productRequest.getProductId());
         product.setSubsidiaryId(productRequest.getSubsidiaryId());
         product.setBrandId(productRequest.getBrandId());
+        product.setDoseTypeId(productRequest.getDoseTypeId());
         product.setName(productRequest.getName());
         product.setStock(productRequest.getStock());
         product.setPrice(productRequest.getPrice());

@@ -2,6 +2,7 @@ POST http://localhost:8080/brand
 Accept: application/json
 Content-Type: application/json
 
+
 {
   "name": "Farmacias Inti",
   "phone": "+591 2495681",

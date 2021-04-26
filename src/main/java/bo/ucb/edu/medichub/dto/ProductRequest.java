@@ -19,6 +19,10 @@ public class ProductRequest {
     @Positive
     @NumberFormat
     private Integer brandId;
+    @NotNull
+    @Positive
+    @NumberFormat
+    private Integer doseTypeId;
     @NotEmpty
     @Size(min = 3)
     private String name;
@@ -63,6 +67,14 @@ public class ProductRequest {
 
     public void setBrandId(Integer brandId) {
         this.brandId = brandId;
+    }
+
+    public Integer getDoseTypeId() {
+        return doseTypeId;
+    }
+
+    public void setDoseTypeId(Integer doseTypeId) {
+        this.doseTypeId = doseTypeId;
     }
 
     public String getName() {
@@ -119,11 +131,12 @@ public class ProductRequest {
                 "productId=" + productId +
                 ", subsidiaryId=" + subsidiaryId +
                 ", brandId=" + brandId +
+                ", doseTypeId=" + doseTypeId +
                 ", name='" + name + '\'' +
                 ", stock=" + stock +
                 ", price=" + price +
                 ", type='" + type + '\'' +
-                ", dose='" + dose + '\'' +
+                ", dose=" + dose +
                 ", description='" + description + '\'' +
                 '}';
     }

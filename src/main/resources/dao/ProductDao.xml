@@ -5,7 +5,7 @@
 <mapper namespace="bo.ucb.edu.medichub.dao.ProductDao">
     <insert id="createProduct" parameterType="bo.ucb.edu.medichub.model.Product">
         INSERT INTO product VALUES (
-            null, #{subsidiaryId}, #{brandId}, #{name}, #{stock}, #{price}, #{type}, #{dose}, #{description}, #{picture},
+            null, #{subsidiaryId}, #{brandId}, #{doseTypeId}, #{name}, #{stock}, #{price}, #{type}, #{dose}, #{description}, #{picture},
             1, #{transaction.txId}, #{transaction.txHost}, #{transaction.txUserId}, #{transaction.txDate}
         )
     </insert>
@@ -14,6 +14,7 @@
         UPDATE product set
         subsidiary_id=#{subsidiaryId},
         brand_id=#{brandId},
+        dose_type_id=#{doseTypeId},
         name=#{name},
         stock=#{stock},
         price=#{price},

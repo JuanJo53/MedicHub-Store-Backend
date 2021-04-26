@@ -3,8 +3,9 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "subsidiaryId": 2,
-  "brandId": 2,
+  "subsidiaryId": 1,
+  "brandId": 1,
+  "doseTypeId": 1,
   "name": "Paracetamol",
   "stock": "400",
   "price": "0.10",
@@ -23,6 +24,7 @@ Content-Type: application/json
   "productId": 1,
   "subsidiaryId": 1,
   "brandId": 1,
+  "doseTypeId": 1,
   "name": "Paracetamol",
   "stock": "250",
   "price": "0.50",
