@@ -7,7 +7,7 @@ public class ProductResponse {
     private Integer stock;
     private Double price;
     private String type;
-    private String dose;
+    private Integer dose;
     private String description;
 
     public ProductResponse() {
@@ -61,11 +61,11 @@ public class ProductResponse {
         this.type = type;
     }
 
-    public String getDose() {
+    public Integer getDose() {
         return dose;
     }
 
-    public void setDose(String dose) {
+    public void setDose(Integer dose) {
         this.dose = dose;
     }
 

@@ -33,9 +33,7 @@ public class ProductRequest {
     @NotEmpty
     @Size(min = 4)
     private String type;
-    @NotEmpty
-    @Size(min = 4)
-    private String dose;
+    private Integer dose;
     @NotEmpty
     @Size(min = 10, max = 280)
     private String description;
@@ -99,11 +97,11 @@ public class ProductRequest {
         this.type = type;
     }
 
-    public String getDose() {
+    public Integer getDose() {
         return dose;
     }
 
-    public void setDose(String dose) {
+    public void setDose(Integer dose) {
         this.dose = dose;
     }
 

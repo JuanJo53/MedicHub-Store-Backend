@@ -4,11 +4,12 @@ public class Product {
     private Integer productId;
     private Integer subsidiaryId;
     private Integer brandId;
+    private Integer doseTypeId;
     private String name;
     private Integer stock;
     private Double price;
     private String type;
-    private String dose;
+    private Integer dose;
     private String description;
     private String picture;
     private Integer status;
@@ -40,6 +41,14 @@ public class Product {
 
     public void setBrandId(Integer brandId) {
         this.brandId = brandId;
+    }
+
+    public Integer getDoseTypeId() {
+        return doseTypeId;
+    }
+
+    public void setDoseTypeId(Integer doseTypeId) {
+        this.doseTypeId = doseTypeId;
     }
 
     public String getName() {
@@ -74,11 +83,11 @@ public class Product {
         this.type = type;
     }
 
-    public String getDose() {
+    public Integer getDose() {
         return dose;
     }
 
-    public void setDose(String dose) {
+    public void setDose(Integer dose) {
         this.dose = dose;
     }
 
@@ -120,11 +129,12 @@ public class Product {
                 "productId=" + productId +
                 ", subsidiaryId=" + subsidiaryId +
                 ", brandId=" + brandId +
+                ", doseTypeId=" + doseTypeId +
                 ", name='" + name + '\'' +
                 ", stock=" + stock +
                 ", price=" + price +
                 ", type='" + type + '\'' +
-                ", dose='" + dose + '\'' +
+                ", dose=" + dose +
                 ", description='" + description + '\'' +
                 ", picture='" + picture + '\'' +
                 ", status=" + status +

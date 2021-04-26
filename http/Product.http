@@ -9,7 +9,7 @@ Content-Type: application/json
   "stock": "400",
   "price": "0.10",
   "type": "Tableta",
-  "dose": "200 gr",
+  "dose": "200",
   "description": "Calmante, utilizado para todo tipo de dolor"
 }
 
@@ -27,7 +27,7 @@ Content-Type: application/json
   "stock": "250",
   "price": "0.50",
   "type": "tableta",
-  "dose": "200 ml gr",
+  "dose": "200",
   "description": "Calmante, utilizado para todo tipo de dolor y apto para todas las personas"
 }
 
