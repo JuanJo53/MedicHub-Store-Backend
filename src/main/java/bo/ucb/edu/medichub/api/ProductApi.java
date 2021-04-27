@@ -6,6 +6,7 @@ import bo.ucb.edu.medichub.dto.ClientListRequest;
 import bo.ucb.edu.medichub.dto.ProductRequest;
 import bo.ucb.edu.medichub.dto.ProductResponse;
 import bo.ucb.edu.medichub.model.Transaction;
+import bo.ucb.edu.medichub.util.ImageUtil;
 import bo.ucb.edu.medichub.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -111,5 +112,12 @@ public class ProductApi {
         transactionBl.createTransaction(transaction);
         productBl.uploadImage(image,Integer.parseInt(productId),transaction);
         return new ResponseEntity("Succesful process", HttpStatus.OK);
+    }
+
+    @GetMapping(path="image/{path}/{name}" , produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    public byte[] getImage(@PathVariable String path, @PathVariable String name){
+        ImageUtil storageUtil=new ImageUtil();
+        byte[] image=storageUtil.getImage(path,name);
+        return image;
     }
 }
