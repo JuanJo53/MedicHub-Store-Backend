@@ -4,6 +4,7 @@ import bo.ucb.edu.medichub.bl.PharmacyBl;
 import bo.ucb.edu.medichub.bl.TransactionBl;
 import bo.ucb.edu.medichub.dto.*;
 import bo.ucb.edu.medichub.model.Transaction;
+import bo.ucb.edu.medichub.util.ImageUtil;
 import bo.ucb.edu.medichub.util.TransactionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -107,6 +108,13 @@ public class PharmacyApi {
         transactionBl.createTransaction(transaction);
         pharmacyBl.uploadImage(image,Integer.parseInt(pharmacyId),transaction);
         return new ResponseEntity("Succesful process", HttpStatus.OK);
+    }
+
+    @GetMapping(path="image/{path}/{name}" , produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    public byte[] getImage(@PathVariable String path, @PathVariable String name){
+        ImageUtil storageUtil=new ImageUtil();
+        byte[] image=storageUtil.getImage(path,name);
+        return image;
     }
 
 }
