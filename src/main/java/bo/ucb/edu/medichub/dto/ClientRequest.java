@@ -20,9 +20,9 @@ public class ClientRequest {
     @NotEmpty
     @Size(min = 3, max = 25)
     private String secondSurname;
+    private String picture;
     @NotEmpty
     @Size(min = 6, max = 20)
-    private String picture;
     private String ci;
     @NotEmpty
     @Size(min = 8, max = 18)
