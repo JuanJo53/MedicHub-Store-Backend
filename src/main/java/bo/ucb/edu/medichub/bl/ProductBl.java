@@ -7,10 +7,12 @@ import bo.ucb.edu.medichub.dto.ProductResponse;
 import bo.ucb.edu.medichub.model.Pharmacy;
 import bo.ucb.edu.medichub.model.Product;
 import bo.ucb.edu.medichub.model.Transaction;
+import bo.ucb.edu.medichub.util.ImageUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -119,7 +121,12 @@ public class ProductBl {
         if(typevalue.equals("all") && !asc){
             products = productDao.productListOrderByAllDesc(subsidiaryId, page, size,value);
         }
-        return products;
+        if (products.size()==0){
+            return null;
+        }
+        else{
+            return products;
+        }
     }
 
     /*
@@ -157,5 +164,15 @@ public class ProductBl {
     public Integer getProductTotalBySubsidiary(Integer subsidiaryId){
         Integer total = productDao.getProductTotalBySubsidiary(subsidiaryId);
         return total;
+    }
+
+    public void uploadImage(MultipartFile image, Integer productId, Transaction transaction) {
+        ImageUtil imageUtil = new ImageUtil();
+        Product product = new Product();
+        String newImageName = imageUtil.uploadImage(image,"images/productImage","Product",productId);
+        product.setProductId(productId);
+        product.setPicture(newImageName);
+        product.setTransaction(transaction);
+        productDao.updateImage(product);
     }
 }
