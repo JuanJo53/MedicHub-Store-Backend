@@ -358,7 +358,7 @@
         a.subsidiary_id=#{subsidiaryId}
         and a.status = 1
         <if test="value!=null">
-            AND #{value}>=a.doce
+            AND #{value}>=a.dose
         </if>
         ORDER BY a.name ASC
         LIMIT #{size} OFFSET #{page}
@@ -379,7 +379,7 @@
         a.subsidiary_id=#{subsidiaryId}
         and a.status = 1
         <if test="value!=null">
-            AND #{value}>=a.doce
+            AND #{value}>=a.dose
         </if>
         ORDER BY a.name DESC
         LIMIT #{size} OFFSET #{page}
