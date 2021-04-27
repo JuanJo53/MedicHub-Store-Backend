@@ -40,6 +40,7 @@
         select
             pharmacy_id as pharmacyId,
             name as name,
+            picture as picture,
             phone as phone,
             email as email,
             status as status
@@ -49,6 +50,7 @@
     <resultMap id="pharmaciesMap" type="bo.ucb.edu.medichub.dto.PharmacyListRequest">
         <result column="pharmacyId" property="pharmacyId"/>
         <result column="name" property="name"/>
+        <result column="picture" property="picture"/>
         <result column="phone" property="phone"/>
         <result column="email" property="email"/>
         <result column="status" property="status"/>
