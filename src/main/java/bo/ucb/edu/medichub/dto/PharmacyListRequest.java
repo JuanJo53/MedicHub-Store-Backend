@@ -3,6 +3,7 @@ package bo.ucb.edu.medichub.dto;
 public class PharmacyListRequest {
     private Integer pharmacyId;
     private String name;
+    private String picture;
     private String phone;
     private String email;
     private Integer status;
@@ -24,6 +25,14 @@ public class PharmacyListRequest {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
     public String getPhone() {
