@@ -37,12 +37,21 @@ public class ProductRequest {
     @NotEmpty
     @Size(min = 4)
     private String type;
+    private System picture;
     private Integer dose;
     @NotEmpty
     @Size(min = 10, max = 280)
     private String description;
 
     public ProductRequest() {
+    }
+
+    public System getPicture() {
+        return picture;
+    }
+
+    public void setPicture(System picture) {
+        this.picture = picture;
     }
 
     public Integer getProductId() {
@@ -136,6 +145,7 @@ public class ProductRequest {
                 ", stock=" + stock +
                 ", price=" + price +
                 ", type='" + type + '\'' +
+                ", picture=" + picture +
                 ", dose=" + dose +
                 ", description='" + description + '\'' +
                 '}';

@@ -221,6 +221,7 @@
         a.stock as stock,
         a.price as price,
         a.type as type,
+        a.picture as picture,
         a.dose as dose,
         a.description as description
         FROM product a, brand b
@@ -242,6 +243,7 @@
         a.stock as stock,
         a.price as price,
         a.type as type,
+        a.picture as picture,
         a.dose as dose,
         a.description as description
         FROM product a, brand b
@@ -264,6 +266,7 @@
         a.stock as stock,
         a.price as price,
         a.type as type,
+        a.picture as picture,
         a.dose as dose,
         a.description as description
         FROM product a, brand b
@@ -285,6 +288,7 @@
         a.stock as stock,
         a.price as price,
         a.type as type,
+        a.picture as picture,
         a.dose as dose,
         a.description as description
         FROM product a, brand b
@@ -307,6 +311,7 @@
         a.stock as stock,
         a.price as price,
         a.type as type,
+        a.picture as picture,
         a.dose as dose,
         a.description as description
         FROM product a, brand b
@@ -328,6 +333,7 @@
         a.stock as stock,
         a.price as price,
         a.type as type,
+        a.picture as picture,
         a.dose as dose,
         a.description as description
         FROM product a, brand b
@@ -350,6 +356,7 @@
         a.stock as stock,
         a.price as price,
         a.type as type,
+        a.picture as picture,
         a.dose as dose,
         a.description as description
         FROM product a, brand b
@@ -371,6 +378,7 @@
         a.stock as stock,
         a.price as price,
         a.type as type,
+        a.picture as picture,
         a.dose as dose,
         a.description as description
         FROM product a, brand b
@@ -394,6 +402,7 @@
         a.stock as stock,
         a.price as price,
         a.type as type,
+        a.picture as picture,
         a.dose as dose,
         a.description as description
         FROM product a, brand b
@@ -416,6 +425,7 @@
         a.stock as stock,
         a.price as price,
         a.type as type,
+        a.picture as picture,
         a.dose as dose,
         a.description as description
         FROM product a, brand b
@@ -439,6 +449,7 @@
         a.stock as stock,
         a.price as price,
         a.type as type,
+        a.picture as picture,
         a.dose as dose,
         a.description as description
         FROM product a, brand b
@@ -458,6 +469,7 @@
         a.stock as stock,
         a.price as price,
         a.type as type,
+        a.picture as picture,
         a.dose as dose,
         a.description as description
         FROM product a, brand b
@@ -477,6 +489,7 @@
         <result column="stock" property="stock"/>
         <result column="price" property="price"/>
         <result column="type" property="type"/>
+        <result column="picture" property="picture"/>
         <result column="dose" property="dose"/>
         <result column="description" property="description"/>
     </resultMap>
