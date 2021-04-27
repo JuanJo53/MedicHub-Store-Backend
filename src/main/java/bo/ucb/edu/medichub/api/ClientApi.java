@@ -121,4 +121,11 @@ public class ClientApi {
         clientBl.uploadImage(image,Integer.parseInt(clientId),transaction);
         return new ResponseEntity("Succesful process", HttpStatus.OK);
     }
+
+    @GetMapping(path="image/{path}/{name}" , produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    public byte[] getImage(@PathVariable String path, @PathVariable String name){
+        ImageUtil storageUtil=new ImageUtil();
+        byte[] image=storageUtil.getImage(path,name);
+        return image;
+    }
 }
