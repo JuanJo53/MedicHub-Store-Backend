@@ -3,6 +3,7 @@ package bo.ucb.edu.medichub.dto;
 public class SubsidiaryResponse {
     private Integer subsidiaryId;
     private String subsidiaryName;
+    private String picture;
     private String phone;
     private String email;
     private String country;
@@ -26,6 +27,14 @@ public class SubsidiaryResponse {
 
     public void setSubsidiaryName(String subsidiaryName) {
         this.subsidiaryName = subsidiaryName;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
     public String getPhone() {
@@ -73,6 +82,7 @@ public class SubsidiaryResponse {
         return "SubsidiaryResponse{" +
                 "subsidiaryId=" + subsidiaryId +
                 ", subsidiaryName='" + subsidiaryName + '\'' +
+                ", picture='" + picture + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", country='" + country + '\'' +

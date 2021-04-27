@@ -48,6 +48,7 @@
         SELECT
             a.subsidiary_id as subsidiaryId,
             a.subsidiary_name as subsidiaryName,
+            c.picture as picture,
             a.phone as phone,
             a.email as email,
             b.number as number,
@@ -55,9 +56,10 @@
             b.zone as zone,
             b.city as city,
             b.country as country
-        FROM subsidiary a, address b
+        FROM subsidiary a, address b, pharmacy c
         WHERE
             a.subsidiary_id = #{subsidiaryId}
+            and a.pharmacy_id = c.pharmacy_id
             and b.address_id = a.address_id
             and a.status = 1
     </select>
@@ -112,13 +114,15 @@
         select
             b.subsidiary_id as subsidiaryId,
             b.subsidiary_name as subsidiaryName,
+            a.picture as picture,
             b.phone as phone,
             b.email as email,
             c.country as country,
             c.city as city,
             c.street as street
-        from subsidiary b, address c
+        from pharmacy a, subsidiary b, address c
         where b.address_id = c.address_id
+          and a.pharmacy_id = b.pharmacy_id
           and b.status = 1
     </select>
 

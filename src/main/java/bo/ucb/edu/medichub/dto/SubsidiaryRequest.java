@@ -14,6 +14,7 @@ public class SubsidiaryRequest {
     @NotEmpty
     @Size(min = 6)
     private String subsidiaryName;
+    private String picture;
     @NotEmpty
     @Size(min = 12, max = 18)
     private String phone;
@@ -60,6 +61,14 @@ public class SubsidiaryRequest {
 
     public void setSubsidiaryName(String subsidiaryName) {
         this.subsidiaryName = subsidiaryName;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
     public String getPhone() {
@@ -118,13 +127,13 @@ public class SubsidiaryRequest {
         this.country = country;
     }
 
-
     @Override
     public String toString() {
         return "SubsidiaryRequest{" +
                 "subsidiaryId=" + subsidiaryId +
                 ", pharmacyId=" + pharmacyId +
                 ", subsidiaryName='" + subsidiaryName + '\'' +
+                ", picture='" + picture + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", number='" + number + '\'' +
