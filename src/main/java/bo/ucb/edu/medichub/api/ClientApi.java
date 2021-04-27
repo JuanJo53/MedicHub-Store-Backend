@@ -114,7 +114,7 @@ public class ClientApi {
         return cant;
     }
 
-    @PutMapping(path="/{pharmacyId}/image", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(path="/{clientId}/image", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity uploadImage(@RequestParam MultipartFile image, @PathVariable String clientId, HttpServletRequest request){
         Transaction transaction = TransactionUtil.createTransaction(request);
         transactionBl.createTransaction(transaction);
