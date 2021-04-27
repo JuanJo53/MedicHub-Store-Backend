@@ -7,11 +7,13 @@ import bo.ucb.edu.medichub.dto.ClientListRequest;
 import bo.ucb.edu.medichub.dto.PasswordRequest;
 import bo.ucb.edu.medichub.dto.ClientRequest;
 import bo.ucb.edu.medichub.model.*;
+import bo.ucb.edu.medichub.util.ImageUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -200,5 +202,13 @@ public class ClientBl {
         return cant;
     }
 
-
+    public void uploadImage(MultipartFile image, Integer clientId, Transaction transaction){
+        ImageUtil imageUtil = new ImageUtil();
+        Client client = new Client();
+        String newImageName = imageUtil.uploadImage(image,"images/clientImage","Client",clientId);
+        client.setClientId(clientId);
+        client.setPicture(newImageName);
+        client.setTransaction(transaction);
+        clientDao.updateImage(client);
+    }
 }

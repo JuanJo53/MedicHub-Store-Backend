@@ -45,6 +45,7 @@
             b.second_surname as secondSurname,
             b.ci as ci,
             b.phone as phone,
+            a.picture as picture,
             a.email as email,
             a.user_name as userName,
             a.birthdate as birthdate,
@@ -243,9 +244,12 @@
         where status = 1
     </select>
 
-
-
-
+    <update id="updateImage" parameterType="bo.ucb.edu.medichub.model.Client">
+        UPDATE client set
+            picture = #{picture}
+        WHERE
+            client_id=#{clientId} and status = 1
+    </update>
 
 
 </mapper>

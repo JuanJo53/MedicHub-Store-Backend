@@ -2,6 +2,7 @@ package bo.ucb.edu.medichub.dao;
 
 import bo.ucb.edu.medichub.dto.*;
 import bo.ucb.edu.medichub.model.Client;
+import bo.ucb.edu.medichub.model.Pharmacy;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -32,5 +33,7 @@ public interface ClientDao {
 
     public void passwordNewClient(Integer clientId, String passwordNew);
 
-    void passwordNewClient(PasswordRequest clientPasswordReques);
+    public void passwordNewClient(PasswordRequest clientPasswordReques);
+
+    public void updateImage(Client client);
 }

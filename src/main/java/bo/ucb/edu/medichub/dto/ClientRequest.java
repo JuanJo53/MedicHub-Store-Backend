@@ -22,6 +22,7 @@ public class ClientRequest {
     private String secondSurname;
     @NotEmpty
     @Size(min = 6, max = 20)
+    private String picture;
     private String ci;
     @NotEmpty
     @Size(min = 8, max = 18)
@@ -85,6 +86,14 @@ public class ClientRequest {
 
     public void setSecondSurname(String secondSurname) {
         this.secondSurname = secondSurname;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
     public String getCi() {
@@ -182,6 +191,7 @@ public class ClientRequest {
                 ", firstName='" + firstName + '\'' +
                 ", firstSurname='" + firstSurname + '\'' +
                 ", secondSurname='" + secondSurname + '\'' +
+                ", picture='" + picture + '\'' +
                 ", ci='" + ci + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +

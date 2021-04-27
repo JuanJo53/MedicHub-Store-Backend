@@ -4,12 +4,15 @@ import bo.ucb.edu.medichub.bl.ClientBl;
 import bo.ucb.edu.medichub.bl.TransactionBl;
 import bo.ucb.edu.medichub.dto.*;
 import bo.ucb.edu.medichub.model.Transaction;
+import bo.ucb.edu.medichub.util.ImageUtil;
 import bo.ucb.edu.medichub.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -109,5 +112,13 @@ public class ClientApi {
     public Integer getClientTotal(){
         Integer cant = clientBl.getClientTotal();
         return cant;
+    }
+
+    @PutMapping(path="/{pharmacyId}/image", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity uploadImage(@RequestParam MultipartFile image, @PathVariable String clientId, HttpServletRequest request){
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction(transaction);
+        clientBl.uploadImage(image,Integer.parseInt(clientId),transaction);
+        return new ResponseEntity("Succesful process", HttpStatus.OK);
     }
 }
