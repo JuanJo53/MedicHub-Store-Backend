@@ -86,34 +86,54 @@ public class ProductBl {
         LOGGER.error(value);
         LOGGER.error(typevalue);
         if(typevalue.equals("price") && asc){
-            products = productDao.productListOrderByPrice(subsidiaryId, page, size,value);
+            if (value.equals("")){
+                products = productDao.productListOrderByAll(subsidiaryId, page, size,value);
+            }else{  products = productDao.productListOrderByPrice(subsidiaryId, page, size,value); }
         }
         if(typevalue.equals("price") && !asc){
-            products = productDao.productListOrderByPriceDesc(subsidiaryId, page, size,value);
+            if (value.equals("")){
+                products = productDao.productListOrderByAll(subsidiaryId, page, size,value);
+            }else{  products = productDao.productListOrderByPriceDesc(subsidiaryId, page, size,value);}
         }
         if(typevalue.equals("name") && asc){
-            products = productDao.productListOrderByName(subsidiaryId, page, size,value);
+            if (value.equals("")){
+                products = productDao.productListOrderByAll(subsidiaryId, page, size,value);
+            }else{ products = productDao.productListOrderByName(subsidiaryId, page, size,value);}
         }
         if(typevalue.equals("name") && !asc){
-            products = productDao.productListOrderByNameDesc(subsidiaryId, page, size,value);
+            if (value.equals("")){
+                products = productDao.productListOrderByAll(subsidiaryId, page, size,value);
+            }else{ products = productDao.productListOrderByNameDesc(subsidiaryId, page, size,value);}
         }
         if(typevalue.equals("type") && asc){
-            products = productDao.productListOrderByMedic(subsidiaryId, page, size,value);
+            if (value.equals("")){
+                products = productDao.productListOrderByAll(subsidiaryId, page, size,value);
+            }else{ products = productDao.productListOrderByMedic(subsidiaryId, page, size,value);}
         }
         if(typevalue.equals("type") && !asc){
-            products = productDao.productListOrderByMedicDesc(subsidiaryId, page, size,value);
+            if (value.equals("")){
+                products = productDao.productListOrderByAll(subsidiaryId, page, size,value);
+            }else{ products = productDao.productListOrderByMedicDesc(subsidiaryId, page, size,value);}
         }
         if(typevalue.equals("dose") && asc){
-            products = productDao.productListOrderByDose(subsidiaryId, page, size,value);
+            if (value.equals("")){
+                products = productDao.productListOrderByAll(subsidiaryId, page, size,value);
+            }else{ products = productDao.productListOrderByDose(subsidiaryId, page, size,value);}
         }
         if(typevalue.equals("dose") && !asc){
-            products = productDao.productListOrderByDoseDesc(subsidiaryId, page, size,value);
+            if (value.equals("")){
+                products = productDao.productListOrderByAll(subsidiaryId, page, size,value);
+            }else{ products = productDao.productListOrderByDoseDesc(subsidiaryId, page, size,value);}
         }
         if(typevalue.equals("brand") && asc){
-            products = productDao.productListOrderByBrands(subsidiaryId, page, size,value);
+            if (value.equals("")){
+                products = productDao.productListOrderByAll(subsidiaryId, page, size,value);
+            }else{ products = productDao.productListOrderByBrands(subsidiaryId, page, size,value);}
         }
         if(typevalue.equals("brand") && !asc){
-            products = productDao.productListOrderByBrandsDesc(subsidiaryId, page, size,value);
+            if (value.equals("")){
+                products = productDao.productListOrderByAll(subsidiaryId, page, size,value);
+            }else{ products = productDao.productListOrderByBrandsDesc(subsidiaryId, page, size,value);}
         }
         if(typevalue.equals("all") && asc){
             products = productDao.productListOrderByAll(subsidiaryId, page, size,value);
