@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -102,5 +103,13 @@ public class ProductApi {
     public Integer getProductTotalBySubsidiary(@PathVariable String subsidiaryId){
         Integer total = productBl.getProductTotalBySubsidiary(Integer.parseInt(subsidiaryId));
         return total;
+    }
+
+    @PutMapping(path="/{productId}/image", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity uploadImage(@RequestParam MultipartFile image, @PathVariable String productId, HttpServletRequest request){
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction(transaction);
+        productBl.uploadImage(image,Integer.parseInt(productId),transaction);
+        return new ResponseEntity("Succesful process", HttpStatus.OK);
     }
 }

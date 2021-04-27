@@ -97,7 +97,6 @@ public class PharmacyBl {
     public void uploadImage(MultipartFile image, Integer pharmacyId, Transaction transaction){
         ImageUtil imageUtil = new ImageUtil();
         Pharmacy pharmacy = new Pharmacy();
-
         String newImageName = imageUtil.uploadImage(image,"images/pharmacyImage","Pharmacy",pharmacyId);
         pharmacy.setPharmacyId(pharmacyId);
         pharmacy.setPicture(newImageName);

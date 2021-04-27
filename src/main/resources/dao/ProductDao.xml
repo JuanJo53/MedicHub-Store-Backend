@@ -488,5 +488,10 @@
               and status = 1
     </select>
 
-
+    <update id="updateImage" parameterType="bo.ucb.edu.medichub.model.Product">
+        UPDATE product set
+            picture = #{picture}
+        WHERE
+            product_id=#{productId} and status = 1
+    </update>
 </mapper>

@@ -45,4 +45,6 @@ public interface ProductDao {
     public List<ProductResponse> productListOrderByBrandsDesc(Integer subsidiaryId, Integer page, Integer size, String value);
     public List<ProductResponse> productListOrderByAll(Integer subsidiaryId, Integer page, Integer size, String value);
     public List<ProductResponse> productListOrderByAllDesc(Integer subsidiaryId, Integer page, Integer size, String value);
+
+    public void updateImage(Product product);
 }
