@@ -451,7 +451,7 @@
         a.type as type,
         a.dose as dose,
         a.description as description,
-        a.picture as picture,
+        a.picture as picture
         FROM product a, brand b
         WHERE
         a.brand_id = b.brand_id  and
