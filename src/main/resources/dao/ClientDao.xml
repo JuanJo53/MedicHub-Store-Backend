@@ -15,7 +15,6 @@
         UPDATE client set
             email=#{email},
             user_name=#{userName},
-            password=#{password},
             birthdate=#{birthdate},
             tx_id=#{transaction.txId},
             tx_host=#{transaction.txHost},
