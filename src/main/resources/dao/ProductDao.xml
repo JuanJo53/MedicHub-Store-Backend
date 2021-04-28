@@ -51,7 +51,8 @@
             a.price as price,
             a.type as type,
             a.dose as dose,
-            a.description as description
+            a.description as description,
+            a.picture as picture
         FROM product a, brand b
         WHERE
             a.product_id = #{productId}
