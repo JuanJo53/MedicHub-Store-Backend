@@ -6,7 +6,7 @@ Content-Type: application/json
   "subsidiaryId": 1,
   "brandId": 1,
   "doseTypeId": 1,
-  "name": "Paracetamol",
+  "name": "Ibuprofeno",
   "stock": "400",
   "price": "0.10",
   "type": "Tableta",
