@@ -47,7 +47,7 @@ Accept: application/json
 ###
 
 #GET http://localhost:8080/product/1/list?page=0&size=5&order=name&asc=false&value=50.0&typevalue=price
-GET http://localhost:8080/product/1/list?page=0&size=5&asc=false&value=50.0&typevalue=Precio
+GET http://localhost:8080/product/1/list?page=0&size=5&asc=false&value=50.0&typevalue=price
 Accept: application/json
 Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJ1c2VyX25hbWUiOiJhbmRyZXNAZ21haWwuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImFkbWluSWQiOjEsImV4cCI6MTYxOTU4MjYzMiwidXNlck5hbWUiOiJhbmRyZWNpdG8iLCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImp0aSI6ImNmMzBhM2YwLWZkOTgtNGViMi05NmZlLTg2N2U5MmEzNDcwYyIsImVtYWlsIjoiYW5kcmVzQGdtYWlsLmNvbSIsImNsaWVudF9pZCI6Im1lZGljaHViYXBwIn0.INKL2Nls2S9VO2Sncx4VpMo_o9a8T5UQsvCKOIq9wy8
 

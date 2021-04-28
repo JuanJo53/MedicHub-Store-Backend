@@ -9,8 +9,17 @@ public class ProductResponse {
     private String type;
     private Integer dose;
     private String description;
+    private String picture;
 
     public ProductResponse() {
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
     public Integer getProductId() {
@@ -86,8 +95,9 @@ public class ProductResponse {
                 ", stock=" + stock +
                 ", price=" + price +
                 ", type='" + type + '\'' +
-                ", dose='" + dose + '\'' +
+                ", dose=" + dose +
                 ", description='" + description + '\'' +
+                ", picture=" + picture +
                 '}';
     }
 }

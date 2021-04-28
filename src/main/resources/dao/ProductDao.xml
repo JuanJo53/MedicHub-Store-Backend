@@ -221,9 +221,9 @@
         a.stock as stock,
         a.price as price,
         a.type as type,
-        a.picture as picture,
         a.dose as dose,
-        a.description as description
+        a.description as description,
+        a.picture as picture
         FROM product a, brand b
         WHERE
         a.brand_id = b.brand_id  and
@@ -243,9 +243,9 @@
         a.stock as stock,
         a.price as price,
         a.type as type,
-        a.picture as picture,
         a.dose as dose,
-        a.description as description
+        a.description as description,
+        a.picture as picture
         FROM product a, brand b
         WHERE
         a.brand_id = b.brand_id  and
@@ -266,9 +266,9 @@
         a.stock as stock,
         a.price as price,
         a.type as type,
-        a.picture as picture,
         a.dose as dose,
-        a.description as description
+        a.description as description,
+        a.picture as picture
         FROM product a, brand b
         WHERE
         a.brand_id = b.brand_id  and
@@ -288,9 +288,9 @@
         a.stock as stock,
         a.price as price,
         a.type as type,
-        a.picture as picture,
         a.dose as dose,
-        a.description as description
+        a.description as description,
+        a.picture as picture
         FROM product a, brand b
         WHERE
         a.brand_id = b.brand_id  and
@@ -311,9 +311,9 @@
         a.stock as stock,
         a.price as price,
         a.type as type,
-        a.picture as picture,
         a.dose as dose,
-        a.description as description
+        a.description as description,
+        a.picture as picture
         FROM product a, brand b
         WHERE
         a.brand_id = b.brand_id  and
@@ -333,9 +333,9 @@
         a.stock as stock,
         a.price as price,
         a.type as type,
-        a.picture as picture,
         a.dose as dose,
-        a.description as description
+        a.description as description,
+        a.picture as picture
         FROM product a, brand b
         WHERE
         a.brand_id = b.brand_id  and
@@ -356,9 +356,9 @@
         a.stock as stock,
         a.price as price,
         a.type as type,
-        a.picture as picture,
         a.dose as dose,
-        a.description as description
+        a.description as description,
+        a.picture as picture
         FROM product a, brand b
         WHERE
         a.brand_id = b.brand_id  and
@@ -378,9 +378,9 @@
         a.stock as stock,
         a.price as price,
         a.type as type,
-        a.picture as picture,
         a.dose as dose,
-        a.description as description
+        a.description as description,
+        a.picture as picture
         FROM product a, brand b
         WHERE
         a.brand_id = b.brand_id  and
@@ -402,9 +402,9 @@
         a.stock as stock,
         a.price as price,
         a.type as type,
-        a.picture as picture,
         a.dose as dose,
-        a.description as description
+        a.description as description,
+        a.picture as picture
         FROM product a, brand b
         WHERE
         a.brand_id = b.brand_id  and
@@ -425,9 +425,9 @@
         a.stock as stock,
         a.price as price,
         a.type as type,
-        a.picture as picture,
         a.dose as dose,
-        a.description as description
+        a.description as description,
+        a.picture as picture
         FROM product a, brand b
         WHERE
         a.brand_id = b.brand_id  and
@@ -449,9 +449,9 @@
         a.stock as stock,
         a.price as price,
         a.type as type,
-        a.picture as picture,
         a.dose as dose,
-        a.description as description
+        a.description as description,
+        a.picture as picture,
         FROM product a, brand b
         WHERE
         a.brand_id = b.brand_id  and
@@ -469,9 +469,9 @@
         a.stock as stock,
         a.price as price,
         a.type as type,
-        a.picture as picture,
         a.dose as dose,
-        a.description as description
+        a.description as description,
+        a.picture as picture
         FROM product a, brand b
         WHERE
         a.brand_id = b.brand_id  and
@@ -489,9 +489,9 @@
         <result column="stock" property="stock"/>
         <result column="price" property="price"/>
         <result column="type" property="type"/>
-        <result column="picture" property="picture"/>
         <result column="dose" property="dose"/>
         <result column="description" property="description"/>
+        <result column="picture" property="picture"/>
     </resultMap>
 
     <select id="getProductTotalBySubsidiary" resultType="java.lang.Integer">
