@@ -1,6 +1,8 @@
 POST http://localhost:8080/client
 Accept: application/json
 Content-Type: application/json
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJ1c2VyX25hbWUiOiJhbmRyZXNAZ21haWwuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImFkbWluSWQiOjEsImV4cCI6MTYxOTU4MjYzMiwidXNlck5hbWUiOiJhbmRyZWNpdG8iLCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImp0aSI6ImNmMzBhM2YwLWZkOTgtNGViMi05NmZlLTg2N2U5MmEzNDcwYyIsImVtYWlsIjoiYW5kcmVzQGdtYWlsLmNvbSIsImNsaWVudF9pZCI6Im1lZGljaHViYXBwIn0.INKL2Nls2S9VO2Sncx4VpMo_o9a8T5UQsvCKOIq9wy8
+
 
 {
   "firstName": "Marco",
@@ -24,7 +26,7 @@ Content-Type: application/json
 PUT http://localhost:8080/client
 Accept: application/json
 Content-Type: application/json
-
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJ1c2VyX25hbWUiOiJhbmRyZXNAZ21haWwuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImFkbWluSWQiOjEsImV4cCI6MTYxOTU4MjYzMiwidXNlck5hbWUiOiJhbmRyZWNpdG8iLCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImp0aSI6ImNmMzBhM2YwLWZkOTgtNGViMi05NmZlLTg2N2U5MmEzNDcwYyIsImVtYWlsIjoiYW5kcmVzQGdtYWlsLmNvbSIsImNsaWVudF9pZCI6Im1lZGljaHViYXBwIn0.INKL2Nls2S9VO2Sncx4VpMo_o9a8T5UQsvCKOIq9wy8
 
 {
   "clientId": 1,
@@ -35,7 +37,6 @@ Content-Type: application/json
   "phone": "+591 77777712",
   "email": "erwin@gmail.com",
   "userName": "erwinAle",
-  "password": "er12343",
   "birthdate": "1999-11-02",
   "number": "1",
   "street": "14 de Septiembr",
@@ -43,7 +44,6 @@ Content-Type: application/json
   "city": "La Paz",
   "country": "Bolivia"
 }
-
 
 ###
 
@@ -56,7 +56,6 @@ Accept: application/json
 
 GET http://localhost:8080/client/1
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJ1c2VyX25hbWUiOiJhbmRyZXNAZ21haWwuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImFkbWluSWQiOjEsImV4cCI6MTYxOTUxMzU5MSwidXNlck5hbWUiOiJhbmRyZWNpdG8iLCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImp0aSI6ImZkYzQ4Mjk4LTIxYjMtNGU1ZS04MmQ3LTQ2YThhOWExNGJmZCIsImVtYWlsIjoiYW5kcmVzQGdtYWlsLmNvbSIsImNsaWVudF9pZCI6Im1lZGljaHViYXBwIn0.8ZhJwivgIu4oMtbpj4QkSMhZW2opSOF3hsSnoQ3HbCE
 
 ###
 

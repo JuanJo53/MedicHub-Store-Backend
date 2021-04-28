@@ -34,8 +34,6 @@ public class ClientRequest {
     @NotEmpty
     @Size(min = 3, max = 20)
     private String userName;
-    @NotEmpty
-    @Size(min = 6, max = 50)
     private String password;
     @NotEmpty
     private String birthdate;
