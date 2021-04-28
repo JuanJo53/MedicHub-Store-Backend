@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="bo.ucb.edu.medichub.dao.AuthDao">
     <select id="findPharmacyAdminByEmail" resultType="bo.ucb.edu.medichub.model.PharmacyAdmin">
-        SELECT pharmacy_admin_id as pharmacyId,
+        SELECT pharmacy_admin_id as pharmacyAdminId,
             person_id as personId,
             subsidiary_id as subsidiaryId,
             email as email,
