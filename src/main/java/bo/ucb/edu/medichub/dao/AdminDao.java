@@ -11,4 +11,6 @@ public interface AdminDao {
 
     public String passwordAdmin(Integer id);
     public void passwordNewAdmin(PasswordRequest adminPasswordReques);
+    public void updateAdmin(Admin admin);
+    public Integer getPersonId(Admin admin);
 }

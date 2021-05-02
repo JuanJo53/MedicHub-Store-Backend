@@ -3,6 +3,7 @@ package bo.ucb.edu.medichub.api;
 import bo.ucb.edu.medichub.bl.AddressBl;
 import bo.ucb.edu.medichub.bl.AdminBl;
 import bo.ucb.edu.medichub.bl.TransactionBl;
+import bo.ucb.edu.medichub.dto.AdminRequest;
 import bo.ucb.edu.medichub.dto.PasswordRequest;
 import bo.ucb.edu.medichub.model.Transaction;
 import bo.ucb.edu.medichub.util.TransactionUtil;
@@ -41,6 +42,19 @@ public class AdminApi {
             }else{
                 return HttpStatus.BAD_REQUEST;
             }
+        } else{
+            return HttpStatus.BAD_REQUEST;
+        }
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public HttpStatus updateAdmin(@Valid @RequestBody AdminRequest adminRequest, HttpServletRequest request, BindingResult result) {
+        if(!result.hasErrors()){
+            Transaction transaction = TransactionUtil.createTransaction(request);
+            transactionBl.createTransaction(transaction);
+            AdminRequest adminResponse = adminBl.updateAdmin(adminRequest, transaction);
+            return HttpStatus.OK;
         } else{
             return HttpStatus.BAD_REQUEST;
         }

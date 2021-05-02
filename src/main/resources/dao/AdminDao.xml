@@ -26,4 +26,26 @@
         admin_id=#{id} and
         status=1
     </update>
+
+    <update id="updateAdmin" parameterType="bo.ucb.edu.medichub.model.Admin">
+        UPDATE admin set
+            email=#{email},
+            user_name=#{userName},
+            tx_id=#{transaction.txId},
+            tx_host=#{transaction.txHost},
+            tx_user_id=#{transaction.txUserId},
+            tx_date=#{transaction.txDate}
+        WHERE
+            admin_id=#{adminId} and
+            status=1
+    </update>
+
+    <select id="getPersonId" resultType="java.lang.Integer">
+        SELECT
+            person_id
+        FROM admin
+        WHERE
+            admin_id = #{adminId}
+          and status = 1
+    </select>
 </mapper>

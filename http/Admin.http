@@ -17,4 +17,21 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJ1c2VyX
 
 ###
 
+PUT http://localhost:8080/admin
+Accept: application/json
+Content-Type: application/json
+
+{
+  "adminId": 1,
+  "firstName": "Andres",
+  "firstSurname": "Palma",
+  "secondSurname": "Gimenez",
+  "ci": "1236884 LP",
+  "phone": "+591 62954637",
+  "email": "andres@gmail.com",
+  "userName": "andre123"
+}
+
+###
+
 
