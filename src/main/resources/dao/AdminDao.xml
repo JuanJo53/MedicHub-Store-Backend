@@ -48,4 +48,29 @@
             admin_id = #{adminId}
           and status = 1
     </select>
+
+    <update id="updateImage" parameterType="bo.ucb.edu.medichub.model.Admin">
+        UPDATE admin set
+            picture = #{picture}
+        WHERE
+            admin_id=#{adminId} and status = 1
+    </update>
+
+    <select id="findAdminById" resultType="bo.ucb.edu.medichub.dto.AdminRequest">
+        SELECT
+            a.admin_id as adminId,
+            b.first_name as firstName,
+            b.first_surname as firstSurname,
+            b.second_surname as secondSurname,
+            a.picture as picture,
+            b.ci as ci,
+            b.phone as phone,
+            a.email as email,
+            a.user_name as userName
+        FROM admin a, person b
+        WHERE
+            a.admin_id = #{adminId}
+          and a.person_id = b.person_id
+          and a.status = 1
+    </select>
 </mapper>

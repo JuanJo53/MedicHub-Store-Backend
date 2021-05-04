@@ -1,7 +1,6 @@
 package bo.ucb.edu.medichub.bl;
 
 import bo.ucb.edu.medichub.dao.AdminDao;
-import bo.ucb.edu.medichub.dao.AuthDao;
 import bo.ucb.edu.medichub.dao.PersonDao;
 import bo.ucb.edu.medichub.dao.TransactionDao;
 import bo.ucb.edu.medichub.dto.AdminRequest;
@@ -9,11 +8,13 @@ import bo.ucb.edu.medichub.dto.PasswordRequest;
 import bo.ucb.edu.medichub.model.Admin;
 import bo.ucb.edu.medichub.model.Person;
 import bo.ucb.edu.medichub.model.Transaction;
+import bo.ucb.edu.medichub.util.ImageUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class AdminBl {
@@ -69,5 +70,20 @@ public class AdminBl {
         personDao.updatePerson(person);
 
         return adminRequest;
+    }
+
+    public AdminRequest findAdminById(Integer adminId){
+        AdminRequest admin = adminDao.findAdminById(adminId);
+        return admin;
+    }
+
+    public void uploadImage(MultipartFile image, Integer adminId, Transaction transaction){
+        ImageUtil imageUtil = new ImageUtil();
+        Admin admin = new Admin();
+        String newImageName = imageUtil.uploadImage(image,"images/adminImage","Admin",adminId);
+        admin.setAdminId(adminId);
+        admin.setPicture(newImageName);
+        admin.setTransaction(transaction);
+        adminDao.updateImage(admin);
     }
 }
