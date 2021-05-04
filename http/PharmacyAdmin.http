@@ -19,10 +19,10 @@ Content-Type: application/json
 PUT http://localhost:8080/pharmacyAdmin
 Accept: application/json
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoyLCJ1c2VyX25hbWUiOiJlcndpbjFAZ21haWwuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sInN1YnNpZGlhcnlJZCI6MSwiZXhwIjoxNjIwMTM1NDc2LCJ1c2VyTmFtZSI6ImFicmlzbGFuMCIsImF1dGhvcml0aWVzIjpbIlJPTEVfUEhBUk1BQ1lfQURNSU4iXSwianRpIjoiYzkzYTUwOTEtZTkzZC00YjJkLTg5YmEtYjEwNjU3ODA5NjM0IiwiZW1haWwiOiJlcndpbjFAZ21haWwuY29tIiwiY2xpZW50X2lkIjoibWVkaWNodWJhcHAiLCJwaGFybUFkbWluSWQiOjF9.BLWaert5ezmGlMo5g3uw4B27tQP5uT1Xist0sJULwdw
 
 {
   "pharmacyAdminId": 1,
-  "subsidiaryId": 1,
   "firstName": "Jose",
   "firstSurname": "Perez",
   "secondSurname": "Luan",
@@ -57,19 +57,3 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:8080/pharmacyAdmin/person
-Accept: application/json
-Content-Type: application/json
-
-{
-  "pharmacyAdminId": 1,
-  "firstName": "Jose",
-  "firstSurname": "Perez",
-  "secondSurname": "Luan",
-  "ci": "12459635 LP",
-  "phone": "+591 78596312",
-  "email": "juanperez@gmail.com",
-  "userName": "JuanitoAlcachofa"
-}
-
-###
