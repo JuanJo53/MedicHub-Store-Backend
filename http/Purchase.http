@@ -1,0 +1,20 @@
+POST http://localhost:8080/purchase
+Accept: application/json
+Content-Type: application/json
+
+{
+  "purchaseDate": "2021-05-04",
+  "totalAmount": 10,
+  "products": [
+    {
+      "productId": 1,
+      "quantity": 16
+    },
+    {
+      "productId": 2,
+      "quantity": 20
+    }
+  ]
+}
+
+###

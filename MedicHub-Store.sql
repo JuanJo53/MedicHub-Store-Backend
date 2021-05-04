@@ -1,13 +1,8 @@
-
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2021-04-25 02:15:04.919
+-- Last modification date: 2021-05-04 20:57:04.776
 
 -- tables
 -- Table: address
-DROP database medichub_store;
-CREATE database medichub_store;
-USE medichub_store;
-
 CREATE TABLE address (
     address_id int NOT NULL AUTO_INCREMENT,
     number varchar(45) NULL,
@@ -242,7 +237,7 @@ CREATE TABLE product_reserve (
 
 -- Table: purchase
 CREATE TABLE purchase (
-    purchase_id int NOT NULL,
+    purchase_id int NOT NULL AUTO_INCREMENT,
     purchase_date date NOT NULL,
     total_amount numeric(12,6) NOT NULL,
     status int NOT NULL,
@@ -374,3 +369,4 @@ ALTER TABLE subsidiary ADD CONSTRAINT subsidiary_pharmacy FOREIGN KEY subsidiary
     REFERENCES pharmacy (pharmacy_id);
 
 -- End of file.
+

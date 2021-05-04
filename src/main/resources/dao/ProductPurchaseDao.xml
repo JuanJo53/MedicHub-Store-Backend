@@ -3,10 +3,24 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="bo.ucb.edu.medichub.dao.ProductPurchaseDao">
-    <insert id="createCard" parameterType="bo.ucb.edu.medichub.model.ProductPurchase">
+    <insert id="createProductPurchase" parameterType="bo.ucb.edu.medichub.model.ProductPurchase">
         INSERT INTO product_purchase VALUES (
             null, #{productId}, #{purchaseId}, #{quantity},
             1, #{transaction.txId}, #{transaction.txHost}, #{transaction.txUserId}, #{transaction.txDate}
         )
     </insert>
+
+    <select id="getStockByProductId" resultType="java.lang.Integer">
+        select stock
+        from product
+        where product_id = #{productId}
+          and status = 1
+    </select>
+
+    <update id="updateStock" parameterType="bo.ucb.edu.medichub.model.Product">
+        UPDATE product set
+            stock = #{stock}
+        WHERE
+            product_id=#{productId} and status = 1
+    </update>
 </mapper>
