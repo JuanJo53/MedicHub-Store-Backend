@@ -76,6 +76,7 @@
             b.first_name as firstName,
             b.first_surname as firstSurname,
             b.second_surname as secondSurname,
+            a.picture as picture,
             b.ci as ci,
             b.phone as phone,
             a.email as email,
@@ -94,4 +95,11 @@
         WHERE
             pharmacy_admin_id = #{pharmacyAdminId}
     </select>
+
+    <update id="updateImage" parameterType="bo.ucb.edu.medichub.model.PharmacyAdmin">
+        UPDATE pharmacy_Admin set
+            picture = #{picture}
+        WHERE
+            pharmacy_admin_id=#{pharmacyAdminId} and status = 1
+    </update>
 </mapper>

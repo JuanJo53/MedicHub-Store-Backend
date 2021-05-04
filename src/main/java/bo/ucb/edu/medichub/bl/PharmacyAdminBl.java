@@ -7,11 +7,13 @@ import bo.ucb.edu.medichub.dao.TransactionDao;
 import bo.ucb.edu.medichub.dto.PasswordRequest;
 import bo.ucb.edu.medichub.dto.PharmacyAdminRequest;
 import bo.ucb.edu.medichub.model.*;
+import bo.ucb.edu.medichub.util.ImageUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class PharmacyAdminBl {
@@ -115,6 +117,16 @@ public class PharmacyAdminBl {
     public PharmacyAdminRequest findAdminById(Integer pharmacyAdminId){
         PharmacyAdminRequest admin = pharmacyAdminDao.findAdminById(pharmacyAdminId);
         return admin;
+    }
+
+    public void uploadImage(MultipartFile image, Integer pharmacyAdminId, Transaction transaction){
+        ImageUtil imageUtil = new ImageUtil();
+        PharmacyAdmin pharmacyAdmin = new PharmacyAdmin();
+        String newImageName = imageUtil.uploadImage(image,"images/pharmacyAdminImage","PharmacyAdmin",pharmacyAdminId);
+        pharmacyAdmin.setPharmacyAdminId(pharmacyAdminId);
+        pharmacyAdmin.setPicture(newImageName);
+        pharmacyAdmin.setTransaction(transaction);
+        pharmacyAdminDao.updateImage(pharmacyAdmin);
     }
 
 }

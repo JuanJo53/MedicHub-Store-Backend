@@ -20,6 +20,7 @@ public class PharmacyAdminRequest {
     @NotEmpty
     @Size(min = 3)
     private String secondSurname;
+    private String picture;
     @NotEmpty
     @Size(min = 6)
     private String ci;
@@ -79,6 +80,14 @@ public class PharmacyAdminRequest {
         this.secondSurname = secondSurname;
     }
 
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
     public String getCi() {
         return ci;
     }
@@ -127,6 +136,7 @@ public class PharmacyAdminRequest {
                 ", firstName='" + firstName + '\'' +
                 ", firstSurname='" + firstSurname + '\'' +
                 ", secondSurname='" + secondSurname + '\'' +
+                ", picture='" + picture + '\'' +
                 ", ci='" + ci + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +

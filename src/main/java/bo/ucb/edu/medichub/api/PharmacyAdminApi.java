@@ -5,12 +5,15 @@ import bo.ucb.edu.medichub.bl.TransactionBl;
 import bo.ucb.edu.medichub.dto.PasswordRequest;
 import bo.ucb.edu.medichub.dto.PharmacyAdminRequest;
 import bo.ucb.edu.medichub.model.Transaction;
+import bo.ucb.edu.medichub.util.ImageUtil;
 import bo.ucb.edu.medichub.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -89,5 +92,19 @@ public class PharmacyAdminApi {
         }
     }
 
+    @PutMapping(path="/{pharmacyAdminId}/image", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity uploadImage(@RequestParam MultipartFile image, @PathVariable String pharmacyAdminId, HttpServletRequest request){
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction(transaction);
+        pharmacyAdminBl.uploadImage(image,Integer.parseInt(pharmacyAdminId),transaction);
+        return new ResponseEntity("Succesful process", HttpStatus.OK);
+    }
+
+    @GetMapping(path="image/{path}/{name}" , produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    public byte[] getImage(@PathVariable String path, @PathVariable String name){
+        ImageUtil storageUtil=new ImageUtil();
+        byte[] image=storageUtil.getImage(path,name);
+        return image;
+    }
 
 }
