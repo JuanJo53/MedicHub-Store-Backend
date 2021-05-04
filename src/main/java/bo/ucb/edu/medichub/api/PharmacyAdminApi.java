@@ -88,4 +88,16 @@ public class PharmacyAdminApi {
             return HttpStatus.BAD_REQUEST;
         }
     }
+
+    @PutMapping(path="/person", produces = MediaType.APPLICATION_JSON_VALUE)
+    public HttpStatus updatePharmacyAdminPerson(@Valid @RequestBody PharmacyAdminRequest pharmacyAdminRequest, HttpServletRequest request, BindingResult result) {
+        if(!result.hasErrors()){
+            Transaction transaction = TransactionUtil.createTransaction(request);
+            transactionBl.createTransaction(transaction);
+            PharmacyAdminRequest pharmacyAdminResponse = pharmacyAdminBl.updatePharmacyAdminPerson(pharmacyAdminRequest, transaction);
+            return HttpStatus.OK;
+        } else{
+            return HttpStatus.BAD_REQUEST;
+        }
+    }
 }

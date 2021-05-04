@@ -56,3 +56,20 @@ Content-Type: application/json
 }
 
 ###
+
+PUT http://localhost:8080/pharmacyAdmin/person
+Accept: application/json
+Content-Type: application/json
+
+{
+  "pharmacyAdminId": 1,
+  "firstName": "Jose",
+  "firstSurname": "Perez",
+  "secondSurname": "Luan",
+  "ci": "12459635 LP",
+  "phone": "+591 78596312",
+  "email": "juanperez@gmail.com",
+  "userName": "JuanitoAlcachofa"
+}
+
+###

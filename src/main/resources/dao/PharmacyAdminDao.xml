@@ -24,6 +24,19 @@
         status=1
     </update>
 
+    <update id="updatePharmacyAdminPerson" parameterType="bo.ucb.edu.medichub.model.PharmacyAdmin">
+        UPDATE pharmacy_admin set
+            email=#{email},
+            user_name=#{userName},
+            tx_id=#{transaction.txId},
+            tx_host=#{transaction.txHost},
+            tx_user_id=#{transaction.txUserId},
+            tx_date=#{transaction.txDate}
+        WHERE
+        pharmacy_admin_id=#{pharmacyAdminId} and
+        status=1
+    </update>
+
 
     <select id="passwordPharmacyAdmin" resultType="java.lang.String">
         SELECT
