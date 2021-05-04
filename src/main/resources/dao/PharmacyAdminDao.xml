@@ -12,7 +12,6 @@
 
     <update id="updatePharmacyAdmin" parameterType="bo.ucb.edu.medichub.model.PharmacyAdmin">
         UPDATE pharmacy_admin set
-            subsidiary_id=#{subsidiaryId},
             email=#{email},
             user_name=#{userName},
             tx_id=#{transaction.txId},

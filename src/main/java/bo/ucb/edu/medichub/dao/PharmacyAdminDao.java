@@ -20,4 +20,5 @@ public interface PharmacyAdminDao {
     public void updateAdminPharmacyPassword(PasswordRequest passwordRequest);
 
     public String passworAdminPharm(Integer pharmacyAdminId);
+
 }

@@ -71,7 +71,6 @@ public class PharmacyAdminBl {
         Person person = new Person();
 
         pharmacyAdmin.setPharmacyAdminId(pharmacyAdminRequest.getPharmacyAdminId());
-        pharmacyAdmin.setSubsidiaryId(pharmacyAdminRequest.getSubsidiaryId());
         pharmacyAdmin.setUserName(pharmacyAdminRequest.getUserName());
         pharmacyAdmin.setEmail(pharmacyAdminRequest.getEmail());
         pharmacyAdmin.setTransaction(transaction);
@@ -117,4 +116,5 @@ public class PharmacyAdminBl {
         PharmacyAdminRequest admin = pharmacyAdminDao.findAdminById(pharmacyAdminId);
         return admin;
     }
+
 }
