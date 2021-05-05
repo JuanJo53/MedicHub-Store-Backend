@@ -10,4 +10,45 @@
         )
     </insert>
 
+
+    <select id="getListReserve" resultMap="reserveListMap">
+        SELECT
+        a.reserve_id as reserveId,
+        a.client_id as clientId
+        FROM reserve a
+        WHERE
+        a.status = 1
+        and a.status_reserve = #{state}
+        ORDER BY a.date DESC
+        LIMIT #{size} OFFSET #{page}
+    </select>
+
+
+    <resultMap id="reserveListMap" type="bo.ucb.edu.medichub.dto.ReserveRequest">
+        <result column="reserveId" property="reserveId"/>
+        <result column="clientId" property="clientId"/>
+    </resultMap>
+
+
+
+
+    <select id="getListProductReserve" resultMap="productReserveListMap">
+        SELECT
+        c.product_id as productId,
+        c.name as name,
+        c.price as price,
+        b.quantity as quantity
+        FROM product_reserve b, product c
+        WHERE
+        b.product_id = c.product_id and
+        b.reserve_id = #{reserveId} and
+        b.status = 1
+        ORDER BY c.name DESC
+    </select>
+    <resultMap id="productReserveListMap" type="bo.ucb.edu.medichub.dto.ProductReserveRequest">
+        <result column="productId" property="productId"/>
+        <result column="name" property="name"/>
+        <result column="price" property="price"/>
+        <result column="quantity" property="quantity"/>
+    </resultMap>
 </mapper>
