@@ -12,6 +12,7 @@ import bo.ucb.edu.medichub.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -31,8 +32,10 @@ public class PurchaseBl {
         Purchase purchase = new Purchase();
         ProductPurchase productPurchase = new ProductPurchase();
 
-        purchase.setPurchaseDate(purchaseRequest.getPurchaseDate());
+        purchase.setPurchaseDate(new Date());
         purchase.setTotalAmount(purchaseRequest.getTotalAmount());
+        purchase.setFirstSurname(purchaseRequest.getFirstSurname());
+        purchase.setNit(purchaseRequest.getNit());
         purchase.setTransaction(transaction);
         purchaseDao.createPurchase(purchase);
 

@@ -5,7 +5,7 @@
 <mapper namespace="bo.ucb.edu.medichub.dao.PurchaseDao">
     <insert id="createPurchase" parameterType="bo.ucb.edu.medichub.model.Purchase">
         INSERT INTO purchase VALUES (
-            null, #{purchaseDate}, #{totalAmount},
+            null, #{purchaseDate}, #{totalAmount}, #{firstSurname}, #{nit},
             1, #{transaction.txId}, #{transaction.txHost}, #{transaction.txUserId}, #{transaction.txDate}
         )
     </insert>

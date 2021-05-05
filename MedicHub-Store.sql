@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2021-05-04 20:57:04.776
+-- Last modification date: 2021-05-05 21:54:20.014
 
 -- tables
 -- Table: address
@@ -240,6 +240,8 @@ CREATE TABLE purchase (
     purchase_id int NOT NULL AUTO_INCREMENT,
     purchase_date date NOT NULL,
     total_amount numeric(12,6) NOT NULL,
+    first_surname varchar(150) NOT NULL,
+    nit varchar(45) NOT NULL,
     status int NOT NULL,
     tx_id int NOT NULL,
     tx_host varchar(100) NOT NULL,

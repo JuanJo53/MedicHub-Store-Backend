@@ -6,6 +6,8 @@ public class Purchase {
     private Integer purchaseId;
     private Date purchaseDate;
     private Double totalAmount;
+    private String firstSurname;
+    private String nit;
     private Integer status;
     private Transaction transaction;
 
@@ -37,6 +39,22 @@ public class Purchase {
         this.totalAmount = totalAmount;
     }
 
+    public String getFirstSurname() {
+        return firstSurname;
+    }
+
+    public void setFirstSurname(String firstSurname) {
+        this.firstSurname = firstSurname;
+    }
+
+    public String getNit() {
+        return nit;
+    }
+
+    public void setNit(String nit) {
+        this.nit = nit;
+    }
+
     public Integer getStatus() {
         return status;
     }
@@ -59,6 +77,8 @@ public class Purchase {
                 "purchaseId=" + purchaseId +
                 ", purchaseDate=" + purchaseDate +
                 ", totalAmount=" + totalAmount +
+                ", firstSurname='" + firstSurname + '\'' +
+                ", nit='" + nit + '\'' +
                 ", status=" + status +
                 ", transaction=" + transaction +
                 '}';

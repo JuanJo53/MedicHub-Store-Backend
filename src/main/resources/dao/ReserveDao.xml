@@ -51,4 +51,12 @@
         <result column="price" property="price"/>
         <result column="quantity" property="quantity"/>
     </resultMap>
+
+    <select id="getLastReserveStatus" resultType="java.lang.Integer">
+        SELECT
+            status_reserve
+        FROM reserve
+        WHERE
+            client_id = #{clientId}
+    </select>
 </mapper>

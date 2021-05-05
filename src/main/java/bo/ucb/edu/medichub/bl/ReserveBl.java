@@ -7,6 +7,7 @@ import bo.ucb.edu.medichub.dao.TransactionDao;
 import bo.ucb.edu.medichub.dto.ProductReserveRequest;
 import bo.ucb.edu.medichub.dto.ProductResponse;
 import bo.ucb.edu.medichub.dto.ReserveRequest;
+import bo.ucb.edu.medichub.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,6 +47,22 @@ public class ReserveBl {
             data.add(reserveRequests);
         }
         return data;
+    }
+
+    public void manageReserve(ReserveRequest reserveRequest, Integer clientId, Transaction transaction){
+        Integer status = reserveDao.getLastReserveStatus(clientId);
+        // Creado-Reservado
+        if(status == 1){
+
+        }
+        // Pendiente
+        if(status == 2){
+
+        }
+        // Confirmado-Cancelado
+        if(status == 3 || status == 4){
+            //createReserve(reserveRequest, clientId);
+        }
     }
 
 }

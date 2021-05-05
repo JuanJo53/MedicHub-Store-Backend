@@ -14,4 +14,6 @@ public interface ReserveDao {
     public List<ReserveRequest> getListReserve(Integer page, Integer size, Integer state);
 
     public List<ProductReserveRequest> getListProductReserve(ReserveRequest reserveRequests);
+
+    public Integer getLastReserveStatus(Integer clientId);
 }

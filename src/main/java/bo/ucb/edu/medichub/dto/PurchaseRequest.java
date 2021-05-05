@@ -5,8 +5,9 @@ import java.util.List;
 
 public class PurchaseRequest {
     private Integer purchaseId;
-    private Date purchaseDate;
     private Double totalAmount;
+    private String firstSurname;
+    private String nit;
     private List<ProductPurchaseRequest> products;
 
     public PurchaseRequest() {
@@ -20,20 +21,28 @@ public class PurchaseRequest {
         this.purchaseId = purchaseId;
     }
 
-    public Date getPurchaseDate() {
-        return purchaseDate;
-    }
-
-    public void setPurchaseDate(Date purchaseDate) {
-        this.purchaseDate = purchaseDate;
-    }
-
     public Double getTotalAmount() {
         return totalAmount;
     }
 
     public void setTotalAmount(Double totalAmount) {
         this.totalAmount = totalAmount;
+    }
+
+    public String getFirstSurname() {
+        return firstSurname;
+    }
+
+    public void setFirstSurname(String firstSurname) {
+        this.firstSurname = firstSurname;
+    }
+
+    public String getNit() {
+        return nit;
+    }
+
+    public void setNit(String nit) {
+        this.nit = nit;
     }
 
     public List<ProductPurchaseRequest> getProducts() {
@@ -48,9 +57,10 @@ public class PurchaseRequest {
     public String toString() {
         return "PurchaseRequest{" +
                 "purchaseId=" + purchaseId +
-                ", purchaseDate=" + purchaseDate +
                 ", totalAmount=" + totalAmount +
-                ", productPurchaseRequests=" + products +
+                ", firstSurname='" + firstSurname + '\'' +
+                ", nit='" + nit + '\'' +
+                ", products=" + products +
                 '}';
     }
 }
