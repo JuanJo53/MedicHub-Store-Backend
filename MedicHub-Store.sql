@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2021-05-05 21:54:20.014
+-- Last modification date: 2021-05-05 22:51:53.083
 
 -- tables
 -- Table: address
@@ -255,6 +255,7 @@ CREATE TABLE reserve (
     reserve_id int NOT NULL AUTO_INCREMENT,
     client_id int NOT NULL,
     date date NOT NULL,
+    total_amount double(12,6) NOT NULL,
     status_reserve int NOT NULL,
     status int NOT NULL,
     tx_id int NOT NULL,
