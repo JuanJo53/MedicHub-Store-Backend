@@ -5,7 +5,7 @@
 <mapper namespace="bo.ucb.edu.medichub.dao.ReserveDao">
     <insert id="createReserve" parameterType="bo.ucb.edu.medichub.model.Reserve">
         INSERT INTO reserve VALUES (
-            null, #{clientId}, #{date}, #{statusReserve},
+            null, #{clientId}, #{date}, #{totalAmount}, #{statusReserve},
             1, #{transaction.txId}, #{transaction.txHost}, #{transaction.txUserId}, #{transaction.txDate}
         )
     </insert>

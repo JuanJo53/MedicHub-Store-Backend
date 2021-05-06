@@ -1,10 +1,13 @@
 package bo.ucb.edu.medichub.dto;
 
+import javax.validation.constraints.Null;
 import java.util.Date;
 
 public class ProductReserveRequest {
     private Integer productId;
+    @Null
     private String name;
+    @Null
     private Double price;
     private Integer quantity;
 

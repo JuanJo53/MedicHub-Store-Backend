@@ -3,10 +3,14 @@ package bo.ucb.edu.medichub.api;
 import bo.ucb.edu.medichub.bl.ReserveBl;
 import bo.ucb.edu.medichub.bl.TransactionBl;
 import bo.ucb.edu.medichub.dto.ReserveRequest;
+import bo.ucb.edu.medichub.model.Transaction;
+import bo.ucb.edu.medichub.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -27,6 +31,15 @@ public class ReserveApi {
         List<ReserveRequest> reserve=reserveBl.getListReserve(page,size,state);
 
         return reserve;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public HttpStatus createPurchase(@RequestBody ReserveRequest reserveRequest, HttpServletRequest request) {
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction(transaction);
+        reserveBl.manageReserve(reserveRequest, transaction);
+        return HttpStatus.OK;
     }
 
 }

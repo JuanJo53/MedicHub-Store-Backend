@@ -2,3 +2,23 @@ GET http://localhost:8080/reserve?page=0&size=5&state=2
 Accept: application/json
 
 ###
+
+POST http://localhost:8080/reserve
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoyLCJ1c2VyX25hbWUiOiJqdWFucGVyZXpAZ21haWwuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sInN1YnNpZGlhcnlJZCI6MSwiZXhwIjoxNjIwMjkwMTQzLCJ1c2VyTmFtZSI6Ikp1YW5pdG9BbGNhY2hvZmEiLCJhdXRob3JpdGllcyI6WyJST0xFX1BIQVJNQUNZX0FETUlOIl0sImp0aSI6IjEzZDZkOTBiLWFmYzUtNDQxYS1hYzViLTY1MDY5ZDEzNzBiYiIsImVtYWlsIjoianVhbnBlcmV6QGdtYWlsLmNvbSIsImNsaWVudF9pZCI6Im1lZGljaHViYXBwIiwicGhhcm1BZG1pbklkIjoxfQ.3QRavKQNBYSWOxybKFeGAQNlmkG9of4UvBBXbiHEA54
+
+{
+  "clientId": 1,
+  "total": 20,
+  "product": [
+    {
+      "productId": 1,
+      "quantity": 30
+    },
+    {
+      "productId": 2,
+      "quantity": 50
+    }
+  ]
+}

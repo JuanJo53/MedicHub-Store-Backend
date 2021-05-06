@@ -6,6 +6,7 @@ public class Reserve {
     private Integer reserveId;
     private Integer clientId;
     private Date date;
+    private Double totalAmount;
     private Integer statusReserve;
     private Integer status;
     private Transaction transaction;
@@ -38,6 +39,14 @@ public class Reserve {
         this.date = date;
     }
 
+    public Double getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(Double totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
     public Integer getStatusReserve() {
         return statusReserve;
     }
@@ -68,6 +77,7 @@ public class Reserve {
                 "reserveId=" + reserveId +
                 ", clientId=" + clientId +
                 ", date=" + date +
+                ", totalAmount=" + totalAmount +
                 ", statusReserve=" + statusReserve +
                 ", status=" + status +
                 ", transaction=" + transaction +
