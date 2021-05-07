@@ -61,4 +61,13 @@
         and status = 1
         and reserve_id = (SELECT MAX(reserve_id) FROM reserve WHERE client_id = #{clientId})
     </select>
+
+    <select id="getLastReserveId" resultType="java.lang.Integer">
+        SELECT
+            MAX(reserve_id)
+        FROM reserve
+        WHERE
+            client_id = #{clientId}
+          and status = 1
+    </select>
 </mapper>

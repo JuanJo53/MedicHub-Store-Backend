@@ -61,13 +61,10 @@ public class ReserveBl {
             // Creado-Reservado
             if(status == 1){
                 LOGGER.error("creado");
+                createProductReserve(productReserveCarRequest, transaction);
             }
-            // Pendiente
-            if(status == 2){
-                createReserve(productReserveCarRequest, transaction);
-            }
-            // Confirmado-Cancelado
-            if(status == 3 || status == 4){
+            // Pendiente-Confirmado-Cancelado
+            if(status == 2 || status == 3 || status == 4){
                 createReserve(productReserveCarRequest, transaction);
             }
         }
@@ -95,4 +92,17 @@ public class ReserveBl {
         return productReserveCarRequest;
     }
 
+    public ProductReserveCarRequest createProductReserve(ProductReserveCarRequest productReserveCarRequest, Transaction transaction){
+        ProductReserve productReserve = new ProductReserve();
+
+        Integer lastId = reserveDao.getLastReserveId(productReserveCarRequest.getClientId());
+
+        productReserve.setReserveId(lastId);
+        productReserve.setProductId(productReserveCarRequest.getProductId());
+        productReserve.setQuantity(productReserveCarRequest.getQuantity());
+        productReserve.setTransaction(transaction);
+        productReserveDao.createProductReserve(productReserve);
+
+        return productReserveCarRequest;
+    }
 }
