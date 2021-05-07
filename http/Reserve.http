@@ -25,16 +25,20 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJ1c2VyX
 ###
 
 
-GET http://localhost:8080/reserve/1/quantity?state=2
+GET http://localhost:8080/reserve/1/quantity
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJ1c2VyX25hbWUiOiJhbmRyZXNAZ21haWwuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImFkbWluSWQiOjEsImV4cCI6MTYyMDM5MjQwMywidXNlck5hbWUiOiJhbmRyZWNpdG8iLCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImp0aSI6ImUxNTM1MjExLWI5MGQtNDA1ZC05M2VkLTZlNTAxNDE1YjQ2NyIsImVtYWlsIjoiYW5kcmVzQGdtYWlsLmNvbSIsImNsaWVudF9pZCI6Im1lZGljaHViYXBwIn0.-lLkQhyMUF1q7Be3MAWV296m4Dwqt3wZLC9JujC-RLU
+
 
 ###
 
 
-GET http://localhost:8080/reserve/1/total?state=2
+GET http://localhost:8080/reserve/1/totalcost?state=2
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJ1c2VyX25hbWUiOiJhbmRyZXNAZ21haWwuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImFkbWluSWQiOjEsImV4cCI6MTYyMDM5MjQwMywidXNlck5hbWUiOiJhbmRyZWNpdG8iLCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImp0aSI6ImUxNTM1MjExLWI5MGQtNDA1ZC05M2VkLTZlNTAxNDE1YjQ2NyIsImVtYWlsIjoiYW5kcmVzQGdtYWlsLmNvbSIsImNsaWVudF9pZCI6Im1lZGljaHViYXBwIn0.-lLkQhyMUF1q7Be3MAWV296m4Dwqt3wZLC9JujC-RLU
 
 ###
 
+
+GET http://localhost:8080/reserve/2/total?state=2
+Accept: application/json
+
+###
