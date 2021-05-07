@@ -45,6 +45,7 @@
             email as email,
             status as status
         from pharmacy
+        where status=1
     </select>
 
     <resultMap id="pharmaciesMap" type="bo.ucb.edu.medichub.dto.PharmacyListRequest">
