@@ -10,5 +10,26 @@
         )
     </insert>
 
+    <select id="getListPurchase" resultMap="purchaseListMap">
+        SELECT
+        a.purchase_id as purchaseId,
+        a.total_amount as totalAmount,
+        a.first_surname as firstSurname,
+        a.nit as nit,
+        a.purchase_date as datePurchase
+        FROM purchase a
+        WHERE
+        a.status = 1
+        ORDER BY a.purchase_date DESC
+        LIMIT #{size} OFFSET #{page}
+    </select>
+
+    <resultMap id="purchaseListMap" type="bo.ucb.edu.medichub.dto.PurchaseListRequest">
+        <result column="purchaseId" property="purchaseId"/>
+        <result column="totalAmount" property="totalAmount"/>
+        <result column="firstSurname" property="firstSurname"/>
+        <result column="nit" property="nit"/>
+        <result column="datePurchase" property="datePurchase"/>
+    </resultMap>
 
 </mapper>

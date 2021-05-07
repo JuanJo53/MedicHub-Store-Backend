@@ -3,6 +3,7 @@ package bo.ucb.edu.medichub.bl;
 import bo.ucb.edu.medichub.dao.*;
 import bo.ucb.edu.medichub.dto.ProductReserveCarRequest;
 import bo.ucb.edu.medichub.dto.ProductReserveRequest;
+import bo.ucb.edu.medichub.dto.ProductResponse;
 import bo.ucb.edu.medichub.dto.ReserveRequest;
 import bo.ucb.edu.medichub.model.ProductReserve;
 import bo.ucb.edu.medichub.model.Reserve;
@@ -39,7 +40,7 @@ public class ReserveBl {
             ReserveRequest reserveRequests = new ReserveRequest();
             reserveRequests = reserve.get(i);
             List<ProductReserveRequest> productReserveRequest = new ArrayList<>();
-            productReserveRequest = reserveDao.getListProductReserve(reserveRequests);
+            productReserveRequest = productReserveDao.getListProductReserve(reserveRequests);
             double total = 0;
             for(int j=0;j<productReserveRequest.size();j++){
                 ProductReserveRequest product = new ProductReserveRequest();
@@ -104,5 +105,11 @@ public class ReserveBl {
         productReserveDao.createProductReserve(productReserve);
 
         return productReserveCarRequest;
+    }
+
+    public List<ProductResponse> productList(Integer clientId, Integer page, Integer size, Integer state) {
+        List<ProductResponse> productResponse = new ArrayList<>();
+        productResponse = productReserveDao.productListClient(clientId,page,size,state);
+        return productResponse;
     }
 }

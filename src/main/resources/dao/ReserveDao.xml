@@ -32,25 +32,7 @@
 
 
 
-    <select id="getListProductReserve" resultMap="productReserveListMap">
-        SELECT
-        c.product_id as productId,
-        c.name as name,
-        c.price as price,
-        b.quantity as quantity
-        FROM product_reserve b, product c
-        WHERE
-        b.product_id = c.product_id and
-        b.reserve_id = #{reserveId} and
-        b.status = 1
-        ORDER BY c.name DESC
-    </select>
-    <resultMap id="productReserveListMap" type="bo.ucb.edu.medichub.dto.ProductReserveRequest">
-        <result column="productId" property="productId"/>
-        <result column="name" property="name"/>
-        <result column="price" property="price"/>
-        <result column="quantity" property="quantity"/>
-    </resultMap>
+
 
     <select id="getLastReserveStatus" resultType="java.lang.Integer">
         SELECT

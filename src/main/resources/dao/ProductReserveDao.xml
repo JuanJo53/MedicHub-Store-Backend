@@ -10,4 +10,59 @@
         )
     </insert>
 
+
+    <select id="getListProductReserve" resultMap="productReserveListMap">
+        SELECT
+        c.product_id as productId,
+        c.name as name,
+        c.price as price,
+        b.quantity as quantity
+        FROM product_reserve b, product c
+        WHERE
+        b.product_id = c.product_id and
+        b.reserve_id = #{reserveId} and
+        b.status = 1
+        ORDER BY c.name DESC
+    </select>
+    <resultMap id="productReserveListMap" type="bo.ucb.edu.medichub.dto.ProductReserveRequest">
+        <result column="productId" property="productId"/>
+        <result column="name" property="name"/>
+        <result column="price" property="price"/>
+        <result column="quantity" property="quantity"/>
+    </resultMap>
+
+
+    <select id="productListClient" resultMap="productListClientMap">
+        SELECT
+        a.product_id as productId,
+        b.name as brandName,
+        a.name as name,
+        d.quantity as stock,
+        a.price as price,
+        a.type as type,
+        a.dose as dose,
+        a.description as description,
+        a.picture as picture
+        FROM product a, brand b, product_reserve d, reserve e
+        WHERE
+        a.brand_id = b.brand_id  and
+        e.reserve_id = d.reserve_id and
+        a.product_id = d.product_id and
+        e.client_id=#{clientId} and
+        e.status_reserve = #{state}
+        and a.status = 1
+        ORDER BY a.name DESC
+        LIMIT #{size} OFFSET #{page}
+    </select>
+    <resultMap id="productListClientMap" type="bo.ucb.edu.medichub.dto.ProductResponse">
+        <result column="productId" property="productId"/>
+        <result column="brandName" property="brandName"/>
+        <result column="name" property="name"/>
+        <result column="stock" property="stock"/>
+        <result column="price" property="price"/>
+        <result column="type" property="type"/>
+        <result column="dose" property="dose"/>
+        <result column="description" property="description"/>
+        <result column="picture" property="picture"/>
+    </resultMap>
 </mapper>

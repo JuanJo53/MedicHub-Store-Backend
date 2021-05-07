@@ -2,18 +2,18 @@ package bo.ucb.edu.medichub.api;
 
 import bo.ucb.edu.medichub.bl.PurchaseBl;
 import bo.ucb.edu.medichub.bl.TransactionBl;
+import bo.ucb.edu.medichub.dto.PurchaseListRequest;
 import bo.ucb.edu.medichub.dto.PurchaseRequest;
+import bo.ucb.edu.medichub.dto.ReserveRequest;
 import bo.ucb.edu.medichub.model.Transaction;
 import bo.ucb.edu.medichub.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/purchase")
@@ -35,4 +35,14 @@ public class PurchaseApi {
         PurchaseRequest purchaseResponse = purchaseBl.createPurchase(purchaseRequest, transaction);
         return HttpStatus.OK;
     }
+
+
+    @RequestMapping(method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<PurchaseListRequest> getPurchase(@RequestParam Integer page, @RequestParam Integer size) {
+        List<PurchaseListRequest> purchase=purchaseBl.getListPurchase(page,size);
+
+        return purchase;
+    }
+
+
 }

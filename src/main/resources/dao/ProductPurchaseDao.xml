@@ -23,4 +23,25 @@
         WHERE
             product_id=#{productId} and status = 1
     </update>
+
+
+    <select id="getListProductPurchase" resultMap="productPurchaseListMap">
+        SELECT
+        c.product_id as productId,
+        c.name as name,
+        c.price as price,
+        b.quantity as quantity
+        FROM product_purchase b, product c
+        WHERE
+        b.product_id = c.product_id and
+        b.purchase_id = #{purchaseId} and
+        b.status = 1
+        ORDER BY c.name DESC
+    </select>
+    <resultMap id="productPurchaseListMap" type="bo.ucb.edu.medichub.dto.ProductPurchaseListRequest">
+        <result column="productId" property="productId"/>
+        <result column="name" property="name"/>
+        <result column="price" property="price"/>
+        <result column="quantity" property="quantity"/>
+    </resultMap>
 </mapper>
