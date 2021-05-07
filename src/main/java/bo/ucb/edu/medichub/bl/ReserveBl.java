@@ -112,4 +112,20 @@ public class ReserveBl {
         productResponse = productReserveDao.productListClient(clientId,page,size,state);
         return productResponse;
     }
+
+    public Integer quantityProductReserve(Integer clientId,Integer state) {
+        return productReserveDao.quantityProductReserve(clientId,state);
+    }
+
+    public Double totalProductReserve(Integer clientId, Integer state) {
+        List<ProductReserveRequest> productReserveRequests = new ArrayList<>();
+        productReserveRequests = productReserveDao.reserveProductReserve(clientId,state);
+        double total=0;
+        for (int i=0;i<productReserveRequests.size();i++){
+            ProductReserveRequest data = new ProductReserveRequest();
+            data = productReserveRequests.get(i);
+            total=total+(data.getPrice()*data.getQuantity());
+        }
+        return total;
+    }
 }

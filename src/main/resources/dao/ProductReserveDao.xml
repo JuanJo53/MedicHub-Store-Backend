@@ -65,4 +65,34 @@
         <result column="description" property="description"/>
         <result column="picture" property="picture"/>
     </resultMap>
+
+
+    <select id="quantityProductReserve" resultType="java.lang.Integer">
+        SELECT
+            SUM(d.quantity) as quantity
+        FROM product_reserve d, reserve e
+        WHERE
+            e.client_id=#{clientId} and
+            e.status_reserve = #{state} and
+            e.reserve_id = d.reserve_id and
+            d.status = 1
+    </select>
+
+    <select id="reserveProductReserve" resultMap="productReserveTotalMap">
+        SELECT
+        c.price as price,
+        b.quantity as quantity
+        FROM product_reserve b, product c, reserve e
+        WHERE
+        b.product_id = c.product_id and
+        e.reserve_id = b.reserve_id and
+        e.client_id=#{clientId} and
+        b.status = 1
+    </select>
+    <resultMap id="productReserveTotalMap" type="bo.ucb.edu.medichub.dto.ProductReserveRequest">
+        <result column="price" property="price"/>
+        <result column="quantity" property="quantity"/>
+    </resultMap>
+
+
 </mapper>

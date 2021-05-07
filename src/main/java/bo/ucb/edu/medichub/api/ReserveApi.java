@@ -58,4 +58,10 @@ public class ReserveApi {
         return product;
     }
 
+    @GetMapping(path="/{clientId}/total", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Double getQuantityProductReserve(@PathVariable String clientId,@RequestParam Integer state){
+        Double total = reserveBl.totalProductReserve(Integer.parseInt(clientId),state);
+        return total;
+    }
+
 }
