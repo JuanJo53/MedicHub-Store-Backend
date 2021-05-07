@@ -58,9 +58,22 @@ public class ReserveApi {
         return product;
     }
 
+    @GetMapping(path="/{clientId}/quantity", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Integer quantityProductReserve(@PathVariable String clientId){
+        Integer quantity = reserveBl.quantityProductReserve(Integer.parseInt(clientId));
+        return quantity;
+    }
+
+    @GetMapping(path="/{clientId}/totalcost", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Double getTotalCostProductReserve(@PathVariable String clientId,@RequestParam Integer state){
+        Double totalcount = reserveBl.totalCostProductReserve(Integer.parseInt(clientId),state);
+        return totalcount;
+    }
+
+
     @GetMapping(path="/{clientId}/total", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Double getQuantityProductReserve(@PathVariable String clientId,@RequestParam Integer state){
-        Double total = reserveBl.totalProductReserve(Integer.parseInt(clientId),state);
+    public Integer getTotalProductReserve(@PathVariable String clientId,@RequestParam Integer state){
+        Integer total = reserveBl.totalProductReserve(Integer.parseInt(clientId),state);
         return total;
     }
 

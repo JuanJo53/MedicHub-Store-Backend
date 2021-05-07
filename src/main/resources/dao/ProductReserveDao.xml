@@ -73,7 +73,7 @@
         FROM product_reserve d, reserve e
         WHERE
             e.client_id=#{clientId} and
-            e.status_reserve = #{state} and
+            e.status_reserve = 2 and
             e.reserve_id = d.reserve_id and
             d.status = 1
     </select>

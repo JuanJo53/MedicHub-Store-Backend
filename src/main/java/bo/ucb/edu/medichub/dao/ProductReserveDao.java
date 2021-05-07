@@ -14,7 +14,7 @@ public interface ProductReserveDao {
 
     public List<ProductResponse> productListClient(Integer clientId, Integer page, Integer size,Integer state);
 
-    public Integer quantityProductReserve(Integer clientId, Integer state);
+    public Integer quantityProductReserve(Integer clientId);
 
     public List<ProductReserveRequest> reserveProductReserve(Integer clientId, Integer state);
 }
