@@ -12,7 +12,7 @@ public interface ProductReserveDao {
 
     public List<ProductReserveRequest> getListProductReserve(ReserveRequest purchaseRequest);
 
-    public List<ProductResponse> productListClient(Integer clientId, Integer page, Integer size,Integer state);
+    public List<ProductListResponse> productListClient(Integer clientId, Integer page, Integer size,Integer state);
 
     public Integer quantityProductReserve(Integer clientId);
 
