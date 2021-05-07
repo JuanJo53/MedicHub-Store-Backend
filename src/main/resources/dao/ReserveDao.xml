@@ -5,7 +5,7 @@
 <mapper namespace="bo.ucb.edu.medichub.dao.ReserveDao">
     <insert id="createReserve" parameterType="bo.ucb.edu.medichub.model.Reserve">
         INSERT INTO reserve VALUES (
-            null, #{clientId}, #{date}, #{totalAmount}, #{statusReserve},
+            null, #{clientId}, #{date}, #{statusReserve},
             1, #{transaction.txId}, #{transaction.txHost}, #{transaction.txUserId}, #{transaction.txDate}
         )
     </insert>
@@ -58,5 +58,7 @@
         FROM reserve
         WHERE
             client_id = #{clientId}
+        and status = 1
+        and reserve_id = (SELECT MAX(reserve_id) FROM reserve WHERE client_id = #{clientId})
     </select>
 </mapper>
