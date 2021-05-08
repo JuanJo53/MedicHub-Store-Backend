@@ -17,4 +17,8 @@ public interface ProductReserveDao {
     public Integer quantityProductReserve(Integer clientId);
 
     public List<ProductReserveRequest> reserveProductReserve(Integer clientId, Integer state);
+
+    public Integer getProductReserveIfExists(Integer productId, Integer reserveId);
+
+    public void updateProductReserve(ProductReserve productReserve);
 }

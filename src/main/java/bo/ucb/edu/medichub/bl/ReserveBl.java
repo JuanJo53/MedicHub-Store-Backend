@@ -98,11 +98,36 @@ public class ReserveBl {
 
         Integer lastId = reserveDao.getLastReserveId(productReserveCarRequest.getClientId());
 
+
+        Integer product = productReserveDao.getProductReserveIfExists(productReserveCarRequest.getProductId(), lastId);
+        if(product == null){
+            productReserve.setReserveId(lastId);
+            productReserve.setProductId(productReserveCarRequest.getProductId());
+            productReserve.setQuantity(productReserveCarRequest.getQuantity());
+            productReserve.setTransaction(transaction);
+            productReserveDao.createProductReserve(productReserve);
+        } else {
+            productReserve.setReserveId(lastId);
+            productReserve.setProductId(productReserveCarRequest.getProductId());
+            product = product + productReserveCarRequest.getQuantity();
+            productReserve.setQuantity(product);
+            productReserve.setTransaction(transaction);
+            productReserveDao.updateProductReserve(productReserve);
+        }
+
+        return productReserveCarRequest;
+    }
+
+    public ProductReserveCarRequest updateProductReserve(ProductReserveCarRequest productReserveCarRequest, Transaction transaction){
+        ProductReserve productReserve = new ProductReserve();
+
+        Integer lastId = reserveDao.getLastReserveId(productReserveCarRequest.getClientId());
+
         productReserve.setReserveId(lastId);
         productReserve.setProductId(productReserveCarRequest.getProductId());
         productReserve.setQuantity(productReserveCarRequest.getQuantity());
         productReserve.setTransaction(transaction);
-        productReserveDao.createProductReserve(productReserve);
+        productReserveDao.updateProductReserve(productReserve);
 
         return productReserveCarRequest;
     }
