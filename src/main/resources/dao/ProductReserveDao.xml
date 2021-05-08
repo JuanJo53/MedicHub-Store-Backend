@@ -10,6 +10,18 @@
         )
     </insert>
 
+    <update id="updateProductReserve" parameterType="bo.ucb.edu.medichub.model.ProductReserve">
+        UPDATE product_reserve set
+            quantity=#{quantity},
+            tx_id=#{transaction.txId},
+            tx_host=#{transaction.txHost},
+            tx_user_id=#{transaction.txUserId},
+            tx_date=#{transaction.txDate}
+        WHERE
+            product_id=#{productId}
+        and reserve_id=#{reserveId}
+        and status=1
+    </update>
 
     <select id="getListProductReserve" resultMap="productReserveListMap">
         SELECT
@@ -94,5 +106,25 @@
         <result column="quantity" property="quantity"/>
     </resultMap>
 
+    <select id="getProductReserveIfExists" resultType="java.lang.Integer">
+        SELECT
+            quantity
+        FROM product_reserve
+        WHERE
+            product_id = #{productId}
+        and reserve_id = #{reserveId}
+        and status = 1
+    </select>
 
+    <update id="deleteProductReserve" parameterType="bo.ucb.edu.medichub.model.ProductReserve">
+        UPDATE product_reserve set
+            status = #{status},
+            tx_id=#{transaction.txId},
+            tx_host=#{transaction.txHost},
+            tx_user_id=#{transaction.txUserId},
+            tx_date=#{transaction.txDate}
+        WHERE
+            product_reserve_id=#{productReserveId}
+          and status=1
+    </update>
 </mapper>

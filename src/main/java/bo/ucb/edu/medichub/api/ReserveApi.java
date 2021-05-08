@@ -8,9 +8,11 @@ import bo.ucb.edu.medichub.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -44,6 +46,22 @@ public class ReserveApi {
         return reserve;
     }
 
+    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public HttpStatus updateProductReserve(@RequestBody ProductReserveCarRequest productReserveCarRequest, HttpServletRequest request) {
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction(transaction);
+        ProductReserveCarRequest productReserveCarRequestResponse = reserveBl.updateProductReserve(productReserveCarRequest, transaction);
+        return HttpStatus.OK;
+    }
+
+    @DeleteMapping(path="/{productReserveId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public HttpStatus deleteProductReserve(@PathVariable String productReserveId, HttpServletRequest request){
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction(transaction);
+        reserveBl.deleteProductReserve(Integer.parseInt(productReserveId),transaction);
+        return HttpStatus.ACCEPTED;
+    }
 
 
 
