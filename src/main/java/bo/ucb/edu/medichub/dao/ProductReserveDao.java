@@ -21,4 +21,6 @@ public interface ProductReserveDao {
     public Integer getProductReserveIfExists(Integer productId, Integer reserveId);
 
     public void updateProductReserve(ProductReserve productReserve);
+
+    public void deleteProductReserve(ProductReserve productReserve);
 }

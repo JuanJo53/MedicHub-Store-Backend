@@ -129,6 +129,15 @@ public class ReserveBl {
         return productReserveCarRequest;
     }
 
+    public void deleteProductReserve(Integer productReserveId, Transaction transaction){
+        ProductReserve productReserve = new ProductReserve();
+
+        productReserve.setProductReserveId(productReserveId);
+        productReserve.setStatus(0);
+        productReserve.setTransaction(transaction);
+        productReserveDao.deleteProductReserve(productReserve);
+    }
+
     public ProductReserveListRequest productList(Integer clientId, Integer page, Integer size, Integer state) {
         Integer reserveId = reserveDao.getReserveId(clientId,state);
         List<ProductReserveRequest> productReserveRequests = new ArrayList<>();
