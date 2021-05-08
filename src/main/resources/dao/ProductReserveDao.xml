@@ -46,10 +46,10 @@
 
     <select id="productListClient" resultMap="productListClientMap">
         SELECT
-        a.product_id as productId,
+        d.product_reserve_id as productId,
         b.name as brandName,
         a.name as name,
-        d.quantity as stock,
+        d.quantity as quantity,
         a.price as price,
         a.type as type,
         a.dose as dose,
@@ -66,11 +66,11 @@
         ORDER BY a.name DESC
         LIMIT #{size} OFFSET #{page}
     </select>
-    <resultMap id="productListClientMap" type="bo.ucb.edu.medichub.dto.ProductResponse">
+    <resultMap id="productListClientMap" type="bo.ucb.edu.medichub.dto.ProductListResponse">
         <result column="productId" property="productId"/>
         <result column="brandName" property="brandName"/>
         <result column="name" property="name"/>
-        <result column="stock" property="stock"/>
+        <result column="quantity" property="quantity"/>
         <result column="price" property="price"/>
         <result column="type" property="type"/>
         <result column="dose" property="dose"/>

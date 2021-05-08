@@ -1,10 +1,7 @@
 package bo.ucb.edu.medichub.bl;
 
 import bo.ucb.edu.medichub.dao.*;
-import bo.ucb.edu.medichub.dto.ProductReserveCarRequest;
-import bo.ucb.edu.medichub.dto.ProductReserveRequest;
-import bo.ucb.edu.medichub.dto.ProductResponse;
-import bo.ucb.edu.medichub.dto.ReserveRequest;
+import bo.ucb.edu.medichub.dto.*;
 import bo.ucb.edu.medichub.model.ProductReserve;
 import bo.ucb.edu.medichub.model.Reserve;
 import bo.ucb.edu.medichub.model.Transaction;
@@ -132,17 +129,8 @@ public class ReserveBl {
         return productReserveCarRequest;
     }
 
-    public List<ProductResponse> productList(Integer clientId, Integer page, Integer size, Integer state) {
-        List<ProductResponse> productResponse = new ArrayList<>();
-        productResponse = productReserveDao.productListClient(clientId,page,size,state);
-        return productResponse;
-    }
-
-    public Integer quantityProductReserve(Integer clientId) {
-        return productReserveDao.quantityProductReserve(clientId);
-    }
-
-    public Double totalCostProductReserve(Integer clientId, Integer state) {
+    public ProductReserveListRequest productList(Integer clientId, Integer page, Integer size, Integer state) {
+        Integer reserveId = reserveDao.getReserveId(clientId,state);
         List<ProductReserveRequest> productReserveRequests = new ArrayList<>();
         productReserveRequests = productReserveDao.reserveProductReserve(clientId,state);
         double total=0;
@@ -151,8 +139,21 @@ public class ReserveBl {
             data = productReserveRequests.get(i);
             total=total+(data.getPrice()*data.getQuantity());
         }
-        return total;
+        List<ProductListResponse> productResponse = new ArrayList<>();
+        ProductReserveListRequest productReserveListRequest = new ProductReserveListRequest();
+
+        productResponse = productReserveDao.productListClient(clientId,page,size,state);
+        productReserveListRequest.setProduct(productResponse);
+        productReserveListRequest.setTotal(total);
+        productReserveListRequest.setReserveId(reserveId);
+        return productReserveListRequest;
     }
+
+    public Integer quantityProductReserve(Integer clientId) {
+        return productReserveDao.quantityProductReserve(clientId);
+    }
+
+
 
     public Integer totalProductReserve(Integer clientId, Integer state) {
         List<ProductReserveRequest> productReserveRequests = new ArrayList<>();

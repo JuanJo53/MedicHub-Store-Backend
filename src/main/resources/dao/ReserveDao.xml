@@ -30,10 +30,6 @@
     </resultMap>
 
 
-
-
-
-
     <select id="getLastReserveStatus" resultType="java.lang.Integer">
         SELECT
             status_reserve
@@ -44,6 +40,9 @@
         and reserve_id = (SELECT MAX(reserve_id) FROM reserve WHERE client_id = #{clientId})
     </select>
 
+
+
+
     <select id="getLastReserveId" resultType="java.lang.Integer">
         SELECT
             MAX(reserve_id)
@@ -51,5 +50,16 @@
         WHERE
             client_id = #{clientId}
           and status = 1
+    </select>
+
+
+    <select id="getReserveId" resultType="java.lang.Integer">
+       SELECT
+        a.reserve_id as reserveId
+        FROM reserve a
+        WHERE
+        a.status = 1
+        and a.client_id = #{clientId}
+        and a.status_reserve = #{state}
     </select>
 </mapper>
