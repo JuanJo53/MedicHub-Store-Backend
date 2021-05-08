@@ -62,7 +62,7 @@
         a.product_id = d.product_id and
         e.client_id=#{clientId} and
         e.status_reserve = #{state}
-        and a.status = 1
+        and d.status = 1
         ORDER BY a.name DESC
         LIMIT #{size} OFFSET #{page}
     </select>

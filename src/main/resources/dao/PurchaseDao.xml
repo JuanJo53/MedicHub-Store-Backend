@@ -17,9 +17,13 @@
         a.first_surname as firstSurname,
         a.nit as nit,
         a.purchase_date as datePurchase
-        FROM purchase a
+        FROM purchase a, product_purchase b, product c, subsidiary d
         WHERE
         a.status = 1
+        and d.subsidiary_id = c.subsidiary_id
+        and c.product_id = b.product_id
+        and a.purchase_id = b.purchase_id
+        and d.subsidiary_id = #{subsidiaryId}
         ORDER BY a.purchase_date DESC
         LIMIT #{size} OFFSET #{page}
     </select>

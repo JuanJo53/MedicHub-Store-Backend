@@ -37,9 +37,11 @@ public class PurchaseApi {
     }
 
 
-    @RequestMapping(method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<PurchaseListRequest> getPurchase(@RequestParam Integer page, @RequestParam Integer size) {
-        List<PurchaseListRequest> purchase=purchaseBl.getListPurchase(page,size);
+    @GetMapping(path="/{subsidiaryId}/list" , produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<PurchaseListRequest> getPurchaseSubsidiary(@PathVariable String subsidiaryId,
+                                                           @RequestParam Integer page,
+                                                           @RequestParam Integer size) {
+        List<PurchaseListRequest> purchase=purchaseBl.getListPurchaseSubsidiary(Integer.parseInt(subsidiaryId),page,size);
 
         return purchase;
     }

@@ -61,9 +61,9 @@ public class PurchaseBl {
         return purchaseRequest;
     }
 
-    public List<PurchaseListRequest> getListPurchase(Integer page, Integer size) {
+    public List<PurchaseListRequest> getListPurchaseSubsidiary(Integer subsidiaryId,Integer page, Integer size) {
         List<PurchaseListRequest> purchase = new ArrayList<>();
-        purchase = purchaseDao.getListPurchase(page,size);
+        purchase = purchaseDao.getListPurchase(subsidiaryId,page,size);
         List<PurchaseListRequest> data = new ArrayList<>();
         for(int i=0;i<purchase.size();i++){
             PurchaseListRequest purchaseListRequest = new PurchaseListRequest();
