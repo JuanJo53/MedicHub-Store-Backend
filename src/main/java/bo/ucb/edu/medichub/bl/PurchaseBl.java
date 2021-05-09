@@ -40,7 +40,7 @@ public class PurchaseBl {
         purchaseDao.createPurchase(purchase);
 
         Integer lastInsertId = transactionDao.getLastInsertId();
-        List<ProductPurchaseRequest> products = purchaseRequest.getProducts();
+        List<ProductTransactionRequest> products = purchaseRequest.getProducts();
 
         for(int i = 0; i < products.size(); i++){
             Product product = new Product();

@@ -1,9 +1,7 @@
 package bo.ucb.edu.medichub.dao;
 
 import bo.ucb.edu.medichub.dto.ProductPurchaseListRequest;
-import bo.ucb.edu.medichub.dto.ProductPurchaseRequest;
 import bo.ucb.edu.medichub.dto.PurchaseListRequest;
-import bo.ucb.edu.medichub.dto.PurchaseRequest;
 import bo.ucb.edu.medichub.model.Product;
 import bo.ucb.edu.medichub.model.ProductPurchase;
 import org.apache.ibatis.annotations.Mapper;

@@ -9,4 +9,21 @@
             1, #{transaction.txId}, #{transaction.txHost}, #{transaction.txUserId}, #{transaction.txDate}
         )
     </insert>
+
+    <select id="getProductList" resultMap="productListMap">
+        SELECT
+            product_reserve as productTransactionId,
+            product_id as productId,
+            quantity as quantity
+        FROM product_reserve
+        WHERE
+            reserve_id = #{reserveId}
+        and status = 1
+    </select>
+
+    <resultMap id="productListMap" type="bo.ucb.edu.medichub.dto.ProductTransactionRequest">
+        <result column="productTransactionId" property="productTransactionId"/>
+        <result column="productId" property="productId"/>
+        <result column="quantity" property="quantity"/>
+    </resultMap>
 </mapper>

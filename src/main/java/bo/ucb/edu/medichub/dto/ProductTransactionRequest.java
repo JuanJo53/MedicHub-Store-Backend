@@ -1,19 +1,19 @@
 package bo.ucb.edu.medichub.dto;
 
-public class ProductPurchaseRequest {
-    private Integer productPurchaseId;
+public class ProductTransactionRequest {
+    private Integer productTransactionId;
     private Integer productId;
     private Integer quantity;
 
-    public ProductPurchaseRequest() {
+    public ProductTransactionRequest() {
     }
 
-    public Integer getProductPurchaseId() {
-        return productPurchaseId;
+    public Integer getProductTransactionId() {
+        return productTransactionId;
     }
 
-    public void setProductPurchaseId(Integer productPurchaseId) {
-        this.productPurchaseId = productPurchaseId;
+    public void setProductTransactionId(Integer productTransactionId) {
+        this.productTransactionId = productTransactionId;
     }
 
     public Integer getProductId() {
@@ -35,7 +35,7 @@ public class ProductPurchaseRequest {
     @Override
     public String toString() {
         return "ProductPurchaseRequest{" +
-                "productPurchaseId=" + productPurchaseId +
+                "productPurchaseId=" + productTransactionId +
                 ", productId=" + productId +
                 ", quantity=" + quantity +
                 '}';

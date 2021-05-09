@@ -1,6 +1,5 @@
 package bo.ucb.edu.medichub.dto;
 
-import java.util.Date;
 import java.util.List;
 
 public class PurchaseRequest {
@@ -8,7 +7,7 @@ public class PurchaseRequest {
     private Double totalAmount;
     private String firstSurname;
     private String nit;
-    private List<ProductPurchaseRequest> products;
+    private List<ProductTransactionRequest> products;
 
     public PurchaseRequest() {
     }
@@ -45,11 +44,11 @@ public class PurchaseRequest {
         this.nit = nit;
     }
 
-    public List<ProductPurchaseRequest> getProducts() {
+    public List<ProductTransactionRequest> getProducts() {
         return products;
     }
 
-    public void setProducts(List<ProductPurchaseRequest> products) {
+    public void setProducts(List<ProductTransactionRequest> products) {
         this.products = products;
     }
 
