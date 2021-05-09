@@ -62,4 +62,17 @@
         and a.client_id = #{clientId}
         and a.status_reserve = #{state}
     </select>
+
+    <update id="updateReserveStatus" parameterType="bo.ucb.edu.medichub.model.Reserve">
+        UPDATE reserve set
+            status_reserve=#{statusReserve},
+            tx_id=#{transaction.txId},
+            tx_host=#{transaction.txHost},
+            tx_user_id=#{transaction.txUserId},
+            tx_date=#{transaction.txDate}
+        WHERE
+            reserve_id=#{reserveId}
+        and client_id=#{clientId}
+        and status=1
+    </update>
 </mapper>

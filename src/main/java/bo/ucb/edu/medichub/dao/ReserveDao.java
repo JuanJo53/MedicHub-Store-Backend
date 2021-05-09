@@ -19,4 +19,6 @@ public interface ReserveDao {
     public Integer getLastReserveId(Integer clientId);
 
     public Integer getReserveId(Integer clientId, Integer state);
+
+    public void updateReserveStatus(Reserve reserve);
 }

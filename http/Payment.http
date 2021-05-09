@@ -1,0 +1,12 @@
+POST http://localhost:8080/payment
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoyLCJ1c2VyX25hbWUiOiJqdWFucGVyZXpAZ21haWwuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sInN1YnNpZGlhcnlJZCI6MSwiZXhwIjoxNjIwNTU1NTAyLCJ1c2VyTmFtZSI6Ikp1YW5pdG9BbGNhY2hvZmEiLCJhdXRob3JpdGllcyI6WyJST0xFX1BIQVJNQUNZX0FETUlOIl0sImp0aSI6IjY1ZTA4Yzc4LTg5MzktNGM4ZC04MTkwLTA3MDBkMjVlY2JiYSIsImVtYWlsIjoianVhbnBlcmV6QGdtYWlsLmNvbSIsImNsaWVudF9pZCI6Im1lZGljaHViYXBwIiwicGhhcm1BZG1pbklkIjoxfQ.xm3iMu_aXE63EL0WVCdCV9ybDSUW765IFTSUjXdI7hg
+
+{
+  "clientId": 1,
+  "cardId": 1,
+  "total": 20
+}
+
+###

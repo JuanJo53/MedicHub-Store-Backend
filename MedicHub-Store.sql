@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2021-05-05 22:51:53.083
+-- Last modification date: 2021-05-09 00:11:33.358
 
 -- tables
 -- Table: address
@@ -127,7 +127,6 @@ CREATE TABLE payment (
     payment_id int NOT NULL AUTO_INCREMENT,
     card_id int NOT NULL,
     reserve_id int NOT NULL,
-    bank_account_id int NOT NULL,
     payment_date date NOT NULL,
     amount numeric(12,6) NOT NULL,
     status int NOT NULL,
@@ -310,10 +309,6 @@ ALTER TABLE client ADD CONSTRAINT client_address FOREIGN KEY client_address (add
 -- Reference: client_person (table: client)
 ALTER TABLE client ADD CONSTRAINT client_person FOREIGN KEY client_person (person_id)
     REFERENCES person (person_id);
-
--- Reference: payment_bank_account (table: payment)
-ALTER TABLE payment ADD CONSTRAINT payment_bank_account FOREIGN KEY payment_bank_account (bank_account_id)
-    REFERENCES bank_account (bank_account_id);
 
 -- Reference: payment_card (table: payment)
 ALTER TABLE payment ADD CONSTRAINT payment_card FOREIGN KEY payment_card (card_id)

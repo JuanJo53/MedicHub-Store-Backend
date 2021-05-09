@@ -5,7 +5,7 @@
 <mapper namespace="bo.ucb.edu.medichub.dao.PaymentDao">
     <insert id="createPayment" parameterType="bo.ucb.edu.medichub.model.Payment">
         INSERT INTO payment VALUES (
-            null, #{cardId}, #{reserveId}, #{bankAccountId}, #{paymentDate}, #{amount},
+            null, #{cardId}, #{reserveId}, #{paymentDate}, #{amount},
             1, #{transaction.txId}, #{transaction.txHost}, #{transaction.txUserId}, #{transaction.txDate}
         )
     </insert>
