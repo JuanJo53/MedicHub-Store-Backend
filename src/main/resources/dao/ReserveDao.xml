@@ -62,4 +62,17 @@
         and a.client_id = #{clientId}
         and a.status_reserve = #{state}
     </select>
+
+
+    <update id="deleteClientReserve" parameterType="bo.ucb.edu.medichub.model.ProductReserve">
+        UPDATE reserve set
+            status_reserve = #{status},
+            tx_id=#{transaction.txId},
+            tx_host=#{transaction.txHost},
+            tx_user_id=#{transaction.txUserId},
+            tx_date=#{transaction.txDate}
+        WHERE
+            reserve_id=#{productReserveId}
+          and status=1
+    </update>
 </mapper>
