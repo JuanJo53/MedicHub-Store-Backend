@@ -10,6 +10,8 @@ import bo.ucb.edu.medichub.model.Payment;
 import bo.ucb.edu.medichub.model.Product;
 import bo.ucb.edu.medichub.model.Reserve;
 import bo.ucb.edu.medichub.model.Transaction;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
@@ -24,6 +26,7 @@ public class PaymentBl {
     private ProductPurchaseDao productPurchaseDao;
     private TransactionDao transactionDao;
 
+    private static Logger LOGGER = LoggerFactory.getLogger(PaymentBl.class);
     @Autowired
     public PaymentBl(PaymentDao paymentDao, ReserveDao reserveDao, ProductPurchaseDao productPurchaseDao, TransactionDao transactionDao) {
         this.paymentDao = paymentDao;
@@ -39,12 +42,14 @@ public class PaymentBl {
         Integer lastReserveId = reserveDao.getLastReserveId(paymentRequest.getClientId());
 
         List<ProductTransactionRequest> products = paymentDao.getProductList(lastReserveId);
+        LOGGER.error(String.valueOf(products.size()));
 
         for(int i = 0; i < products.size(); i++){
             Product product = new Product();
 
             Integer stock = productPurchaseDao.getStockByProductId(products.get(i).getProductId());
             stock = stock - products.get(i).getQuantity();
+            LOGGER.error(String.valueOf(stock));
             product.setProductId(products.get(i).getProductId());
             product.setStock(stock);
             productPurchaseDao.updateStock(product);

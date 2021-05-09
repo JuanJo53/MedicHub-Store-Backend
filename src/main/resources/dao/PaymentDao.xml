@@ -12,7 +12,7 @@
 
     <select id="getProductList" resultMap="productListMap">
         SELECT
-            product_reserve as productTransactionId,
+            product_reserve_id as productTransactionId,
             product_id as productId,
             quantity as quantity
         FROM product_reserve
