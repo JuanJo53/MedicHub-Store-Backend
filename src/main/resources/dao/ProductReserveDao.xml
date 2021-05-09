@@ -85,7 +85,7 @@
         FROM product_reserve d, reserve e
         WHERE
             e.client_id=#{clientId} and
-            e.status_reserve = 1 and
+            e.status_reserve = #{state} and
             e.reserve_id = d.reserve_id and
             d.status = 1
     </select>
@@ -99,6 +99,7 @@
         b.product_id = c.product_id and
         e.reserve_id = b.reserve_id and
         e.client_id=#{clientId} and
+        e.reserve_id=#{reserveId} and
         b.status = 1
     </select>
     <resultMap id="productReserveTotalMap" type="bo.ucb.edu.medichub.dto.ProductReserveRequest">
@@ -127,4 +128,40 @@
             product_reserve_id=#{productReserveId}
           and status=1
     </update>
+
+
+
+    <select id="productReserveListClient" resultMap="productReserveListClientMap">
+        SELECT
+        d.product_reserve_id as productId,
+        b.name as brandName,
+        a.name as name,
+        d.quantity as quantity,
+        a.price as price,
+        a.type as type,
+        a.dose as dose,
+        a.description as description,
+        a.picture as picture
+        FROM product a, brand b, product_reserve d, reserve e
+        WHERE
+        a.brand_id = b.brand_id  and
+        e.reserve_id = d.reserve_id and
+        a.product_id = d.product_id and
+        e.client_id=#{clientId} and
+        e.status_reserve = #{state}
+        and e.reserve_id = #{reserveId}
+        and d.status = 1
+        ORDER BY a.name DESC
+    </select>
+    <resultMap id="productReserveListClientMap" type="bo.ucb.edu.medichub.dto.ProductListResponse">
+        <result column="productId" property="productId"/>
+        <result column="brandName" property="brandName"/>
+        <result column="name" property="name"/>
+        <result column="quantity" property="quantity"/>
+        <result column="price" property="price"/>
+        <result column="type" property="type"/>
+        <result column="dose" property="dose"/>
+        <result column="description" property="description"/>
+        <result column="picture" property="picture"/>
+    </resultMap>
 </mapper>

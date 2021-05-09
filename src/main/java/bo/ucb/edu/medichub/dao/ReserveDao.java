@@ -1,6 +1,7 @@
 package bo.ucb.edu.medichub.dao;
 
 import bo.ucb.edu.medichub.dto.ProductReserveRequest;
+import bo.ucb.edu.medichub.dto.ReserveListRequest;
 import bo.ucb.edu.medichub.dto.ReserveRequest;
 import bo.ucb.edu.medichub.model.ProductReserve;
 import bo.ucb.edu.medichub.model.Reserve;
@@ -26,4 +27,6 @@ public interface ReserveDao {
     public void updateReserve(Reserve reserve);
 
     public void updateReserveStatus(Reserve reserve);
+
+    public List<ReserveListRequest> getReserveClient(Integer clientId, Integer state, String ini, String end);
 }

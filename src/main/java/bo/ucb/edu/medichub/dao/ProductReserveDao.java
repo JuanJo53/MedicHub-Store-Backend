@@ -14,13 +14,15 @@ public interface ProductReserveDao {
 
     public List<ProductListResponse> productListClient(Integer clientId, Integer page, Integer size,Integer state);
 
-    public Integer quantityProductReserve(Integer clientId);
+    public Integer quantityProductReserve(Integer clientId, Integer state);
 
-    public List<ProductReserveRequest> reserveProductReserve(Integer clientId, Integer state);
+    public List<ProductReserveRequest> reserveProductReserve(Integer reserveId,Integer clientId, Integer state);
 
     public Integer getProductReserveIfExists(Integer productId, Integer reserveId);
 
     public void updateProductReserve(ProductReserve productReserve);
 
     public void deleteProductReserve(ProductReserve productReserve);
+
+    public List<ProductListResponse> productReserveListClient(Integer clientId, Integer state, Integer reserveId);
 }

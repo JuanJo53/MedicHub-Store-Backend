@@ -103,4 +103,13 @@ public class ReserveApi {
         return HttpStatus.ACCEPTED;
     }
 
+    @GetMapping(path="/{clientId}/client/list", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<ReserveListRequest> getClientListPharmacies(@PathVariable String clientId,
+                                                   @RequestParam String page,
+                                                   @RequestParam String size,
+                                                   @RequestParam Integer state){
+        List<ReserveListRequest> product = reserveBl.productClientList(Integer.parseInt(clientId), page, size,state);
+        return product;
+    }
+
 }

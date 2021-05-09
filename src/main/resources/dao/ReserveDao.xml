@@ -99,4 +99,25 @@
             reserve_id=#{reserveId}
           and status=1
     </update>
+
+
+
+
+    <select id="getReserveClient" resultMap="reserveClientListMap">
+        SELECT
+        a.reserve_id as reserveId,
+        a.date as dateReserve
+        FROM reserve a
+        WHERE
+        a.status = 1
+        and a.status_reserve = #{state}
+        and a.client_id = #{clientId}
+        and a.date between #{ini} and #{end}
+        ORDER BY a.date DESC
+    </select>
+
+    <resultMap id="reserveClientListMap" type="bo.ucb.edu.medichub.dto.ReserveListRequest">
+        <result column="reserveId" property="reserveId"/>
+        <result column="dateReserve" property="dateReserve"/>
+    </resultMap>
 </mapper>

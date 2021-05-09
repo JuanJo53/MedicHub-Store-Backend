@@ -141,7 +141,7 @@ public class ReserveBl {
     public ProductReserveListRequest productList(Integer clientId, Integer page, Integer size, Integer state) {
         Integer reserveId = reserveDao.getReserveId(clientId,state);
         List<ProductReserveRequest> productReserveRequests = new ArrayList<>();
-        productReserveRequests = productReserveDao.reserveProductReserve(clientId,state);
+        productReserveRequests = productReserveDao.reserveProductReserve(reserveId,clientId,state);
         double total=0;
         for (int i=0;i<productReserveRequests.size();i++){
             ProductReserveRequest data = new ProductReserveRequest();
@@ -159,14 +159,15 @@ public class ReserveBl {
     }
 
     public Integer quantityProductReserve(Integer clientId) {
-        return productReserveDao.quantityProductReserve(clientId);
+        return productReserveDao.quantityProductReserve(clientId,1);
     }
 
 
 
     public Integer totalProductReserve(Integer clientId, Integer state) {
+        Integer reserveId = reserveDao.getReserveId(clientId,state);
         List<ProductReserveRequest> productReserveRequests = new ArrayList<>();
-        productReserveRequests = productReserveDao.reserveProductReserve(clientId,state);
+        productReserveRequests = productReserveDao.reserveProductReserve(reserveId,clientId,state);
         return productReserveRequests.size();
     }
 
@@ -184,5 +185,35 @@ public class ReserveBl {
         productReserve.setStatusReserve(4);
         productReserve.setTransaction(transaction);
         reserveDao.deleteClientReserve(productReserve);
+    }
+
+
+    public List<ReserveListRequest> productClientList(Integer clientId, String page, String size, Integer state) {
+        List<ReserveListRequest> reserveListRequests = new ArrayList<>();
+        List<ReserveListRequest> data = new ArrayList<>();
+        reserveListRequests = reserveDao.getReserveClient(clientId,state,page,size);
+        for (int i=0;i<reserveListRequests.size();i++){
+
+            ReserveListRequest reserveListRequest = new ReserveListRequest();
+            reserveListRequest = reserveListRequests.get(i);
+            System.out.println(reserveListRequest.getReserveId());
+            System.out.println(reserveListRequest.getDateReserve());
+            List<ProductReserveRequest> productReserveRequests = new ArrayList<>();
+            productReserveRequests = productReserveDao.reserveProductReserve(reserveListRequest.getReserveId(),clientId,state);
+            double total=0;
+            for (int j=0;j<productReserveRequests.size();j++){
+                ProductReserveRequest dataFinal = new ProductReserveRequest();
+                dataFinal = productReserveRequests.get(j);
+                total=total+(dataFinal.getPrice()*dataFinal.getQuantity());
+            }
+            Integer quantity = productReserveDao.quantityProductReserve(clientId,state);
+            List<ProductListResponse> productResponse = new ArrayList<>();
+            productResponse = productReserveDao.productReserveListClient(clientId,state,reserveListRequest.getReserveId());
+            reserveListRequest.setQuantity(quantity);
+            reserveListRequest.setTotal(total);
+            reserveListRequest.setProduct(productResponse);
+            data.add(reserveListRequest);
+        }
+        return data;
     }
 }
