@@ -89,4 +89,12 @@ public class ReserveApi {
         return total;
     }
 
+    @DeleteMapping(path="/{reserveId}/client", produces = MediaType.APPLICATION_JSON_VALUE)
+    public HttpStatus deleteClientReserve(@PathVariable String reserveId, HttpServletRequest request){
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction(transaction);
+        reserveBl.deleteClientReserve(Integer.parseInt(reserveId),transaction);
+        return HttpStatus.ACCEPTED;
+    }
+
 }

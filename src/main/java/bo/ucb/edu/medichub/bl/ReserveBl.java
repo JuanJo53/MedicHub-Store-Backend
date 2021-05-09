@@ -169,4 +169,12 @@ public class ReserveBl {
         productReserveRequests = productReserveDao.reserveProductReserve(clientId,state);
         return productReserveRequests.size();
     }
+
+    public void deleteClientReserve(Integer reserveId, Transaction transaction) {
+        Reserve productReserve = new Reserve();
+        productReserve.setReserveId(reserveId);
+        productReserve.setStatusReserve(4);
+        productReserve.setTransaction(transaction);
+        reserveDao.deleteClientReserve(productReserve);
+    }
 }

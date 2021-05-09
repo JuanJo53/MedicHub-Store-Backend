@@ -2,6 +2,7 @@ package bo.ucb.edu.medichub.dao;
 
 import bo.ucb.edu.medichub.dto.ProductReserveRequest;
 import bo.ucb.edu.medichub.dto.ReserveRequest;
+import bo.ucb.edu.medichub.model.ProductReserve;
 import bo.ucb.edu.medichub.model.Reserve;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -20,5 +21,6 @@ public interface ReserveDao {
 
     public Integer getReserveId(Integer clientId, Integer state);
 
+    public void deleteClientReserve(Reserve reserve);
     public void updateReserveStatus(Reserve reserve);
 }
