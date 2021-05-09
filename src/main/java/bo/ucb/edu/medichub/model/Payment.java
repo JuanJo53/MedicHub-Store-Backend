@@ -6,7 +6,6 @@ public class Payment {
     private Integer paymentId;
     private Integer cardId;
     private Integer reserveId;
-    private Integer bankAccountId;
     private Date paymentDate;
     private Double amount;
     private Integer status;
@@ -38,14 +37,6 @@ public class Payment {
 
     public void setReserveId(Integer reserveId) {
         this.reserveId = reserveId;
-    }
-
-    public Integer getBankAccountId() {
-        return bankAccountId;
-    }
-
-    public void setBankAccountId(Integer bankAccountId) {
-        this.bankAccountId = bankAccountId;
     }
 
     public Date getPaymentDate() {
@@ -86,7 +77,6 @@ public class Payment {
                 "paymentId=" + paymentId +
                 ", cardId=" + cardId +
                 ", reserveId=" + reserveId +
-                ", bankAccountId=" + bankAccountId +
                 ", paymentDate=" + paymentDate +
                 ", amount=" + amount +
                 ", status=" + status +
