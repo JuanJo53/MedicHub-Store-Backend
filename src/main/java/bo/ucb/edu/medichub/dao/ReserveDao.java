@@ -22,5 +22,8 @@ public interface ReserveDao {
     public Integer getReserveId(Integer clientId, Integer state);
 
     public void deleteClientReserve(Reserve reserve);
+
+    public void updateReserve(Reserve reserve);
+
     public void updateReserveStatus(Reserve reserve);
 }

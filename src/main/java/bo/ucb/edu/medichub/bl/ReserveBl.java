@@ -170,6 +170,14 @@ public class ReserveBl {
         return productReserveRequests.size();
     }
 
+    public void confirmReserve(Integer reserveId, Transaction transaction) {
+        Reserve productReserve = new Reserve();
+        productReserve.setReserveId(reserveId);
+        productReserve.setStatusReserve(3);
+        productReserve.setTransaction(transaction);
+        reserveDao.updateReserve(productReserve);
+    }
+
     public void deleteClientReserve(Integer reserveId, Transaction transaction) {
         Reserve productReserve = new Reserve();
         productReserve.setReserveId(reserveId);

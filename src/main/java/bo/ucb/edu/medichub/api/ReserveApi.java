@@ -80,7 +80,13 @@ public class ReserveApi {
         return quantity;
     }
 
-
+    @PutMapping(path="/{reserveId}/confirmed", produces = MediaType.APPLICATION_JSON_VALUE)
+    public HttpStatus confirmReserve(@PathVariable String reserveId, HttpServletRequest request){
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction(transaction);
+        reserveBl.confirmReserve(Integer.parseInt(reserveId), transaction);
+        return HttpStatus.OK;
+    }
 
 
     @GetMapping(path="/{clientId}/total", produces = MediaType.APPLICATION_JSON_VALUE)
