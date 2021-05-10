@@ -194,17 +194,10 @@ public class ReserveBl {
         List<ReserveListRequest> data = new ArrayList<>();
 
         if (isNumeric(page) && isNumeric(size)){
-
                 reserveListRequests = reserveDao.getPageReserveClient(clientId,state,Integer.parseInt(page),Integer.parseInt(size));
-                System.out.println("sssss2");
-
         }
         if (!isNumeric(page) && !isNumeric(size)){
-
-
                 reserveListRequests = reserveDao.getReserveClient(clientId,state,page,size);
-                System.out.println("sssss4");
-
         }
         for (int i=0;i<reserveListRequests.size();i++){
             List<ProductListResponse> productResponse = new ArrayList<>();
@@ -244,8 +237,35 @@ public class ReserveBl {
         return resultado;
     }
 
-    public List<ReserveListRequest> getSubsidiaryListReserve(Integer subsidiaryId, String page, String size, Integer state) {
+    public List<ReserveSubsidiaryRequest> getSubsidiaryListReserve(Integer subsidiaryId, Integer page, Integer size, Integer state) {
+        List<ReserveSubsidiaryRequest> reserveSubsidiaryRequests = new ArrayList<>();
+        List<ReserveSubsidiaryRequest> data = new ArrayList<>();
+        reserveSubsidiaryRequests = productReserveDao.getProductSubsidiary(subsidiaryId,page,size,state);
+        for(int i=0;i<reserveSubsidiaryRequests.size();i++){
+            ReserveSubsidiaryRequest reserveSubsidiaryRequest = new ReserveSubsidiaryRequest();
+            reserveSubsidiaryRequest = reserveSubsidiaryRequests.get(i);
+            System.out.println(reserveSubsidiaryRequest.getDate());
+            System.out.println(reserveSubsidiaryRequest.getFirstName());
+            System.out.println(reserveSubsidiaryRequest.getReserveId());
+            List<ProductListResponse> productResponse = new ArrayList<>();
+            productResponse = productReserveDao.productSubsidiaryReserveListClient(reserveSubsidiaryRequest.getReserveId(),subsidiaryId);
 
-        return null;
+            System.out.println(productResponse.size()+"dddd");
+            if(productResponse.size()!=0){
+                double total=0;
+                int quantity=0;
+                for (int j=0;j<productResponse.size();j++){
+                    ProductListResponse productListResponse = new ProductListResponse();
+                    productListResponse = productResponse.get(j);
+                    total=total+(productListResponse.getQuantity()*productListResponse.getPrice());
+                    quantity = quantity + productListResponse.getQuantity();
+                }
+                reserveSubsidiaryRequest.setProducts(productResponse);
+                reserveSubsidiaryRequest.setQuantity(quantity);
+                reserveSubsidiaryRequest.setTotal(total);
+                data.add(reserveSubsidiaryRequest);
+            }
+        }
+        return data;
     }
 }

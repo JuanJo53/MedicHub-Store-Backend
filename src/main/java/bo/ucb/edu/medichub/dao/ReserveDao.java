@@ -32,5 +32,4 @@ public interface ReserveDao {
     public List<ReserveListRequest> getPageReserveClient(Integer clientId, Integer state, Integer page, Integer size);
 
 
-
 }

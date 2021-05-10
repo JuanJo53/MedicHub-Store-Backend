@@ -29,4 +29,7 @@ public interface ProductReserveDao {
     public List<ProductListResponse> productReserveListClient(Integer clientId, Integer state, Integer reserveId, String name);
 
 
+    public List<ReserveSubsidiaryRequest> getProductSubsidiary( Integer subsidiaryId, Integer page, Integer size,Integer state);
+
+    public List<ProductListResponse> productSubsidiaryReserveListClient(Integer reserveId,Integer subsidiaryId);
 }
