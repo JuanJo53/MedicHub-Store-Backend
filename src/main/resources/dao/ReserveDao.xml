@@ -110,10 +110,27 @@
         FROM reserve a
         WHERE
         a.status = 1
+        <if test="state!=0">
         and a.status_reserve = #{state}
+        </if>
         and a.client_id = #{clientId}
         and a.date between #{ini} and #{end}
         ORDER BY a.date DESC
+    </select>
+
+    <select id="getPageReserveClient" resultMap="reserveClientListMap">
+        SELECT
+        a.reserve_id as reserveId,
+        a.date as dateReserve
+        FROM reserve a
+        WHERE
+        a.status = 1
+        <if test="state!=0">
+            and a.status_reserve = #{state}
+        </if>
+        and a.client_id = #{clientId}
+        ORDER BY a.date DESC
+        LIMIT #{size} OFFSET #{page}
     </select>
 
     <resultMap id="reserveClientListMap" type="bo.ucb.edu.medichub.dto.ReserveListRequest">

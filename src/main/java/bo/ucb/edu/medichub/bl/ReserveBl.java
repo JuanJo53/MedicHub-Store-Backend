@@ -189,9 +189,16 @@ public class ReserveBl {
 
 
     public List<ReserveListRequest> productClientList(Integer clientId, String page, String size, Integer state) {
+
         List<ReserveListRequest> reserveListRequests = new ArrayList<>();
         List<ReserveListRequest> data = new ArrayList<>();
-        reserveListRequests = reserveDao.getReserveClient(clientId,state,page,size);
+        if (isNumeric(page) && isNumeric(size)){
+
+            reserveListRequests = reserveDao.getPageReserveClient(clientId,state,Integer.parseInt(page),Integer.parseInt(size));
+        }
+        if (!isNumeric(page) && !isNumeric(size)){
+            reserveListRequests = reserveDao.getReserveClient(clientId,state,page,size);
+        }
         for (int i=0;i<reserveListRequests.size();i++){
 
             ReserveListRequest reserveListRequest = new ReserveListRequest();
@@ -212,8 +219,28 @@ public class ReserveBl {
             reserveListRequest.setQuantity(quantity);
             reserveListRequest.setTotal(total);
             reserveListRequest.setProduct(productResponse);
+            reserveListRequest.setSize(reserveListRequests.size());
             data.add(reserveListRequest);
         }
         return data;
+    }
+
+    public static boolean isNumeric(String cadena) {
+
+        boolean resultado;
+
+        try {
+            Integer.parseInt(cadena);
+            resultado = true;
+        } catch (NumberFormatException excepcion) {
+            resultado = false;
+        }
+
+        return resultado;
+    }
+
+    public List<ReserveListRequest> getSubsidiaryListReserve(Integer subsidiaryId, String page, String size, Integer state) {
+
+        return null;
     }
 }

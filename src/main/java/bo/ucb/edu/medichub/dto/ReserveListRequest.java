@@ -8,6 +8,7 @@ public class ReserveListRequest {
     private Double total;
     private Date dateReserve;
     private Integer quantity;
+    private Integer size;
     private List<ProductListResponse> product;
 
     public ReserveListRequest() {
@@ -53,6 +54,14 @@ public class ReserveListRequest {
         this.product = product;
     }
 
+    public Integer getSize() {
+        return size;
+    }
+
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+
     @Override
     public String toString() {
         return "ReserveListRequest{" +
@@ -60,6 +69,7 @@ public class ReserveListRequest {
                 ", total=" + total +
                 ", dateReserve=" + dateReserve +
                 ", quantity=" + quantity +
+                ", size=" + size +
                 ", product=" + product +
                 '}';
     }

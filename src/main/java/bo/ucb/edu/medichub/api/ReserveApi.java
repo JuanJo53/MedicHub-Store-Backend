@@ -112,4 +112,14 @@ public class ReserveApi {
         return product;
     }
 
+
+    @GetMapping(path="/{subsidiaryId}/subsidiary/list", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<ReserveListRequest> getSubsidiaryListPharmacies(@PathVariable String subsidiaryId,
+                                                            @RequestParam String page,
+                                                            @RequestParam String size,
+                                                            @RequestParam Integer state){
+        List<ReserveListRequest> product = reserveBl.getSubsidiaryListReserve(Integer.parseInt(subsidiaryId), page, size,state);
+        return product;
+    }
+
 }

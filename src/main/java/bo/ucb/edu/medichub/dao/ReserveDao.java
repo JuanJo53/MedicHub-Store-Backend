@@ -29,4 +29,6 @@ public interface ReserveDao {
     public void updateReserveStatus(Reserve reserve);
 
     public List<ReserveListRequest> getReserveClient(Integer clientId, Integer state, String ini, String end);
+
+    public List<ReserveListRequest> getPageReserveClient(Integer clientId, Integer state, Integer page, Integer size);
 }
