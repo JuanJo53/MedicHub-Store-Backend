@@ -108,8 +108,8 @@ public class ReserveApi {
                                                    @RequestParam String page,
                                                    @RequestParam String size,
                                                    @RequestParam Integer state,
-                                                   @RequestParam String name){
-        List<ReserveListRequest> product = reserveBl.productClientList(Integer.parseInt(clientId), page, size,state,name);
+                                                   @RequestParam String value){
+        List<ReserveListRequest> product = reserveBl.productClientList(Integer.parseInt(clientId), page, size,state,value);
         return product;
     }
 
