@@ -110,7 +110,7 @@
         FROM reserve a
         WHERE
         a.status = 1
-        <if test="state!=0">
+        <if test="state>0">
         and a.status_reserve = #{state}
         </if>
         and a.client_id = #{clientId}
@@ -125,8 +125,8 @@
         FROM reserve a
         WHERE
         a.status = 1
-        <if test="state!=0">
-            and a.status_reserve = #{state}
+        <if test=" state>0">
+        and a.status_reserve = #{state}
         </if>
         and a.client_id = #{clientId}
         ORDER BY a.date DESC

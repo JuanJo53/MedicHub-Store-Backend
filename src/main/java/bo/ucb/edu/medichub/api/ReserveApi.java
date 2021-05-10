@@ -107,8 +107,9 @@ public class ReserveApi {
     public List<ReserveListRequest> getClientListPharmacies(@PathVariable String clientId,
                                                    @RequestParam String page,
                                                    @RequestParam String size,
-                                                   @RequestParam Integer state){
-        List<ReserveListRequest> product = reserveBl.productClientList(Integer.parseInt(clientId), page, size,state);
+                                                   @RequestParam Integer state,
+                                                   @RequestParam String name){
+        List<ReserveListRequest> product = reserveBl.productClientList(Integer.parseInt(clientId), page, size,state,name);
         return product;
     }
 

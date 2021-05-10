@@ -96,6 +96,9 @@
         b.quantity as quantity
         FROM product_reserve b, product c, reserve e
         WHERE
+        <if test="name!='' ">
+            a.name = #{name} and
+        </if>
         b.product_id = c.product_id and
         e.reserve_id = b.reserve_id and
         e.client_id=#{clientId} and
@@ -148,8 +151,10 @@
         e.reserve_id = d.reserve_id and
         a.product_id = d.product_id and
         e.client_id=#{clientId} and
-        e.status_reserve = #{state}
-        and e.reserve_id = #{reserveId}
+        <if test="name!='' ">
+            a.name = #{name} and
+        </if>
+        e.reserve_id = #{reserveId}
         and d.status = 1
         ORDER BY a.name DESC
     </select>

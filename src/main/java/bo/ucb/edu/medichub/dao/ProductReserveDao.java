@@ -16,7 +16,6 @@ public interface ProductReserveDao {
 
     public Integer quantityProductReserve(Integer clientId, Integer state);
 
-    public List<ProductReserveRequest> reserveProductReserve(Integer reserveId,Integer clientId, Integer state);
 
     public Integer getProductReserveIfExists(Integer productId, Integer reserveId);
 
@@ -24,5 +23,10 @@ public interface ProductReserveDao {
 
     public void deleteProductReserve(ProductReserve productReserve);
 
-    public List<ProductListResponse> productReserveListClient(Integer clientId, Integer state, Integer reserveId);
+
+
+    public List<ProductReserveRequest> reserveProductReserve(Integer reserveId,Integer clientId, Integer state,String name);
+    public List<ProductListResponse> productReserveListClient(Integer clientId, Integer state, Integer reserveId, String name);
+
+
 }

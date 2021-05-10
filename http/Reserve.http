@@ -74,8 +74,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJ1c2VyX
 
 
 
-GET http://localhost:8080/reserve/1/client/list?page=2020-01-01&size=2022-02-01&state=4
-#GET http://localhost:8080/reserve/1/client/list?page=0&size=5&state=4
+#GET http://localhost:8080/reserve/1/client/list?page=2020-01-01&size=2022-02-01&state=0&name=
+GET http://localhost:8080/reserve/1/client/list?page=0&size=5&state=4&name=Delora Hoggins
 Accept: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRJZCI6MSwicm9sZSI6MywidXNlcl9uYW1lIjoiZXJ3aW5AZ21haWwuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTYyMDYxNzQ3NiwidXNlck5hbWUiOiJlcndpbkFsZSIsImF1dGhvcml0aWVzIjpbIlJPTEVfQ0xJRU5UIl0sImp0aSI6Ijk5YTY2YzY1LTIzNDEtNDhlYi1iMzI0LTZiZDVlMzU5ZjJlNSIsImVtYWlsIjoiZXJ3aW5AZ21haWwuY29tIiwiY2xpZW50X2lkIjoibWVkaWNodWJhcHAifQ.F0VFYps4OhSruvo6GR6CnDZI4DeTBM_8avJvW1FoSGg
 
