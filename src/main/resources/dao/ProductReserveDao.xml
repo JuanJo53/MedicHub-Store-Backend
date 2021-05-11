@@ -207,7 +207,9 @@
             and e.client_id = d.client_id
             and f.person_id = e.person_id
             and a.subsidiary_id=#{subsidiaryId}
-            and d.status_reserve=#{state}
+            <if test="state!=0 ">
+                and d.status_reserve=#{state}
+            </if>
         GROUP BY d.reserve_id
         ORDER BY d.date ASC
         LIMIT #{size} OFFSET #{page}

@@ -4,6 +4,7 @@ public class ProductReserveRepRequest {
     private Integer productId;
     private Integer quantity;
     private String name;
+    private Double price;
     private Double total;
 
     public ProductReserveRepRequest() {
@@ -39,6 +40,14 @@ public class ProductReserveRepRequest {
 
     public void setTotal(Double total) {
         this.total = total;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     @Override

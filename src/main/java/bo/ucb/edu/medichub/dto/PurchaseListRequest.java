@@ -10,7 +10,7 @@ public class PurchaseListRequest {
     private String firstSurname;
     private String nit;
     private Date datePurchase;
-    private List<ProductPurchaseListRequest> products;
+    private List<ProductListResponse> products;
 
     public PurchaseListRequest() {
     }
@@ -55,11 +55,11 @@ public class PurchaseListRequest {
         this.datePurchase = datePurchase;
     }
 
-    public List<ProductPurchaseListRequest> getProducts() {
+    public List<ProductListResponse> getProducts() {
         return products;
     }
 
-    public void setProducts(List<ProductPurchaseListRequest> products) {
+    public void setProducts(List<ProductListResponse> products) {
         this.products = products;
     }
 

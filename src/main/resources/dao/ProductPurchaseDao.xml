@@ -28,20 +28,32 @@
     <select id="getListProductPurchase" resultMap="productPurchaseListMap">
         SELECT
         c.product_id as productId,
+        d.name as brandName,
         c.name as name,
+        b.quantity as quantity,
         c.price as price,
-        b.quantity as quantity
-        FROM product_purchase b, product c
+        c.type as type,
+        c.dose as dose,
+        c.description as description,
+        c.picture as picture
+
+        FROM product_purchase b, product c, brand d
         WHERE
+        d.brand_id = c.brand_id  and
         b.product_id = c.product_id and
         b.purchase_id = #{purchaseId} and
         b.status = 1
         ORDER BY c.name DESC
     </select>
-    <resultMap id="productPurchaseListMap" type="bo.ucb.edu.medichub.dto.ProductPurchaseListRequest">
+    <resultMap id="productPurchaseListMap" type="bo.ucb.edu.medichub.dto.ProductListResponse">
         <result column="productId" property="productId"/>
+        <result column="brandName" property="brandName"/>
         <result column="name" property="name"/>
-        <result column="price" property="price"/>
         <result column="quantity" property="quantity"/>
+        <result column="price" property="price"/>
+        <result column="type" property="type"/>
+        <result column="dose" property="dose"/>
+        <result column="description" property="description"/>
+        <result column="picture" property="picture"/>
     </resultMap>
 </mapper>

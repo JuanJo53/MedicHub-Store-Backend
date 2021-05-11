@@ -68,7 +68,7 @@ public class PurchaseBl {
         for(int i=0;i<purchase.size();i++){
             PurchaseListRequest purchaseListRequest = new PurchaseListRequest();
             purchaseListRequest=purchase.get(i);
-            List<ProductPurchaseListRequest> productPurchaseListRequests = productPurchaseDao.getListProductPurchase(purchaseListRequest);
+            List<ProductListResponse> productPurchaseListRequests = productPurchaseDao.getListProductPurchase(purchaseListRequest);
             purchaseListRequest.setProducts(productPurchaseListRequests);
             data.add(purchaseListRequest);
         }
