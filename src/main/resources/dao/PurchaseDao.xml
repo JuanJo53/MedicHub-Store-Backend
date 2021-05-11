@@ -24,6 +24,7 @@
         and c.product_id = b.product_id
         and a.purchase_id = b.purchase_id
         and d.subsidiary_id = #{subsidiaryId}
+        GROUP BY a.purchase_id
         ORDER BY a.purchase_date DESC
         LIMIT #{size} OFFSET #{page}
     </select>

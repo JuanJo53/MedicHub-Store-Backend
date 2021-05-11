@@ -32,4 +32,9 @@ public interface ProductReserveDao {
     public List<ReserveSubsidiaryRequest> getProductSubsidiary( Integer subsidiaryId, Integer page, Integer size,Integer state);
 
     public List<ProductListResponse> productSubsidiaryReserveListClient(Integer reserveId,Integer subsidiaryId);
+
+
+    public List<ProductReserveRepRequest> getProductSubsidiaryReportAsc(Integer subsidiaryId, Integer page, Integer size);
+
+    public List<ProductReserveRepRequest> getProductSubsidiaryReportDesc(Integer subsidiaryId, Integer page, Integer size);
 }

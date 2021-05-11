@@ -249,8 +249,6 @@ public class ReserveBl {
             System.out.println(reserveSubsidiaryRequest.getReserveId());
             List<ProductListResponse> productResponse = new ArrayList<>();
             productResponse = productReserveDao.productSubsidiaryReserveListClient(reserveSubsidiaryRequest.getReserveId(),subsidiaryId);
-
-            System.out.println(productResponse.size()+"dddd");
             if(productResponse.size()!=0){
                 double total=0;
                 int quantity=0;
@@ -263,9 +261,22 @@ public class ReserveBl {
                 reserveSubsidiaryRequest.setProducts(productResponse);
                 reserveSubsidiaryRequest.setQuantity(quantity);
                 reserveSubsidiaryRequest.setTotal(total);
+                reserveSubsidiaryRequest.setSize(reserveSubsidiaryRequests.size());
                 data.add(reserveSubsidiaryRequest);
             }
         }
         return data;
+    }
+
+    public List<ProductReserveRepRequest> getSubsidiaryListReportReserve(Integer subsidiaryId, Integer page, Integer size, Boolean asc) {
+        List<ProductReserveRepRequest> reserveSubsidiaryRequests = new ArrayList<>();
+        List<ProductReserveRepRequest> data = new ArrayList<>();
+        if(asc){
+            reserveSubsidiaryRequests = productReserveDao.getProductSubsidiaryReportAsc(subsidiaryId,page,size);
+        }
+        if(!asc){
+            reserveSubsidiaryRequests = productReserveDao.getProductSubsidiaryReportDesc(subsidiaryId,page,size);
+        }
+        return null;
     }
 }

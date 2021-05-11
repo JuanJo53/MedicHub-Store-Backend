@@ -123,4 +123,13 @@ public class ReserveApi {
         return product;
     }
 
+    @GetMapping(path="/{subsidiaryId}/subsidiary/report", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<ProductReserveRepRequest> getSubsidiaryListReportPharmacies(@PathVariable String subsidiaryId,
+                                                                      @RequestParam Integer page,
+                                                                      @RequestParam Integer size,
+                                                                      @RequestParam Boolean asc){
+        List<ProductReserveRepRequest> product = reserveBl.getSubsidiaryListReportReserve(Integer.parseInt(subsidiaryId), page, size,asc);
+        return product;
+    }
+
 }

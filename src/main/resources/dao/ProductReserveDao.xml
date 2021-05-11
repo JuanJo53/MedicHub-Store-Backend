@@ -180,7 +180,7 @@
         e.reserve_id = #{reserveId}
         and f.subsidiary_id = #{subsidiaryId}
         and d.status = 1
-        ORDER BY a.name DESC
+        ORDER BY e.date DESC
     </select>
 
     <resultMap id="productReserveListClientMap" type="bo.ucb.edu.medichub.dto.ProductListResponse">
@@ -209,7 +209,7 @@
             and a.subsidiary_id=#{subsidiaryId}
             and d.status_reserve=#{state}
         GROUP BY d.reserve_id
-        ORDER BY d.date DESC
+        ORDER BY d.date ASC
         LIMIT #{size} OFFSET #{page}
     </select>
     <resultMap id="productReserveSubsidiaryListMap" type="bo.ucb.edu.medichub.dto.ReserveSubsidiaryRequest">
@@ -218,4 +218,27 @@
         <result column="firstName" property="firstName"/>
     </resultMap>
 
+
+    <select id="getProductSubsidiaryReport" resultMap="productReserveSubsidiaryReportListMap">
+        SELECT d.reserve_id as reserveId,
+	        d.date as date,
+	        f.first_name as firstName
+        FROM subsidiary a, product b, product_reserve c, reserve d, client e, person f
+        WHERE
+    	    a.subsidiary_id=b.subsidiary_id
+            and b.product_id=c.product_id
+            and d.reserve_id=c.reserve_id
+            and e.client_id = d.client_id
+            and f.person_id = e.person_id
+            and a.subsidiary_id=#{subsidiaryId}
+            and d.status_reserve=#{state}
+        GROUP BY d.reserve_id
+        ORDER BY d.date ASC
+        LIMIT #{size} OFFSET #{page}
+    </select>
+    <resultMap id="productReserveSubsidiaryReportListMap" type="bo.ucb.edu.medichub.dto.ReserveSubsidiaryRequest">
+        <result column="reserveId" property="reserveId"/>
+        <result column="date" property="date"/>
+        <result column="firstName" property="firstName"/>
+    </resultMap>
 </mapper>

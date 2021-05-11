@@ -9,6 +9,7 @@ public class ReserveSubsidiaryRequest {
     private Double total;
     private Date date;
     private String firstName;
+    private Integer size;
     private List<ProductListResponse> products;
 
     public Integer getReserveId() {
@@ -59,6 +60,14 @@ public class ReserveSubsidiaryRequest {
         this.products = products;
     }
 
+    public Integer getSize() {
+        return size;
+    }
+
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+
     @Override
     public String toString() {
         return "ReserveSubsidiaryRequest{" +
@@ -67,6 +76,7 @@ public class ReserveSubsidiaryRequest {
                 ", total=" + total +
                 ", date=" + date +
                 ", firstName='" + firstName + '\'' +
+                ", size=" + size +
                 ", products=" + products +
                 '}';
     }
