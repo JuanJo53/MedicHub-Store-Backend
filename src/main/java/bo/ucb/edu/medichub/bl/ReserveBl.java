@@ -258,6 +258,7 @@ public class ReserveBl {
                     total=total+(productListResponse.getQuantity()*productListResponse.getPrice());
                     quantity = quantity + productListResponse.getQuantity();
                 }
+
                 reserveSubsidiaryRequest.setProducts(productResponse);
                 reserveSubsidiaryRequest.setQuantity(quantity);
                 reserveSubsidiaryRequest.setTotal(total);

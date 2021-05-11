@@ -10,6 +10,7 @@ public class ReserveSubsidiaryRequest {
     private Date date;
     private String firstName;
     private Integer size;
+    private Integer statusReserve;
     private List<ProductListResponse> products;
 
     public Integer getReserveId() {
@@ -68,6 +69,14 @@ public class ReserveSubsidiaryRequest {
         this.size = size;
     }
 
+    public Integer getStatusReserve() {
+        return statusReserve;
+    }
+
+    public void setStatusReserve(Integer statusReserve) {
+        this.statusReserve = statusReserve;
+    }
+
     @Override
     public String toString() {
         return "ReserveSubsidiaryRequest{" +
@@ -77,6 +86,7 @@ public class ReserveSubsidiaryRequest {
                 ", date=" + date +
                 ", firstName='" + firstName + '\'' +
                 ", size=" + size +
+                ", statusReserve=" + statusReserve +
                 ", products=" + products +
                 '}';
     }

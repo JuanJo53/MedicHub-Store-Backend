@@ -198,7 +198,8 @@
     <select id="getProductSubsidiary" resultMap="productReserveSubsidiaryListMap">
         SELECT d.reserve_id as reserveId,
 	        d.date as date,
-	        f.first_name as firstName
+	        f.first_name as firstName,
+            d.status_reserve as statusReserve
         FROM subsidiary a, product b, product_reserve c, reserve d, client e, person f
         WHERE
     	    a.subsidiary_id=b.subsidiary_id
@@ -221,6 +222,7 @@
         <result column="reserveId" property="reserveId"/>
         <result column="date" property="date"/>
         <result column="firstName" property="firstName"/>
+        <result column="statusReserve" property="statusReserve"/>
     </resultMap>
 
 
