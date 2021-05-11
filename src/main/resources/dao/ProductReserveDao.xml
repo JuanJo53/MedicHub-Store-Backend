@@ -210,6 +210,9 @@
             <if test="state!=0 ">
                 and d.status_reserve=#{state}
             </if>
+            <if test="state==0 ">
+                and d.status_reserve!=4
+            </if>
         GROUP BY d.reserve_id
         ORDER BY d.date ASC
         LIMIT #{size} OFFSET #{page}
