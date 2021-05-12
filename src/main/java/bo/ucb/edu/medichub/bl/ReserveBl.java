@@ -244,9 +244,6 @@ public class ReserveBl {
         for(int i=0;i<reserveSubsidiaryRequests.size();i++){
             ReserveSubsidiaryRequest reserveSubsidiaryRequest = new ReserveSubsidiaryRequest();
             reserveSubsidiaryRequest = reserveSubsidiaryRequests.get(i);
-            System.out.println(reserveSubsidiaryRequest.getDate());
-            System.out.println(reserveSubsidiaryRequest.getFirstName());
-            System.out.println(reserveSubsidiaryRequest.getReserveId());
             List<ProductListResponse> productResponse = new ArrayList<>();
             productResponse = productReserveDao.productSubsidiaryReserveListClient(reserveSubsidiaryRequest.getReserveId(),subsidiaryId);
             if(productResponse.size()!=0){
@@ -278,6 +275,14 @@ public class ReserveBl {
         if(!asc){
             reserveSubsidiaryRequests = productReserveDao.getProductSubsidiaryReportDesc(subsidiaryId,page,size);
         }
-        return null;
+        double total=0;
+        for(int i=0;i<reserveSubsidiaryRequests.size();i++){
+            ProductReserveRepRequest productReserveRepRequest = new ProductReserveRepRequest();
+            productReserveRepRequest = reserveSubsidiaryRequests.get(i);
+            total=total+(productReserveRepRequest.getPrice()*productReserveRepRequest.getQuantity());
+            productReserveRepRequest.setTotal(total);
+            data.add(productReserveRepRequest);
+        }
+        return data;
     }
 }

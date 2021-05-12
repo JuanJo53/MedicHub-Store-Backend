@@ -248,4 +248,50 @@
         <result column="date" property="date"/>
         <result column="firstName" property="firstName"/>
     </resultMap>
+
+
+
+
+    <select id="getProductSubsidiaryReportAsc" resultMap="productSubsidiaryReportListMap">
+        SELECT
+	        b.product_id as productId,
+	        SUM(c.quantity) as quantity,
+	        b.name as name,
+	        b.price as price
+        FROM subsidiary a, product b, product_reserve c, reserve d
+        WHERE
+    	    a.subsidiary_id=b.subsidiary_id
+            and b.product_id=c.product_id
+            and d.reserve_id=c.reserve_id
+            and a.subsidiary_id=#{subsidiaryId}
+            and d.status_reserve=3
+        GROUP BY b.product_id
+        ORDER BY d.date ASC
+        LIMIT #{size} OFFSET #{page}
+    </select>
+
+    <select id="getProductSubsidiaryReportDesc" resultMap="productSubsidiaryReportListMap">
+        SELECT
+	        b.product_id as productId,
+	        SUM(c.quantity) as quantity,
+	        b.name as name,
+	        b.price as price
+        FROM subsidiary a, product b, product_reserve c, reserve d
+        WHERE
+    	    a.subsidiary_id=b.subsidiary_id
+            and b.product_id=c.product_id
+            and d.reserve_id=c.reserve_id
+            and a.subsidiary_id=#{subsidiaryId}
+            and d.status_reserve=3
+        GROUP BY b.product_id
+        ORDER BY d.date DESC
+        LIMIT #{size} OFFSET #{page}
+    </select>
+
+    <resultMap id="productSubsidiaryReportListMap" type="bo.ucb.edu.medichub.dto.ProductReserveRepRequest">
+        <result column="productId" property="productId"/>
+        <result column="quantity" property="quantity"/>
+        <result column="name" property="name"/>
+        <result column="price" property="price"/>
+    </resultMap>
 </mapper>

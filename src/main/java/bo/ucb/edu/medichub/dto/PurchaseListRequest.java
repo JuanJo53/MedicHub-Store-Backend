@@ -10,6 +10,7 @@ public class PurchaseListRequest {
     private String firstSurname;
     private String nit;
     private Date datePurchase;
+    private Integer size;
     private List<ProductListResponse> products;
 
     public PurchaseListRequest() {
@@ -63,6 +64,14 @@ public class PurchaseListRequest {
         this.products = products;
     }
 
+    public Integer getSize() {
+        return size;
+    }
+
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+
     @Override
     public String toString() {
         return "PurchaseListRequest{" +
@@ -71,6 +80,7 @@ public class PurchaseListRequest {
                 ", firstSurname='" + firstSurname + '\'' +
                 ", nit='" + nit + '\'' +
                 ", datePurchase=" + datePurchase +
+                ", size=" + size +
                 ", products=" + products +
                 '}';
     }

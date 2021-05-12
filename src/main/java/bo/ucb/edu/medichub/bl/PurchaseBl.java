@@ -70,6 +70,7 @@ public class PurchaseBl {
             purchaseListRequest=purchase.get(i);
             List<ProductListResponse> productPurchaseListRequests = productPurchaseDao.getListProductPurchase(purchaseListRequest);
             purchaseListRequest.setProducts(productPurchaseListRequests);
+            purchaseListRequest.setSize(purchase.size());
             data.add(purchaseListRequest);
         }
         return data;
