@@ -4,6 +4,8 @@ import bo.ucb.edu.medichub.dao.PaymentDao;
 import bo.ucb.edu.medichub.dao.ProductPurchaseDao;
 import bo.ucb.edu.medichub.dao.ReserveDao;
 import bo.ucb.edu.medichub.dao.TransactionDao;
+import bo.ucb.edu.medichub.dto.Graph;
+import bo.ucb.edu.medichub.dto.PaymentGraph;
 import bo.ucb.edu.medichub.dto.PaymentRequest;
 import bo.ucb.edu.medichub.dto.ProductTransactionRequest;
 import bo.ucb.edu.medichub.model.Payment;
@@ -16,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -67,5 +70,26 @@ public class PaymentBl {
         payment.setCardId(paymentRequest.getCardId());
         payment.setTransaction(transaction);
         paymentDao.createPayment(payment);
+    }
+
+    public List<Graph> paymentGraph(Integer subsidiaryId, String init, String end){
+        List<Payment> dates = paymentDao.getPaymentDateList(subsidiaryId, init, end);
+        List<PaymentGraph> payments = paymentDao.getProductSubsidiaryList(subsidiaryId);
+        List<Graph> graphs = new ArrayList<>();
+
+        for(int i = 0; i < dates.size(); i++){
+            Double total = 0.0;
+            for(int j = 0; j < payments.size(); j++){
+                if(dates.get(i).getPaymentDate().compareTo(payments.get(j).getPaymentDate()) == 0){
+                    total += (payments.get(j).getQuantity() * payments.get(j).getPrice());
+                }
+            }
+            Graph graph = new Graph();
+            graph.setCount(dates.get(i).getPaymentId());
+            graph.setDate(dates.get(i).getPaymentDate());
+            graph.setTotal(total);
+            graphs.add(graph);
+        }
+        return graphs;
     }
 }

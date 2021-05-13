@@ -2,12 +2,12 @@ package bo.ucb.edu.medichub.dto;
 
 import java.util.Date;
 
-public class PurchaseGraph {
+public class Graph {
     private Integer count;
     private Double total;
     private Date date;
 
-    public PurchaseGraph() {
+    public Graph() {
     }
 
     public Integer getCount() {

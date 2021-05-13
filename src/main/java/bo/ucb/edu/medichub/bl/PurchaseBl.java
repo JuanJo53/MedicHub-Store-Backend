@@ -76,10 +76,10 @@ public class PurchaseBl {
         return data;
     }
 
-    public List<PurchaseGraph> getListPurchaseGraphSubsidiary(Integer subsidiaryId,String init, String end) {
+    public List<Graph> getListPurchaseGraphSubsidiary(Integer subsidiaryId, String init, String end) {
         List<PurchaseListRequest> purchase = purchaseDao.getListPurchase(subsidiaryId,0,999999999);
         List<PurchaseListRequest> purchaseDates = purchaseDao.getListPurchaseDate(subsidiaryId, init, end);
-        List<PurchaseGraph> graph = new ArrayList<>();
+        List<Graph> graph = new ArrayList<>();
         for(int i = 0; i < purchaseDates.size(); i++){
             Integer count = 0;
             Double total = 0.0;
@@ -89,7 +89,7 @@ public class PurchaseBl {
                     total += purchase.get(j).getTotalAmount();
                 }
             }
-            PurchaseGraph purchaseGraph = new PurchaseGraph();
+            Graph purchaseGraph = new Graph();
             purchaseGraph.setCount(count);
             purchaseGraph.setDate(purchaseDates.get(i).getDatePurchase());
             purchaseGraph.setTotal(total);
