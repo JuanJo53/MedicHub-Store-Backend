@@ -69,7 +69,8 @@
 	        b.picture as picture
         FROM subsidiary a, product b, product_purchase c, purchase d
         WHERE
-    	    a.subsidiary_id=b.subsidiary_id
+            b.status=1
+    	    and a.subsidiary_id=b.subsidiary_id
             and b.product_id=c.product_id
             and d.purchase_id = c.product_id
             and a.subsidiary_id=#{subsidiaryId}
@@ -88,7 +89,8 @@
 	        b.picture as picture
         FROM subsidiary a, product b, product_purchase c, purchase d
         WHERE
-    	    a.subsidiary_id=b.subsidiary_id
+            b.status=1
+    	    and a.subsidiary_id=b.subsidiary_id
             and b.product_id=c.product_id
             and d.purchase_id = c.product_id
             and a.subsidiary_id=#{subsidiaryId}
@@ -111,6 +113,7 @@
     	    a.subsidiary_id=b.subsidiary_id
             and b.product_id=c.product_id
             and d.purchase_id = c.product_id
+            and b.status = 1
             and a.subsidiary_id=#{subsidiaryId}
         GROUP BY b.product_id
         ORDER BY SUM(c.quantity) DESC

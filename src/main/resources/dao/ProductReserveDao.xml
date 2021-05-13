@@ -202,7 +202,8 @@
             d.status_reserve as statusReserve
         FROM subsidiary a, product b, product_reserve c, reserve d, client e, person f
         WHERE
-    	    a.subsidiary_id=b.subsidiary_id
+            d.status = 1
+    	    and a.subsidiary_id=b.subsidiary_id
             and b.product_id=c.product_id
             and d.reserve_id=c.reserve_id
             and e.client_id = d.client_id
@@ -232,7 +233,8 @@
 	        f.first_name as firstName
         FROM subsidiary a, product b, product_reserve c, reserve d, client e, person f
         WHERE
-    	    a.subsidiary_id=b.subsidiary_id
+            d.status = 1
+    	    and a.subsidiary_id=b.subsidiary_id
             and b.product_id=c.product_id
             and d.reserve_id=c.reserve_id
             and e.client_id = d.client_id
