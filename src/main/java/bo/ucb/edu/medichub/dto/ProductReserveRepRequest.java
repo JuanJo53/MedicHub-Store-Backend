@@ -8,6 +8,7 @@ public class ProductReserveRepRequest {
     private Double total;
     private Integer stock;
     private String picture;
+    private Integer size;
 
     public ProductReserveRepRequest() {
     }
@@ -68,6 +69,14 @@ public class ProductReserveRepRequest {
         this.picture = picture;
     }
 
+    public Integer getSize() {
+        return size;
+    }
+
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+
     @Override
     public String toString() {
         return "ProductReserveRepRequest{" +
@@ -78,6 +87,7 @@ public class ProductReserveRepRequest {
                 ", total=" + total +
                 ", stock=" + stock +
                 ", picture='" + picture + '\'' +
+                ", size=" + size +
                 '}';
     }
 }

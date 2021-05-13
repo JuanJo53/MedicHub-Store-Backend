@@ -119,13 +119,7 @@ public class PurchaseBl {
     public ProductReportRequest getSubsidiaryListReportStatistics(Integer subsidiaryId) {
         ProductReportRequest productReportRequest = new ProductReportRequest();
         ArrayList<Integer> reserveId = productReserveDao.getPendingSubsidiary(subsidiaryId);
-        Integer cantidad=0;
-        for (int i=0;i<reserveId.size();i++){
-            List<ProductListResponse> productResponse = new ArrayList<>();
-            productResponse =productReserveDao.productSubsidiaryReserveListClient(reserveId.get(i),subsidiaryId);
-            cantidad =cantidad+ productResponse.size();
-        }
-        productReportRequest.setPending(cantidad);
+        productReportRequest.setPending(reserveId.size());
 
         List<ProductReserveRepRequest> reserveSubsidiaryPurchases = new ArrayList<>();
         reserveSubsidiaryPurchases = productPurchaseDao.getProductSubsidiaryReport(subsidiaryId);

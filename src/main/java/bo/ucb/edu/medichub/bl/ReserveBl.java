@@ -335,6 +335,7 @@ public class ReserveBl {
                 data.add(reserveSubsidiaryPurchase);
             }
             List<ProductReserveRepRequest> dataFinal = new ArrayList<>();
+            Integer count=data.size();
             for (int i=0;i<data.size();i++){
                 int valor=0;
                 ProductReserveRepRequest dataOrderI = new ProductReserveRepRequest();
@@ -351,7 +352,11 @@ public class ReserveBl {
 
 
                 }
-                dataFinal.add(data.get(valor));
+
+                ProductReserveRepRequest dataSelect = new ProductReserveRepRequest();
+                dataSelect=data.get(valor);
+                dataSelect.setSize(count);
+                dataFinal.add(dataSelect);
                 data.remove(valor);
                 i--;
 
@@ -368,6 +373,7 @@ public class ReserveBl {
                 productReserveRepRequest = reserveSubsidiaryRequests.get(i);
                 total=(productReserveRepRequest.getPrice()*productReserveRepRequest.getQuantity());
                 productReserveRepRequest.setTotal(total);
+                productReserveRepRequest.setSize(reserveSubsidiaryRequests.size());
                 data.add(productReserveRepRequest);
             }
             dataFin= data;
@@ -382,11 +388,13 @@ public class ReserveBl {
                 productReserveRepRequest = reserveSubsidiaryRequests.get(i);
                 total=(productReserveRepRequest.getPrice()*productReserveRepRequest.getQuantity());
                 productReserveRepRequest.setTotal(total);
+                productReserveRepRequest.setSize(reserveSubsidiaryRequests.size());
                 data.add(productReserveRepRequest);
             }
 
             dataFin= data;
         }
+
         return dataFin;
     }
 }
