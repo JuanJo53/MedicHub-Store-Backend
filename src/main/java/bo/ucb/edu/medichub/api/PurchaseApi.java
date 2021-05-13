@@ -2,11 +2,10 @@ package bo.ucb.edu.medichub.api;
 
 import bo.ucb.edu.medichub.bl.PurchaseBl;
 import bo.ucb.edu.medichub.bl.TransactionBl;
-import bo.ucb.edu.medichub.dto.PurchaseGraph;
+import bo.ucb.edu.medichub.dto.Graph;
 import bo.ucb.edu.medichub.dto.ProductReserveRepRequest;
 import bo.ucb.edu.medichub.dto.PurchaseListRequest;
 import bo.ucb.edu.medichub.dto.PurchaseRequest;
-import bo.ucb.edu.medichub.dto.ReserveRequest;
 import bo.ucb.edu.medichub.model.Transaction;
 import bo.ucb.edu.medichub.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,10 +48,10 @@ public class PurchaseApi {
     }
 
     @GetMapping(path="/{subsidiaryId}/graph" , produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<PurchaseGraph> getPurchaseSubsidiary(@PathVariable String subsidiaryId,
-                                                     @RequestParam String init,
-                                                     @RequestParam String end) {
-        List<PurchaseGraph> purchase=purchaseBl.getListPurchaseGraphSubsidiary(Integer.parseInt(subsidiaryId),init,end);
+    public List<Graph> getPurchaseSubsidiary(@PathVariable String subsidiaryId,
+                                             @RequestParam String init,
+                                             @RequestParam String end) {
+        List<Graph> purchase=purchaseBl.getListPurchaseGraphSubsidiary(Integer.parseInt(subsidiaryId),init,end);
         return purchase;
     }
     

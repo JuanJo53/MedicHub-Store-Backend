@@ -26,4 +26,43 @@
         <result column="productId" property="productId"/>
         <result column="quantity" property="quantity"/>
     </resultMap>
+
+    <select id="getPaymentDateList" resultMap="paymentDatesListMap">
+        SELECT
+               b.payment_date as paymentDate,
+               COUNT(DISTINCT b.payment_id) as paymentId
+        FROM reserve a, payment b, product_reserve c, product d
+        WHERE d.subsidiary_id = #{subsidiaryId}
+          AND d.product_id = c.product_id
+          AND c.reserve_id = a.reserve_id
+          AND a.reserve_id = b.reserve_id
+          AND b.status = 1
+          AND b.payment_date BETWEEN #{init} AND #{end}
+        GROUP BY b.payment_date
+        ORDER BY b.payment_date
+    </select>
+
+    <resultMap id="paymentDatesListMap" type="bo.ucb.edu.medichub.model.Payment">
+        <result column="paymentDate" property="paymentDate"/>
+        <result column="paymentId" property="paymentId"/>
+    </resultMap>
+
+    <select id="getProductSubsidiaryList" resultMap="paymentProductListMap">
+        SELECT
+               d.price as price,
+               c.quantity as quantity,
+               b.payment_date as paymentDate
+        FROM reserve a, payment b, product_reserve c, product d
+        WHERE d.subsidiary_id = #{subsidiaryId}
+          AND   d.product_id = c.product_id
+          AND   c.reserve_id = a.reserve_id
+          AND   a.reserve_id = b.reserve_id
+          AND   b.status = 1
+    </select>
+
+    <resultMap id="paymentProductListMap" type="bo.ucb.edu.medichub.dto.PaymentGraph">
+        <result column="price" property="price"/>
+        <result column="quantity" property="quantity"/>
+        <result column="paymentDate" property="paymentDate"/>
+    </resultMap>
 </mapper>
