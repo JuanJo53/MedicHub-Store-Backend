@@ -257,7 +257,9 @@
 	        b.product_id as productId,
 	        SUM(c.quantity) as quantity,
 	        b.name as name,
-	        b.price as price
+	        b.price as price,
+	        b.stock as stock,
+	        b.picture as picture
         FROM subsidiary a, product b, product_reserve c, reserve d
         WHERE
     	    a.subsidiary_id=b.subsidiary_id
@@ -266,7 +268,7 @@
             and a.subsidiary_id=#{subsidiaryId}
             and d.status_reserve=3
         GROUP BY b.product_id
-        ORDER BY d.date ASC
+        ORDER BY SUM(c.quantity) ASC
         LIMIT #{size} OFFSET #{page}
     </select>
 
@@ -275,7 +277,9 @@
 	        b.product_id as productId,
 	        SUM(c.quantity) as quantity,
 	        b.name as name,
-	        b.price as price
+	        b.price as price,
+	        b.stock as stock,
+	        b.picture as picture
         FROM subsidiary a, product b, product_reserve c, reserve d
         WHERE
     	    a.subsidiary_id=b.subsidiary_id
@@ -284,7 +288,7 @@
             and a.subsidiary_id=#{subsidiaryId}
             and d.status_reserve=3
         GROUP BY b.product_id
-        ORDER BY d.date DESC
+        ORDER BY SUM(c.quantity) DESC
         LIMIT #{size} OFFSET #{page}
     </select>
 
@@ -293,5 +297,7 @@
         <result column="quantity" property="quantity"/>
         <result column="name" property="name"/>
         <result column="price" property="price"/>
+        <result column="stock" property="stock"/>
+        <result column="picture" property="picture"/>
     </resultMap>
 </mapper>

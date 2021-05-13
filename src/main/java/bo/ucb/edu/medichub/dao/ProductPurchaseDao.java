@@ -1,6 +1,7 @@
 package bo.ucb.edu.medichub.dao;
 
 import bo.ucb.edu.medichub.dto.ProductListResponse;
+import bo.ucb.edu.medichub.dto.ProductReserveRepRequest;
 import bo.ucb.edu.medichub.dto.PurchaseListRequest;
 import bo.ucb.edu.medichub.model.Product;
 import bo.ucb.edu.medichub.model.ProductPurchase;
@@ -14,4 +15,8 @@ public interface ProductPurchaseDao {
     public Integer getStockByProductId(Integer productId);
     public void updateStock(Product product);
     public List<ProductListResponse> getListProductPurchase(PurchaseListRequest purchaseListRequest);
+
+    public List<ProductReserveRepRequest> getProductSubsidiaryReportAsc(Integer subsidiaryId, Integer page, Integer size);
+
+    public List<ProductReserveRepRequest> getProductSubsidiaryReportDesc(Integer subsidiaryId, Integer page, Integer size);
 }
