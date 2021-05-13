@@ -306,7 +306,7 @@
             and b.product_id=c.product_id
             and d.reserve_id=c.reserve_id
             and a.subsidiary_id=#{subsidiaryId}
-            and d.status_reserve=3 or d.status_reserve=2
+            and (d.status_reserve=3 or d.status_reserve=2)
         GROUP BY b.product_id
         ORDER BY SUM(c.quantity) DESC
     </select>

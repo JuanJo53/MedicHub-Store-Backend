@@ -141,6 +141,7 @@ public class PurchaseBl {
             ProductReserveRepRequest productReserveRepRequest = new ProductReserveRepRequest();
             productReserveRepRequest = reserveSubsidiaryRequests.get(i);
             totalReserve=totalReserve+(productReserveRepRequest.getPrice()*productReserveRepRequest.getQuantity());
+            System.out.println(totalReserve+"ddd"+reserveSubsidiaryRequests.size());
         }
         productReportRequest.setGainReserve(totalReserve);
 
