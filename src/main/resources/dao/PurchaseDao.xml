@@ -37,4 +37,20 @@
         <result column="datePurchase" property="datePurchase"/>
     </resultMap>
 
+    <select id="getListPurchaseDate" resultMap="purchaseListMap">
+        SELECT
+            a.purchase_date as datePurchase
+        FROM purchase a, product_purchase b, product c, subsidiary d
+        WHERE d.subsidiary_id = #{subsidiaryId}
+          AND d.subsidiary_id = c.subsidiary_id
+          AND c.product_id = b.product_id
+          AND b.purchase_id = a.purchase_id
+          AND a.status = 1
+          AND a.purchase_date BETWEEN #{init} AND #{end}
+        GROUP BY a.purchase_date
+    </select>
+
+    <resultMap id="purchaseDateListMap" type="bo.ucb.edu.medichub.dto.PurchaseListRequest">
+        <result column="datePurchase" property="datePurchase"/>
+    </resultMap>
 </mapper>

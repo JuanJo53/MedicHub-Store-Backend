@@ -3,12 +3,12 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "subsidiaryId": 1,
+  "subsidiaryId": 2,
   "brandId": 1,
   "doseTypeId": 1,
-  "name": "Ibuprofeno",
-  "stock": "400",
-  "price": "0.10",
+  "name": "Aspirina",
+  "stock": "450",
+  "price": "0.30",
   "type": "Tableta",
   "dose": "200",
   "description": "Calmante, utilizado para todo tipo de dolor"
