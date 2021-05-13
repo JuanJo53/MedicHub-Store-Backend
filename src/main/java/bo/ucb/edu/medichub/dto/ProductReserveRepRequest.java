@@ -6,6 +6,8 @@ public class ProductReserveRepRequest {
     private String name;
     private Double price;
     private Double total;
+    private Integer stock;
+    private String picture;
 
     public ProductReserveRepRequest() {
     }
@@ -50,13 +52,32 @@ public class ProductReserveRepRequest {
         this.price = price;
     }
 
+    public Integer getStock() {
+        return stock;
+    }
+
+    public void setStock(Integer stock) {
+        this.stock = stock;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
     @Override
     public String toString() {
         return "ProductReserveRepRequest{" +
                 "productId=" + productId +
                 ", quantity=" + quantity +
                 ", name='" + name + '\'' +
+                ", price=" + price +
                 ", total=" + total +
+                ", stock=" + stock +
+                ", picture='" + picture + '\'' +
                 '}';
     }
 }
