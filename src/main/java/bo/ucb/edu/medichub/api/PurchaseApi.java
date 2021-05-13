@@ -2,6 +2,7 @@ package bo.ucb.edu.medichub.api;
 
 import bo.ucb.edu.medichub.bl.PurchaseBl;
 import bo.ucb.edu.medichub.bl.TransactionBl;
+import bo.ucb.edu.medichub.dto.PurchaseGraph;
 import bo.ucb.edu.medichub.dto.ProductReserveRepRequest;
 import bo.ucb.edu.medichub.dto.PurchaseListRequest;
 import bo.ucb.edu.medichub.dto.PurchaseRequest;
@@ -47,6 +48,14 @@ public class PurchaseApi {
         return purchase;
     }
 
+    @GetMapping(path="/{subsidiaryId}/graph" , produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<PurchaseGraph> getPurchaseSubsidiary(@PathVariable String subsidiaryId,
+                                                     @RequestParam String init,
+                                                     @RequestParam String end) {
+        List<PurchaseGraph> purchase=purchaseBl.getListPurchaseGraphSubsidiary(Integer.parseInt(subsidiaryId),init,end);
+        return purchase;
+    }
+    
     @GetMapping(path="/{subsidiaryId}/subsidiary/report", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<ProductReserveRepRequest> getSubsidiaryListReportPharmacies(@PathVariable String subsidiaryId,
                                                                             @RequestParam Integer page,

@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
   "pharmacyId": 1,
-  "subsidiaryName": "Farmacias Patito - Arce",
+  "subsidiaryName": "Farmacias Chavez - Arce",
   "phone": "+591 24981657",
   "email": "farmaCha-Sopocachi@gmail.com",
   "number": "158",

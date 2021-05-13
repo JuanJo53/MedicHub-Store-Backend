@@ -11,4 +11,5 @@ import java.util.List;
 public interface PurchaseDao {
     public void createPurchase(Purchase purchase);
     public List<PurchaseListRequest>  getListPurchase(Integer subsidiaryId,Integer page, Integer size);
+    public List<PurchaseListRequest>  getListPurchaseDate(Integer subsidiaryId,String init, String end);
 }
