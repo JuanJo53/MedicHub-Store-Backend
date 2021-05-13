@@ -19,14 +19,16 @@ public class ReserveBl {
     private ReserveDao reserveDao;
     private ProductReserveDao productReserveDao;
     private TransactionDao transactionDao;
+    private ProductPurchaseDao productPurchaseDao;
 
     private static Logger LOGGER = LoggerFactory.getLogger(ReserveBl.class);
 
     @Autowired
-    public ReserveBl(ReserveDao reserveDao, ProductReserveDao productReserveDao, TransactionDao transactionDao) {
+    public ReserveBl(ReserveDao reserveDao, ProductReserveDao productReserveDao, TransactionDao transactionDao, ProductPurchaseDao productPurchaseDao) {
         this.reserveDao = reserveDao;
         this.productReserveDao = productReserveDao;
         this.transactionDao = transactionDao;
+        this.productPurchaseDao = productPurchaseDao;
     }
 
     public List<ReserveRequest> getListReserve(Integer page, Integer size, Integer state) {
@@ -284,5 +286,107 @@ public class ReserveBl {
             data.add(productReserveRepRequest);
         }
         return data;
+    }
+
+    public List<ProductReserveRepRequest> getSubsidiaryListReportGeneralReserve(Integer subsidiaryId, Integer page, Integer size, Integer asc) {
+
+        List<ProductReserveRepRequest> dataFin = new ArrayList<>();
+        if (asc==0){
+            List<ProductReserveRepRequest> reserveSubsidiaryPurchases = new ArrayList<>();
+            List<ProductReserveRepRequest> data = new ArrayList<>();
+            reserveSubsidiaryPurchases = productPurchaseDao.getProductSubsidiaryReportAsc(subsidiaryId,page,size);
+            List<ProductReserveRepRequest> reserveSubsidiaryReserves = new ArrayList<>();
+            reserveSubsidiaryReserves = productReserveDao.getProductSubsidiaryReportAsc(subsidiaryId,page,size);
+            for (int i=0;i<reserveSubsidiaryPurchases.size();i++){
+                ProductReserveRepRequest reserveSubsidiaryPurchase = new ProductReserveRepRequest();
+                reserveSubsidiaryPurchase = reserveSubsidiaryPurchases.get(i);
+                boolean valida=false;
+                double total=0;
+                Integer quantity=0;
+                for (int j=0;j<reserveSubsidiaryReserves.size();j++){
+                    ProductReserveRepRequest reserveSubsidiaryReserve = new ProductReserveRepRequest();
+                    reserveSubsidiaryReserve = reserveSubsidiaryReserves.get(j);
+                    if(reserveSubsidiaryPurchase.getProductId()==reserveSubsidiaryReserve.getProductId()){
+                        total=total+(reserveSubsidiaryReserve.getPrice()*reserveSubsidiaryReserve.getQuantity())+(reserveSubsidiaryPurchase.getPrice()*reserveSubsidiaryPurchase.getQuantity());
+                        quantity= quantity + (reserveSubsidiaryPurchase.getQuantity()+reserveSubsidiaryReserve.getQuantity());
+                        valida=true;
+                        reserveSubsidiaryReserves.remove(j);
+                        break;
+                    }
+                }
+                if (valida==true){
+                    reserveSubsidiaryPurchase.setTotal(total);
+                    reserveSubsidiaryPurchase.setQuantity(quantity);
+                    data.add(reserveSubsidiaryPurchase);
+                    reserveSubsidiaryPurchases.remove(i);
+                    i--;
+                }
+            }
+            for (int i=0;i<reserveSubsidiaryReserves.size();i++){
+                ProductReserveRepRequest reserveSubsidiaryReserve = new ProductReserveRepRequest();
+                reserveSubsidiaryReserve = reserveSubsidiaryReserves.get(i);
+                reserveSubsidiaryReserve.setTotal(reserveSubsidiaryReserve.getPrice()*reserveSubsidiaryReserve.getQuantity());
+                data.add(reserveSubsidiaryReserve);
+            }
+            for (int i=0;i<reserveSubsidiaryPurchases.size();i++){
+                ProductReserveRepRequest reserveSubsidiaryPurchase = new ProductReserveRepRequest();
+                reserveSubsidiaryPurchase = reserveSubsidiaryPurchases.get(i);
+                reserveSubsidiaryPurchase.setTotal(reserveSubsidiaryPurchase.getPrice()*reserveSubsidiaryPurchase.getQuantity());
+                data.add(reserveSubsidiaryPurchase);
+            }
+            List<ProductReserveRepRequest> dataFinal = new ArrayList<>();
+            for (int i=0;i<data.size();i++){
+                int valor=0;
+                ProductReserveRepRequest dataOrderI = new ProductReserveRepRequest();
+                dataOrderI = data.get(0);
+                int val=dataOrderI.getQuantity();
+                for(int j=1;j<data.size();j++){
+                    ProductReserveRepRequest dataOrderJ = new ProductReserveRepRequest();
+                    dataOrderJ = data.get(j);
+
+                        if(val<dataOrderJ.getQuantity()){
+                            val=dataOrderJ.getQuantity();
+                            valor=j;
+                        }
+
+
+                }
+                dataFinal.add(data.get(valor));
+                data.remove(valor);
+                i--;
+
+            }
+            dataFin=dataFinal;
+        }
+        if (asc==1){
+            List<ProductReserveRepRequest> reserveSubsidiaryRequests = new ArrayList<>();
+            List<ProductReserveRepRequest> data = new ArrayList<>();
+            reserveSubsidiaryRequests = productPurchaseDao.getProductSubsidiaryReportDesc(subsidiaryId,page,size);
+            double total=0;
+            for(int i=0;i<reserveSubsidiaryRequests.size();i++){
+                ProductReserveRepRequest productReserveRepRequest = new ProductReserveRepRequest();
+                productReserveRepRequest = reserveSubsidiaryRequests.get(i);
+                total=total+(productReserveRepRequest.getPrice()*productReserveRepRequest.getQuantity());
+                productReserveRepRequest.setTotal(total);
+                data.add(productReserveRepRequest);
+            }
+            dataFin= data;
+        }
+        if (asc==2){
+            List<ProductReserveRepRequest> reserveSubsidiaryRequests = new ArrayList<>();
+            List<ProductReserveRepRequest> data = new ArrayList<>();
+            reserveSubsidiaryRequests = productReserveDao.getProductSubsidiaryReportDesc(subsidiaryId,page,size);
+            double total=0;
+            for(int i=0;i<reserveSubsidiaryRequests.size();i++){
+                ProductReserveRepRequest productReserveRepRequest = new ProductReserveRepRequest();
+                productReserveRepRequest = reserveSubsidiaryRequests.get(i);
+                total=total+(productReserveRepRequest.getPrice()*productReserveRepRequest.getQuantity());
+                productReserveRepRequest.setTotal(total);
+                data.add(productReserveRepRequest);
+            }
+
+            dataFin= data;
+        }
+        return dataFin;
     }
 }
