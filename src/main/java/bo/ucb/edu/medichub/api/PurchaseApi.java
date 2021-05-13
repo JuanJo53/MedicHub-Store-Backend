@@ -2,11 +2,8 @@ package bo.ucb.edu.medichub.api;
 
 import bo.ucb.edu.medichub.bl.PurchaseBl;
 import bo.ucb.edu.medichub.bl.TransactionBl;
-<<<<<<< HEAD
 import bo.ucb.edu.medichub.dto.PurchaseGraph;
-=======
 import bo.ucb.edu.medichub.dto.ProductReserveRepRequest;
->>>>>>> 0d1350346d336d978db6ea31278aafacaa0a61b9
 import bo.ucb.edu.medichub.dto.PurchaseListRequest;
 import bo.ucb.edu.medichub.dto.PurchaseRequest;
 import bo.ucb.edu.medichub.dto.ReserveRequest;
@@ -51,14 +48,14 @@ public class PurchaseApi {
         return purchase;
     }
 
-<<<<<<< HEAD
     @GetMapping(path="/{subsidiaryId}/graph" , produces = MediaType.APPLICATION_JSON_VALUE)
     public List<PurchaseGraph> getPurchaseSubsidiary(@PathVariable String subsidiaryId,
                                                      @RequestParam String init,
                                                      @RequestParam String end) {
         List<PurchaseGraph> purchase=purchaseBl.getListPurchaseGraphSubsidiary(Integer.parseInt(subsidiaryId),init,end);
         return purchase;
-=======
+    }
+    
     @GetMapping(path="/{subsidiaryId}/subsidiary/report", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<ProductReserveRepRequest> getSubsidiaryListReportPharmacies(@PathVariable String subsidiaryId,
                                                                             @RequestParam Integer page,
@@ -75,7 +72,6 @@ public class PurchaseApi {
                                                                             @RequestParam Boolean asc){
         List<ProductReserveRepRequest> product = purchaseBl.getSubsidiaryListReportGeneralReserve(Integer.parseInt(subsidiaryId), page, size,asc);
         return product;
->>>>>>> 0d1350346d336d978db6ea31278aafacaa0a61b9
     }
 
 }
