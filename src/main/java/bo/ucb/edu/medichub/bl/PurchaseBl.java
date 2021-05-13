@@ -76,7 +76,6 @@ public class PurchaseBl {
         return data;
     }
 
-<<<<<<< HEAD
     public List<PurchaseGraph> getListPurchaseGraphSubsidiary(Integer subsidiaryId,String init, String end) {
         List<PurchaseListRequest> purchase = purchaseDao.getListPurchase(subsidiaryId,0,999999999);
         List<PurchaseListRequest> purchaseDates = purchaseDao.getListPurchaseDate(subsidiaryId, init, end);
@@ -97,7 +96,7 @@ public class PurchaseBl {
             graph.add(purchaseGraph);
         }
         return graph;
-=======
+    }
     public List<ProductReserveRepRequest> getSubsidiaryListReportReserve(Integer subsidiaryId, Integer page, Integer size, Boolean asc) {
         List<ProductReserveRepRequest> reserveSubsidiaryRequests = new ArrayList<>();
         List<ProductReserveRepRequest> data = new ArrayList<>();
@@ -190,6 +189,5 @@ public class PurchaseBl {
 
         }
         return dataFinal;
->>>>>>> 0d1350346d336d978db6ea31278aafacaa0a61b9
     }
 }
