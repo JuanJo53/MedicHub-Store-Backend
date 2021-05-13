@@ -2,11 +2,7 @@ package bo.ucb.edu.medichub.api;
 
 import bo.ucb.edu.medichub.bl.PurchaseBl;
 import bo.ucb.edu.medichub.bl.TransactionBl;
-import bo.ucb.edu.medichub.dto.PurchaseGraph;
-import bo.ucb.edu.medichub.dto.ProductReserveRepRequest;
-import bo.ucb.edu.medichub.dto.PurchaseListRequest;
-import bo.ucb.edu.medichub.dto.PurchaseRequest;
-import bo.ucb.edu.medichub.dto.ReserveRequest;
+import bo.ucb.edu.medichub.dto.*;
 import bo.ucb.edu.medichub.model.Transaction;
 import bo.ucb.edu.medichub.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,6 +67,12 @@ public class PurchaseApi {
                                                                             @RequestParam Integer size,
                                                                             @RequestParam Boolean asc){
         List<ProductReserveRepRequest> product = purchaseBl.getSubsidiaryListReportGeneralReserve(Integer.parseInt(subsidiaryId), page, size,asc);
+        return product;
+    }
+
+    @GetMapping(path="/{subsidiaryId}/subsidiary/report/statistics", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ProductReportRequest getSubsidiaryListReportStatistics(@PathVariable String subsidiaryId){
+        ProductReportRequest product = purchaseBl.getSubsidiaryListReportStatistics(Integer.parseInt(subsidiaryId));
         return product;
     }
 

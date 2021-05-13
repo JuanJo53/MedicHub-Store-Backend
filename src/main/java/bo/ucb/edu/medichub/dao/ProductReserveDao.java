@@ -4,6 +4,7 @@ import bo.ucb.edu.medichub.dto.*;
 import bo.ucb.edu.medichub.model.ProductReserve;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Mapper
@@ -37,4 +38,8 @@ public interface ProductReserveDao {
     public List<ProductReserveRepRequest> getProductSubsidiaryReportAsc(Integer subsidiaryId, Integer page, Integer size);
 
     public List<ProductReserveRepRequest> getProductSubsidiaryReportDesc(Integer subsidiaryId, Integer page, Integer size);
+
+    public ArrayList<Integer> getPendingSubsidiary(Integer subsidiaryId);
+
+    public List<ProductReserveRepRequest> getProductSubsidiaryReports(Integer subsidiaryId);
 }

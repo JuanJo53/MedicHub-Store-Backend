@@ -281,7 +281,7 @@ public class ReserveBl {
         for(int i=0;i<reserveSubsidiaryRequests.size();i++){
             ProductReserveRepRequest productReserveRepRequest = new ProductReserveRepRequest();
             productReserveRepRequest = reserveSubsidiaryRequests.get(i);
-            total=total+(productReserveRepRequest.getPrice()*productReserveRepRequest.getQuantity());
+            total=(productReserveRepRequest.getPrice()*productReserveRepRequest.getQuantity());
             productReserveRepRequest.setTotal(total);
             data.add(productReserveRepRequest);
         }
@@ -366,7 +366,7 @@ public class ReserveBl {
             for(int i=0;i<reserveSubsidiaryRequests.size();i++){
                 ProductReserveRepRequest productReserveRepRequest = new ProductReserveRepRequest();
                 productReserveRepRequest = reserveSubsidiaryRequests.get(i);
-                total=total+(productReserveRepRequest.getPrice()*productReserveRepRequest.getQuantity());
+                total=(productReserveRepRequest.getPrice()*productReserveRepRequest.getQuantity());
                 productReserveRepRequest.setTotal(total);
                 data.add(productReserveRepRequest);
             }
@@ -380,7 +380,7 @@ public class ReserveBl {
             for(int i=0;i<reserveSubsidiaryRequests.size();i++){
                 ProductReserveRepRequest productReserveRepRequest = new ProductReserveRepRequest();
                 productReserveRepRequest = reserveSubsidiaryRequests.get(i);
-                total=total+(productReserveRepRequest.getPrice()*productReserveRepRequest.getQuantity());
+                total=(productReserveRepRequest.getPrice()*productReserveRepRequest.getQuantity());
                 productReserveRepRequest.setTotal(total);
                 data.add(productReserveRepRequest);
             }
