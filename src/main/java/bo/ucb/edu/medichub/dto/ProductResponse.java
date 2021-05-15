@@ -8,18 +8,11 @@ public class ProductResponse {
     private Double price;
     private String type;
     private Integer dose;
+    private String doseType;
     private String description;
     private String picture;
 
     public ProductResponse() {
-    }
-
-    public String getPicture() {
-        return picture;
-    }
-
-    public void setPicture(String picture) {
-        this.picture = picture;
     }
 
     public Integer getProductId() {
@@ -78,12 +71,28 @@ public class ProductResponse {
         this.dose = dose;
     }
 
+    public String getDoseType() {
+        return doseType;
+    }
+
+    public void setDoseType(String doseType) {
+        this.doseType = doseType;
+    }
+
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
     @Override
@@ -96,8 +105,9 @@ public class ProductResponse {
                 ", price=" + price +
                 ", type='" + type + '\'' +
                 ", dose=" + dose +
+                ", doseType='" + doseType + '\'' +
                 ", description='" + description + '\'' +
-                ", picture=" + picture +
+                ", picture='" + picture + '\'' +
                 '}';
     }
 }

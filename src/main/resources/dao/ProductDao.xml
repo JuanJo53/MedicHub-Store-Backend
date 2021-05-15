@@ -51,12 +51,14 @@
             a.price as price,
             a.type as type,
             a.dose as dose,
+            c.type as doseType,
             a.description as description,
             a.picture as picture
-        FROM product a, brand b
+        FROM product a, brand b, dose_type c
         WHERE
             a.product_id = #{productId}
             and a.brand_id = b.brand_id
+            and a.dose_type_id = c.dose_type_id
             and a.status = 1
     </select>
 
@@ -70,12 +72,14 @@
             a.price as price,
             a.type as type,
             a.dose as dose,
+            c.type as doseType,
             a.description as description
-        FROM product a, brand b
+        FROM product a, brand b, dose_type c
         WHERE
             a.brand_id = b.brand_id  and
             a.subsidiary_id=#{subsidiaryId}
             and a.status = 1
+            and a.dose_type_id = c.dose_type_id
         <if test="price!=0">
             AND #{price}>=a.price
         </if>
@@ -95,11 +99,13 @@
             a.price as price,
             a.type as type,
             a.dose as dose,
+            c.type as doseType,
             a.description as description
-        FROM product a, brand b
+        FROM product a, brand b, dose_type c
         WHERE
             a.brand_id = b.brand_id  and
             a.subsidiary_id=#{subsidiaryId}
+            and a.dose_type_id = c.dose_type_id
           and a.status = 1
         <if test="price!=0">
             AND #{price}>=a.price
@@ -120,11 +126,13 @@
             a.price as price,
             a.type as type,
             a.dose as dose,
+            c.type as doseType,
             a.description as description
-        FROM product a, brand b
+        FROM product a, brand b, dose_type c
         WHERE
             a.brand_id = b.brand_id  and
             a.subsidiary_id=#{subsidiaryId}
+            and a.dose_type_id = c.dose_type_id
           and a.status = 1
         <if test="price!=0">
             AND #{price}>=a.price
@@ -145,11 +153,13 @@
             a.price as price,
             a.type as type,
             a.dose as dose,
+            c.type as doseType,
             a.description as description
-        FROM product a, brand b
+        FROM product a, brand b, dose_type c
         WHERE
             a.brand_id = b.brand_id  and
             a.subsidiary_id=#{subsidiaryId}
+            and a.dose_type_id = c.dose_type_id
           and a.status = 1
         <if test="price!=0">
             AND #{price}>=a.price
@@ -170,11 +180,13 @@
             a.price as price,
             a.type as type,
             a.dose as dose,
+            c.type as doseType,
             a.description as description
-        FROM product a, brand b
+        FROM product a, brand b, dose_type c
         WHERE
             a.brand_id = b.brand_id  and
             a.subsidiary_id=#{subsidiaryId}
+            and a.dose_type_id = c.dose_type_id
           and a.status = 1
         <if test="price!=0">
             AND #{price}>=a.price
@@ -195,11 +207,13 @@
             a.price as price,
             a.type as type,
             a.dose as dose,
+            c.type as doseType,
             a.description as description
-        FROM product a, brand b
+        FROM product a, brand b, dose_type c
         WHERE
             a.brand_id = b.brand_id  and
             a.subsidiary_id=#{subsidiaryId}
+            and a.dose_type_id = c.dose_type_id
           and a.status = 1
             <if test="price!=0">
                 AND #{price}>=a.price
@@ -223,12 +237,14 @@
         a.price as price,
         a.type as type,
         a.dose as dose,
+        c.type as doseType,
         a.description as description,
         a.picture as picture
-        FROM product a, brand b
+        FROM product a, brand b, dose_type c
         WHERE
         a.brand_id = b.brand_id  and
         a.subsidiary_id=#{subsidiaryId}
+        and a.dose_type_id = c.dose_type_id
         and a.status = 1
         <if test="value!=0">
             AND #{value}>=a.price
@@ -245,12 +261,14 @@
         a.price as price,
         a.type as type,
         a.dose as dose,
+        c.type as doseType,
         a.description as description,
         a.picture as picture
-        FROM product a, brand b
+        FROM product a, brand b, dose_type c
         WHERE
         a.brand_id = b.brand_id  and
         a.subsidiary_id=#{subsidiaryId}
+        and a.dose_type_id = c.dose_type_id
         and a.status = 1
         <if test="value!=0">
             AND #{value}>=a.price
@@ -268,12 +286,14 @@
         a.price as price,
         a.type as type,
         a.dose as dose,
+        c.type as doseType,
         a.description as description,
         a.picture as picture
-        FROM product a, brand b
+        FROM product a, brand b, dose_type c
         WHERE
         a.brand_id = b.brand_id  and
         a.subsidiary_id=#{subsidiaryId}
+        and a.dose_type_id = c.dose_type_id
         and a.status = 1
         <if test="value!=null">
             AND #{value}=a.name
@@ -290,12 +310,14 @@
         a.price as price,
         a.type as type,
         a.dose as dose,
+        c.type as doseType,
         a.description as description,
         a.picture as picture
-        FROM product a, brand b
+        FROM product a, brand b, dose_type c
         WHERE
         a.brand_id = b.brand_id  and
         a.subsidiary_id=#{subsidiaryId}
+        and a.dose_type_id = c.dose_type_id
         and a.status = 1
         <if test="value!=null">
             AND #{value}=a.name
@@ -313,12 +335,14 @@
         a.price as price,
         a.type as type,
         a.dose as dose,
+        c.type as doseType,
         a.description as description,
         a.picture as picture
-        FROM product a, brand b
+        FROM product a, brand b, dose_type c
         WHERE
         a.brand_id = b.brand_id  and
         a.subsidiary_id=#{subsidiaryId}
+        and a.dose_type_id = c.dose_type_id
         and a.status = 1
         <if test="value!=null">
             AND #{value}=a.type
@@ -335,12 +359,14 @@
         a.price as price,
         a.type as type,
         a.dose as dose,
+        c.type as doseType,
         a.description as description,
         a.picture as picture
-        FROM product a, brand b
+        FROM product a, brand b, dose_type c
         WHERE
         a.brand_id = b.brand_id  and
         a.subsidiary_id=#{subsidiaryId}
+        and a.dose_type_id = c.dose_type_id
         and a.status = 1
         <if test="value!=null">
             AND #{value}=a.type
@@ -358,12 +384,14 @@
         a.price as price,
         a.type as type,
         a.dose as dose,
+        c.type as doseType,
         a.description as description,
         a.picture as picture
-        FROM product a, brand b
+        FROM product a, brand b, dose_type c
         WHERE
         a.brand_id = b.brand_id  and
         a.subsidiary_id=#{subsidiaryId}
+        and a.dose_type_id = c.dose_type_id
         and a.status = 1
         <if test="value!=null">
             AND #{value}>=a.dose
@@ -380,12 +408,14 @@
         a.price as price,
         a.type as type,
         a.dose as dose,
+        c.type as doseType,
         a.description as description,
         a.picture as picture
-        FROM product a, brand b
+        FROM product a, brand b, dose_type c
         WHERE
         a.brand_id = b.brand_id  and
         a.subsidiary_id=#{subsidiaryId}
+        and a.dose_type_id = c.dose_type_id
         and a.status = 1
         <if test="value!=null">
             AND #{value}>=a.dose
@@ -404,12 +434,14 @@
         a.price as price,
         a.type as type,
         a.dose as dose,
+        c.type as doseType,
         a.description as description,
         a.picture as picture
-        FROM product a, brand b
+        FROM product a, brand b, dose_type c
         WHERE
         a.brand_id = b.brand_id  and
         a.subsidiary_id=#{subsidiaryId}
+        and a.dose_type_id = c.dose_type_id
         and a.status = 1
         <if test="value!=null">
             AND #{value}=b.name
@@ -427,12 +459,14 @@
         a.price as price,
         a.type as type,
         a.dose as dose,
+        c.type as doseType,
         a.description as description,
         a.picture as picture
-        FROM product a, brand b
+        FROM product a, brand b, dose_type c
         WHERE
         a.brand_id = b.brand_id  and
         a.subsidiary_id=#{subsidiaryId}
+        and a.dose_type_id = c.dose_type_id
         and a.status = 1
         <if test="value!=null">
             AND #{value}=b.name
@@ -451,12 +485,14 @@
         a.price as price,
         a.type as type,
         a.dose as dose,
+        c.type as doseType,
         a.description as description,
         a.picture as picture
-        FROM product a, brand b
+        FROM product a, brand b, dose_type c
         WHERE
         a.brand_id = b.brand_id  and
         a.subsidiary_id=#{subsidiaryId}
+        and a.dose_type_id = c.dose_type_id
         and a.status = 1
         ORDER BY a.name ASC
         LIMIT #{size} OFFSET #{page}
@@ -471,12 +507,14 @@
         a.price as price,
         a.type as type,
         a.dose as dose,
+        c.type as doseType,
         a.description as description,
         a.picture as picture
-        FROM product a, brand b
+        FROM product a, brand b, dose_type c
         WHERE
         a.brand_id = b.brand_id  and
         a.subsidiary_id=#{subsidiaryId}
+        and a.dose_type_id = c.dose_type_id
         and a.status = 1
         ORDER BY a.name DESC
         LIMIT #{size} OFFSET #{page}
@@ -491,6 +529,7 @@
         <result column="price" property="price"/>
         <result column="type" property="type"/>
         <result column="dose" property="dose"/>
+        <result column="doseType" property="doseType"/>
         <result column="description" property="description"/>
         <result column="picture" property="picture"/>
     </resultMap>
