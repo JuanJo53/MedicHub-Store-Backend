@@ -288,10 +288,10 @@ public class ReserveBl {
         return data;
     }
 
-    public List<ProductReserveRepRequest> getSubsidiaryListReportGeneralReserve(Integer subsidiaryId, Integer page, Integer size, Integer asc) {
+    public List<ProductReserveRepRequest> getSubsidiaryListReportGeneralReserve(Integer subsidiaryId, Integer page, Integer size,Integer state, Boolean asc) {
 
         List<ProductReserveRepRequest> dataFin = new ArrayList<>();
-        if (asc==0){
+        if (state==0){
             List<ProductReserveRepRequest> reserveSubsidiaryPurchases = new ArrayList<>();
             List<ProductReserveRepRequest> data = new ArrayList<>();
             reserveSubsidiaryPurchases = productPurchaseDao.getProductSubsidiaryReportAsc(subsidiaryId,page,size);
@@ -344,11 +344,19 @@ public class ReserveBl {
                 for(int j=1;j<data.size();j++){
                     ProductReserveRepRequest dataOrderJ = new ProductReserveRepRequest();
                     dataOrderJ = data.get(j);
-
-                        if(val<dataOrderJ.getQuantity()){
-                            val=dataOrderJ.getQuantity();
-                            valor=j;
+                        if (asc){
+                            if(val>dataOrderJ.getQuantity()){
+                                val=dataOrderJ.getQuantity();
+                                valor=j;
+                            }
                         }
+                        else{
+                            if(val<dataOrderJ.getQuantity()){
+                                val=dataOrderJ.getQuantity();
+                                valor=j;
+                            }
+                        }
+
 
 
                 }
@@ -363,10 +371,15 @@ public class ReserveBl {
             }
             dataFin=dataFinal;
         }
-        if (asc==1){
+        if (state==1){
             List<ProductReserveRepRequest> reserveSubsidiaryRequests = new ArrayList<>();
             List<ProductReserveRepRequest> data = new ArrayList<>();
-            reserveSubsidiaryRequests = productPurchaseDao.getProductSubsidiaryReportDesc(subsidiaryId,page,size);
+            if(asc){
+                reserveSubsidiaryRequests = productPurchaseDao.getProductSubsidiaryReportAsc(subsidiaryId,page,size);
+            }
+            if(!asc){
+                reserveSubsidiaryRequests = productPurchaseDao.getProductSubsidiaryReportDesc(subsidiaryId,page,size);
+            }
             double total=0;
             for(int i=0;i<reserveSubsidiaryRequests.size();i++){
                 ProductReserveRepRequest productReserveRepRequest = new ProductReserveRepRequest();
@@ -378,10 +391,15 @@ public class ReserveBl {
             }
             dataFin= data;
         }
-        if (asc==2){
+        if (state==2){
             List<ProductReserveRepRequest> reserveSubsidiaryRequests = new ArrayList<>();
             List<ProductReserveRepRequest> data = new ArrayList<>();
-            reserveSubsidiaryRequests = productReserveDao.getProductSubsidiaryReportDesc(subsidiaryId,page,size);
+            if(asc){
+                reserveSubsidiaryRequests = productReserveDao.getProductSubsidiaryReportAsc(subsidiaryId,page,size);
+            }
+            if(!asc){
+                reserveSubsidiaryRequests = productReserveDao.getProductSubsidiaryReportDesc(subsidiaryId,page,size);
+            }
             double total=0;
             for(int i=0;i<reserveSubsidiaryRequests.size();i++){
                 ProductReserveRepRequest productReserveRepRequest = new ProductReserveRepRequest();
