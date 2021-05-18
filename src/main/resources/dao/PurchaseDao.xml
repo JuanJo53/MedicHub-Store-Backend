@@ -48,6 +48,7 @@
           AND a.status = 1
           AND a.purchase_date BETWEEN #{init} AND #{end}
         GROUP BY a.purchase_date
+        ORDER BY a.purchase_date
     </select>
 
     <resultMap id="purchaseDateListMap" type="bo.ucb.edu.medichub.dto.PurchaseListRequest">
