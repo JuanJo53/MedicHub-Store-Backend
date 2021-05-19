@@ -136,9 +136,9 @@ public class ReserveApi {
     public List<ProductReserveRepRequest> getSubsidiaryListReportGeneralPharmacies(@PathVariable String subsidiaryId,
                                                                                    @RequestParam Integer page,
                                                                                    @RequestParam Integer size,
-                                                                                   @RequestParam Integer asc,
-                                                                                   @RequestParam(required = false) Boolean state){
-        List<ProductReserveRepRequest> product = reserveBl.getSubsidiaryListReportGeneralReserve(Integer.parseInt(subsidiaryId), page, size,asc,false);
+                                                                                   @RequestParam Integer state,
+                                                                                   @RequestParam(required = false) Boolean asc){
+        List<ProductReserveRepRequest> product = reserveBl.getSubsidiaryListReportGeneralReserve(Integer.parseInt(subsidiaryId), page, size,state,asc);
         return product;
     }
 }
