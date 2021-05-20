@@ -415,4 +415,9 @@ public class ReserveBl {
 
         return dataFin;
     }
+
+    public List<ProductReserveRepRequest> getSubsidiaryGraphGeneralPharmacies(Integer subsidiaryId, Integer state, Boolean asc, Integer count) {
+        List<ProductReserveRepRequest> productReserveRepRequests = getSubsidiaryListReportGeneralReserve(subsidiaryId,0,count,state,asc);
+        return productReserveRepRequests;
+    }
 }

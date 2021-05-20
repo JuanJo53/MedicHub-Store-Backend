@@ -141,4 +141,13 @@ public class ReserveApi {
         List<ProductReserveRepRequest> product = reserveBl.getSubsidiaryListReportGeneralReserve(Integer.parseInt(subsidiaryId), page, size,state,asc);
         return product;
     }
+
+    @GetMapping(path="/{subsidiaryId}/subsidiary/graph/general", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<ProductReserveRepRequest> getSubsidiaryGraphGeneralPharmacies(@PathVariable String subsidiaryId,
+                                                                                   @RequestParam Integer state,
+                                                                                   @RequestParam(required = false) Boolean asc,
+                                                                                   @RequestParam(required = false) Integer count){
+        List<ProductReserveRepRequest> product = reserveBl.getSubsidiaryGraphGeneralPharmacies(Integer.parseInt(subsidiaryId),state,asc,count);
+        return product;
+    }
 }
