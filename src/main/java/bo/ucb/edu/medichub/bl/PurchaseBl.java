@@ -141,7 +141,6 @@ public class PurchaseBl {
             ProductReserveRepRequest productReserveRepRequest = new ProductReserveRepRequest();
             productReserveRepRequest = reserveSubsidiaryRequests.get(i);
             totalReserve=totalReserve+(productReserveRepRequest.getPrice()*productReserveRepRequest.getQuantity());
-            System.out.println(totalReserve+"ddd"+reserveSubsidiaryRequests.size());
         }
         productReportRequest.setGainReserve(totalReserve);
 
@@ -156,9 +155,20 @@ public class PurchaseBl {
     public List<ProductReserveRepRequest> getSubsidiaryListReportGeneralReserve(Integer subsidiaryId, Integer page, Integer size, Boolean asc) {
         List<ProductReserveRepRequest> reserveSubsidiaryPurchases = new ArrayList<>();
         List<ProductReserveRepRequest> data = new ArrayList<>();
-        reserveSubsidiaryPurchases = productPurchaseDao.getProductSubsidiaryReportAsc(subsidiaryId,page,size);
+        if(asc){
+            reserveSubsidiaryPurchases = productPurchaseDao.getProductSubsidiaryReportAsc(subsidiaryId,page,size);
+        }
+        if(!asc){
+            reserveSubsidiaryPurchases = productPurchaseDao.getProductSubsidiaryReportDesc(subsidiaryId,page,size);
+        }
         List<ProductReserveRepRequest> reserveSubsidiaryReserves = new ArrayList<>();
-        reserveSubsidiaryReserves = productReserveDao.getProductSubsidiaryReportAsc(subsidiaryId,page,size);
+
+        if(asc){
+            reserveSubsidiaryReserves = productReserveDao.getProductSubsidiaryReportAsc(subsidiaryId,page,size);
+        }
+        if(!asc){
+            reserveSubsidiaryReserves = productReserveDao.getProductSubsidiaryReportDesc(subsidiaryId,page,size);
+        }
         for (int i=0;i<reserveSubsidiaryPurchases.size();i++){
             ProductReserveRepRequest reserveSubsidiaryPurchase = new ProductReserveRepRequest();
             reserveSubsidiaryPurchase = reserveSubsidiaryPurchases.get(i);
